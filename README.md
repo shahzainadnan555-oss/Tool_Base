@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ToolMyra
 
-## Getting Started
+Free online utility platform — converters, compressors, generators, calculators, and more.
 
-First, run the development server:
+## Stack
+
+- Next.js App Router
+- React 19
+- TypeScript
+- Tailwind CSS 4
+
+## Getting started
 
 ```bash
+npm install
+cp .env.example .env.local
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Set `NEXT_PUBLIC_SITE_URL` to your production domain for canonical URLs, sitemap, Open Graph, and structured data.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Optional:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` — Search Console meta verification token
+- `ADMIN_UI_ENABLED=true` — expose `/admin` foundation UI in production (not authentication)
 
-## Learn More
+## Validation
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run validate:registry
+npm run validate:production
+BASE_URL=http://127.0.0.1:3000 npm run validate:production
+npm run typecheck
+npm run lint
+npm run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Architecture highlights
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Central tool registry: `lib/tools/registry.ts` (+ category tool modules)
+- Category system: `lib/tools/categories.ts`
+- Instant frontend search: `lib/tools/search.ts`
+- Reusable tool page shell: `components/tools/ToolPageShell.tsx`
+- SEO helpers: `lib/seo/`
+- Analytics abstraction: `lib/analytics/` (no sensitive payloads)
+- Admin foundation: `/admin` (noindex, robots disallow, blocked in production unless `ADMIN_UI_ENABLED=true`)
 
-## Deploy on Vercel
+## Adding a tool
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Add a complete entry in the appropriate `lib/tools/*-tools.ts` module
+2. Add matching workspace config under the tool’s `lib/*/configs.ts`
+3. The tool appears in search, category pages, sitemap, cards, and `/tools/[slug]`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Do not duplicate tool definitions elsewhere. Run `npm run validate:registry` after registry changes.
