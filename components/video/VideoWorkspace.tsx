@@ -22,6 +22,7 @@ import {
 } from "@/lib/video/utils";
 import { validateVideoFile } from "@/lib/video/validate";
 import { useOperationController } from "@/lib/processing/useOperationController";
+import { filterUserFacingNotices } from "@/lib/ui/notices";
 
 interface VideoWorkspaceProps {
   config: VideoToolConfig;
@@ -163,6 +164,12 @@ export function VideoWorkspace({ config, convertHeading }: VideoWorkspaceProps) 
         setCropW(Math.min(first.width, 640));
         setCropH(Math.min(first.height, 360));
       }
+      // Warm the shared media engine after the user chooses a file (not on homepage).
+      if (!config.lightMode) {
+        void import("@/lib/audio/ffmpeg").then(({ getFfmpeg }) =>
+          getFfmpeg().catch(() => undefined),
+        );
+      }
     }
 
     if (next.length === 1 && autoProcess) {
@@ -281,9 +288,9 @@ export function VideoWorkspace({ config, convertHeading }: VideoWorkspaceProps) 
     <div className="space-y-5">
       {convertHeading ? <h2 className="tm-h2">{convertHeading}</h2> : null}
 
-      {config.notices.length && !showResult ? (
+      {filterUserFacingNotices(config.notices).length && !showResult ? (
         <div className="space-y-1 rounded-2xl border border-blue-100 bg-blue-50 px-4 py-3 text-sm font-medium text-tm-text">
-          {config.notices.map((notice) => (
+          {filterUserFacingNotices(config.notices).map((notice) => (
             <p key={notice}>{notice}</p>
           ))}
         </div>

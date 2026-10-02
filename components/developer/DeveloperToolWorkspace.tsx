@@ -10,6 +10,7 @@ import type {
   IndentStyle,
 } from "@/lib/developer/types";
 import { copyText, downloadTextFile } from "@/lib/developer/utils";
+import { filterUserFacingNotices } from "@/lib/ui/notices";
 
 interface DeveloperToolWorkspaceProps {
   config: DeveloperToolConfig;
@@ -251,7 +252,7 @@ export function DeveloperToolWorkspace({
     <div className="space-y-5">
       {convertHeading ? <h2 className="tm-h2">{convertHeading}</h2> : null}
 
-      {config.notices.map((notice) => (
+      {filterUserFacingNotices(config.notices).map((notice) => (
         <div
           key={notice}
           className="rounded-2xl border border-blue-100 bg-blue-50 px-4 py-3 text-sm font-medium text-tm-text"

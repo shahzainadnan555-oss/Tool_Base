@@ -59,7 +59,7 @@ export const categories: CategoryDefinition[] = [
     icon: "audio",
     seoTitle: "Audio Tools — Convert & Process Audio Online | ToolMyra",
     seoDescription:
-      "Free online audio tools from ToolMyra. Convert MP3, WAV, and other formats, and process audio files with a simple browser-based experience.",
+      "Free online audio tools from ToolMyra. Convert MP3, WAV, and other formats, and process audio files with a simple online experience.",
     h1: "Audio Tools",
     intro:
       "Convert and process audio files with ToolMyra tools built for quick everyday media tasks.",

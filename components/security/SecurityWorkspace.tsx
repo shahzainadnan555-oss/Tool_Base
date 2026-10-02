@@ -13,6 +13,7 @@ import {
   MAX_UUID_QUANTITY,
 } from "@/lib/security/types";
 import { copyText, downloadBlob, downloadTextFile } from "@/lib/security/utils";
+import { filterUserFacingNotices } from "@/lib/ui/notices";
 
 interface SecurityWorkspaceProps {
   config: SecurityToolConfig;
@@ -242,7 +243,7 @@ export function SecurityWorkspace({ config, convertHeading }: SecurityWorkspaceP
     <div className="space-y-5">
       {convertHeading ? <h2 className="tm-h2">{convertHeading}</h2> : null}
 
-      {config.notices.map((notice) => (
+      {filterUserFacingNotices(config.notices).map((notice) => (
         <div
           key={notice}
           className="rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-medium text-amber-950"

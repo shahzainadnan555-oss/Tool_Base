@@ -28,8 +28,8 @@ export const homepageFaq: ToolFaq[] = [
       "Yes. The site is designed to work on desktop and mobile browsers, with responsive navigation, search, and tool pages.",
   },
   {
-    question: "Where possible, does processing happen in my browser?",
+    question: "Do I need special software installed?",
     answer:
-      "Many ToolMyra tools are designed for browser-based processing when that approach is technically practical. Each tool page explains its processing model clearly. ToolMyra does not make blanket privacy claims that are not technically guaranteed.",
+      "No. ToolMyra tools run in a modern web browser. Open a tool, provide your input, and download or copy the result when you are done.",
   },
 ];

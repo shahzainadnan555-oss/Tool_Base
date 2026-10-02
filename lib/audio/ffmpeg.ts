@@ -95,11 +95,12 @@ export function attachProgress(
   if (!onProgress) return () => undefined;
   const handler = ({ progress }: { progress: number }) => {
     if (!Number.isFinite(progress)) return;
-    const ratio = Math.max(0, Math.min(1, progress));
+    // Cap below 1 until the caller confirms a valid output exists.
+    const ratio = Math.max(0, Math.min(0.99, progress));
     onProgress(ratio, label);
   };
   ffmpeg.on("progress", handler);
   return () => {
-    ffmpeg.on("progress", () => undefined);
+    ffmpeg.off("progress", handler);
   };
 }

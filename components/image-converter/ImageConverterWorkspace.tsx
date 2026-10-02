@@ -16,6 +16,7 @@ import {
 } from "@/lib/image-converter";
 import { validateImageFile } from "@/lib/image-converter/validate";
 import { loadHtmlImage, revokeObjectUrl } from "@/lib/image-converter/utils";
+import { filterUserFacingNotices } from "@/lib/ui/notices";
 
 interface ImageConverterWorkspaceProps {
   config: ImageConverterConfig;
@@ -130,9 +131,10 @@ export function ImageConverterWorkspace({
     <div className="space-y-5">
       {convertHeading ? <h2 className="tm-h2">{convertHeading}</h2> : null}
 
-      {config.notices.length > 0 && stage !== "done" ? (
+      {filterUserFacingNotices(config.notices).length > 0 &&
+      stage !== "done" ? (
         <div className="rounded-2xl border border-blue-100 bg-blue-50 px-4 py-3 text-sm font-medium text-tm-text">
-          {config.notices.map((notice) => (
+          {filterUserFacingNotices(config.notices).map((notice) => (
             <p key={notice}>{notice}</p>
           ))}
         </div>
@@ -168,7 +170,10 @@ export function ImageConverterWorkspace({
           {config.supportsSvgDimensions ? (
             <div className="grid gap-3 rounded-2xl border border-tm-border bg-tm-soft p-4 sm:grid-cols-3">
               <div>
-                <label htmlFor={widthId} className="mb-2 block text-sm font-bold text-tm-text">
+                <label
+                  htmlFor={widthId}
+                  className="mb-2 block text-sm font-bold text-tm-text"
+                >
                   Width (px)
                 </label>
                 <input
@@ -179,15 +184,25 @@ export function ImageConverterWorkspace({
                   onChange={(event) => {
                     const next = event.target.value.replace(/[^\d]/g, "");
                     setWidth(next);
-                    if (maintainAspect && selected.width && selected.height && next) {
+                    if (
+                      maintainAspect &&
+                      selected.width &&
+                      selected.height &&
+                      next
+                    ) {
                       const ratio = selected.height / selected.width;
-                      setHeight(String(Math.max(1, Math.round(Number(next) * ratio))));
+                      setHeight(
+                        String(Math.max(1, Math.round(Number(next) * ratio))),
+                      );
                     }
                   }}
                 />
               </div>
               <div>
-                <label htmlFor={heightId} className="mb-2 block text-sm font-bold text-tm-text">
+                <label
+                  htmlFor={heightId}
+                  className="mb-2 block text-sm font-bold text-tm-text"
+                >
                   Height (px)
                 </label>
                 <input
@@ -198,9 +213,16 @@ export function ImageConverterWorkspace({
                   onChange={(event) => {
                     const next = event.target.value.replace(/[^\d]/g, "");
                     setHeight(next);
-                    if (maintainAspect && selected.width && selected.height && next) {
+                    if (
+                      maintainAspect &&
+                      selected.width &&
+                      selected.height &&
+                      next
+                    ) {
                       const ratio = selected.width / selected.height;
-                      setWidth(String(Math.max(1, Math.round(Number(next) * ratio))));
+                      setWidth(
+                        String(Math.max(1, Math.round(Number(next) * ratio))),
+                      );
                     }
                   }}
                 />
@@ -210,7 +232,9 @@ export function ImageConverterWorkspace({
                   <input
                     type="checkbox"
                     checked={maintainAspect}
-                    onChange={(event) => setMaintainAspect(event.target.checked)}
+                    onChange={(event) =>
+                      setMaintainAspect(event.target.checked)
+                    }
                   />
                   Maintain aspect ratio
                 </label>
@@ -218,11 +242,11 @@ export function ImageConverterWorkspace({
             </div>
           ) : null}
 
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="space-y-3">
             <ConvertButton
               onClick={() => void handleConvert()}
-              disabled={!selected}
-              loading={stage === "converting"}
+              disabled={!selected || stage === "converting"}
+              loading={false}
             />
             {stage === "converting" ? <ConversionProgress /> : null}
           </div>

@@ -1,9 +1,15 @@
 import { ImageResponse } from "next/og";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 
 export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
 
-export default function AppleIcon() {
+/** Apple touch icon from the official TM logo on deep navy. */
+export default async function AppleIcon() {
+  const bytes = await readFile(join(process.cwd(), "public/tm-logo.png"));
+  const dataUrl = `data:image/png;base64,${bytes.toString("base64")}`;
+
   return new ImageResponse(
     (
       <div
@@ -13,28 +19,18 @@ export default function AppleIcon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#0B1220",
-          color: "#FFFFFF",
-          fontSize: 72,
-          fontWeight: 800,
-          fontFamily: "sans-serif",
+          background:
+            "radial-gradient(circle at 50% 40%, #1E3A8A 0%, #0B1220 70%)",
+          borderRadius: 36,
         }}
       >
-        <div
-          style={{
-            width: 120,
-            height: 120,
-            borderRadius: 28,
-            background: "#2563EB",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: 48,
-            fontWeight: 800,
-          }}
-        >
-          TM
-        </div>
+        <img
+          alt=""
+          src={dataUrl}
+          width={132}
+          height={88}
+          style={{ objectFit: "contain" }}
+        />
       </div>
     ),
     size,

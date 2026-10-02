@@ -17,8 +17,8 @@ const values = [
     icon: "check",
   },
   {
-    title: "Browser-Based Where Possible",
-    description: "Many tools are designed for local browser processing when technically practical.",
+    title: "Straightforward Tools",
+    description: "Clear uploads, results, and downloads — focused on finishing the task.",
     icon: "check",
   },
   {

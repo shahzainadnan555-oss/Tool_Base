@@ -10,6 +10,7 @@ import type { DocumentDataConfig, DocumentDataResult } from "@/lib/document-data
 import { downloadBlob, formatBytes } from "@/lib/document-data/utils";
 import { validateDocumentFile } from "@/lib/document-data/validate";
 import { useOperationController } from "@/lib/processing/useOperationController";
+import { filterUserFacingNotices } from "@/lib/ui/notices";
 
 interface DocumentDataWorkspaceProps {
   config: DocumentDataConfig;
@@ -111,9 +112,9 @@ export function DocumentDataWorkspace({
     <div className="space-y-5">
       {convertHeading ? <h2 className="tm-h2">{convertHeading}</h2> : null}
 
-      {config.notices.length && !showResult ? (
+      {filterUserFacingNotices(config.notices).length && !showResult ? (
         <div className="space-y-1 rounded-2xl border border-blue-100 bg-blue-50 px-4 py-3 text-sm font-medium text-tm-text">
-          {config.notices.map((notice) => (
+          {filterUserFacingNotices(config.notices).map((notice) => (
             <p key={notice}>{notice}</p>
           ))}
         </div>

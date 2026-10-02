@@ -19,7 +19,8 @@ export const textTools: ToolDefinition[] = [
     name: "Word Counter",
     slug: "word-counter",
     category: "text-tools",
-    description: "Count words, characters, sentences, paragraphs, and estimated reading time as you type.",
+    description:
+      "Count words, characters, sentences, paragraphs, and estimated reading time as you type.",
     shortDescription: "Count words, characters, and more.",
     icon: "text",
     keywords: [
@@ -39,9 +40,11 @@ export const textTools: ToolDefinition[] = [
       "text-cleaner",
     ],
     seoTitle: "Word Counter — Count Words & Characters Online | ToolMyra",
-    seoDescription: "Count words, characters, sentences, paragraphs, and estimated reading time with ToolMyra’s free online Word Counter.",
+    seoDescription:
+      "Count words, characters, sentences, paragraphs, and estimated reading time with ToolMyra’s free online Word Counter.",
     h1: "Word Counter",
-    intro: "Paste or type your text to instantly count words, characters, sentences, paragraphs, and estimated reading time.",
+    intro:
+      "Paste or type your text to instantly count words, characters, sentences, paragraphs, and estimated reading time.",
     convertHeading: "Count Words and Characters Online",
     howToHeading: "How to Use the Word Counter",
     featuresHeading: "Word Counter Features",
@@ -73,15 +76,17 @@ export const textTools: ToolDefinition[] = [
     faq: [
       {
         question: "Does the Word Counter store my text?",
-        answer: "No. Counting runs in your browser session for this tool.",
+        answer: "No. Counting runs session for this tool.",
       },
       {
         question: "Are character counts Unicode-aware?",
-        answer: "Yes. Counts use sensible grapheme-aware behavior where supported.",
+        answer:
+          "Yes. Counts use sensible grapheme-aware behavior where supported.",
       },
       {
         question: "Is reading time exact?",
-        answer: "No. Reading time is an estimate based on average reading speed.",
+        answer:
+          "No. Reading time is an estimate based on average reading speed.",
       },
       {
         question: "Can I download my text?",
@@ -96,14 +101,11 @@ export const textTools: ToolDefinition[] = [
     name: "Character Counter",
     slug: "character-counter",
     category: "text-tools",
-    description: "Count characters, characters without spaces, words, and lines as you type.",
+    description:
+      "Count characters, characters without spaces, words, and lines as you type.",
     shortDescription: "Count characters with or without spaces.",
     icon: "text",
-    keywords: [
-      "character counter",
-      "count characters",
-      "character count",
-    ],
+    keywords: ["character counter", "count characters", "character count"],
     popular: true,
     new: false,
     supportedFormats: ["Text"],
@@ -115,9 +117,11 @@ export const textTools: ToolDefinition[] = [
       "text-case-converter",
     ],
     seoTitle: "Character Counter — Count Characters Online | ToolMyra",
-    seoDescription: "Count characters online with ToolMyra. See characters with and without spaces, plus words and lines.",
+    seoDescription:
+      "Count characters online with ToolMyra. See characters with and without spaces, plus words and lines.",
     h1: "Character Counter",
-    intro: "Track character counts for captions, bios, and form limits. Counts update live and handle Unicode text carefully.",
+    intro:
+      "Track character counts for captions, bios, and form limits. Counts update live and handle Unicode text carefully.",
     convertHeading: "Count Characters Online",
     howToHeading: "How to Use the Character Counter",
     featuresHeading: "Character Counter Features",
@@ -153,7 +157,8 @@ export const textTools: ToolDefinition[] = [
       },
       {
         question: "Do emojis count as one character?",
-        answer: "Where supported, grapheme-aware counting treats common emojis as single characters.",
+        answer:
+          "Where supported, grapheme-aware counting treats common emojis as single characters.",
       },
       {
         question: "Is counting live?",
@@ -161,7 +166,7 @@ export const textTools: ToolDefinition[] = [
       },
       {
         question: "Private?",
-        answer: "Yes. Your text stays in your browser session.",
+        answer: "Yes. Your text stays session.",
       },
     ],
     inputFormats: ["Text"],
@@ -172,14 +177,11 @@ export const textTools: ToolDefinition[] = [
     name: "Sentence Counter",
     slug: "sentence-counter",
     category: "text-tools",
-    description: "Count sentences with a sensible punctuation heuristic and see related text statistics.",
+    description:
+      "Count sentences with a sensible punctuation heuristic and see related text statistics.",
     shortDescription: "Count sentences in your text.",
     icon: "text",
-    keywords: [
-      "sentence counter",
-      "count sentences",
-      "sentence count tool",
-    ],
+    keywords: ["sentence counter", "count sentences", "sentence count tool"],
     popular: false,
     new: false,
     supportedFormats: ["Text"],
@@ -191,9 +193,11 @@ export const textTools: ToolDefinition[] = [
       "text-cleaner",
     ],
     seoTitle: "Sentence Counter — Count Sentences Online | ToolMyra",
-    seoDescription: "Count sentences online with ToolMyra. Review sentence totals alongside words and paragraphs.",
+    seoDescription:
+      "Count sentences online with ToolMyra. Review sentence totals alongside words and paragraphs.",
     h1: "Sentence Counter",
-    intro: "Estimate how many sentences are in your draft. Detection is heuristic, so abbreviations like Mr. or e.g. are handled carefully where possible.",
+    intro:
+      "Estimate how many sentences are in your draft. Detection is heuristic, so abbreviations like Mr. or e.g. are handled carefully where possible.",
     convertHeading: "Count Sentences Online",
     howToHeading: "How to Use the Sentence Counter",
     featuresHeading: "Sentence Counter Features",
@@ -229,15 +233,17 @@ export const textTools: ToolDefinition[] = [
       },
       {
         question: "How are abbreviations handled?",
-        answer: "Common abbreviations are softened so they are less likely to split sentences.",
+        answer:
+          "Common abbreviations are softened so they are less likely to split sentences.",
       },
       {
         question: "Does punctuation matter?",
-        answer: "Yes. Periods, question marks, and exclamation points are primary boundaries.",
+        answer:
+          "Yes. Periods, question marks, and exclamation points are primary boundaries.",
       },
       {
         question: "Private?",
-        answer: "Yes. Processing stays in your browser.",
+        answer: "Yes. Processing stays.",
       },
     ],
     inputFormats: ["Text"],
@@ -248,14 +254,11 @@ export const textTools: ToolDefinition[] = [
     name: "Paragraph Counter",
     slug: "paragraph-counter",
     category: "text-tools",
-    description: "Count paragraphs using consistent blank-line boundaries and review related stats.",
+    description:
+      "Count paragraphs using consistent blank-line boundaries and review related stats.",
     shortDescription: "Count paragraphs in your text.",
     icon: "text",
-    keywords: [
-      "paragraph counter",
-      "count paragraphs",
-      "paragraph count",
-    ],
+    keywords: ["paragraph counter", "count paragraphs", "paragraph count"],
     popular: false,
     new: false,
     supportedFormats: ["Text"],
@@ -267,9 +270,11 @@ export const textTools: ToolDefinition[] = [
       "remove-extra-spaces",
     ],
     seoTitle: "Paragraph Counter — Count Paragraphs Online | ToolMyra",
-    seoDescription: "Count paragraphs online with ToolMyra. See paragraph totals based on consistent text boundaries.",
+    seoDescription:
+      "Count paragraphs online with ToolMyra. See paragraph totals based on consistent text boundaries.",
     h1: "Paragraph Counter",
-    intro: "Count paragraphs in essays, articles, and pasted documents. Blank-line boundaries are treated consistently across newline styles.",
+    intro:
+      "Count paragraphs in essays, articles, and pasted documents. Blank-line boundaries are treated consistently across newline styles.",
     convertHeading: "Count Paragraphs Online",
     howToHeading: "How to Use the Paragraph Counter",
     featuresHeading: "Paragraph Counter Features",
@@ -301,11 +306,13 @@ export const textTools: ToolDefinition[] = [
     faq: [
       {
         question: "How is a paragraph defined?",
-        answer: "Paragraphs are split on blank-line boundaries after normalizing newline styles.",
+        answer:
+          "Paragraphs are split on blank-line boundaries after normalizing newline styles.",
       },
       {
         question: "Do single-line blocks count?",
-        answer: "Yes. Non-empty blocks separated by blank lines count as paragraphs.",
+        answer:
+          "Yes. Non-empty blocks separated by blank lines count as paragraphs.",
       },
       {
         question: "Is counting live?",
@@ -313,7 +320,7 @@ export const textTools: ToolDefinition[] = [
       },
       {
         question: "Private?",
-        answer: "Yes. Your text stays in your browser.",
+        answer: "Yes. Your text stays.",
       },
     ],
     inputFormats: ["Text"],
@@ -324,7 +331,8 @@ export const textTools: ToolDefinition[] = [
     name: "Reading Time Calculator",
     slug: "reading-time-calculator",
     category: "text-tools",
-    description: "Estimate reading time from word count with an adjustable words-per-minute speed.",
+    description:
+      "Estimate reading time from word count with an adjustable words-per-minute speed.",
     shortDescription: "Estimate reading time from word count.",
     icon: "text",
     keywords: [
@@ -343,9 +351,11 @@ export const textTools: ToolDefinition[] = [
       "text-cleaner",
     ],
     seoTitle: "Reading Time Calculator — Estimate Reading Time | ToolMyra",
-    seoDescription: "Estimate reading time online with ToolMyra. Adjust reading speed and see an estimated duration for your text.",
+    seoDescription:
+      "Estimate reading time online with ToolMyra. Adjust reading speed and see an estimated duration for your text.",
     h1: "Reading Time Calculator",
-    intro: "Estimate how long your content may take to read. Choose a reading speed in words per minute — results are clearly labeled as estimates.",
+    intro:
+      "Estimate how long your content may take to read. Choose a reading speed in words per minute — results are clearly labeled as estimates.",
     convertHeading: "Estimate Reading Time Online",
     howToHeading: "How to Use the Reading Time Calculator",
     featuresHeading: "Reading Time Calculator Features",
@@ -400,7 +410,8 @@ export const textTools: ToolDefinition[] = [
     name: "Text Case Converter",
     slug: "text-case-converter",
     category: "text-tools",
-    description: "Convert text to uppercase, lowercase, title case, sentence case, and more.",
+    description:
+      "Convert text to uppercase, lowercase, title case, sentence case, and more.",
     shortDescription: "Convert text between letter cases.",
     icon: "text",
     keywords: [
@@ -419,9 +430,11 @@ export const textTools: ToolDefinition[] = [
       "text-cleaner",
     ],
     seoTitle: "Text Case Converter — Change Text Case Online | ToolMyra",
-    seoDescription: "Convert text to uppercase, lowercase, title case, sentence case, and other formats with ToolMyra.",
+    seoDescription:
+      "Convert text to uppercase, lowercase, title case, sentence case, and other formats with ToolMyra.",
     h1: "Text Case Converter",
-    intro: "Change letter casing for headlines, captions, and drafts. Choose a case style and copy or download the result.",
+    intro:
+      "Change letter casing for headlines, captions, and drafts. Choose a case style and copy or download the result.",
     convertHeading: "Convert Text to Different Letter Cases",
     howToHeading: "How to Change Text Case",
     featuresHeading: "Text Case Converter Features",
@@ -453,7 +466,8 @@ export const textTools: ToolDefinition[] = [
     faq: [
       {
         question: "Which cases are supported?",
-        answer: "UPPERCASE, lowercase, Title Case, Sentence case, Capitalized Case, alternating, and inverse.",
+        answer:
+          "UPPERCASE, lowercase, Title Case, Sentence case, Capitalized Case, alternating, and inverse.",
       },
       {
         question: "Are line breaks kept?",
@@ -476,7 +490,8 @@ export const textTools: ToolDefinition[] = [
     name: "Uppercase Converter",
     slug: "uppercase-converter",
     category: "text-tools",
-    description: "Convert any text to uppercase instantly while preserving line breaks.",
+    description:
+      "Convert any text to uppercase instantly while preserving line breaks.",
     shortDescription: "Convert text to UPPERCASE.",
     icon: "text",
     keywords: [
@@ -495,9 +510,11 @@ export const textTools: ToolDefinition[] = [
       "text-cleaner",
     ],
     seoTitle: "Uppercase Converter — Convert Text to UPPERCASE | ToolMyra",
-    seoDescription: "Convert text to uppercase online with ToolMyra. Instant UPPERCASE conversion with copy and download.",
+    seoDescription:
+      "Convert text to uppercase online with ToolMyra. Instant UPPERCASE conversion with copy and download.",
     h1: "Uppercase Converter",
-    intro: "Turn any draft into uppercase in one step. Line breaks stay in place so formatted text remains readable.",
+    intro:
+      "Turn any draft into uppercase in one step. Line breaks stay in place so formatted text remains readable.",
     convertHeading: "Convert Text to Uppercase",
     howToHeading: "How to Convert Text to Uppercase",
     featuresHeading: "Uppercase Converter Features",
@@ -552,7 +569,8 @@ export const textTools: ToolDefinition[] = [
     name: "Lowercase Converter",
     slug: "lowercase-converter",
     category: "text-tools",
-    description: "Convert any text to lowercase instantly while preserving spacing and line breaks.",
+    description:
+      "Convert any text to lowercase instantly while preserving spacing and line breaks.",
     shortDescription: "Convert text to lowercase.",
     icon: "text",
     keywords: [
@@ -571,9 +589,11 @@ export const textTools: ToolDefinition[] = [
       "text-cleaner",
     ],
     seoTitle: "Lowercase Converter — Convert Text to lowercase | ToolMyra",
-    seoDescription: "Convert text to lowercase online with ToolMyra. Instant lowercase conversion with copy and download.",
+    seoDescription:
+      "Convert text to lowercase online with ToolMyra. Instant lowercase conversion with copy and download.",
     h1: "Lowercase Converter",
-    intro: "Normalize shouting text or mixed casing into lowercase while keeping your line structure intact.",
+    intro:
+      "Normalize shouting text or mixed casing into lowercase while keeping your line structure intact.",
     convertHeading: "Convert Text to Lowercase",
     howToHeading: "How to Convert Text to Lowercase",
     featuresHeading: "Lowercase Converter Features",
@@ -628,7 +648,8 @@ export const textTools: ToolDefinition[] = [
     name: "Title Case Converter",
     slug: "title-case-converter",
     category: "text-tools",
-    description: "Convert text into title-style capitalization with sensible handling for common short words.",
+    description:
+      "Convert text into title-style capitalization with sensible handling for common short words.",
     shortDescription: "Convert text to Title Case.",
     icon: "text",
     keywords: [
@@ -647,9 +668,11 @@ export const textTools: ToolDefinition[] = [
       "text-cleaner",
     ],
     seoTitle: "Title Case Converter — Convert Text to Title Case | ToolMyra",
-    seoDescription: "Convert text to title case online with ToolMyra. Create headline-style capitalization quickly.",
+    seoDescription:
+      "Convert text to title case online with ToolMyra. Create headline-style capitalization quickly.",
     h1: "Title Case Converter",
-    intro: "Create title-style headings with predictable capitalization. Common short words can remain lowercase except at the start.",
+    intro:
+      "Create title-style headings with predictable capitalization. Common short words can remain lowercase except at the start.",
     convertHeading: "Convert Text to Title Case",
     howToHeading: "How to Convert Text to Title Case",
     featuresHeading: "Title Case Converter Features",
@@ -681,7 +704,8 @@ export const textTools: ToolDefinition[] = [
     faq: [
       {
         question: "Are all words capitalized?",
-        answer: "Not always. Common short words may stay lowercase except at the start.",
+        answer:
+          "Not always. Common short words may stay lowercase except at the start.",
       },
       {
         question: "Is behavior predictable?",
@@ -704,13 +728,11 @@ export const textTools: ToolDefinition[] = [
     name: "Sentence Case Converter",
     slug: "sentence-case-converter",
     category: "text-tools",
-    description: "Convert text into sentence case with appropriate capitalization after punctuation.",
+    description:
+      "Convert text into sentence case with appropriate capitalization after punctuation.",
     shortDescription: "Convert text to sentence case.",
     icon: "text",
-    keywords: [
-      "sentence case converter",
-      "convert to sentence case",
-    ],
+    keywords: ["sentence case converter", "convert to sentence case"],
     popular: false,
     new: false,
     supportedFormats: ["Text"],
@@ -722,9 +744,11 @@ export const textTools: ToolDefinition[] = [
       "text-cleaner",
     ],
     seoTitle: "Sentence Case Converter — Convert to Sentence Case | ToolMyra",
-    seoDescription: "Convert text to sentence case online with ToolMyra. Capitalize sentences cleanly and copy the result.",
+    seoDescription:
+      "Convert text to sentence case online with ToolMyra. Capitalize sentences cleanly and copy the result.",
     h1: "Sentence Case Converter",
-    intro: "Normalize drafts into sentence case. Letters are lowercased and sentence starts are capitalized after punctuation where detected.",
+    intro:
+      "Normalize drafts into sentence case. Letters are lowercased and sentence starts are capitalized after punctuation where detected.",
     convertHeading: "Convert Text to Sentence Case",
     howToHeading: "How to Convert Text to Sentence Case",
     featuresHeading: "Sentence Case Converter Features",
@@ -760,7 +784,8 @@ export const textTools: ToolDefinition[] = [
       },
       {
         question: "How are new sentences detected?",
-        answer: "After punctuation like periods, question marks, and exclamation points.",
+        answer:
+          "After punctuation like periods, question marks, and exclamation points.",
       },
       {
         question: "Is it live?",
@@ -779,14 +804,11 @@ export const textTools: ToolDefinition[] = [
     name: "Remove Extra Spaces",
     slug: "remove-extra-spaces",
     category: "text-tools",
-    description: "Remove repeated spaces and trim line whitespace while preserving paragraph structure by default.",
+    description:
+      "Remove repeated spaces and trim line whitespace while preserving paragraph structure by default.",
     shortDescription: "Clean repeated whitespace from text.",
     icon: "text",
-    keywords: [
-      "remove extra spaces",
-      "trim whitespace",
-      "clean spaces online",
-    ],
+    keywords: ["remove extra spaces", "trim whitespace", "clean spaces online"],
     popular: true,
     new: false,
     supportedFormats: ["Text"],
@@ -798,9 +820,11 @@ export const textTools: ToolDefinition[] = [
       "find-and-replace",
     ],
     seoTitle: "Remove Extra Spaces — Clean Whitespace Online | ToolMyra",
-    seoDescription: "Remove extra spaces online with ToolMyra. Collapse repeated whitespace and trim lines cleanly.",
+    seoDescription:
+      "Remove extra spaces online with ToolMyra. Collapse repeated whitespace and trim lines cleanly.",
     h1: "Remove Extra Spaces",
-    intro: "Clean up messy pasted text by collapsing repeated spaces and trimming line whitespace. Paragraph structure stays intact unless you choose stronger cleanup.",
+    intro:
+      "Clean up messy pasted text by collapsing repeated spaces and trimming line whitespace. Paragraph structure stays intact unless you choose stronger cleanup.",
     convertHeading: "Remove Extra Spaces Online",
     howToHeading: "How to Remove Extra Spaces",
     featuresHeading: "Remove Extra Spaces Features",
@@ -855,7 +879,8 @@ export const textTools: ToolDefinition[] = [
     name: "Remove Duplicate Lines",
     slug: "remove-duplicate-lines",
     category: "text-tools",
-    description: "Remove duplicate lines while preserving first or last occurrence with optional case sensitivity.",
+    description:
+      "Remove duplicate lines while preserving first or last occurrence with optional case sensitivity.",
     shortDescription: "Remove repeated lines from a list.",
     icon: "text",
     keywords: [
@@ -874,9 +899,11 @@ export const textTools: ToolDefinition[] = [
       "remove-extra-spaces",
     ],
     seoTitle: "Remove Duplicate Lines — Unique Lines Online | ToolMyra",
-    seoDescription: "Remove duplicate lines online with ToolMyra. Keep first occurrences and optionally ignore case.",
+    seoDescription:
+      "Remove duplicate lines online with ToolMyra. Keep first occurrences and optionally ignore case.",
     h1: "Remove Duplicate Lines",
-    intro: "Clean lists by removing repeated lines. Choose case sensitivity and whether to keep the first occurrence.",
+    intro:
+      "Clean lists by removing repeated lines. Choose case sensitivity and whether to keep the first occurrence.",
     convertHeading: "Remove Duplicate Lines Online",
     howToHeading: "How to Remove Duplicate Lines",
     featuresHeading: "Remove Duplicate Lines Features",
@@ -931,7 +958,8 @@ export const textTools: ToolDefinition[] = [
     name: "Sort Lines Alphabetically",
     slug: "sort-lines",
     category: "text-tools",
-    description: "Sort lines alphabetically with optional numeric order, case sensitivity, and whitespace handling.",
+    description:
+      "Sort lines alphabetically with optional numeric order, case sensitivity, and whitespace handling.",
     shortDescription: "Sort lines A–Z or Z–A.",
     icon: "text",
     keywords: [
@@ -950,9 +978,11 @@ export const textTools: ToolDefinition[] = [
       "reverse-text",
     ],
     seoTitle: "Sort Lines Alphabetically — A–Z & Z–A Online | ToolMyra",
-    seoDescription: "Sort lines alphabetically online with ToolMyra. Sort A to Z or Z to A with optional numeric order.",
+    seoDescription:
+      "Sort lines alphabetically online with ToolMyra. Sort A to Z or Z to A with optional numeric order.",
     h1: "Sort Lines Alphabetically",
-    intro: "Sort lists and line-based text A→Z or Z→A. Optional numeric sorting helps when lines start with numbers.",
+    intro:
+      "Sort lists and line-based text A→Z or Z→A. Optional numeric sorting helps when lines start with numbers.",
     convertHeading: "Sort Lines Online",
     howToHeading: "How to Sort Lines Alphabetically",
     featuresHeading: "Sort Lines Features",
@@ -1007,14 +1037,11 @@ export const textTools: ToolDefinition[] = [
     name: "Reverse Text",
     slug: "reverse-text",
     category: "text-tools",
-    description: "Reverse text by grapheme where supported so emojis and combined characters are less likely to break.",
+    description:
+      "Reverse text by grapheme where supported so emojis and combined characters are less likely to break.",
     shortDescription: "Reverse characters in text.",
     icon: "text",
-    keywords: [
-      "reverse text",
-      "text reverser",
-      "backwards text",
-    ],
+    keywords: ["reverse text", "text reverser", "backwards text"],
     popular: false,
     new: true,
     supportedFormats: ["Text"],
@@ -1026,9 +1053,11 @@ export const textTools: ToolDefinition[] = [
       "word-counter",
     ],
     seoTitle: "Reverse Text — Flip Characters Online | ToolMyra",
-    seoDescription: "Reverse text online with ToolMyra. Flip characters carefully with Unicode-aware reversal where supported.",
+    seoDescription:
+      "Reverse text online with ToolMyra. Flip characters carefully with Unicode-aware reversal where supported.",
     h1: "Reverse Text",
-    intro: "Flip your text from end to start. Grapheme-aware reversal is used where the browser supports it so common emojis are less likely to split.",
+    intro:
+      "Flip your text from end to start. Grapheme-aware reversal is used where the browser supports it so common emojis are less likely to split.",
     convertHeading: "Reverse Text Online",
     howToHeading: "How to Reverse Text",
     featuresHeading: "Reverse Text Features",
@@ -1060,7 +1089,8 @@ export const textTools: ToolDefinition[] = [
     faq: [
       {
         question: "Will emojis break?",
-        answer: "Where grapheme segmentation is available, common emojis are reversed as units.",
+        answer:
+          "Where grapheme segmentation is available, common emojis are reversed as units.",
       },
       {
         question: "Is it live?",
@@ -1083,14 +1113,11 @@ export const textTools: ToolDefinition[] = [
     name: "Reverse Words",
     slug: "reverse-words",
     category: "text-tools",
-    description: "Reverse the order of words while keeping the words themselves intact.",
+    description:
+      "Reverse the order of words while keeping the words themselves intact.",
     shortDescription: "Reverse word order in text.",
     icon: "text",
-    keywords: [
-      "reverse words",
-      "reverse word order",
-      "flip words",
-    ],
+    keywords: ["reverse words", "reverse word order", "flip words"],
     popular: false,
     new: false,
     supportedFormats: ["Text"],
@@ -1102,9 +1129,11 @@ export const textTools: ToolDefinition[] = [
       "word-counter",
     ],
     seoTitle: "Reverse Words — Flip Word Order Online | ToolMyra",
-    seoDescription: "Reverse word order online with ToolMyra. Flip words while preserving each word’s spelling.",
+    seoDescription:
+      "Reverse word order online with ToolMyra. Flip words while preserving each word’s spelling.",
     h1: "Reverse Words",
-    intro: "Keep each word intact and reverse only the order. Useful for quick transformations and playful edits.",
+    intro:
+      "Keep each word intact and reverse only the order. Useful for quick transformations and playful edits.",
     convertHeading: "Reverse Words Online",
     howToHeading: "How to Reverse Words",
     featuresHeading: "Reverse Words Features",
@@ -1159,14 +1188,11 @@ export const textTools: ToolDefinition[] = [
     name: "Text Repeater",
     slug: "text-repeater",
     category: "text-tools",
-    description: "Repeat text with a safe maximum count and flexible separators.",
+    description:
+      "Repeat text with a safe maximum count and flexible separators.",
     shortDescription: "Repeat text a set number of times.",
     icon: "text",
-    keywords: [
-      "text repeater",
-      "repeat text",
-      "repeat text online",
-    ],
+    keywords: ["text repeater", "repeat text", "repeat text online"],
     popular: false,
     new: true,
     supportedFormats: ["Text"],
@@ -1178,9 +1204,11 @@ export const textTools: ToolDefinition[] = [
       "text-case-converter",
     ],
     seoTitle: "Text Repeater — Repeat Text Online | ToolMyra",
-    seoDescription: "Repeat text online with ToolMyra. Set a count, choose a separator, and copy the repeated result.",
+    seoDescription:
+      "Repeat text online with ToolMyra. Set a count, choose a separator, and copy the repeated result.",
     h1: "Text Repeater",
-    intro: "Repeat a phrase or block of text with a protected maximum so large counts do not freeze your browser.",
+    intro:
+      "Repeat a phrase or block of text with a protected maximum so large counts do not freeze your browser.",
     convertHeading: "Repeat Text Online",
     howToHeading: "How to Repeat Text",
     featuresHeading: "Text Repeater Features",
@@ -1235,14 +1263,11 @@ export const textTools: ToolDefinition[] = [
     name: "Text Cleaner",
     slug: "text-cleaner",
     category: "text-tools",
-    description: "Clean text with toggles for spaces, trimming, blank lines, and line endings.",
+    description:
+      "Clean text with toggles for spaces, trimming, blank lines, and line endings.",
     shortDescription: "Clean whitespace and blank lines.",
     icon: "text",
-    keywords: [
-      "text cleaner",
-      "clean text online",
-      "normalize whitespace",
-    ],
+    keywords: ["text cleaner", "clean text online", "normalize whitespace"],
     popular: true,
     new: false,
     supportedFormats: ["Text"],
@@ -1254,9 +1279,11 @@ export const textTools: ToolDefinition[] = [
       "word-counter",
     ],
     seoTitle: "Text Cleaner — Clean & Normalize Text Online | ToolMyra",
-    seoDescription: "Clean text online with ToolMyra. Trim lines, collapse spaces, and normalize blank lines with clear toggles.",
+    seoDescription:
+      "Clean text online with ToolMyra. Trim lines, collapse spaces, and normalize blank lines with clear toggles.",
     h1: "Text Cleaner",
-    intro: "Tidy pasted content with explicit cleanup options. Nothing destructive runs unless you enable that toggle.",
+    intro:
+      "Tidy pasted content with explicit cleanup options. Nothing destructive runs unless you enable that toggle.",
     convertHeading: "Clean Text Online",
     howToHeading: "How to Clean Text",
     featuresHeading: "Text Cleaner Features",
@@ -1311,14 +1338,11 @@ export const textTools: ToolDefinition[] = [
     name: "Find & Replace Tool",
     slug: "find-and-replace",
     category: "text-tools",
-    description: "Find and replace plain text with case sensitivity, whole-word matching, and match counts.",
+    description:
+      "Find and replace plain text with case sensitivity, whole-word matching, and match counts.",
     shortDescription: "Find and replace text safely.",
     icon: "text",
-    keywords: [
-      "find and replace",
-      "find replace online",
-      "text replace tool",
-    ],
+    keywords: ["find and replace", "find replace online", "text replace tool"],
     popular: true,
     new: false,
     supportedFormats: ["Text"],
@@ -1330,9 +1354,11 @@ export const textTools: ToolDefinition[] = [
       "word-counter",
     ],
     seoTitle: "Find & Replace Tool — Replace Text Online | ToolMyra",
-    seoDescription: "Find and replace text online with ToolMyra. Replace matches safely and see how many replacements were made.",
+    seoDescription:
+      "Find and replace text online with ToolMyra. Replace matches safely and see how many replacements were made.",
     h1: "Find & Replace Tool",
-    intro: "Search for plain text and replace matches without running user regular expressions. Match counts help you verify the change.",
+    intro:
+      "Search for plain text and replace matches without running user regular expressions. Match counts help you verify the change.",
     convertHeading: "Find and Replace Text Online",
     howToHeading: "How to Find and Replace",
     featuresHeading: "Find & Replace Features",
@@ -1364,7 +1390,8 @@ export const textTools: ToolDefinition[] = [
     faq: [
       {
         question: "Is regex supported?",
-        answer: "Not in the default mode. Find text is treated as plain text and escaped safely.",
+        answer:
+          "Not in the default mode. Find text is treated as plain text and escaped safely.",
       },
       {
         question: "Can I replace all matches?",
@@ -1387,7 +1414,8 @@ export const textTools: ToolDefinition[] = [
     name: "Text Diff Checker",
     slug: "text-diff-checker",
     category: "text-tools",
-    description: "Compare original and modified text with accessible added and removed line highlighting.",
+    description:
+      "Compare original and modified text with accessible added and removed line highlighting.",
     shortDescription: "Compare two texts and highlight changes.",
     icon: "text",
     keywords: [
@@ -1406,9 +1434,11 @@ export const textTools: ToolDefinition[] = [
       "word-counter",
     ],
     seoTitle: "Text Diff Checker — Compare Two Texts Online | ToolMyra",
-    seoDescription: "Compare two texts online with ToolMyra. Highlight added and removed lines in an accessible diff view.",
+    seoDescription:
+      "Compare two texts online with ToolMyra. Highlight added and removed lines in an accessible diff view.",
     h1: "Text Diff Checker",
-    intro: "Paste an original version and a modified version to see line-level differences. Added and removed lines are labeled for accessibility, not color alone.",
+    intro:
+      "Paste an original version and a modified version to see line-level differences. Added and removed lines are labeled for accessibility, not color alone.",
     convertHeading: "Compare Two Texts Online",
     howToHeading: "How to Compare Texts",
     featuresHeading: "Text Diff Checker Features",
@@ -1463,7 +1493,8 @@ export const textTools: ToolDefinition[] = [
     name: "Lorem Ipsum Generator",
     slug: "lorem-ipsum-generator",
     category: "text-tools",
-    description: "Generate Lorem Ipsum paragraphs, sentences, or words from a local word list with safe limits.",
+    description:
+      "Generate Lorem Ipsum paragraphs, sentences, or words from a local word list with safe limits.",
     shortDescription: "Generate placeholder Lorem Ipsum text.",
     icon: "text",
     keywords: [
@@ -1482,9 +1513,11 @@ export const textTools: ToolDefinition[] = [
       "character-counter",
     ],
     seoTitle: "Lorem Ipsum Generator — Placeholder Text Online | ToolMyra",
-    seoDescription: "Generate Lorem Ipsum online with ToolMyra. Create paragraphs, sentences, or words for design mockups.",
+    seoDescription:
+      "Generate Lorem Ipsum online with ToolMyra. Create paragraphs, sentences, or words for design mockups.",
     h1: "Lorem Ipsum Generator",
-    intro: "Generate placeholder copy for layouts and prototypes. Content comes from a local word list with generation limits to keep things fast.",
+    intro:
+      "Generate placeholder copy for layouts and prototypes. Content comes from a local word list with generation limits to keep things fast.",
     convertHeading: "Generate Lorem Ipsum Online",
     howToHeading: "How to Generate Lorem Ipsum",
     featuresHeading: "Lorem Ipsum Generator Features",

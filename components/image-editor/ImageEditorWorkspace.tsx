@@ -22,6 +22,7 @@ import {
   revokeObjectUrl,
 } from "@/lib/image-editor/utils";
 import { validateEditorFile } from "@/lib/image-editor/validate";
+import { filterUserFacingNotices, isTechnicalNotice } from "@/lib/ui/notices";
 
 interface ImageEditorWorkspaceProps {
   config: ImageEditorConfig;
@@ -35,6 +36,7 @@ export function ImageEditorWorkspace({
   convertHeading,
 }: ImageEditorWorkspaceProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const opIdRef = useRef(0);
   const widthId = useId();
   const heightId = useId();
   const qualityId = useId();
@@ -42,6 +44,7 @@ export function ImageEditorWorkspace({
   const [selected, setSelected] = useState<EditorImageFile | null>(null);
   const [result, setResult] = useState<EditorProcessResult | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [progressPercent, setProgressPercent] = useState<number | null>(null);
 
   const [quality, setQuality] = useState(75);
   const [width, setWidth] = useState("");
@@ -71,19 +74,24 @@ export function ImageEditorWorkspace({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const needsProcessButton = config.kind !== "color-picker" && config.kind !== "metadata-viewer";
+  const needsProcessButton =
+    config.kind !== "color-picker" && config.kind !== "metadata-viewer";
 
   function resetAll() {
+    opIdRef.current += 1;
     revokeObjectUrl(selected?.previewUrl);
-    if (result?.previewUrl !== selected?.previewUrl) revokeObjectUrl(result?.previewUrl);
+    if (result?.previewUrl !== selected?.previewUrl)
+      revokeObjectUrl(result?.previewUrl);
     setSelected(null);
     setResult(null);
     setError(null);
     setCropPixels(null);
+    setProgressPercent(null);
     setStage("upload");
   }
 
   async function handleFileSelected(file: File) {
+    if (stage === "processing") return;
     setError(null);
     const validationError = validateEditorFile(file, config);
     if (validationError) {
@@ -91,12 +99,17 @@ export function ImageEditorWorkspace({
       return;
     }
 
+    opIdRef.current += 1;
+    const loadId = opIdRef.current;
     revokeObjectUrl(selected?.previewUrl);
-    if (result?.previewUrl !== selected?.previewUrl) revokeObjectUrl(result?.previewUrl);
+    if (result?.previewUrl !== selected?.previewUrl)
+      revokeObjectUrl(result?.previewUrl);
     setResult(null);
+    setProgressPercent(null);
 
     try {
       const loaded = await loadEditorImage(file);
+      if (loadId !== opIdRef.current) return;
       setSelected(loaded);
       setWidth(String(loaded.width));
       setHeight(String(loaded.height));
@@ -113,20 +126,24 @@ export function ImageEditorWorkspace({
       if (config.kind === "metadata-viewer") {
         setStage("processing");
         const meta = await processEditorImage(loaded, config);
+        if (loadId !== opIdRef.current) return;
         setResult(meta);
         setStage("done");
       }
     } catch {
+      if (loadId !== opIdRef.current) return;
       setError("We couldn't read this image. Please try another file.");
     }
   }
 
   async function handleProcess() {
-    if (!selected) {
-      setError("Please choose an image file.");
+    if (!selected || stage === "processing") {
+      if (!selected) setError("Please choose an image file.");
       return;
     }
+    const jobId = ++opIdRef.current;
     setError(null);
+    setProgressPercent(null);
     setStage("processing");
     try {
       const processed = await processEditorImage(selected, config, {
@@ -153,11 +170,29 @@ export function ImageEditorWorkspace({
         borderWidth,
         borderColor,
         padding,
+        onProgress: (completed, total) => {
+          if (jobId !== opIdRef.current) return;
+          if (!Number.isFinite(total) || total <= 0) {
+            setProgressPercent(null);
+            return;
+          }
+          setProgressPercent(
+            Math.max(0, Math.min(99, Math.round((completed / total) * 100))),
+          );
+        },
       });
-      if (result?.previewUrl !== selected.previewUrl) revokeObjectUrl(result?.previewUrl);
+      if (jobId !== opIdRef.current) {
+        revokeObjectUrl(processed.previewUrl);
+        return;
+      }
+      if (result?.previewUrl !== selected.previewUrl)
+        revokeObjectUrl(result?.previewUrl);
+      setProgressPercent(100);
       setResult(processed);
       setStage("done");
     } catch (processError) {
+      if (jobId !== opIdRef.current) return;
+      setProgressPercent(null);
       setStage("ready");
       setError(
         processError instanceof Error
@@ -182,9 +217,9 @@ export function ImageEditorWorkspace({
     <div className="space-y-5">
       {convertHeading ? <h2 className="tm-h2">{convertHeading}</h2> : null}
 
-      {config.notices.length && stage !== "done" ? (
+      {filterUserFacingNotices(config.notices).length && stage !== "done" ? (
         <div className="space-y-1 rounded-2xl border border-blue-100 bg-blue-50 px-4 py-3 text-sm font-medium text-tm-text">
-          {config.notices.map((notice) => (
+          {filterUserFacingNotices(config.notices).map((notice) => (
             <p key={notice}>{notice}</p>
           ))}
         </div>
@@ -211,11 +246,26 @@ export function ImageEditorWorkspace({
                 />
               </div>
               <div>
-                <h3 className="text-lg font-extrabold text-tm-text">Selected image</h3>
+                <h3 className="text-lg font-extrabold text-tm-text">
+                  Selected image
+                </h3>
                 <dl className="mt-3 space-y-1 text-sm font-semibold text-tm-muted">
-                  <div>File name: <span className="text-tm-text">{selected.name}</span></div>
-                  <div>Format: <span className="text-tm-text">{selected.type || "Unknown"}</span></div>
-                  <div>Size: <span className="text-tm-text">{formatBytes(selected.sizeBytes)}</span></div>
+                  <div>
+                    File name:{" "}
+                    <span className="text-tm-text">{selected.name}</span>
+                  </div>
+                  <div>
+                    Format:{" "}
+                    <span className="text-tm-text">
+                      {selected.type || "Unknown"}
+                    </span>
+                  </div>
+                  <div>
+                    Size:{" "}
+                    <span className="text-tm-text">
+                      {formatBytes(selected.sizeBytes)}
+                    </span>
+                  </div>
                   <div>
                     Dimensions:{" "}
                     <span className="text-tm-text">
@@ -231,7 +281,11 @@ export function ImageEditorWorkspace({
                   >
                     Change image
                   </button>
-                  <button type="button" className="tm-btn tm-btn-ghost" onClick={resetAll}>
+                  <button
+                    type="button"
+                    className="tm-btn tm-btn-ghost"
+                    onClick={resetAll}
+                  >
                     Remove
                   </button>
                 </div>
@@ -284,7 +338,10 @@ export function ImageEditorWorkspace({
           )}
 
           {(config.kind === "compress" || config.kind === "quality") && (
-            <label htmlFor={qualityId} className="block rounded-2xl border border-tm-border bg-tm-soft p-4">
+            <label
+              htmlFor={qualityId}
+              className="block rounded-2xl border border-tm-border bg-tm-soft p-4"
+            >
               <span className="text-sm font-bold text-tm-text">
                 Quality: {quality}
               </span>
@@ -303,66 +360,80 @@ export function ImageEditorWorkspace({
           {config.kind === "resize" && (
             <div className="space-y-3 rounded-2xl border border-tm-border bg-tm-soft p-4">
               <div className="grid gap-3 sm:grid-cols-3">
-              <div>
-                <label htmlFor={widthId} className="mb-2 block text-sm font-bold text-tm-text">
-                  Width (px)
-                </label>
-                <input
-                  id={widthId}
-                  className="tm-input"
-                  value={width}
-                  inputMode="numeric"
-                  onChange={(event) => {
-                    const next = event.target.value.replace(/[^\d]/g, "");
-                    setWidth(next);
-                    if (maintainAspect && selected.width && next) {
-                      setHeight(
-                        String(
-                          Math.max(
-                            1,
-                            Math.round((Number(next) / selected.width) * selected.height),
-                          ),
-                        ),
-                      );
-                    }
-                  }}
-                />
-              </div>
-              <div>
-                <label htmlFor={heightId} className="mb-2 block text-sm font-bold text-tm-text">
-                  Height (px)
-                </label>
-                <input
-                  id={heightId}
-                  className="tm-input"
-                  value={height}
-                  inputMode="numeric"
-                  onChange={(event) => {
-                    const next = event.target.value.replace(/[^\d]/g, "");
-                    setHeight(next);
-                    if (maintainAspect && selected.height && next) {
-                      setWidth(
-                        String(
-                          Math.max(
-                            1,
-                            Math.round((Number(next) / selected.height) * selected.width),
-                          ),
-                        ),
-                      );
-                    }
-                  }}
-                />
-              </div>
-              <div className="flex items-end">
-                <label className="flex items-center gap-2 text-sm font-bold text-tm-text">
+                <div>
+                  <label
+                    htmlFor={widthId}
+                    className="mb-2 block text-sm font-bold text-tm-text"
+                  >
+                    Width (px)
+                  </label>
                   <input
-                    type="checkbox"
-                    checked={maintainAspect}
-                    onChange={(event) => setMaintainAspect(event.target.checked)}
+                    id={widthId}
+                    className="tm-input"
+                    value={width}
+                    inputMode="numeric"
+                    onChange={(event) => {
+                      const next = event.target.value.replace(/[^\d]/g, "");
+                      setWidth(next);
+                      if (maintainAspect && selected.width && next) {
+                        setHeight(
+                          String(
+                            Math.max(
+                              1,
+                              Math.round(
+                                (Number(next) / selected.width) *
+                                  selected.height,
+                              ),
+                            ),
+                          ),
+                        );
+                      }
+                    }}
                   />
-                  Maintain aspect ratio
-                </label>
-              </div>
+                </div>
+                <div>
+                  <label
+                    htmlFor={heightId}
+                    className="mb-2 block text-sm font-bold text-tm-text"
+                  >
+                    Height (px)
+                  </label>
+                  <input
+                    id={heightId}
+                    className="tm-input"
+                    value={height}
+                    inputMode="numeric"
+                    onChange={(event) => {
+                      const next = event.target.value.replace(/[^\d]/g, "");
+                      setHeight(next);
+                      if (maintainAspect && selected.height && next) {
+                        setWidth(
+                          String(
+                            Math.max(
+                              1,
+                              Math.round(
+                                (Number(next) / selected.height) *
+                                  selected.width,
+                              ),
+                            ),
+                          ),
+                        );
+                      }
+                    }}
+                  />
+                </div>
+                <div className="flex items-end">
+                  <label className="flex items-center gap-2 text-sm font-bold text-tm-text">
+                    <input
+                      type="checkbox"
+                      checked={maintainAspect}
+                      onChange={(event) =>
+                        setMaintainAspect(event.target.checked)
+                      }
+                    />
+                    Maintain aspect ratio
+                  </label>
+                </div>
               </div>
               {!config.forceOutputMime ? (
                 <label className="block max-w-xs text-sm font-bold text-tm-text">
@@ -370,7 +441,9 @@ export function ImageEditorWorkspace({
                   <select
                     className="tm-input mt-2"
                     value={outputMime}
-                    onChange={(event) => setOutputMime(event.target.value as OutputMime)}
+                    onChange={(event) =>
+                      setOutputMime(event.target.value as OutputMime)
+                    }
                   >
                     <option value="image/jpeg">JPG</option>
                     <option value="image/png">PNG</option>
@@ -394,7 +467,9 @@ export function ImageEditorWorkspace({
                   key={label}
                   type="button"
                   className={`rounded-full px-3 py-1.5 text-sm font-bold ${
-                    rotation === value ? "bg-tm-accent text-white" : "bg-tm-soft text-tm-text"
+                    rotation === value
+                      ? "bg-tm-accent text-white"
+                      : "bg-tm-soft text-tm-text"
                   }`}
                   onClick={() => setRotation(value as 90 | 180 | -90)}
                 >
@@ -407,11 +482,19 @@ export function ImageEditorWorkspace({
           {config.kind === "flip" && (
             <div className="flex flex-wrap gap-4 text-sm font-bold text-tm-text">
               <label className="flex items-center gap-2">
-                <input type="checkbox" checked={flipH} onChange={(e) => setFlipH(e.target.checked)} />
+                <input
+                  type="checkbox"
+                  checked={flipH}
+                  onChange={(e) => setFlipH(e.target.checked)}
+                />
                 Flip Horizontal
               </label>
               <label className="flex items-center gap-2">
-                <input type="checkbox" checked={flipV} onChange={(e) => setFlipV(e.target.checked)} />
+                <input
+                  type="checkbox"
+                  checked={flipV}
+                  onChange={(e) => setFlipV(e.target.checked)}
+                />
                 Flip Vertical
               </label>
             </div>
@@ -419,7 +502,8 @@ export function ImageEditorWorkspace({
 
           {(config.kind === "sharpen" || config.kind === "blur") && (
             <label className="block rounded-2xl border border-tm-border bg-tm-soft p-4 text-sm font-bold text-tm-text">
-              {config.kind === "sharpen" ? "Sharpness" : "Blur Amount"}: {strength}
+              {config.kind === "sharpen" ? "Sharpness" : "Blur Amount"}:{" "}
+              {strength}
               <input
                 type="range"
                 min={5}
@@ -469,7 +553,9 @@ export function ImageEditorWorkspace({
                   max={200}
                   className="tm-input mt-2"
                   value={borderWidth}
-                  onChange={(event) => setBorderWidth(Number(event.target.value))}
+                  onChange={(event) =>
+                    setBorderWidth(Number(event.target.value))
+                  }
                 />
               </label>
               <label className="text-sm font-bold text-tm-text">
@@ -521,15 +607,23 @@ export function ImageEditorWorkspace({
           )}
 
           {needsProcessButton ? (
-            <div className="flex flex-wrap items-center gap-3">
+            <div className="space-y-3">
               <ConvertButton
                 label={config.actionLabel}
-                loadingLabel={config.processingLabel}
-                loading={stage === "processing"}
-                disabled={!selected || (config.kind === "flip" && !flipH && !flipV)}
+                loading={false}
+                disabled={
+                  !selected ||
+                  stage === "processing" ||
+                  (config.kind === "flip" && !flipH && !flipV)
+                }
                 onClick={() => void handleProcess()}
               />
-              {stage === "processing" ? <ConversionProgress label={config.processingLabel} /> : null}
+              {stage === "processing" ? (
+                <ConversionProgress
+                  label={config.processingLabel}
+                  percent={progressPercent}
+                />
+              ) : null}
             </div>
           ) : null}
         </>
@@ -538,15 +632,24 @@ export function ImageEditorWorkspace({
       {stage === "done" && selected && result ? (
         <div className="space-y-5 rounded-3xl border border-tm-border bg-white p-5 md:p-6">
           <h3 className="text-xl font-extrabold text-tm-text">
-            {config.kind === "metadata-viewer" ? "Image metadata" : "Result ready"}
+            {config.kind === "metadata-viewer"
+              ? "Image metadata"
+              : "Result ready"}
           </h3>
 
           {result.stats ? (
             <div className="grid gap-3 sm:grid-cols-3">
               {Object.entries(result.stats).map(([label, value]) => (
-                <div key={label} className="rounded-2xl border border-tm-border bg-tm-soft p-4">
-                  <p className="text-xs font-bold tracking-wide text-tm-muted uppercase">{label}</p>
-                  <p className="mt-1 text-lg font-extrabold text-tm-text">{value}</p>
+                <div
+                  key={label}
+                  className="rounded-2xl border border-tm-border bg-tm-soft p-4"
+                >
+                  <p className="text-xs font-bold tracking-wide text-tm-muted uppercase">
+                    {label}
+                  </p>
+                  <p className="mt-1 text-lg font-extrabold text-tm-text">
+                    {value}
+                  </p>
                 </div>
               ))}
             </div>
@@ -564,9 +667,16 @@ export function ImageEditorWorkspace({
                   </thead>
                   <tbody>
                     {result.metadataRows.map((row) => (
-                      <tr key={`${row.label}-${row.value}`} className="border-t border-tm-border">
-                        <td className="px-4 py-2 font-semibold text-tm-text">{row.label}</td>
-                        <td className="px-4 py-2 font-medium break-all text-tm-muted">{row.value}</td>
+                      <tr
+                        key={`${row.label}-${row.value}`}
+                        className="border-t border-tm-border"
+                      >
+                        <td className="px-4 py-2 font-semibold text-tm-text">
+                          {row.label}
+                        </td>
+                        <td className="px-4 py-2 font-medium break-all text-tm-muted">
+                          {row.value}
+                        </td>
                       </tr>
                     ))}
                   </tbody>
@@ -588,8 +698,13 @@ export function ImageEditorWorkspace({
                       </thead>
                       <tbody>
                         {result.metadataRows.map((row) => (
-                          <tr key={`${row.label}-${row.value}`} className="border-t border-tm-border">
-                            <td className="px-4 py-2 font-semibold text-tm-text">{row.label}</td>
+                          <tr
+                            key={`${row.label}-${row.value}`}
+                            className="border-t border-tm-border"
+                          >
+                            <td className="px-4 py-2 font-semibold text-tm-text">
+                              {row.label}
+                            </td>
                             <td className="px-4 py-2 font-medium break-all text-tm-muted">
                               {row.value}
                             </td>
@@ -605,22 +720,30 @@ export function ImageEditorWorkspace({
             <div className="grid gap-4 md:grid-cols-2">
               <div>
                 <p className="mb-2 text-sm font-bold text-tm-muted">Original</p>
-                <div className="flex min-h-48 items-center justify-center rounded-2xl border border-tm-border bg-tm-soft p-3">
+                <div className="flex min-h-56 items-center justify-center rounded-2xl border border-tm-border bg-tm-soft p-3 md:min-h-72">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={selected.previewUrl} alt="" className="max-h-56 max-w-full object-contain" />
+                  <img
+                    src={selected.previewUrl}
+                    alt="Original upload"
+                    className="max-h-72 max-w-full object-contain md:max-h-80"
+                  />
                 </div>
               </div>
               <div>
                 <p className="mb-2 text-sm font-bold text-tm-muted">Result</p>
-                <div className="flex min-h-48 items-center justify-center rounded-2xl border border-tm-border bg-[linear-gradient(45deg,#e2e8f0_25%,transparent_25%),linear-gradient(-45deg,#e2e8f0_25%,transparent_25%),linear-gradient(45deg,transparent_75%,#e2e8f0_75%),linear-gradient(-45deg,transparent_75%,#e2e8f0_75%)] bg-size-[16px_16px] bg-tm-soft p-3">
+                <div className="flex min-h-56 items-center justify-center rounded-2xl border border-tm-border bg-[linear-gradient(45deg,#e2e8f0_25%,transparent_25%),linear-gradient(-45deg,#e2e8f0_25%,transparent_25%),linear-gradient(45deg,transparent_75%,#e2e8f0_75%),linear-gradient(-45deg,transparent_75%,#e2e8f0_75%)] bg-[length:16px_16px] bg-white p-3 md:min-h-72">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={result.previewUrl} alt="" className="max-h-56 max-w-full object-contain" />
+                  <img
+                    src={result.previewUrl}
+                    alt="Processed result"
+                    className="max-h-72 max-w-full object-contain md:max-h-80"
+                  />
                 </div>
               </div>
             </div>
           )}
 
-          {result.notice ? (
+          {result.notice && !isTechnicalNotice(result.notice) ? (
             <p className="rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-medium text-amber-900">
               {result.notice}
             </p>
@@ -629,11 +752,19 @@ export function ImageEditorWorkspace({
           <div className="flex flex-wrap gap-3">
             {config.kind !== "metadata-viewer" ? (
               <ConvertButton
-                label={config.kind === "background-remover" ? "Download PNG" : "Download"}
+                label={
+                  config.kind === "background-remover"
+                    ? "Download PNG"
+                    : "Download"
+                }
                 onClick={() => downloadBlob(result.blob, result.fileName)}
               />
             ) : null}
-            <button type="button" className="tm-btn tm-btn-secondary" onClick={resetAll}>
+            <button
+              type="button"
+              className="tm-btn tm-btn-secondary"
+              onClick={resetAll}
+            >
               {config.resetLabel}
             </button>
           </div>

@@ -41,7 +41,11 @@ async function finalize(
   return {
     blob,
     previewUrl: URL.createObjectURL(blob),
-    fileName: buildProcessedFileName(source.name, config.filenameSuffix, extension),
+    fileName: buildProcessedFileName(
+      source.name,
+      config.filenameSuffix,
+      extension,
+    ),
     mimeType: mime,
     sizeBytes: blob.size,
     width,
@@ -68,7 +72,9 @@ export async function compressImage(
 
   // browser-image-compression works best for jpeg/webp; for png preserve alpha via canvas path when needed
   if (outputMime === "image/png") {
-    const { canvas, objectUrl, width, height } = await imageFileToCanvas(source.file);
+    const { canvas, objectUrl, width, height } = await imageFileToCanvas(
+      source.file,
+    );
     try {
       // Re-encode PNG. For further size reduction, optionally scale if quality < 90.
       let target = canvas;
@@ -79,25 +85,35 @@ export async function compressImage(
         target = await drawImageToCanvas(canvas, tw, th);
       }
       const blob = await encodeCanvas(target, "image/png");
-      return finalize(blob, config, source, target.width, target.height, "image/png", {
-        stats: {
-          "Original size": formatBytes(source.sizeBytes),
-          "Compressed size": formatBytes(blob.size),
-          Reduction: reductionPercent(source.sizeBytes, blob.size),
+      return finalize(
+        blob,
+        config,
+        source,
+        target.width,
+        target.height,
+        "image/png",
+        {
+          stats: {
+            "Original size": formatBytes(source.sizeBytes),
+            "Compressed size": formatBytes(blob.size),
+            Reduction: reductionPercent(source.sizeBytes, blob.size),
+          },
+          notice:
+            blob.size >= source.sizeBytes
+              ? "This PNG did not shrink further. Many PNGs are already well compressed; try a lower quality setting or a different format for smaller files."
+              : undefined,
         },
-        notice:
-          blob.size >= source.sizeBytes
-            ? "This PNG did not shrink further. Many PNGs are already well compressed; try a lower quality setting or a different format for smaller files."
-            : undefined,
-      });
+      );
     } finally {
       URL.revokeObjectURL(objectUrl);
     }
   }
 
-  const file = new File([source.file], source.name, { type: source.type || outputMime });
+  const file = new File([source.file], source.name, {
+    type: source.type || outputMime,
+  });
   const compressed = await imageCompression(file, {
-    maxSizeMB: Math.max(0.05, source.sizeBytes / (1024 * 1024) * quality),
+    maxSizeMB: Math.max(0.05, (source.sizeBytes / (1024 * 1024)) * quality),
     maxWidthOrHeight: options.quality && options.quality < 60 ? 2048 : 4096,
     useWebWorker: true,
     fileType: outputMime,
@@ -135,14 +151,16 @@ export async function resizeImage(
 ): Promise<EditorProcessResult> {
   const width = Math.max(1, Math.round(options.width || source.width));
   const height = Math.max(1, Math.round(options.height || source.height));
-  const mime = config.forceOutputMime ?? options.outputMime ?? mimeFromFile(source.file);
+  const mime =
+    config.forceOutputMime ?? options.outputMime ?? mimeFromFile(source.file);
   const { image, objectUrl } = await imageFileToCanvas(source.file);
   try {
     const canvas = await drawImageToCanvas(image, width, height);
     if (mime === "image/jpeg") {
       const withBg = createCanvas(width, height);
       const ctx = withBg.getContext("2d");
-      if (!ctx) throw new Error("Your browser could not prepare an image canvas.");
+      if (!ctx)
+        throw new Error("Your browser could not prepare an image canvas.");
       ctx.fillStyle = "#ffffff";
       ctx.fillRect(0, 0, width, height);
       ctx.drawImage(canvas, 0, 0);
@@ -170,7 +188,8 @@ export async function cropImage(
   try {
     const canvas = createCanvas(crop.width, crop.height);
     const ctx = canvas.getContext("2d");
-    if (!ctx) throw new Error("Your browser could not prepare an image canvas.");
+    if (!ctx)
+      throw new Error("Your browser could not prepare an image canvas.");
     if (mime === "image/jpeg") {
       ctx.fillStyle = "#ffffff";
       ctx.fillRect(0, 0, crop.width, crop.height);
@@ -200,7 +219,9 @@ export async function rotateImage(
 ): Promise<EditorProcessResult> {
   const degrees = options.rotation ?? 90;
   const mime = config.forceOutputMime ?? mimeFromFile(source.file, "image/png");
-  const { image, objectUrl, width, height } = await imageFileToCanvas(source.file);
+  const { image, objectUrl, width, height } = await imageFileToCanvas(
+    source.file,
+  );
   try {
     const rad = (degrees * Math.PI) / 180;
     const abs = Math.abs(degrees) % 180 === 90;
@@ -208,7 +229,8 @@ export async function rotateImage(
     const outH = abs ? width : height;
     const canvas = createCanvas(outW, outH);
     const ctx = canvas.getContext("2d");
-    if (!ctx) throw new Error("Your browser could not prepare an image canvas.");
+    if (!ctx)
+      throw new Error("Your browser could not prepare an image canvas.");
     if (mime === "image/jpeg") {
       ctx.fillStyle = "#ffffff";
       ctx.fillRect(0, 0, outW, outH);
@@ -229,11 +251,14 @@ export async function flipImage(
   options: EditorProcessOptions,
 ): Promise<EditorProcessResult> {
   const mime = config.forceOutputMime ?? mimeFromFile(source.file, "image/png");
-  const { image, objectUrl, width, height } = await imageFileToCanvas(source.file);
+  const { image, objectUrl, width, height } = await imageFileToCanvas(
+    source.file,
+  );
   try {
     const canvas = createCanvas(width, height);
     const ctx = canvas.getContext("2d");
-    if (!ctx) throw new Error("Your browser could not prepare an image canvas.");
+    if (!ctx)
+      throw new Error("Your browser could not prepare an image canvas.");
     if (mime === "image/jpeg") {
       ctx.fillStyle = "#ffffff";
       ctx.fillRect(0, 0, width, height);
@@ -295,10 +320,13 @@ export async function sharpenImage(
 ): Promise<EditorProcessResult> {
   const amount = Math.min(3, Math.max(0.2, (options.strength ?? 40) / 40));
   const mime = config.forceOutputMime ?? mimeFromFile(source.file, "image/png");
-  const { canvas, objectUrl, width, height } = await imageFileToCanvas(source.file);
+  const { canvas, objectUrl, width, height } = await imageFileToCanvas(
+    source.file,
+  );
   try {
     const ctx = canvas.getContext("2d");
-    if (!ctx) throw new Error("Your browser could not prepare an image canvas.");
+    if (!ctx)
+      throw new Error("Your browser could not prepare an image canvas.");
     const center = 1 + 4 * amount;
     const edge = -amount;
     const sharpened = convolve(ctx.getImageData(0, 0, width, height), [
@@ -325,13 +353,19 @@ export async function blurImage(
   config: ImageEditorConfig,
   options: EditorProcessOptions,
 ): Promise<EditorProcessResult> {
-  const radius = Math.min(20, Math.max(1, Math.round((options.strength ?? 30) / 10)));
+  const radius = Math.min(
+    20,
+    Math.max(1, Math.round((options.strength ?? 30) / 10)),
+  );
   const mime = config.forceOutputMime ?? mimeFromFile(source.file, "image/png");
-  const { image, objectUrl, width, height } = await imageFileToCanvas(source.file);
+  const { image, objectUrl, width, height } = await imageFileToCanvas(
+    source.file,
+  );
   try {
     const canvas = createCanvas(width, height);
     const ctx = canvas.getContext("2d");
-    if (!ctx) throw new Error("Your browser could not prepare an image canvas.");
+    if (!ctx)
+      throw new Error("Your browser could not prepare an image canvas.");
     ctx.filter = `blur(${radius}px)`;
     ctx.drawImage(image, 0, 0);
     ctx.filter = "none";
@@ -349,7 +383,9 @@ export async function pixelateImage(
 ): Promise<EditorProcessResult> {
   const block = Math.min(80, Math.max(2, Math.round(options.pixelSize ?? 12)));
   const mime = config.forceOutputMime ?? mimeFromFile(source.file, "image/png");
-  const { image, objectUrl, width, height } = await imageFileToCanvas(source.file);
+  const { image, objectUrl, width, height } = await imageFileToCanvas(
+    source.file,
+  );
   try {
     const smallW = Math.max(1, Math.floor(width / block));
     const smallH = Math.max(1, Math.floor(height / block));
@@ -357,7 +393,8 @@ export async function pixelateImage(
     const smallCtx = small.getContext("2d");
     const canvas = createCanvas(width, height);
     const ctx = canvas.getContext("2d");
-    if (!smallCtx || !ctx) throw new Error("Your browser could not prepare an image canvas.");
+    if (!smallCtx || !ctx)
+      throw new Error("Your browser could not prepare an image canvas.");
     smallCtx.imageSmoothingEnabled = false;
     ctx.imageSmoothingEnabled = false;
     smallCtx.drawImage(image, 0, 0, smallW, smallH);
@@ -375,11 +412,14 @@ export async function roundedImage(
   options: EditorProcessOptions,
 ): Promise<EditorProcessResult> {
   const radius = Math.max(0, Math.round(options.radius ?? 32));
-  const { image, objectUrl, width, height } = await imageFileToCanvas(source.file);
+  const { image, objectUrl, width, height } = await imageFileToCanvas(
+    source.file,
+  );
   try {
     const canvas = createCanvas(width, height);
     const ctx = canvas.getContext("2d");
-    if (!ctx) throw new Error("Your browser could not prepare an image canvas.");
+    if (!ctx)
+      throw new Error("Your browser could not prepare an image canvas.");
     ctx.clearRect(0, 0, width, height);
     const r = Math.min(radius, width / 2, height / 2);
     ctx.beginPath();
@@ -403,18 +443,23 @@ export async function circularImage(
   config: ImageEditorConfig,
   options: EditorProcessOptions,
 ): Promise<EditorProcessResult> {
-  const { image, objectUrl, width, height } = await imageFileToCanvas(source.file);
+  const { image, objectUrl, width, height } = await imageFileToCanvas(
+    source.file,
+  );
   try {
     const crop = options.crop;
     const size = Math.max(
       1,
-      Math.round(crop ? Math.min(crop.width, crop.height) : Math.min(width, height)),
+      Math.round(
+        crop ? Math.min(crop.width, crop.height) : Math.min(width, height),
+      ),
     );
     const sx = Math.round(crop?.x ?? (width - size) / 2);
     const sy = Math.round(crop?.y ?? (height - size) / 2);
     const canvas = createCanvas(size, size);
     const ctx = canvas.getContext("2d");
-    if (!ctx) throw new Error("Your browser could not prepare an image canvas.");
+    if (!ctx)
+      throw new Error("Your browser could not prepare an image canvas.");
     ctx.clearRect(0, 0, size, size);
     ctx.beginPath();
     ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
@@ -438,20 +483,29 @@ export async function borderImage(
   const color = options.borderColor || "#2563EB";
   const radius = Math.max(0, Math.round(options.radius ?? 0));
   const mime = config.forceOutputMime ?? mimeFromFile(source.file, "image/png");
-  const { image, objectUrl, width, height } = await imageFileToCanvas(source.file);
+  const { image, objectUrl, width, height } = await imageFileToCanvas(
+    source.file,
+  );
   try {
     const outW = width + (borderWidth + padding) * 2;
     const outH = height + (borderWidth + padding) * 2;
     const canvas = createCanvas(outW, outH);
     const ctx = canvas.getContext("2d");
-    if (!ctx) throw new Error("Your browser could not prepare an image canvas.");
+    if (!ctx)
+      throw new Error("Your browser could not prepare an image canvas.");
     if (mime === "image/jpeg") {
       ctx.fillStyle = "#ffffff";
       ctx.fillRect(0, 0, outW, outH);
     } else {
       ctx.clearRect(0, 0, outW, outH);
     }
-    const drawRoundRect = (x: number, y: number, w: number, h: number, r: number) => {
+    const drawRoundRect = (
+      x: number,
+      y: number,
+      w: number,
+      h: number,
+      r: number,
+    ) => {
       const rr = Math.min(r, w / 2, h / 2);
       ctx.beginPath();
       ctx.moveTo(x + rr, y);
@@ -487,7 +541,11 @@ export async function borderImage(
       ctx.fill();
     }
     ctx.drawImage(image, borderWidth + padding, borderWidth + padding);
-    const blob = await encodeCanvas(canvas, mime === "image/jpeg" ? mime : "image/png", 0.92);
+    const blob = await encodeCanvas(
+      canvas,
+      mime === "image/jpeg" ? mime : "image/png",
+      0.92,
+    );
     return finalize(
       blob,
       config,
@@ -506,7 +564,11 @@ export async function changeQuality(
   config: ImageEditorConfig,
   options: EditorProcessOptions,
 ): Promise<EditorProcessResult> {
-  return compressImage(source, { ...config, filenameSuffix: "quality" }, options);
+  return compressImage(
+    source,
+    { ...config, filenameSuffix: "quality" },
+    options,
+  );
 }
 
 export async function removeExif(
@@ -514,10 +576,17 @@ export async function removeExif(
   config: ImageEditorConfig,
 ): Promise<EditorProcessResult> {
   const mime = mimeFromFile(source.file, "image/jpeg");
-  const { canvas, objectUrl, width, height } = await imageFileToCanvas(source.file);
+  const { canvas, objectUrl, width, height } = await imageFileToCanvas(
+    source.file,
+  );
   try {
     // Re-encoding through canvas drops EXIF and most embedded metadata.
-    const outMime: OutputMime = mime === "image/png" ? "image/png" : mime === "image/webp" ? "image/webp" : "image/jpeg";
+    const outMime: OutputMime =
+      mime === "image/png"
+        ? "image/png"
+        : mime === "image/webp"
+          ? "image/webp"
+          : "image/jpeg";
     const blob = await encodeCanvas(
       canvas,
       outMime,
@@ -543,14 +612,17 @@ export async function changeDpi(
 ): Promise<EditorProcessResult> {
   const dpi = Math.max(1, Math.min(1200, Math.round(options.dpi ?? 300)));
   const mime = mimeFromFile(source.file, "image/jpeg");
-  const { canvas, objectUrl, width, height } = await imageFileToCanvas(source.file);
+  const { canvas, objectUrl, width, height } = await imageFileToCanvas(
+    source.file,
+  );
   try {
     if (mime === "image/png") {
       const pngBlob = await encodeCanvas(canvas, "image/png");
       const withDpi = await writePngDpi(pngBlob, dpi);
       return finalize(withDpi, config, source, width, height, "image/png", {
         stats: { DPI: `${dpi}` },
-        notice: "PNG pHYs metadata was updated. Pixel dimensions are unchanged.",
+        notice:
+          "PNG pHYs metadata was updated. Pixel dimensions are unchanged.",
       });
     }
 
@@ -567,7 +639,8 @@ export async function changeDpi(
     const withDpi = await writeJpegDpi(jpegBlob, dpi);
     return finalize(withDpi, config, source, width, height, "image/jpeg", {
       stats: { DPI: `${dpi}` },
-      notice: "JPEG DPI metadata was updated. Pixel dimensions and visual detail are unchanged.",
+      notice:
+        "JPEG DPI metadata was updated. Pixel dimensions and visual detail are unchanged.",
     });
   } finally {
     URL.revokeObjectURL(objectUrl);
@@ -596,7 +669,11 @@ async function writePngDpi(blob: Blob, dpi: number): Promise<Blob> {
   chunkView.setUint32(8 + chunkData.length, crc);
 
   // Insert after IHDR (which starts at byte 8)
-  const ihdrLen = new DataView(buffer.buffer, buffer.byteOffset, buffer.byteLength).getUint32(8);
+  const ihdrLen = new DataView(
+    buffer.buffer,
+    buffer.byteOffset,
+    buffer.byteLength,
+  ).getUint32(8);
   const insertAt = 8 + 4 + 4 + ihdrLen + 4;
   const output = new Uint8Array(buffer.length + chunk.length);
   output.set(buffer.subarray(0, insertAt), 0);
@@ -606,7 +683,8 @@ async function writePngDpi(blob: Blob, dpi: number): Promise<Blob> {
 }
 
 async function writeJpegDpi(blob: Blob, dpi: number): Promise<Blob> {
-  const piexif = (await import("piexifjs")).default ?? (await import("piexifjs"));
+  const piexif =
+    (await import("piexifjs")).default ?? (await import("piexifjs"));
   const dataUrl = await blobToDataUrl(blob);
   const zeroth: Record<string | number, unknown> = {};
   const exifObj = { "0th": zeroth, Exif: {}, GPS: {} };
@@ -640,7 +718,9 @@ function crc32(data: Uint8Array): number {
   return (c ^ 0xffffffff) >>> 0;
 }
 
-export async function readMetadata(source: EditorImageFile): Promise<EditorProcessResult> {
+export async function readMetadata(
+  source: EditorImageFile,
+): Promise<EditorProcessResult> {
   const exifr = (await import("exifr")).default;
   const rows: Array<{ label: string; value: string }> = [
     { label: "File name", value: source.name },
@@ -693,36 +773,133 @@ export async function readMetadata(source: EditorImageFile): Promise<EditorProce
   };
 }
 
+/** Single module load — avoid re-initializing the heavy engine on every render/job. */
+let backgroundRemovalModule: Promise<
+  typeof import("@imgly/background-removal")
+> | null = null;
+
+function loadBackgroundRemoval() {
+  if (!backgroundRemovalModule) {
+    backgroundRemovalModule = import("@imgly/background-removal");
+  }
+  return backgroundRemovalModule;
+}
+
+/**
+ * Preserve original pixel dimensions when the engine returns a different size.
+ * Does not crop or reposition the subject — only matches canvas size.
+ */
+async function matchSourceDimensions(
+  blob: Blob,
+  sourceWidth: number,
+  sourceHeight: number,
+): Promise<{ blob: Blob; width: number; height: number }> {
+  const url = URL.createObjectURL(blob);
+  try {
+    const image = await loadHtmlImage(url);
+    if (
+      image.naturalWidth === sourceWidth &&
+      image.naturalHeight === sourceHeight
+    ) {
+      return { blob, width: sourceWidth, height: sourceHeight };
+    }
+    const canvas = document.createElement("canvas");
+    canvas.width = sourceWidth;
+    canvas.height = sourceHeight;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) throw new Error("We couldn't prepare the result image.");
+    ctx.clearRect(0, 0, sourceWidth, sourceHeight);
+    ctx.drawImage(image, 0, 0, sourceWidth, sourceHeight);
+    const matched = await canvasToBlob(canvas, "image/png");
+    return { blob: matched, width: sourceWidth, height: sourceHeight };
+  } finally {
+    URL.revokeObjectURL(url);
+  }
+}
+
+async function assertPngHasContent(blob: Blob): Promise<void> {
+  if (!blob || blob.size < 32) {
+    throw new Error(
+      "We couldn't remove the background from this image. Please try another image.",
+    );
+  }
+  if (blob.type && blob.type !== "image/png" && !blob.type.includes("png")) {
+    // Still accept opaque type from some engines if the bytes are PNG.
+  }
+  const url = URL.createObjectURL(blob);
+  try {
+    const image = await loadHtmlImage(url);
+    if (image.naturalWidth < 1 || image.naturalHeight < 1) {
+      throw new Error(
+        "We couldn't remove the background from this image. Please try another image.",
+      );
+    }
+  } finally {
+    URL.revokeObjectURL(url);
+  }
+}
+
 export async function removeBackground(
   source: EditorImageFile,
   config: ImageEditorConfig,
+  options: EditorProcessOptions = {},
 ): Promise<EditorProcessResult> {
-  const { removeBackground: removeBackgroundFn } = await import(
-    "@imgly/background-removal"
-  );
+  const { removeBackground: removeBackgroundFn } =
+    await loadBackgroundRemoval();
   try {
+    // Use the full-quality ISNet model (not the small quantized variant) so the
+    // foreground subject is preserved more accurately.
     const blob = await removeBackgroundFn(source.file, {
-      model: "isnet_quint8",
+      model: "isnet",
       device: "cpu",
-      proxyToWorker: false,
-      output: { format: "image/png", quality: 0.9 },
+      // Keep full-resolution output when the library supports it.
+      rescale: false,
+      output: {
+        format: "image/png",
+        quality: 1,
+      },
+      progress: (key: string, current: number, total: number) => {
+        if (!options.onProgress || !Number.isFinite(total) || total <= 0)
+          return;
+        // Only surface real download/asset progress — never invent inference %.
+        if (/download|fetch|load|model|wasm|ort|onnx/i.test(key)) {
+          options.onProgress(current, total, "Removing background…");
+        }
+      },
     });
-    const url = URL.createObjectURL(blob);
-    try {
-      const image = await loadHtmlImage(url);
-      return finalize(blob, config, source, image.naturalWidth, image.naturalHeight, "image/png", {
-        notice:
-          "Background removed in your browser. Results vary by subject contrast and image complexity. The first run may take longer while the on-device model loads.",
-      });
-    } finally {
-      URL.revokeObjectURL(url);
-    }
+
+    await assertPngHasContent(blob);
+    const matched = await matchSourceDimensions(
+      blob,
+      source.width,
+      source.height,
+    );
+    await assertPngHasContent(matched.blob);
+
+    return finalize(
+      matched.blob,
+      config,
+      source,
+      matched.width,
+      matched.height,
+      "image/png",
+      {
+        stats: {
+          Width: `${matched.width}px`,
+          Height: `${matched.height}px`,
+          Size: formatBytes(matched.blob.size),
+        },
+      },
+    );
   } catch (error) {
-    const detail = error instanceof Error ? error.message : "";
+    if (
+      error instanceof Error &&
+      /couldn't remove the background/i.test(error.message)
+    ) {
+      throw error;
+    }
     throw new Error(
-      detail && /webgpu|wasm|fetch|network|onnx|model/i.test(detail)
-        ? "We couldn't remove the background in this browser session. Please try another image, check your connection, or use a supported device."
-        : "We couldn't remove the background in this browser session. Please try another image or a supported device.",
+      "We couldn't remove the background from this image. Please try another image.",
     );
   }
 }
@@ -763,7 +940,7 @@ export async function processEditorImage(
     case "metadata-viewer":
       return readMetadata(source);
     case "background-remover":
-      return removeBackground(source, config);
+      return removeBackground(source, config, options);
     case "color-picker":
       throw new Error("Color picker does not require processing.");
     default:

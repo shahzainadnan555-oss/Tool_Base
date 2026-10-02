@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { ExamplesBlock } from "@/components/ui/ExamplesBlock";
 import { FAQ } from "@/components/ui/FAQ";
-import { FilePrivacyNotice } from "@/components/ui/FilePrivacyNotice";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { RelatedTools } from "@/components/tools/RelatedTools";
 import { ReportTool } from "@/components/feedback/ReportTool";
@@ -50,9 +49,6 @@ export function ToolPageShell({ tool, workspace }: ToolPageShellProps) {
             </p>
           </div>
         )}
-        <div className="mt-6">
-          <FilePrivacyNotice processingMode={tool.processingMode} />
-        </div>
       </section>
 
       <div className="mt-14 space-y-14">

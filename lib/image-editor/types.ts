@@ -79,6 +79,8 @@ export interface EditorProcessOptions {
   borderColor?: string;
   padding?: number;
   backgroundColor?: string;
+  /** Real progress callback when the engine reports measurable units. */
+  onProgress?: (completed: number, total: number, label: string) => void;
 }
 
 export const DEFAULT_EDITOR_MAX_BYTES = 40 * 1024 * 1024;

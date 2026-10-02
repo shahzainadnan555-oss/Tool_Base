@@ -41,9 +41,11 @@ export const imageEditorTools: ToolDefinition[] = [
       "image-metadata-viewer",
     ],
     seoTitle: "Image Compressor — Free Online | ToolMyra",
-    seoDescription: "Compress images online with ToolMyra. Reduce image file size while balancing image quality, then download the optimized result instantly.",
+    seoDescription:
+      "Compress images online with ToolMyra. Reduce image file size while balancing image quality, then download the optimized result instantly.",
     h1: "Image Compressor",
-    intro: "Compress images online with ToolMyra. Upload a JPG, PNG, or WebP file, adjust compression quality, compare file sizes, and download the optimized result — no account required.",
+    intro:
+      "Compress images online with ToolMyra. Upload a JPG, PNG, or WebP file, adjust compression quality, compare file sizes, and download the optimized result — no account required.",
     convertHeading: "Compress Images Online",
     howToHeading: "How to Compress an Image",
     featuresHeading: "Image Compressor Features",
@@ -55,7 +57,7 @@ export const imageEditorTools: ToolDefinition[] = [
       "Compress JPG, PNG, and WebP images",
       "Shows original vs compressed size",
       "Quality control where applicable",
-      "Browser-based processing",
+      "No account required",
       "No account required",
     ],
     howToSteps: [
@@ -75,7 +77,8 @@ export const imageEditorTools: ToolDefinition[] = [
     faq: [
       {
         question: "Does compression reduce quality?",
-        answer: "Lossy compression can reduce quality. ToolMyra shows actual file sizes so you can choose a balance that works for your use case.",
+        answer:
+          "Lossy compression can reduce quality. ToolMyra shows actual file sizes so you can choose a balance that works for your use case.",
       },
       {
         question: "Which formats are supported?",
@@ -83,7 +86,7 @@ export const imageEditorTools: ToolDefinition[] = [
       },
       {
         question: "Is processing local?",
-        answer: "Yes. Compression runs in your browser for this tool.",
+        answer: "Yes. Compression runs for this tool.",
       },
     ],
     inputFormats: ["JPG", "JPEG", "PNG", "WebP"],
@@ -115,9 +118,11 @@ export const imageEditorTools: ToolDefinition[] = [
       "jpg-to-webp",
     ],
     seoTitle: "JPG Compressor — Free Online | ToolMyra",
-    seoDescription: "Compress JPG and JPEG images online with ToolMyra. Reduce JPEG file size with quality control and download the result instantly.",
+    seoDescription:
+      "Compress JPG and JPEG images online with ToolMyra. Reduce JPEG file size with quality control and download the result instantly.",
     h1: "JPG Compressor",
-    intro: "Compress JPG and JPEG photos online with ToolMyra. Adjust quality, compare the original and compressed sizes, and download a valid JPG file.",
+    intro:
+      "Compress JPG and JPEG photos online with ToolMyra. Adjust quality, compare the original and compressed sizes, and download a valid JPG file.",
     convertHeading: "Compress JPG Images Online",
     howToHeading: "How to Compress a JPG",
     featuresHeading: "JPG Compressor Features",
@@ -157,7 +162,8 @@ export const imageEditorTools: ToolDefinition[] = [
       },
       {
         question: "Are savings guaranteed?",
-        answer: "Savings depend on the source image and quality setting. ToolMyra only shows measured sizes.",
+        answer:
+          "Savings depend on the source image and quality setting. ToolMyra only shows measured sizes.",
       },
     ],
     inputFormats: ["JPG", "JPEG", "PNG", "WebP"],
@@ -168,8 +174,10 @@ export const imageEditorTools: ToolDefinition[] = [
     name: "PNG Compressor",
     slug: "png-compressor",
     category: "image-tools",
-    description: "Compress PNG images while preserving transparency when possible.",
-    shortDescription: "Compress PNG images while preserving transparency when possible.",
+    description:
+      "Compress PNG images while preserving transparency when possible.",
+    shortDescription:
+      "Compress PNG images while preserving transparency when possible.",
     icon: "compress",
     keywords: [
       "png compressor",
@@ -188,9 +196,11 @@ export const imageEditorTools: ToolDefinition[] = [
       "png-to-webp",
     ],
     seoTitle: "PNG Compressor — Free Online | ToolMyra",
-    seoDescription: "Compress PNG images online with ToolMyra. Reduce PNG file size while preserving transparency when possible.",
+    seoDescription:
+      "Compress PNG images online with ToolMyra. Reduce PNG file size while preserving transparency when possible.",
     h1: "PNG Compressor",
-    intro: "Compress PNG images online with ToolMyra. Transparency is preserved when possible. Compare file sizes and download the compressed PNG.",
+    intro:
+      "Compress PNG images online with ToolMyra. Transparency is preserved when possible. Compare file sizes and download the compressed PNG.",
     convertHeading: "Compress PNG Images Online",
     howToHeading: "How to Compress a PNG",
     featuresHeading: "PNG Compressor Features",
@@ -202,7 +212,7 @@ export const imageEditorTools: ToolDefinition[] = [
       "PNG-focused compression",
       "Transparency preserved when possible",
       "Actual before/after sizes",
-      "Browser-based workflow",
+      "Straightforward workflow",
       "Clear notices when size cannot shrink further",
     ],
     howToSteps: [
@@ -226,11 +236,13 @@ export const imageEditorTools: ToolDefinition[] = [
       },
       {
         question: "Why didn’t my PNG get smaller?",
-        answer: "Some PNGs are already optimized. The tool reports real sizes and will not invent savings.",
+        answer:
+          "Some PNGs are already optimized. The tool reports real sizes and will not invent savings.",
       },
       {
         question: "Is this lossless?",
-        answer: "PNG re-encoding preserves visual pixels, but size reduction depends on content and optional scaling at lower quality settings.",
+        answer:
+          "PNG re-encoding preserves visual pixels, but size reduction depends on content and optional scaling at lower quality settings.",
       },
     ],
     inputFormats: ["JPG", "JPEG", "PNG", "WebP"],
@@ -261,9 +273,11 @@ export const imageEditorTools: ToolDefinition[] = [
       "webp-to-png",
     ],
     seoTitle: "WebP Compressor — Free Online | ToolMyra",
-    seoDescription: "Compress WebP images online with ToolMyra. Reduce WebP file size with quality controls and download instantly.",
+    seoDescription:
+      "Compress WebP images online with ToolMyra. Reduce WebP file size with quality controls and download instantly.",
     h1: "WebP Compressor",
-    intro: "Compress WebP images online with ToolMyra. Adjust quality, review actual size reduction, and download a valid WebP file.",
+    intro:
+      "Compress WebP images online with ToolMyra. Adjust quality, review actual size reduction, and download a valid WebP file.",
     convertHeading: "Compress WebP Images Online",
     howToHeading: "How to Compress a WebP",
     featuresHeading: "WebP Compressor Features",
@@ -295,7 +309,8 @@ export const imageEditorTools: ToolDefinition[] = [
     faq: [
       {
         question: "Is WebP compression lossy?",
-        answer: "Yes, quality-based WebP encoding is lossy. Lower quality usually means a smaller file.",
+        answer:
+          "Yes, quality-based WebP encoding is lossy. Lower quality usually means a smaller file.",
       },
       {
         question: "Can I compress animated WebP?",
@@ -314,8 +329,10 @@ export const imageEditorTools: ToolDefinition[] = [
     name: "Image Resizer",
     slug: "image-resizer",
     category: "image-tools",
-    description: "Resize images to custom dimensions while controlling aspect ratio.",
-    shortDescription: "Resize images to custom dimensions while controlling aspect ratio.",
+    description:
+      "Resize images to custom dimensions while controlling aspect ratio.",
+    shortDescription:
+      "Resize images to custom dimensions while controlling aspect ratio.",
     icon: "resize",
     keywords: [
       "image resizer",
@@ -335,9 +352,11 @@ export const imageEditorTools: ToolDefinition[] = [
       "jpg-to-png",
     ],
     seoTitle: "Image Resizer — Free Online | ToolMyra",
-    seoDescription: "Resize images online with ToolMyra. Change image dimensions with aspect-ratio control and download the result instantly.",
+    seoDescription:
+      "Resize images online with ToolMyra. Change image dimensions with aspect-ratio control and download the result instantly.",
     h1: "Image Resizer",
-    intro: "Resize images online with ToolMyra. Set width and height, keep aspect ratio when needed, preview dimensions, and download the resized image.",
+    intro:
+      "Resize images online with ToolMyra. Set width and height, keep aspect ratio when needed, preview dimensions, and download the resized image.",
     convertHeading: "Resize Images Online",
     howToHeading: "How to Resize an Image",
     featuresHeading: "Image Resizer Features",
@@ -369,11 +388,13 @@ export const imageEditorTools: ToolDefinition[] = [
     faq: [
       {
         question: "What does maintain aspect ratio do?",
-        answer: "When enabled, changing one dimension automatically updates the other to keep proportions.",
+        answer:
+          "When enabled, changing one dimension automatically updates the other to keep proportions.",
       },
       {
         question: "Will resizing reduce quality?",
-        answer: "Enlarging can look softer. Shrinking usually looks cleaner. ToolMyra does not invent detail.",
+        answer:
+          "Enlarging can look softer. Shrinking usually looks cleaner. ToolMyra does not invent detail.",
       },
       {
         question: "Which formats can I resize?",
@@ -408,9 +429,11 @@ export const imageEditorTools: ToolDefinition[] = [
       "image-compressor",
     ],
     seoTitle: "Image Cropper — Free Online | ToolMyra",
-    seoDescription: "Crop images online with ToolMyra. Select the exact area or ratio you need and download the cropped result.",
+    seoDescription:
+      "Crop images online with ToolMyra. Select the exact area or ratio you need and download the cropped result.",
     h1: "Image Cropper",
-    intro: "Crop images online with ToolMyra. Drag and resize the crop area, choose common aspect ratios, preview the result, and download the cropped image.",
+    intro:
+      "Crop images online with ToolMyra. Drag and resize the crop area, choose common aspect ratios, preview the result, and download the cropped image.",
     convertHeading: "Crop Images Online",
     howToHeading: "How to Crop an Image",
     featuresHeading: "Image Cropper Features",
@@ -446,11 +469,13 @@ export const imageEditorTools: ToolDefinition[] = [
       },
       {
         question: "Does cropping change file format?",
-        answer: "Output stays a common raster format based on your source image.",
+        answer:
+          "Output stays a common raster format based on your source image.",
       },
       {
         question: "Does it work on phones?",
-        answer: "Yes. The crop controls are designed to remain usable on mobile.",
+        answer:
+          "Yes. The crop controls are designed to remain usable on mobile.",
       },
     ],
     inputFormats: ["JPG", "JPEG", "PNG", "WebP"],
@@ -481,9 +506,11 @@ export const imageEditorTools: ToolDefinition[] = [
       "exif-remover",
     ],
     seoTitle: "Image Rotator — Free Online | ToolMyra",
-    seoDescription: "Rotate images online with ToolMyra. Turn photos 90° or 180° in your browser and download the rotated file.",
+    seoDescription:
+      "Rotate images online with ToolMyra. Turn photos 90° or 180° and download the rotated file.",
     h1: "Image Rotator",
-    intro: "Rotate images online with ToolMyra. Choose 90° clockwise, 90° counterclockwise, or 180°, apply the rotation, and download the result.",
+    intro:
+      "Rotate images online with ToolMyra. Choose 90° clockwise, 90° counterclockwise, or 180°, apply the rotation, and download the result.",
     convertHeading: "Rotate Images Online",
     howToHeading: "How to Rotate an Image",
     featuresHeading: "Image Rotator Features",
@@ -495,7 +522,7 @@ export const imageEditorTools: ToolDefinition[] = [
       "90° clockwise and counterclockwise",
       "180° rotation",
       "Preview-ready workflow",
-      "Browser-based processing",
+      "No account required",
       "No account required",
     ],
     howToSteps: [
@@ -515,15 +542,18 @@ export const imageEditorTools: ToolDefinition[] = [
     faq: [
       {
         question: "Can I rotate freely by any angle?",
-        answer: "This tool focuses on precise 90° and 180° rotations for clean results.",
+        answer:
+          "This tool focuses on precise 90° and 180° rotations for clean results.",
       },
       {
         question: "Will EXIF orientation be updated?",
-        answer: "The visual pixels are rotated. Use EXIF Remover if you also want metadata stripped.",
+        answer:
+          "The visual pixels are rotated. Use EXIF Remover if you also want metadata stripped.",
       },
       {
         question: "Is quality preserved?",
-        answer: "Rotation re-encodes the image carefully; minor encoding differences can occur with lossy formats.",
+        answer:
+          "Rotation re-encodes the image carefully; minor encoding differences can occur with lossy formats.",
       },
     ],
     inputFormats: ["JPG", "JPEG", "PNG", "WebP"],
@@ -555,9 +585,11 @@ export const imageEditorTools: ToolDefinition[] = [
       "image-compressor",
     ],
     seoTitle: "Image Flipper — Free Online | ToolMyra",
-    seoDescription: "Flip images online with ToolMyra. Mirror photos horizontally or vertically and download the result instantly.",
+    seoDescription:
+      "Flip images online with ToolMyra. Mirror photos horizontally or vertically and download the result instantly.",
     h1: "Image Flipper",
-    intro: "Flip images online with ToolMyra. Mirror a photo horizontally, vertically, or both, then download the flipped result.",
+    intro:
+      "Flip images online with ToolMyra. Mirror a photo horizontally, vertically, or both, then download the flipped result.",
     convertHeading: "Flip Images Online",
     howToHeading: "How to Flip an Image",
     featuresHeading: "Image Flipper Features",
@@ -593,11 +625,12 @@ export const imageEditorTools: ToolDefinition[] = [
       },
       {
         question: "Can I flip both ways?",
-        answer: "Yes. Enable horizontal and vertical together for a 180°-like mirror effect.",
+        answer:
+          "Yes. Enable horizontal and vertical together for a 180°-like mirror effect.",
       },
       {
         question: "Do I need to install software?",
-        answer: "No. Flipping runs in your browser.",
+        answer: "Yes. You can flip and download the result with no account.",
       },
     ],
     inputFormats: ["JPG", "JPEG", "PNG", "WebP"],
@@ -628,9 +661,11 @@ export const imageEditorTools: ToolDefinition[] = [
       "image-quality-changer",
     ],
     seoTitle: "Image Metadata Viewer — Free Online | ToolMyra",
-    seoDescription: "View image metadata online with ToolMyra. Inspect file details and available EXIF information without uploading to an account.",
+    seoDescription:
+      "View image metadata online with ToolMyra. Inspect file details and available EXIF information without uploading to an account.",
     h1: "Image Metadata Viewer",
-    intro: "Upload an image to view available metadata with ToolMyra. File details and EXIF fields are shown only when they actually exist in the file.",
+    intro:
+      "Upload an image to view available metadata with ToolMyra. File details and EXIF fields are shown only when they actually exist in the file.",
     convertHeading: "View Image Metadata Online",
     howToHeading: "How to View Image Metadata",
     featuresHeading: "Image Metadata Viewer Features",
@@ -701,9 +736,11 @@ export const imageEditorTools: ToolDefinition[] = [
       "jpg-compressor",
     ],
     seoTitle: "EXIF Remover — Free Online | ToolMyra",
-    seoDescription: "Remove EXIF metadata online with ToolMyra. Strip common camera and location metadata from images before sharing.",
+    seoDescription:
+      "Remove EXIF metadata online with ToolMyra. Strip common camera and location metadata from images before sharing.",
     h1: "EXIF Remover",
-    intro: "Remove common EXIF metadata online with ToolMyra. Re-encode your image to strip typical EXIF fields, then download a clean image file.",
+    intro:
+      "Remove common EXIF metadata online with ToolMyra. Re-encode your image to strip typical EXIF fields, then download a clean image file.",
     convertHeading: "Remove Image Metadata Online",
     howToHeading: "How to Remove EXIF Data",
     featuresHeading: "EXIF Remover Features",
@@ -715,7 +752,7 @@ export const imageEditorTools: ToolDefinition[] = [
       "Removes common EXIF by re-encoding",
       "Keeps visual content",
       "Clear explanation of what is removed",
-      "Browser-based processing",
+      "No account required",
       "Useful before sharing photos",
     ],
     howToSteps: [
@@ -735,15 +772,18 @@ export const imageEditorTools: ToolDefinition[] = [
     faq: [
       {
         question: "Does this remove every possible metadata type?",
-        answer: "It removes common EXIF by re-encoding. Some uncommon embedded chunks may remain depending on format.",
+        answer:
+          "It removes common EXIF by re-encoding. Some uncommon embedded chunks may remain depending on format.",
       },
       {
         question: "Will the photo look the same?",
-        answer: "Visual content is preserved. Lossy formats may have minor encoding differences.",
+        answer:
+          "Visual content is preserved. Lossy formats may have minor encoding differences.",
       },
       {
         question: "Why remove EXIF?",
-        answer: "EXIF can include camera model, timestamps, and sometimes location data.",
+        answer:
+          "EXIF can include camera model, timestamps, and sometimes location data.",
       },
     ],
     inputFormats: ["JPG", "JPEG", "PNG", "WebP"],
@@ -754,8 +794,10 @@ export const imageEditorTools: ToolDefinition[] = [
     name: "Image DPI Changer",
     slug: "image-dpi-changer",
     category: "image-tools",
-    description: "Update DPI/PPI metadata for print workflows without inventing detail.",
-    shortDescription: "Update DPI/PPI metadata for print workflows without inventing detail.",
+    description:
+      "Update DPI/PPI metadata for print workflows without inventing detail.",
+    shortDescription:
+      "Update DPI/PPI metadata for print workflows without inventing detail.",
     icon: "image",
     keywords: [
       "image dpi changer",
@@ -774,9 +816,11 @@ export const imageEditorTools: ToolDefinition[] = [
       "image-quality-changer",
     ],
     seoTitle: "Image DPI Changer — Free Online | ToolMyra",
-    seoDescription: "Change image DPI online with ToolMyra. Update DPI/PPI metadata for print workflows without claiming false quality gains.",
+    seoDescription:
+      "Change image DPI online with ToolMyra. Update DPI/PPI metadata for print workflows without claiming false quality gains.",
     h1: "Image DPI Changer",
-    intro: "Change image DPI/PPI metadata online with ToolMyra. Pixel dimensions stay the same — DPI affects print and display interpretation, not sharpness.",
+    intro:
+      "Change image DPI/PPI metadata online with ToolMyra. Pixel dimensions stay the same — DPI affects print and display interpretation, not sharpness.",
     convertHeading: "Change Image DPI Online",
     howToHeading: "How to Change Image DPI",
     featuresHeading: "Image DPI Changer Features",
@@ -789,7 +833,7 @@ export const imageEditorTools: ToolDefinition[] = [
       "Does not invent new detail",
       "Clear educational notice",
       "Supports common raster formats",
-      "Browser-based workflow",
+      "Straightforward workflow",
     ],
     howToSteps: [
       {
@@ -808,11 +852,13 @@ export const imageEditorTools: ToolDefinition[] = [
     faq: [
       {
         question: "Does changing DPI improve quality?",
-        answer: "No. DPI metadata does not create new pixels or sharpen an image.",
+        answer:
+          "No. DPI metadata does not create new pixels or sharpen an image.",
       },
       {
         question: "When is DPI useful?",
-        answer: "Print layouts and some design tools use DPI/PPI to interpret physical size.",
+        answer:
+          "Print layouts and some design tools use DPI/PPI to interpret physical size.",
       },
       {
         question: "Do pixel dimensions change?",
@@ -847,9 +893,11 @@ export const imageEditorTools: ToolDefinition[] = [
       "png-compressor",
     ],
     seoTitle: "Image Quality Changer — Free Online | ToolMyra",
-    seoDescription: "Change image quality online with ToolMyra. Adjust JPG/WebP encoding quality and download the result instantly.",
+    seoDescription:
+      "Change image quality online with ToolMyra. Adjust JPG/WebP encoding quality and download the result instantly.",
     h1: "Image Quality Changer",
-    intro: "Change image encoding quality online with ToolMyra. Use the quality slider to balance file size and visual fidelity, then download the re-encoded image.",
+    intro:
+      "Change image encoding quality online with ToolMyra. Use the quality slider to balance file size and visual fidelity, then download the re-encoded image.",
     convertHeading: "Change Image Quality Online",
     howToHeading: "How to Change Image Quality",
     featuresHeading: "Image Quality Changer Features",
@@ -881,7 +929,8 @@ export const imageEditorTools: ToolDefinition[] = [
     faq: [
       {
         question: "Is higher quality always better?",
-        answer: "Higher quality usually looks better and creates larger files. Choose based on your needs.",
+        answer:
+          "Higher quality usually looks better and creates larger files. Choose based on your needs.",
       },
       {
         question: "Can quality improve a blurry photo?",
@@ -889,7 +938,8 @@ export const imageEditorTools: ToolDefinition[] = [
       },
       {
         question: "Does PNG use the quality slider?",
-        answer: "PNG keeps alpha and may optionally reduce dimensions at lower settings to help size.",
+        answer:
+          "PNG keeps alpha and may optionally reduce dimensions at lower settings to help size.",
       },
     ],
     inputFormats: ["JPG", "JPEG", "PNG", "WebP"],
@@ -920,9 +970,11 @@ export const imageEditorTools: ToolDefinition[] = [
       "image-pixelator",
     ],
     seoTitle: "Image Sharpener — Free Online | ToolMyra",
-    seoDescription: "Sharpen images online with ToolMyra. Apply a controlled sharpening effect in your browser and download the result.",
+    seoDescription:
+      "Sharpen images online with ToolMyra. Apply a controlled sharpening effect and download the result.",
     h1: "Image Sharpener",
-    intro: "Sharpen images online with ToolMyra. Adjust sharpness with a simple control, preview the processed result, and download the sharpened image.",
+    intro:
+      "Sharpen images online with ToolMyra. Adjust sharpness with a simple control, preview the processed result, and download the sharpened image.",
     convertHeading: "Sharpen Images Online",
     howToHeading: "How to Sharpen an Image",
     featuresHeading: "Image Sharpener Features",
@@ -934,7 +986,7 @@ export const imageEditorTools: ToolDefinition[] = [
       "Simple sharpness control",
       "Conservative default strength",
       "Real convolution-based sharpening",
-      "Browser-based processing",
+      "No account required",
       "No account required",
     ],
     howToSteps: [
@@ -954,7 +1006,8 @@ export const imageEditorTools: ToolDefinition[] = [
     faq: [
       {
         question: "Can sharpening fix a very blurry photo?",
-        answer: "Sharpening can improve edge clarity, but it cannot recover detail that was never captured.",
+        answer:
+          "Sharpening can improve edge clarity, but it cannot recover detail that was never captured.",
       },
       {
         question: "Why avoid max sharpening by default?",
@@ -993,9 +1046,11 @@ export const imageEditorTools: ToolDefinition[] = [
       "background-remover",
     ],
     seoTitle: "Image Blur Tool — Free Online | ToolMyra",
-    seoDescription: "Blur images online with ToolMyra. Adjust blur strength and download the processed image instantly.",
+    seoDescription:
+      "Blur images online with ToolMyra. Adjust blur strength and download the processed image instantly.",
     h1: "Image Blur Tool",
-    intro: "Blur images online with ToolMyra. Control blur amount, process the image in your browser, and download the blurred result.",
+    intro:
+      "Blur images online with ToolMyra. Control blur amount, process the image, and download the blurred result.",
     convertHeading: "Blur Images Online",
     howToHeading: "How to Blur an Image",
     featuresHeading: "Image Blur Tool Features",
@@ -1027,11 +1082,13 @@ export const imageEditorTools: ToolDefinition[] = [
     faq: [
       {
         question: "What is blur useful for?",
-        answer: "Softening backgrounds, reducing distraction, or lightly anonymizing details.",
+        answer:
+          "Softening backgrounds, reducing distraction, or lightly anonymizing details.",
       },
       {
         question: "Is the blur live?",
-        answer: "Controls are instant to set; the final file is generated when you apply blur.",
+        answer:
+          "Controls are instant to set; the final file is generated when you apply blur.",
       },
       {
         question: "Can I undo?",
@@ -1066,9 +1123,11 @@ export const imageEditorTools: ToolDefinition[] = [
       "background-remover",
     ],
     seoTitle: "Image Pixelator — Free Online | ToolMyra",
-    seoDescription: "Pixelate images online with ToolMyra. Adjust pixel size and download a mosaic-style result instantly.",
+    seoDescription:
+      "Pixelate images online with ToolMyra. Adjust pixel size and download a mosaic-style result instantly.",
     h1: "Image Pixelator",
-    intro: "Pixelate images online with ToolMyra. Choose a pixel block size, preview the effect after processing, and download the pixelated image.",
+    intro:
+      "Pixelate images online with ToolMyra. Choose a pixel block size, preview the effect after processing, and download the pixelated image.",
     convertHeading: "Pixelate Images Online",
     howToHeading: "How to Pixelate an Image",
     featuresHeading: "Image Pixelator Features",
@@ -1080,7 +1139,7 @@ export const imageEditorTools: ToolDefinition[] = [
       "Adjustable pixel size",
       "Moderate default block size",
       "Real pixelation processing",
-      "Browser-based workflow",
+      "Straightforward workflow",
       "No account required",
     ],
     howToSteps: [
@@ -1100,11 +1159,13 @@ export const imageEditorTools: ToolDefinition[] = [
     faq: [
       {
         question: "Is pixelation reversible from the output?",
-        answer: "Once downloaded, fine detail is intentionally lost in the pixelated regions.",
+        answer:
+          "Once downloaded, fine detail is intentionally lost in the pixelated regions.",
       },
       {
         question: "What pixel size should I use?",
-        answer: "Larger blocks create a stronger mosaic. Start moderate and increase as needed.",
+        answer:
+          "Larger blocks create a stronger mosaic. Start moderate and increase as needed.",
       },
       {
         question: "Does it work on mobile?",
@@ -1120,7 +1181,8 @@ export const imageEditorTools: ToolDefinition[] = [
     slug: "rounded-image-generator",
     category: "image-tools",
     description: "Generate images with rounded corners and transparent edges.",
-    shortDescription: "Generate images with rounded corners and transparent edges.",
+    shortDescription:
+      "Generate images with rounded corners and transparent edges.",
     icon: "image-convert",
     keywords: [
       "rounded image generator",
@@ -1138,9 +1200,11 @@ export const imageEditorTools: ToolDefinition[] = [
       "image-resizer",
     ],
     seoTitle: "Rounded Image Generator — Free Online | ToolMyra",
-    seoDescription: "Create rounded images online with ToolMyra. Add rounded corners and download a transparent PNG where supported.",
+    seoDescription:
+      "Create rounded images online with ToolMyra. Add rounded corners and download a transparent PNG where supported.",
     h1: "Rounded Image Generator",
-    intro: "Create rounded-corner images online with ToolMyra. Adjust corner radius and download a PNG so transparent corners are preserved.",
+    intro:
+      "Create rounded-corner images online with ToolMyra. Adjust corner radius and download a PNG so transparent corners are preserved.",
     convertHeading: "Create Rounded Images Online",
     howToHeading: "How to Create a Rounded Image",
     featuresHeading: "Rounded Image Generator Features",
@@ -1152,7 +1216,7 @@ export const imageEditorTools: ToolDefinition[] = [
       "Corner radius control",
       "Transparent corners via PNG",
       "Simple preview workflow",
-      "Browser-based generation",
+      "Fast generation",
       "No account required",
     ],
     howToSteps: [
@@ -1172,7 +1236,8 @@ export const imageEditorTools: ToolDefinition[] = [
     faq: [
       {
         question: "Why PNG output?",
-        answer: "PNG preserves transparent corners outside the rounded rectangle.",
+        answer:
+          "PNG preserves transparent corners outside the rounded rectangle.",
       },
       {
         question: "Can I make a full circle?",
@@ -1180,7 +1245,8 @@ export const imageEditorTools: ToolDefinition[] = [
       },
       {
         question: "Does this crop content?",
-        answer: "It masks corners; content under the rounded rectangle remains.",
+        answer:
+          "It masks corners; content under the rounded rectangle remains.",
       },
     ],
     inputFormats: ["JPG", "JPEG", "PNG", "WebP"],
@@ -1192,7 +1258,8 @@ export const imageEditorTools: ToolDefinition[] = [
     slug: "circular-image-cropper",
     category: "image-tools",
     description: "Crop images into a circular cutout with transparent corners.",
-    shortDescription: "Crop images into a circular cutout with transparent corners.",
+    shortDescription:
+      "Crop images into a circular cutout with transparent corners.",
     icon: "image-convert",
     keywords: [
       "circular image cropper",
@@ -1210,9 +1277,11 @@ export const imageEditorTools: ToolDefinition[] = [
       "background-remover",
     ],
     seoTitle: "Circular Image Cropper — Free Online | ToolMyra",
-    seoDescription: "Create circular images online with ToolMyra. Crop to a circle and download a PNG with transparent corners.",
+    seoDescription:
+      "Create circular images online with ToolMyra. Crop to a circle and download a PNG with transparent corners.",
     h1: "Circular Image Cropper",
-    intro: "Create circular images online with ToolMyra. Position the circular crop, generate a true circular mask, and download a transparent PNG.",
+    intro:
+      "Create circular images online with ToolMyra. Position the circular crop, generate a true circular mask, and download a transparent PNG.",
     convertHeading: "Create Circular Images Online",
     howToHeading: "How to Create a Circular Image",
     featuresHeading: "Circular Image Cropper Features",
@@ -1264,7 +1333,8 @@ export const imageEditorTools: ToolDefinition[] = [
     slug: "image-border-generator",
     category: "image-tools",
     description: "Add custom borders, padding, and optional corner radius.",
-    shortDescription: "Add custom borders, padding, and optional corner radius.",
+    shortDescription:
+      "Add custom borders, padding, and optional corner radius.",
     icon: "image",
     keywords: [
       "image border generator",
@@ -1283,9 +1353,11 @@ export const imageEditorTools: ToolDefinition[] = [
       "image-compressor",
     ],
     seoTitle: "Image Border Generator — Free Online | ToolMyra",
-    seoDescription: "Add image borders online with ToolMyra. Customize border width, color, and padding, then download the result.",
+    seoDescription:
+      "Add image borders online with ToolMyra. Customize border width, color, and padding, then download the result.",
     h1: "Image Border Generator",
-    intro: "Add borders to images online with ToolMyra. Choose border width, color, padding, and corner radius, then download the framed result.",
+    intro:
+      "Add borders to images online with ToolMyra. Choose border width, color, padding, and corner radius, then download the framed result.",
     convertHeading: "Add Image Borders Online",
     howToHeading: "How to Add an Image Border",
     featuresHeading: "Image Border Generator Features",
@@ -1298,7 +1370,7 @@ export const imageEditorTools: ToolDefinition[] = [
       "Optional padding",
       "Optional corner radius",
       "Live control inputs",
-      "Browser-based generation",
+      "Fast generation",
     ],
     howToSteps: [
       {
@@ -1325,7 +1397,8 @@ export const imageEditorTools: ToolDefinition[] = [
       },
       {
         question: "Will transparency be kept?",
-        answer: "PNG output is used when transparency matters for rounded borders.",
+        answer:
+          "PNG output is used when transparency matters for rounded borders.",
       },
     ],
     inputFormats: ["JPG", "JPEG", "PNG", "WebP"],
@@ -1336,8 +1409,10 @@ export const imageEditorTools: ToolDefinition[] = [
     name: "Background Remover",
     slug: "background-remover",
     category: "image-tools",
-    description: "Remove image backgrounds and download a transparent PNG where supported.",
-    shortDescription: "Remove image backgrounds and download a transparent PNG where supported.",
+    description:
+      "Remove image backgrounds and download a transparent PNG where supported.",
+    shortDescription:
+      "Remove image backgrounds and download a transparent PNG where supported.",
     icon: "image",
     keywords: [
       "background remover",
@@ -1356,10 +1431,12 @@ export const imageEditorTools: ToolDefinition[] = [
       "image-resizer",
     ],
     seoTitle: "Background Remover — Free Online | ToolMyra",
-    seoDescription: "Remove image backgrounds online with ToolMyra. Run browser-based background removal and download a transparent PNG.",
+    seoDescription:
+      "Remove image backgrounds online with ToolMyra and download a transparent PNG that keeps the foreground subject intact.",
     h1: "Background Remover",
-    intro: "Remove image backgrounds online with ToolMyra. Processing runs in your browser with an on-device model. Download the result as a transparent PNG.",
-    convertHeading: "Remove Image Backgrounds Online",
+    intro:
+      "Remove the background from your image and download a transparent PNG. The foreground subject is preserved while the background becomes transparent.",
+    convertHeading: "Remove Image Background",
     howToHeading: "How to Remove an Image Background",
     featuresHeading: "Background Remover Features",
     supportedFormatsHeading: "Supported Image Formats",
@@ -1367,10 +1444,10 @@ export const imageEditorTools: ToolDefinition[] = [
     hideReport: true,
     processingMode: "browser",
     features: [
-      "Real on-device background removal",
+      "Removes background only",
+      "Preserves the foreground subject",
       "Transparent PNG download",
       "Original and result preview",
-      "Clear accuracy limitations",
       "No account required",
     ],
     howToSteps: [
@@ -1380,7 +1457,7 @@ export const imageEditorTools: ToolDefinition[] = [
       },
       {
         title: "Remove Background",
-        description: "Run on-device background removal.",
+        description: "Start removal and wait for the result.",
       },
       {
         title: "Download the Transparent PNG",
@@ -1389,16 +1466,19 @@ export const imageEditorTools: ToolDefinition[] = [
     ],
     faq: [
       {
-        question: "Is this fake AI?",
-        answer: "No. ToolMyra uses a real browser-side model. Accuracy varies by subject and image quality.",
+        question: "Does this remove only the background?",
+        answer:
+          "Yes. The tool is designed to make the background transparent while keeping the foreground subject as intact as possible. Results can still vary with complex scenes, thin edges, or low contrast.",
       },
       {
         question: "Why PNG?",
-        answer: "PNG preserves the transparent background.",
+        answer:
+          "PNG supports transparency. JPEG cannot store transparent pixels, so JPG uploads are exported as PNG.",
       },
       {
-        question: "What if my browser cannot run the model?",
-        answer: "You will see a clear error instead of a fake success state.",
+        question: "What if removal fails?",
+        answer:
+          "You will see a clear error and can try another image. The tool does not show a fake success state.",
       },
     ],
     inputFormats: ["JPG", "JPEG", "PNG", "WebP"],
@@ -1409,8 +1489,10 @@ export const imageEditorTools: ToolDefinition[] = [
     name: "Image Color Picker",
     slug: "image-color-picker",
     category: "image-tools",
-    description: "Sample colors from an image and copy HEX, RGB, or HSL values.",
-    shortDescription: "Sample colors from an image and copy HEX, RGB, or HSL values.",
+    description:
+      "Sample colors from an image and copy HEX, RGB, or HSL values.",
+    shortDescription:
+      "Sample colors from an image and copy HEX, RGB, or HSL values.",
     icon: "image",
     keywords: [
       "image color picker",
@@ -1429,9 +1511,11 @@ export const imageEditorTools: ToolDefinition[] = [
       "rounded-image-generator",
     ],
     seoTitle: "Image Color Picker — Free Online | ToolMyra",
-    seoDescription: "Pick colors from an image online with ToolMyra. Sample HEX, RGB, and HSL values and copy them instantly.",
+    seoDescription:
+      "Pick colors from an image online with ToolMyra. Sample HEX, RGB, and HSL values and copy them instantly.",
     h1: "Image Color Picker",
-    intro: "Pick colors from an image online with ToolMyra. Click or tap a pixel to sample HEX, RGB, and HSL values, then copy them to your clipboard.",
+    intro:
+      "Pick colors from an image online with ToolMyra. Click or tap a pixel to sample HEX, RGB, and HSL values, then copy them to your clipboard.",
     convertHeading: "Pick Colors From Images Online",
     howToHeading: "How to Pick a Color From an Image",
     featuresHeading: "Image Color Picker Features",
@@ -1463,7 +1547,8 @@ export const imageEditorTools: ToolDefinition[] = [
     faq: [
       {
         question: "Do the copy buttons really work?",
-        answer: "Yes. They use the browser clipboard API and show a Copied confirmation.",
+        answer:
+          "Yes. They use the browser clipboard API and show a Copied confirmation.",
       },
       {
         question: "Can I use this on mobile?",
@@ -1478,4 +1563,3 @@ export const imageEditorTools: ToolDefinition[] = [
     outputFormats: ["HEX", "RGB", "HSL"],
   }),
 ];
-

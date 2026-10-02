@@ -78,6 +78,11 @@ export function createRootMetadata(): Metadata {
     authors: [{ name: siteConfig.name }],
     creator: siteConfig.name,
     publisher: siteConfig.name,
+    icons: {
+      icon: [{ url: "/icon", type: "image/png", sizes: "64x64" }],
+      apple: [{ url: "/apple-icon", type: "image/png", sizes: "180x180" }],
+      shortcut: [{ url: "/icon", type: "image/png" }],
+    },
     openGraph: {
       type: "website",
       siteName: siteConfig.name,

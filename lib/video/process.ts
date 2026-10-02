@@ -12,6 +12,13 @@ import type {
   VideoToolConfig,
 } from "./types";
 import {
+  canCopyAudioToMp4,
+  canCopyVideoToMp4,
+  canFullyRemuxToMp4,
+  probeWrittenInput,
+  type MediaStreamProbe,
+} from "./probe";
+import {
   buildVideoOutputName,
   captureFrameAt,
   extensionFromName,
@@ -21,6 +28,13 @@ import {
 } from "./utils";
 import { friendlyVideoError } from "./validate";
 
+function bytesToBlobPart(bytes: Uint8Array): BlobPart {
+  return bytes.buffer.slice(
+    bytes.byteOffset,
+    bytes.byteOffset + bytes.byteLength,
+  ) as ArrayBuffer;
+}
+
 function resultFromBytes(
   bytes: Uint8Array,
   config: VideoToolConfig,
@@ -29,7 +43,7 @@ function resultFromBytes(
 ): VideoProcessResult {
   const ext = config.outputExtension || "mp4";
   const mime = config.outputMime || "video/mp4";
-  const blob = new Blob([Uint8Array.from(bytes)], { type: mime });
+  const blob = new Blob([bytesToBlobPart(bytes)], { type: mime });
   const previewUrl =
     mime.startsWith("video/") || mime.startsWith("audio/") || mime === "image/gif"
       ? URL.createObjectURL(blob)
@@ -53,6 +67,77 @@ function crfForQuality(quality?: number): string {
   return "18";
 }
 
+function looksLikeMp4(bytes: Uint8Array): boolean {
+  if (bytes.byteLength < 12) return false;
+  const brand = String.fromCharCode(
+    bytes[4],
+    bytes[5],
+    bytes[6],
+    bytes[7],
+  );
+  return brand === "ftyp";
+}
+
+function looksLikeWebm(bytes: Uint8Array): boolean {
+  return (
+    bytes.byteLength > 4 &&
+    bytes[0] === 0x1a &&
+    bytes[1] === 0x45 &&
+    bytes[2] === 0xdf &&
+    bytes[3] === 0xa3
+  );
+}
+
+function looksLikeGif(bytes: Uint8Array): boolean {
+  if (bytes.byteLength < 6) return false;
+  const header = String.fromCharCode(...bytes.slice(0, 6));
+  return header === "GIF87a" || header === "GIF89a";
+}
+
+function looksLikeMp3(bytes: Uint8Array): boolean {
+  if (bytes.byteLength < 3) return false;
+  if (bytes[0] === 0x49 && bytes[1] === 0x44 && bytes[2] === 0x33) return true;
+  return bytes[0] === 0xff && (bytes[1] & 0xe0) === 0xe0;
+}
+
+function looksLikeWav(bytes: Uint8Array): boolean {
+  if (bytes.byteLength < 12) return false;
+  const riff = String.fromCharCode(...bytes.slice(0, 4));
+  const wave = String.fromCharCode(...bytes.slice(8, 12));
+  return riff === "RIFF" && wave === "WAVE";
+}
+
+function assertValidOutput(bytes: Uint8Array, format: string): void {
+  if (!bytes.byteLength) {
+    throw new Error("The conversion produced an empty file.");
+  }
+  const ok =
+    format === "mp4" || format === "mov"
+      ? looksLikeMp4(bytes)
+      : format === "webm"
+        ? looksLikeWebm(bytes)
+        : format === "gif"
+          ? looksLikeGif(bytes)
+          : format === "mp3"
+            ? looksLikeMp3(bytes)
+            : format === "wav"
+              ? looksLikeWav(bytes)
+              : true;
+  if (!ok) {
+    throw new Error("The conversion produced an unreadable output file.");
+  }
+}
+
+async function execChecked(
+  ffmpeg: Awaited<ReturnType<typeof getFfmpeg>>,
+  args: string[],
+): Promise<void> {
+  const code = await ffmpeg.exec(args);
+  if (code !== 0) {
+    throw new Error("Video processing failed.");
+  }
+}
+
 async function runFfmpeg(
   sources: VideoSourceFile[],
   config: VideoToolConfig,
@@ -72,9 +157,9 @@ async function runFfmpeg(
   try {
     options.onProgress?.(0.02, "Preparing…");
     await writeInputFile(ffmpeg, source.file, input);
-    await ffmpeg.exec(argsBuilder(input, output));
+    await execChecked(ffmpeg, argsBuilder(input, output));
     const bytes = await readOutputFile(ffmpeg, output);
-    if (!bytes.byteLength) throw new Error("The conversion produced an empty file.");
+    assertValidOutput(bytes, outExt);
     options.onProgress?.(1, "Done");
     return resultFromBytes(bytes, config, sourceName || source.name);
   } finally {
@@ -84,94 +169,279 @@ async function runFfmpeg(
   }
 }
 
+function fullMp4EncodeArgs(
+  input: string,
+  output: string,
+  hasAudio: boolean,
+  preset = "ultrafast",
+): string[] {
+  if (!hasAudio) {
+    return [
+      "-i",
+      input,
+      "-c:v",
+      "libx264",
+      "-preset",
+      preset,
+      "-crf",
+      "23",
+      "-pix_fmt",
+      "yuv420p",
+      "-an",
+      "-movflags",
+      "+faststart",
+      output,
+    ];
+  }
+  return [
+    "-i",
+    input,
+    "-c:v",
+    "libx264",
+    "-preset",
+    preset,
+    "-crf",
+    "23",
+    "-pix_fmt",
+    "yuv420p",
+    "-c:a",
+    "aac",
+    "-b:a",
+    "128k",
+    "-movflags",
+    "+faststart",
+    output,
+  ];
+}
+
+function mp4TranscodeArgs(
+  input: string,
+  output: string,
+  probe: MediaStreamProbe,
+  preset = "ultrafast",
+): string[] {
+  const videoCopy = canCopyVideoToMp4(probe);
+  const audioCopy = canCopyAudioToMp4(probe);
+
+  if (videoCopy && audioCopy) {
+    return ["-i", input, "-c", "copy", "-movflags", "+faststart", output];
+  }
+  if (videoCopy && !audioCopy) {
+    return [
+      "-i",
+      input,
+      "-c:v",
+      "copy",
+      "-c:a",
+      "aac",
+      "-b:a",
+      "128k",
+      "-movflags",
+      "+faststart",
+      output,
+    ];
+  }
+  if (!videoCopy && audioCopy && probe.hasAudio) {
+    return [
+      "-i",
+      input,
+      "-c:v",
+      "libx264",
+      "-preset",
+      preset,
+      "-crf",
+      "23",
+      "-pix_fmt",
+      "yuv420p",
+      "-c:a",
+      "copy",
+      "-movflags",
+      "+faststart",
+      output,
+    ];
+  }
+  return fullMp4EncodeArgs(input, output, probe.hasAudio, preset);
+}
+
 export async function convertVideo(
   sources: VideoSourceFile[],
   config: VideoToolConfig,
   options: VideoProcessOptions = {},
 ): Promise<VideoProcessResult> {
+  const source = sources[0];
+  if (!source) throw new Error("Please upload a video file.");
+
   const format = config.ffmpegFormat || "mp4";
   const start = Math.max(0, options.startSeconds ?? 0);
   const end = options.endSeconds;
   const hasRange = end != null && Number.isFinite(end) && end > start;
 
-  return runFfmpeg(
-    sources,
-    config,
-    (input, output) => {
-      if (format === "mp3") {
-        return ["-i", input, "-vn", "-c:a", "libmp3lame", "-b:a", "192k", output];
-      }
-      if (format === "wav") {
-        return ["-i", input, "-vn", "-acodec", "pcm_s16le", output];
-      }
-      if (format === "gif") {
-        const fps = options.gifFps ?? 10;
-        const width = options.gifWidth ?? 480;
-        const args = ["-i", input];
-        if (hasRange) {
-          args.push("-ss", start.toFixed(3), "-t", (end! - start).toFixed(3));
+  const ffmpeg = await getFfmpeg();
+  const inputExt = extensionFromName(source.name) || "bin";
+  const input = `input.${inputExt}`;
+  const outExt = config.outputExtension || "mp4";
+  const output = `output.${outExt}`;
+  const detach = attachProgress(ffmpeg, options.onProgress, "Converting video…");
+
+  try {
+    options.onProgress?.(0.02, "Preparing…");
+    await writeInputFile(ffmpeg, source.file, input);
+
+    const finish = async () => {
+      const bytes = await readOutputFile(ffmpeg, output);
+      assertValidOutput(bytes, outExt);
+      options.onProgress?.(1, "Done");
+      return resultFromBytes(bytes, config, source.name);
+    };
+
+    if (format === "mp3") {
+      options.onProgress?.(0.08, "Extracting audio…");
+      const probe = await probeWrittenInput(input);
+      if (probe.audioCodec === "mp3") {
+        try {
+          await execChecked(ffmpeg, ["-i", input, "-vn", "-c:a", "copy", output]);
+          return await finish();
+        } catch {
+          await safeDelete(ffmpeg, output);
         }
-        args.push(
-          "-vf",
-          `fps=${fps},scale=${width}:-1:flags=lanczos`,
-          "-loop",
-          "0",
-          output,
-        );
-        return args;
       }
-      if (format === "webm") {
-        return [
+      await execChecked(ffmpeg, [
+        "-i",
+        input,
+        "-vn",
+        "-c:a",
+        "libmp3lame",
+        "-b:a",
+        "192k",
+        output,
+      ]);
+      return await finish();
+    }
+
+    if (format === "wav") {
+      options.onProgress?.(0.08, "Extracting audio…");
+      await execChecked(ffmpeg, [
+        "-i",
+        input,
+        "-vn",
+        "-acodec",
+        "pcm_s16le",
+        output,
+      ]);
+      return await finish();
+    }
+
+    if (format === "gif") {
+      const fps = options.gifFps ?? 10;
+      const width = options.gifWidth ?? 480;
+      const gifArgs: string[] = [];
+      if (hasRange) {
+        // Seek before decode when a range is selected — much faster on long clips.
+        gifArgs.push("-ss", start.toFixed(3));
+      }
+      gifArgs.push("-i", input);
+      if (hasRange) {
+        gifArgs.push("-t", (end! - start).toFixed(3));
+      }
+      gifArgs.push(
+        "-vf",
+        `fps=${fps},scale=${width}:-1:flags=lanczos`,
+        "-loop",
+        "0",
+        output,
+      );
+      await execChecked(ffmpeg, gifArgs);
+      return await finish();
+    }
+
+    if (format === "webm") {
+      options.onProgress?.(0.08, "Encoding WebM…");
+      // VP8 + realtime deadline is substantially faster than default VP9 in WASM.
+      try {
+        await execChecked(ffmpeg, [
           "-i",
           input,
           "-c:v",
-          "libvpx-vp9",
+          "libvpx",
           "-b:v",
           "1M",
+          "-deadline",
+          "realtime",
+          "-cpu-used",
+          "8",
           "-c:a",
           "libopus",
           "-b:a",
-          "128k",
+          "96k",
           output,
-        ];
-      }
-      // Default: transcode to MP4 (H.264 + AAC)
-      if (config.slug === "gif-to-mp4") {
-        return [
+        ]);
+        return await finish();
+      } catch {
+        await safeDelete(ffmpeg, output);
+        await execChecked(ffmpeg, [
           "-i",
           input,
-          "-movflags",
-          "faststart",
-          "-pix_fmt",
-          "yuv420p",
           "-c:v",
-          "libx264",
-          "-c:a",
-          "aac",
+          "libvpx",
+          "-b:v",
+          "1M",
+          "-deadline",
+          "realtime",
+          "-cpu-used",
+          "8",
+          "-an",
           output,
-        ];
+        ]);
+        return await finish();
       }
-      return [
+    }
+
+    if (config.slug === "gif-to-mp4") {
+      await execChecked(ffmpeg, [
         "-i",
         input,
+        "-movflags",
+        "+faststart",
+        "-pix_fmt",
+        "yuv420p",
         "-c:v",
         "libx264",
         "-preset",
-        "fast",
+        "ultrafast",
         "-crf",
         "23",
-        "-c:a",
-        "aac",
-        "-b:a",
-        "128k",
-        "-movflags",
-        "faststart",
+        "-an",
         output,
-      ];
-    },
-    options,
-    "Converting video…",
-  );
+      ]);
+      return await finish();
+    }
+
+    options.onProgress?.(0.08, "Inspecting video…");
+    const probe = await probeWrittenInput(input);
+    const preferred = mp4TranscodeArgs(input, output, probe, "ultrafast");
+    const triedStreamCopy = preferred.includes("copy");
+
+    try {
+      if (canFullyRemuxToMp4(probe)) {
+        options.onProgress?.(0.2, "Converting video…");
+      }
+      await execChecked(ffmpeg, preferred);
+      return await finish();
+    } catch (error) {
+      await safeDelete(ffmpeg, output);
+      if (!triedStreamCopy) throw error;
+      // Stream-copy / partial-copy failed — fall back to a full encode.
+      await execChecked(
+        ffmpeg,
+        fullMp4EncodeArgs(input, output, probe.hasAudio, "ultrafast"),
+      );
+      return await finish();
+    }
+  } finally {
+    detach();
+    await safeDelete(ffmpeg, input);
+    await safeDelete(ffmpeg, output);
+  }
 }
 
 export async function compressVideo(
@@ -191,15 +461,17 @@ export async function compressVideo(
       "-c:v",
       "libx264",
       "-preset",
-      "fast",
+      "ultrafast",
       "-crf",
       crf,
+      "-pix_fmt",
+      "yuv420p",
       "-c:a",
       "aac",
       "-b:a",
       "96k",
       "-movflags",
-      "faststart",
+      "+faststart",
       output,
     ],
     options,
@@ -232,7 +504,6 @@ export async function resizeVideo(
 ): Promise<VideoProcessResult> {
   const width = Math.max(16, Math.round(options.width ?? 1280));
   const height = Math.max(16, Math.round(options.height ?? 720));
-  // Ensure even dimensions for H.264
   const w = width % 2 === 0 ? width : width + 1;
   const h = height % 2 === 0 ? height : height + 1;
   return runFfmpeg(
@@ -246,15 +517,17 @@ export async function resizeVideo(
       "-c:v",
       "libx264",
       "-preset",
-      "fast",
+      "ultrafast",
       "-crf",
       "23",
+      "-pix_fmt",
+      "yuv420p",
       "-c:a",
       "aac",
       "-b:a",
       "128k",
       "-movflags",
-      "faststart",
+      "+faststart",
       output,
     ],
     options,
@@ -288,13 +561,15 @@ export async function cropVideo(
       "-c:v",
       "libx264",
       "-preset",
-      "fast",
+      "ultrafast",
       "-crf",
       "23",
+      "-pix_fmt",
+      "yuv420p",
       "-c:a",
       "copy",
       "-movflags",
-      "faststart",
+      "+faststart",
       output,
     ],
     options,
@@ -307,16 +582,44 @@ export async function trimOrCutVideo(
   config: VideoToolConfig,
   options: VideoProcessOptions = {},
 ): Promise<VideoProcessResult> {
+  const source = sources[0];
+  if (!source) throw new Error("Please upload a video file.");
   const start = Math.max(0, options.startSeconds ?? 0);
   const end = options.endSeconds;
   if (end == null || !Number.isFinite(end) || end <= start) {
     throw new Error("Choose a valid start and end time for the selection.");
   }
   const duration = end - start;
-  return runFfmpeg(
-    sources,
-    config,
-    (input, output) => [
+  const label = config.kind === "cut" ? "Cutting video…" : "Trimming video…";
+
+  const ffmpeg = await getFfmpeg();
+  const inputExt = extensionFromName(source.name) || "bin";
+  const input = `input.${inputExt}`;
+  const output = "output.mp4";
+  const detach = attachProgress(ffmpeg, options.onProgress, label);
+
+  try {
+    options.onProgress?.(0.02, "Preparing…");
+    await writeInputFile(ffmpeg, source.file, input);
+    options.onProgress?.(0.08, "Inspecting video…");
+    const probe = await probeWrittenInput(input);
+
+    const copyArgs = [
+      "-ss",
+      start.toFixed(3),
+      "-i",
+      input,
+      "-t",
+      duration.toFixed(3),
+      "-c",
+      "copy",
+      "-avoid_negative_ts",
+      "make_zero",
+      "-movflags",
+      "+faststart",
+      output,
+    ];
+    const encodeArgs = [
       "-ss",
       start.toFixed(3),
       "-i",
@@ -326,20 +629,42 @@ export async function trimOrCutVideo(
       "-c:v",
       "libx264",
       "-preset",
-      "fast",
+      "ultrafast",
       "-crf",
       "23",
+      "-pix_fmt",
+      "yuv420p",
       "-c:a",
       "aac",
       "-b:a",
       "128k",
       "-movflags",
-      "faststart",
+      "+faststart",
       output,
-    ],
-    options,
-    config.kind === "cut" ? "Cutting video…" : "Trimming video…",
-  );
+    ];
+
+    if (canFullyRemuxToMp4(probe)) {
+      try {
+        await execChecked(ffmpeg, copyArgs);
+        const bytes = await readOutputFile(ffmpeg, output);
+        assertValidOutput(bytes, "mp4");
+        options.onProgress?.(1, "Done");
+        return resultFromBytes(bytes, config, source.name);
+      } catch {
+        await safeDelete(ffmpeg, output);
+      }
+    }
+
+    await execChecked(ffmpeg, encodeArgs);
+    const bytes = await readOutputFile(ffmpeg, output);
+    assertValidOutput(bytes, "mp4");
+    options.onProgress?.(1, "Done");
+    return resultFromBytes(bytes, config, source.name);
+  } finally {
+    detach();
+    await safeDelete(ffmpeg, input);
+    await safeDelete(ffmpeg, output);
+  }
 }
 
 export async function mergeVideos(
@@ -351,6 +676,7 @@ export async function mergeVideos(
   const ffmpeg = await getFfmpeg();
   const detach = attachProgress(ffmpeg, options.onProgress, "Merging videos…");
   const inputNames: string[] = [];
+  const partNames: string[] = [];
   const listName = "list.txt";
   const output = "output.mp4";
   try {
@@ -361,30 +687,36 @@ export async function mergeVideos(
       inputNames.push(name);
       await writeInputFile(ffmpeg, sources[i].file, name);
       const normalized = `part_${i}.mp4`;
-      await ffmpeg.exec([
+      partNames.push(normalized);
+      await execChecked(ffmpeg, [
         "-i",
         name,
         "-c:v",
         "libx264",
         "-preset",
-        "fast",
+        "ultrafast",
         "-crf",
         "23",
+        "-pix_fmt",
+        "yuv420p",
         "-c:a",
         "aac",
         "-b:a",
         "128k",
         "-movflags",
-        "faststart",
+        "+faststart",
         "-vf",
         "scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2",
         normalized,
       ]);
       list += `file '${normalized}'\n`;
-      options.onProgress?.((i + 1) / (sources.length + 1), `Prepared clip ${i + 1}`);
+      options.onProgress?.(
+        (i + 1) / (sources.length + 1),
+        `Prepared clip ${i + 1}`,
+      );
     }
     await ffmpeg.writeFile(listName, list);
-    await ffmpeg.exec([
+    await execChecked(ffmpeg, [
       "-f",
       "concat",
       "-safe",
@@ -396,7 +728,7 @@ export async function mergeVideos(
       output,
     ]);
     const bytes = await readOutputFile(ffmpeg, output);
-    if (!bytes.byteLength) throw new Error("The merge produced an empty file.");
+    assertValidOutput(bytes, "mp4");
     options.onProgress?.(1, "Done");
     return resultFromBytes(bytes, config, "merged-video", {
       stats: { Clips: String(sources.length) },
@@ -404,7 +736,7 @@ export async function mergeVideos(
   } finally {
     detach();
     for (const name of inputNames) await safeDelete(ffmpeg, name);
-    for (let i = 0; i < sources.length; i += 1) await safeDelete(ffmpeg, `part_${i}.mp4`);
+    for (const name of partNames) await safeDelete(ffmpeg, name);
     await safeDelete(ffmpeg, listName);
     await safeDelete(ffmpeg, output);
   }
@@ -431,13 +763,15 @@ export async function rotateVideo(
       "-c:v",
       "libx264",
       "-preset",
-      "fast",
+      "ultrafast",
       "-crf",
       "23",
+      "-pix_fmt",
+      "yuv420p",
       "-c:a",
       "copy",
       "-movflags",
-      "faststart",
+      "+faststart",
       output,
     ],
     options,
@@ -486,22 +820,23 @@ export async function changeVideoSpeed(
         "-c:v",
         "libx264",
         "-preset",
-        "fast",
+        "ultrafast",
         "-crf",
         "23",
+        "-pix_fmt",
+        "yuv420p",
         "-c:a",
         "aac",
         "-b:a",
         "128k",
         "-movflags",
-        "faststart",
+        "+faststart",
         output,
       ],
       options,
       "Changing speed…",
     );
   } catch {
-    // Retry without audio when the source has no usable audio stream.
     return runFfmpeg(
       sources,
       updatedConfig,
@@ -514,11 +849,13 @@ export async function changeVideoSpeed(
         "-c:v",
         "libx264",
         "-preset",
-        "fast",
+        "ultrafast",
         "-crf",
         "23",
+        "-pix_fmt",
+        "yuv420p",
         "-movflags",
-        "faststart",
+        "+faststart",
         output,
       ],
       options,
@@ -540,6 +877,7 @@ export async function extractImageFrame(
   }
   options.onProgress?.(0.2, "Seeking…");
   const blob = await captureFrameAt(source.file, time, "image/png");
+  if (!blob.size) throw new Error("Could not extract a frame from this video.");
   options.onProgress?.(1, "Done");
   const previewUrl = URL.createObjectURL(blob);
   return {
@@ -572,13 +910,14 @@ export async function readVideoMetadata(
       value: source.type || extensionFromName(source.name).toUpperCase() || "Not detected",
     },
   ];
-  const probe = source.durationSeconds != null
-    ? {
-        durationSeconds: source.durationSeconds,
-        width: source.width,
-        height: source.height,
-      }
-    : await probeVideoMeta(source.file);
+  const probe =
+    source.durationSeconds != null
+      ? {
+          durationSeconds: source.durationSeconds,
+          width: source.width,
+          height: source.height,
+        }
+      : await probeVideoMeta(source.file);
 
   if (probe.durationSeconds != null) {
     rows.push({ label: "Duration", value: formatDuration(probe.durationSeconds) });
@@ -610,21 +949,23 @@ export async function readVideoMetadata(
     if (meta.format.numberOfChannels != null) {
       rows.push({ label: "Audio channels", value: String(meta.format.numberOfChannels) });
     }
-    if (meta.format.codec) rows.push({ label: "Codec", value: String(meta.format.codec) });
     if (meta.format.container) {
       rows.push({ label: "Container", value: String(meta.format.container) });
     }
+    const videoTrack = meta.format.codec || meta.format.codecProfile;
     rows.push({
       label: "Frame rate",
       value: "Not detected",
     });
     rows.push({
       label: "Video codec",
-      value: meta.format.codec ? String(meta.format.codec) : "Not detected",
+      value: videoTrack ? String(videoTrack) : "Not detected",
     });
     rows.push({
       label: "Audio codec",
-      value: meta.format.codecProfile ? String(meta.format.codecProfile) : "Not detected",
+      value: meta.format.codecProfile
+        ? String(meta.format.codecProfile)
+        : "Not detected",
     });
   } catch {
     rows.push({ label: "Bitrate", value: "Not detected" });

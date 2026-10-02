@@ -14,7 +14,6 @@ function tool(
 
 /** Document & data converters — Prompt 5 */
 export const documentDataTools: ToolDefinition[] = [
-
   tool({
     id: "docx-to-pdf",
     name: "DOCX to PDF Converter",
@@ -23,15 +22,28 @@ export const documentDataTools: ToolDefinition[] = [
     description: "Convert DOCX Word documents into PDF files.",
     shortDescription: "Convert DOCX documents to PDF.",
     icon: "text",
-    keywords: ["docx to pdf", "word to pdf", "convert docx to pdf", "docx pdf converter"],
+    keywords: [
+      "docx to pdf",
+      "word to pdf",
+      "convert docx to pdf",
+      "docx pdf converter",
+    ],
     popular: true,
     new: false,
     supportedFormats: ["DOCX", "PDF"],
-    relatedToolIds: ["pdf-to-docx", "docx-to-txt", "txt-to-docx", "rtf-to-pdf", "txt-to-pdf"],
+    relatedToolIds: [
+      "pdf-to-docx",
+      "docx-to-txt",
+      "txt-to-docx",
+      "rtf-to-pdf",
+      "txt-to-pdf",
+    ],
     seoTitle: "DOCX to PDF Converter — Free Online | ToolMyra",
-    seoDescription: "Convert DOCX documents to PDF with ToolMyra. Upload a Word document, convert it to PDF, and download the result online.",
+    seoDescription:
+      "Convert DOCX documents to PDF with ToolMyra. Upload a Word document, convert it to PDF, and download the result online.",
     h1: "DOCX to PDF Converter",
-    intro: "Convert DOCX documents into shareable PDF files. Upload a .docx file, convert it, and download a valid PDF.",
+    intro:
+      "Convert DOCX documents into shareable PDF files. Upload a .docx file, convert it, and download a valid PDF.",
     convertHeading: "Convert DOCX to PDF Online",
     howToHeading: "How to Convert DOCX to PDF",
     featuresHeading: "DOCX to PDF Features",
@@ -39,8 +51,15 @@ export const documentDataTools: ToolDefinition[] = [
     relatedToolsHeading: "Related Document Tools",
     hideReport: true,
     processingMode: "browser",
-    features: ["Convert DOCX to PDF", "Upload or paste input where supported", "Clear convert → result → download flow", "No account required", "Mobile-friendly workspace"],
-    howToSteps: [{
+    features: [
+      "Convert DOCX to PDF",
+      "Upload or paste input where supported",
+      "Clear convert → result → download flow",
+      "No account required",
+      "Mobile-friendly workspace",
+    ],
+    howToSteps: [
+      {
         title: "Upload Your File",
         description: "Choose the source document.",
       },
@@ -51,19 +70,25 @@ export const documentDataTools: ToolDefinition[] = [
       {
         title: "Download Your File",
         description: "Save the converted document.",
-      }],
-    faq: [{
+      },
+    ],
+    faq: [
+      {
         question: "Is DOCX to PDF Converter free?",
-        answer: "Yes. ToolMyra converters are free to use and do not require an account.",
+        answer:
+          "Yes. ToolMyra converters are free to use and do not require an account.",
       },
       {
         question: "Will my formatting stay perfect?",
-        answer: "Supported content is converted as accurately as practical. Complex layouts may be simplified depending on the formats involved.",
+        answer:
+          "Supported content is converted as accurately as practical. Complex layouts may be simplified depending on the formats involved.",
       },
       {
         question: "What if conversion fails?",
-        answer: "Check that the file is valid and not empty or corrupted, then try again with another file.",
-      }],
+        answer:
+          "Check that the file is valid and not empty or corrupted, then try again with another file.",
+      },
+    ],
     inputFormats: ["DOCX"],
     outputFormats: ["PDF"],
   }),
@@ -75,15 +100,27 @@ export const documentDataTools: ToolDefinition[] = [
     description: "Convert PDF text into an editable DOCX document.",
     shortDescription: "Convert PDF files to DOCX.",
     icon: "text",
-    keywords: ["pdf to docx", "pdf to word", "convert pdf to docx", "pdf docx converter"],
+    keywords: [
+      "pdf to docx",
+      "pdf to word",
+      "convert pdf to docx",
+      "pdf docx converter",
+    ],
     popular: true,
     new: false,
     supportedFormats: ["DOCX", "PDF"],
-    relatedToolIds: ["docx-to-pdf", "docx-to-txt", "pdf-text-extractor", "pdf-to-text"],
+    relatedToolIds: [
+      "docx-to-pdf",
+      "docx-to-txt",
+      "pdf-text-extractor",
+      "pdf-to-text",
+    ],
     seoTitle: "PDF to DOCX Converter — Free Online | ToolMyra",
-    seoDescription: "Convert PDF to DOCX online with ToolMyra. Create an editable Word document from PDF text where a text layer is available.",
+    seoDescription:
+      "Convert PDF to DOCX online with ToolMyra. Create an editable Word document from PDF text where a text layer is available.",
     h1: "PDF to DOCX Converter",
-    intro: "Turn PDF text into an editable DOCX file. Layout is approximated because PDF is a fixed-layout format.",
+    intro:
+      "Turn PDF text into an editable DOCX file. Layout is approximated because PDF is a fixed-layout format.",
     convertHeading: "Convert PDF to DOCX Online",
     howToHeading: "How to Convert PDF to DOCX",
     featuresHeading: "PDF to DOCX Features",
@@ -91,8 +128,15 @@ export const documentDataTools: ToolDefinition[] = [
     relatedToolsHeading: "Related Document Tools",
     hideReport: true,
     processingMode: "browser",
-    features: ["Convert PDF to DOCX", "Upload or paste input where supported", "Clear convert → result → download flow", "No account required", "Mobile-friendly workspace"],
-    howToSteps: [{
+    features: [
+      "Convert PDF to DOCX",
+      "Upload or paste input where supported",
+      "Clear convert → result → download flow",
+      "No account required",
+      "Mobile-friendly workspace",
+    ],
+    howToSteps: [
+      {
         title: "Upload Your File",
         description: "Choose the source document.",
       },
@@ -103,19 +147,25 @@ export const documentDataTools: ToolDefinition[] = [
       {
         title: "Download Your File",
         description: "Save the converted document.",
-      }],
-    faq: [{
+      },
+    ],
+    faq: [
+      {
         question: "Is PDF to DOCX Converter free?",
-        answer: "Yes. ToolMyra converters are free to use and do not require an account.",
+        answer:
+          "Yes. ToolMyra converters are free to use and do not require an account.",
       },
       {
         question: "Does this use OCR?",
-        answer: "No. It reconstructs editable text from the PDF text layer. Scanned image-only PDFs may not contain extractable text.",
+        answer:
+          "No. It reconstructs editable text from the PDF text layer. Scanned image-only PDFs may not contain extractable text.",
       },
       {
         question: "What if conversion fails?",
-        answer: "Check that the file is valid and not empty or corrupted, then try again with another file.",
-      }],
+        answer:
+          "Check that the file is valid and not empty or corrupted, then try again with another file.",
+      },
+    ],
     inputFormats: ["PDF"],
     outputFormats: ["DOCX"],
   }),
@@ -131,11 +181,18 @@ export const documentDataTools: ToolDefinition[] = [
     popular: false,
     new: false,
     supportedFormats: ["PDF", "TXT"],
-    relatedToolIds: ["txt-to-docx", "markdown-to-pdf", "rtf-to-pdf", "docx-to-pdf"],
+    relatedToolIds: [
+      "txt-to-docx",
+      "markdown-to-pdf",
+      "rtf-to-pdf",
+      "docx-to-pdf",
+    ],
     seoTitle: "TXT to PDF Converter — Free Online | ToolMyra",
-    seoDescription: "Convert TXT to PDF online with ToolMyra. Upload or paste plain text, generate a PDF, and download the result.",
+    seoDescription:
+      "Convert TXT to PDF online with ToolMyra. Upload or paste plain text, generate a PDF, and download the result.",
     h1: "TXT to PDF Converter",
-    intro: "Create a PDF from plain text while preserving line breaks and readable spacing.",
+    intro:
+      "Create a PDF from plain text while preserving line breaks and readable spacing.",
     convertHeading: "Convert TXT to PDF Online",
     howToHeading: "How to Convert TXT to PDF",
     featuresHeading: "TXT to PDF Features",
@@ -143,8 +200,15 @@ export const documentDataTools: ToolDefinition[] = [
     relatedToolsHeading: "Related Document Tools",
     hideReport: true,
     processingMode: "browser",
-    features: ["Convert TXT to PDF", "Upload or paste input where supported", "Clear convert → result → download flow", "No account required", "Mobile-friendly workspace"],
-    howToSteps: [{
+    features: [
+      "Convert TXT to PDF",
+      "Upload or paste input where supported",
+      "Clear convert → result → download flow",
+      "No account required",
+      "Mobile-friendly workspace",
+    ],
+    howToSteps: [
+      {
         title: "Upload or Paste Input",
         description: "Provide the source file or text for conversion.",
       },
@@ -155,19 +219,25 @@ export const documentDataTools: ToolDefinition[] = [
       {
         title: "Copy or Download",
         description: "Copy text output or download the converted file.",
-      }],
-    faq: [{
+      },
+    ],
+    faq: [
+      {
         question: "Is TXT to PDF Converter free?",
-        answer: "Yes. ToolMyra converters are free to use and do not require an account.",
+        answer:
+          "Yes. ToolMyra converters are free to use and do not require an account.",
       },
       {
         question: "Will my formatting stay perfect?",
-        answer: "Supported content is converted as accurately as practical. Complex layouts may be simplified depending on the formats involved.",
+        answer:
+          "Supported content is converted as accurately as practical. Complex layouts may be simplified depending on the formats involved.",
       },
       {
         question: "What if conversion fails?",
-        answer: "Check that the file is valid and not empty or corrupted, then try again with another file.",
-      }],
+        answer:
+          "Check that the file is valid and not empty or corrupted, then try again with another file.",
+      },
+    ],
     inputFormats: ["TXT"],
     outputFormats: ["PDF"],
   }),
@@ -185,9 +255,11 @@ export const documentDataTools: ToolDefinition[] = [
     supportedFormats: ["DOCX", "TXT"],
     relatedToolIds: ["docx-to-txt", "txt-to-pdf", "docx-to-pdf", "rtf-to-txt"],
     seoTitle: "TXT to DOCX Converter — Free Online | ToolMyra",
-    seoDescription: "Convert TXT to DOCX online with ToolMyra. Turn plain text into a downloadable Word document.",
+    seoDescription:
+      "Convert TXT to DOCX online with ToolMyra. Turn plain text into a downloadable Word document.",
     h1: "TXT to DOCX Converter",
-    intro: "Create a DOCX file from plain text with paragraph-friendly line breaks.",
+    intro:
+      "Create a DOCX file from plain text with paragraph-friendly line breaks.",
     convertHeading: "Convert TXT to DOCX Online",
     howToHeading: "How to Convert TXT to DOCX",
     featuresHeading: "TXT to DOCX Features",
@@ -195,8 +267,15 @@ export const documentDataTools: ToolDefinition[] = [
     relatedToolsHeading: "Related Document Tools",
     hideReport: true,
     processingMode: "browser",
-    features: ["Convert TXT to DOCX", "Upload or paste input where supported", "Clear convert → result → download flow", "No account required", "Mobile-friendly workspace"],
-    howToSteps: [{
+    features: [
+      "Convert TXT to DOCX",
+      "Upload or paste input where supported",
+      "Clear convert → result → download flow",
+      "No account required",
+      "Mobile-friendly workspace",
+    ],
+    howToSteps: [
+      {
         title: "Upload or Paste Input",
         description: "Provide the source file or text for conversion.",
       },
@@ -207,19 +286,25 @@ export const documentDataTools: ToolDefinition[] = [
       {
         title: "Copy or Download",
         description: "Copy text output or download the converted file.",
-      }],
-    faq: [{
+      },
+    ],
+    faq: [
+      {
         question: "Is TXT to DOCX Converter free?",
-        answer: "Yes. ToolMyra converters are free to use and do not require an account.",
+        answer:
+          "Yes. ToolMyra converters are free to use and do not require an account.",
       },
       {
         question: "Will my formatting stay perfect?",
-        answer: "Supported content is converted as accurately as practical. Complex layouts may be simplified depending on the formats involved.",
+        answer:
+          "Supported content is converted as accurately as practical. Complex layouts may be simplified depending on the formats involved.",
       },
       {
         question: "What if conversion fails?",
-        answer: "Check that the file is valid and not empty or corrupted, then try again with another file.",
-      }],
+        answer:
+          "Check that the file is valid and not empty or corrupted, then try again with another file.",
+      },
+    ],
     inputFormats: ["TXT"],
     outputFormats: ["DOCX"],
   }),
@@ -237,9 +322,11 @@ export const documentDataTools: ToolDefinition[] = [
     supportedFormats: ["DOCX", "TXT"],
     relatedToolIds: ["txt-to-docx", "docx-to-pdf", "pdf-to-docx", "rtf-to-txt"],
     seoTitle: "DOCX to TXT Converter — Free Online | ToolMyra",
-    seoDescription: "Convert DOCX to TXT online with ToolMyra. Extract readable text from Word documents and copy or download the result.",
+    seoDescription:
+      "Convert DOCX to TXT online with ToolMyra. Extract readable text from Word documents and copy or download the result.",
     h1: "DOCX to TXT Converter",
-    intro: "Extract clean text from a DOCX file for editing, searching, or reuse.",
+    intro:
+      "Extract clean text from a DOCX file for editing, searching, or reuse.",
     convertHeading: "Convert DOCX to TXT Online",
     howToHeading: "How to Convert DOCX to TXT",
     featuresHeading: "DOCX to TXT Features",
@@ -247,8 +334,15 @@ export const documentDataTools: ToolDefinition[] = [
     relatedToolsHeading: "Related Document Tools",
     hideReport: true,
     processingMode: "browser",
-    features: ["Convert DOCX to TXT", "Upload or paste input where supported", "Clear convert → result → download flow", "No account required", "Mobile-friendly workspace"],
-    howToSteps: [{
+    features: [
+      "Convert DOCX to TXT",
+      "Upload or paste input where supported",
+      "Clear convert → result → download flow",
+      "No account required",
+      "Mobile-friendly workspace",
+    ],
+    howToSteps: [
+      {
         title: "Upload or Paste Input",
         description: "Provide the source file or text for conversion.",
       },
@@ -259,19 +353,25 @@ export const documentDataTools: ToolDefinition[] = [
       {
         title: "Copy or Download",
         description: "Copy text output or download the converted file.",
-      }],
-    faq: [{
+      },
+    ],
+    faq: [
+      {
         question: "Is DOCX to TXT Converter free?",
-        answer: "Yes. ToolMyra converters are free to use and do not require an account.",
+        answer:
+          "Yes. ToolMyra converters are free to use and do not require an account.",
       },
       {
         question: "Will my formatting stay perfect?",
-        answer: "Supported content is converted as accurately as practical. Complex layouts may be simplified depending on the formats involved.",
+        answer:
+          "Supported content is converted as accurately as practical. Complex layouts may be simplified depending on the formats involved.",
       },
       {
         question: "What if conversion fails?",
-        answer: "Check that the file is valid and not empty or corrupted, then try again with another file.",
-      }],
+        answer:
+          "Check that the file is valid and not empty or corrupted, then try again with another file.",
+      },
+    ],
     inputFormats: ["DOCX"],
     outputFormats: ["TXT"],
   }),
@@ -287,11 +387,18 @@ export const documentDataTools: ToolDefinition[] = [
     popular: false,
     new: true,
     supportedFormats: ["PDF", "RTF"],
-    relatedToolIds: ["rtf-to-txt", "txt-to-pdf", "docx-to-pdf", "markdown-to-pdf"],
+    relatedToolIds: [
+      "rtf-to-txt",
+      "txt-to-pdf",
+      "docx-to-pdf",
+      "markdown-to-pdf",
+    ],
     seoTitle: "RTF to PDF Converter — Free Online | ToolMyra",
-    seoDescription: "Convert RTF to PDF online with ToolMyra. Parse Rich Text content and download a generated PDF.",
+    seoDescription:
+      "Convert RTF to PDF online with ToolMyra. Parse Rich Text content and download a generated PDF.",
     h1: "RTF to PDF Converter",
-    intro: "Turn RTF documents into PDF files using the extracted text content.",
+    intro:
+      "Turn RTF documents into PDF files using the extracted text content.",
     convertHeading: "Convert RTF to PDF Online",
     howToHeading: "How to Convert RTF to PDF",
     featuresHeading: "RTF to PDF Features",
@@ -299,8 +406,15 @@ export const documentDataTools: ToolDefinition[] = [
     relatedToolsHeading: "Related Document Tools",
     hideReport: true,
     processingMode: "browser",
-    features: ["Convert RTF to PDF", "Upload or paste input where supported", "Clear convert → result → download flow", "No account required", "Mobile-friendly workspace"],
-    howToSteps: [{
+    features: [
+      "Convert RTF to PDF",
+      "Upload or paste input where supported",
+      "Clear convert → result → download flow",
+      "No account required",
+      "Mobile-friendly workspace",
+    ],
+    howToSteps: [
+      {
         title: "Upload Your File",
         description: "Choose the source document.",
       },
@@ -311,19 +425,25 @@ export const documentDataTools: ToolDefinition[] = [
       {
         title: "Download Your File",
         description: "Save the converted document.",
-      }],
-    faq: [{
+      },
+    ],
+    faq: [
+      {
         question: "Is RTF to PDF Converter free?",
-        answer: "Yes. ToolMyra converters are free to use and do not require an account.",
+        answer:
+          "Yes. ToolMyra converters are free to use and do not require an account.",
       },
       {
         question: "Will my formatting stay perfect?",
-        answer: "Supported content is converted as accurately as practical. Complex layouts may be simplified depending on the formats involved.",
+        answer:
+          "Supported content is converted as accurately as practical. Complex layouts may be simplified depending on the formats involved.",
       },
       {
         question: "What if conversion fails?",
-        answer: "Check that the file is valid and not empty or corrupted, then try again with another file.",
-      }],
+        answer:
+          "Check that the file is valid and not empty or corrupted, then try again with another file.",
+      },
+    ],
     inputFormats: ["RTF"],
     outputFormats: ["PDF"],
   }),
@@ -341,7 +461,8 @@ export const documentDataTools: ToolDefinition[] = [
     supportedFormats: ["RTF", "TXT"],
     relatedToolIds: ["rtf-to-pdf", "docx-to-txt", "txt-to-docx", "txt-to-pdf"],
     seoTitle: "RTF to TXT Converter — Free Online | ToolMyra",
-    seoDescription: "Convert RTF to TXT online with ToolMyra. Strip RTF control syntax and download clean readable text.",
+    seoDescription:
+      "Convert RTF to TXT online with ToolMyra. Strip RTF control syntax and download clean readable text.",
     h1: "RTF to TXT Converter",
     intro: "Extract readable text from RTF files without control-code clutter.",
     convertHeading: "Convert RTF to TXT Online",
@@ -351,8 +472,15 @@ export const documentDataTools: ToolDefinition[] = [
     relatedToolsHeading: "Related Document Tools",
     hideReport: true,
     processingMode: "browser",
-    features: ["Convert RTF to TXT", "Upload or paste input where supported", "Clear convert → result → download flow", "No account required", "Mobile-friendly workspace"],
-    howToSteps: [{
+    features: [
+      "Convert RTF to TXT",
+      "Upload or paste input where supported",
+      "Clear convert → result → download flow",
+      "No account required",
+      "Mobile-friendly workspace",
+    ],
+    howToSteps: [
+      {
         title: "Upload or Paste Input",
         description: "Provide the source file or text for conversion.",
       },
@@ -363,19 +491,25 @@ export const documentDataTools: ToolDefinition[] = [
       {
         title: "Copy or Download",
         description: "Copy text output or download the converted file.",
-      }],
-    faq: [{
+      },
+    ],
+    faq: [
+      {
         question: "Is RTF to TXT Converter free?",
-        answer: "Yes. ToolMyra converters are free to use and do not require an account.",
+        answer:
+          "Yes. ToolMyra converters are free to use and do not require an account.",
       },
       {
         question: "Will my formatting stay perfect?",
-        answer: "Supported content is converted as accurately as practical. Complex layouts may be simplified depending on the formats involved.",
+        answer:
+          "Supported content is converted as accurately as practical. Complex layouts may be simplified depending on the formats involved.",
       },
       {
         question: "What if conversion fails?",
-        answer: "Check that the file is valid and not empty or corrupted, then try again with another file.",
-      }],
+        answer:
+          "Check that the file is valid and not empty or corrupted, then try again with another file.",
+      },
+    ],
     inputFormats: ["RTF"],
     outputFormats: ["TXT"],
   }),
@@ -387,13 +521,19 @@ export const documentDataTools: ToolDefinition[] = [
     description: "Convert Markdown into HTML markup.",
     shortDescription: "Convert Markdown to HTML.",
     icon: "text",
-    keywords: ["markdown to html", "convert markdown to html", "markdown html converter", "md to html"],
+    keywords: [
+      "markdown to html",
+      "convert markdown to html",
+      "markdown html converter",
+      "md to html",
+    ],
     popular: true,
     new: false,
     supportedFormats: ["HTML", "MD", "Markdown"],
     relatedToolIds: ["html-to-markdown", "markdown-to-pdf", "txt-to-pdf"],
     seoTitle: "Markdown to HTML Converter — Free Online | ToolMyra",
-    seoDescription: "Convert Markdown to HTML online with ToolMyra. Paste or upload Markdown, convert it, then copy or download the HTML.",
+    seoDescription:
+      "Convert Markdown to HTML online with ToolMyra. Paste or upload Markdown, convert it, then copy or download the HTML.",
     h1: "Markdown to HTML Converter",
     intro: "Transform Markdown syntax into HTML for pages, docs, and previews.",
     convertHeading: "Convert Markdown to HTML Online",
@@ -403,8 +543,15 @@ export const documentDataTools: ToolDefinition[] = [
     relatedToolsHeading: "Related Document Tools",
     hideReport: true,
     processingMode: "browser",
-    features: ["Convert MD to HTML", "Upload or paste input where supported", "Clear convert → result → download flow", "No account required", "Mobile-friendly workspace"],
-    howToSteps: [{
+    features: [
+      "Convert MD to HTML",
+      "Upload or paste input where supported",
+      "Clear convert → result → download flow",
+      "No account required",
+      "Mobile-friendly workspace",
+    ],
+    howToSteps: [
+      {
         title: "Upload or Paste Input",
         description: "Provide the source file or text for conversion.",
       },
@@ -415,19 +562,25 @@ export const documentDataTools: ToolDefinition[] = [
       {
         title: "Copy or Download",
         description: "Copy text output or download the converted file.",
-      }],
-    faq: [{
+      },
+    ],
+    faq: [
+      {
         question: "Is Markdown to HTML Converter free?",
-        answer: "Yes. ToolMyra converters are free to use and do not require an account.",
+        answer:
+          "Yes. ToolMyra converters are free to use and do not require an account.",
       },
       {
         question: "Will my formatting stay perfect?",
-        answer: "Supported content is converted as accurately as practical. Complex layouts may be simplified depending on the formats involved.",
+        answer:
+          "Supported content is converted as accurately as practical. Complex layouts may be simplified depending on the formats involved.",
       },
       {
         question: "What if conversion fails?",
-        answer: "Check that the file is valid and not empty or corrupted, then try again with another file.",
-      }],
+        answer:
+          "Check that the file is valid and not empty or corrupted, then try again with another file.",
+      },
+    ],
     inputFormats: ["MD", "Markdown"],
     outputFormats: ["HTML"],
   }),
@@ -439,15 +592,21 @@ export const documentDataTools: ToolDefinition[] = [
     description: "Convert HTML markup into Markdown.",
     shortDescription: "Convert HTML to Markdown.",
     icon: "text",
-    keywords: ["html to markdown", "convert html to markdown", "html markdown converter"],
+    keywords: [
+      "html to markdown",
+      "convert html to markdown",
+      "html markdown converter",
+    ],
     popular: false,
     new: false,
     supportedFormats: ["HTML", "MD"],
     relatedToolIds: ["markdown-to-html", "markdown-to-pdf", "txt-to-docx"],
     seoTitle: "HTML to Markdown Converter — Free Online | ToolMyra",
-    seoDescription: "Convert HTML to Markdown online with ToolMyra. Paste or upload HTML and download clean Markdown output.",
+    seoDescription:
+      "Convert HTML to Markdown online with ToolMyra. Paste or upload HTML and download clean Markdown output.",
     h1: "HTML to Markdown Converter",
-    intro: "Turn common HTML structures into readable Markdown while treating input as untrusted data.",
+    intro:
+      "Turn common HTML structures into readable Markdown while treating input as untrusted data.",
     convertHeading: "Convert HTML to Markdown Online",
     howToHeading: "How to Convert HTML to Markdown",
     featuresHeading: "HTML to Markdown Features",
@@ -455,8 +614,15 @@ export const documentDataTools: ToolDefinition[] = [
     relatedToolsHeading: "Related Document Tools",
     hideReport: true,
     processingMode: "browser",
-    features: ["Convert HTML to MD", "Upload or paste input where supported", "Clear convert → result → download flow", "No account required", "Mobile-friendly workspace"],
-    howToSteps: [{
+    features: [
+      "Convert HTML to MD",
+      "Upload or paste input where supported",
+      "Clear convert → result → download flow",
+      "No account required",
+      "Mobile-friendly workspace",
+    ],
+    howToSteps: [
+      {
         title: "Upload or Paste Input",
         description: "Provide the source file or text for conversion.",
       },
@@ -467,19 +633,25 @@ export const documentDataTools: ToolDefinition[] = [
       {
         title: "Copy or Download",
         description: "Copy text output or download the converted file.",
-      }],
-    faq: [{
+      },
+    ],
+    faq: [
+      {
         question: "Is HTML to Markdown Converter free?",
-        answer: "Yes. ToolMyra converters are free to use and do not require an account.",
+        answer:
+          "Yes. ToolMyra converters are free to use and do not require an account.",
       },
       {
         question: "Is uploaded HTML executed?",
-        answer: "No. HTML is treated as untrusted data and converted to Markdown without running scripts.",
+        answer:
+          "No. HTML is treated as untrusted data and converted to Markdown without running scripts.",
       },
       {
         question: "What if conversion fails?",
-        answer: "Check that the file is valid and not empty or corrupted, then try again with another file.",
-      }],
+        answer:
+          "Check that the file is valid and not empty or corrupted, then try again with another file.",
+      },
+    ],
     inputFormats: ["HTML"],
     outputFormats: ["MD"],
   }),
@@ -495,11 +667,18 @@ export const documentDataTools: ToolDefinition[] = [
     popular: true,
     new: true,
     supportedFormats: ["MD", "Markdown", "PDF"],
-    relatedToolIds: ["markdown-to-html", "html-to-markdown", "txt-to-pdf", "docx-to-pdf"],
+    relatedToolIds: [
+      "markdown-to-html",
+      "html-to-markdown",
+      "txt-to-pdf",
+      "docx-to-pdf",
+    ],
     seoTitle: "Markdown to PDF Converter — Free Online | ToolMyra",
-    seoDescription: "Convert Markdown to PDF online with ToolMyra. Render Markdown content into a downloadable PDF document.",
+    seoDescription:
+      "Convert Markdown to PDF online with ToolMyra. Render Markdown content into a downloadable PDF document.",
     h1: "Markdown to PDF Converter",
-    intro: "Generate a PDF from Markdown headings, lists, code, and paragraphs.",
+    intro:
+      "Generate a PDF from Markdown headings, lists, code, and paragraphs.",
     convertHeading: "Convert Markdown to PDF Online",
     howToHeading: "How to Convert Markdown to PDF",
     featuresHeading: "Markdown to PDF Features",
@@ -507,8 +686,15 @@ export const documentDataTools: ToolDefinition[] = [
     relatedToolsHeading: "Related Document Tools",
     hideReport: true,
     processingMode: "browser",
-    features: ["Convert MD to PDF", "Upload or paste input where supported", "Clear convert → result → download flow", "No account required", "Mobile-friendly workspace"],
-    howToSteps: [{
+    features: [
+      "Convert MD to PDF",
+      "Upload or paste input where supported",
+      "Clear convert → result → download flow",
+      "No account required",
+      "Mobile-friendly workspace",
+    ],
+    howToSteps: [
+      {
         title: "Upload Your File",
         description: "Choose the source document.",
       },
@@ -519,19 +705,25 @@ export const documentDataTools: ToolDefinition[] = [
       {
         title: "Download Your File",
         description: "Save the converted document.",
-      }],
-    faq: [{
+      },
+    ],
+    faq: [
+      {
         question: "Is Markdown to PDF Converter free?",
-        answer: "Yes. ToolMyra converters are free to use and do not require an account.",
+        answer:
+          "Yes. ToolMyra converters are free to use and do not require an account.",
       },
       {
         question: "Will my formatting stay perfect?",
-        answer: "Supported content is converted as accurately as practical. Complex layouts may be simplified depending on the formats involved.",
+        answer:
+          "Supported content is converted as accurately as practical. Complex layouts may be simplified depending on the formats involved.",
       },
       {
         question: "What if conversion fails?",
-        answer: "Check that the file is valid and not empty or corrupted, then try again with another file.",
-      }],
+        answer:
+          "Check that the file is valid and not empty or corrupted, then try again with another file.",
+      },
+    ],
     inputFormats: ["MD", "Markdown"],
     outputFormats: ["PDF"],
   }),
@@ -547,11 +739,19 @@ export const documentDataTools: ToolDefinition[] = [
     popular: true,
     new: false,
     supportedFormats: ["CSV", "JSON"],
-    relatedToolIds: ["json-to-csv", "csv-to-xml", "tsv-to-csv", "json-to-xml", "xml-to-json"],
+    relatedToolIds: [
+      "json-to-csv",
+      "csv-to-xml",
+      "tsv-to-csv",
+      "json-to-xml",
+      "xml-to-json",
+    ],
     seoTitle: "CSV to JSON Converter — Free Online | ToolMyra",
-    seoDescription: "Convert CSV data to valid JSON online. Upload or paste your CSV, convert it instantly, then copy or download the resulting JSON.",
+    seoDescription:
+      "Convert CSV data to valid JSON online. Upload or paste your CSV, convert it instantly, then copy or download the resulting JSON.",
     h1: "CSV to JSON Converter",
-    intro: "Turn CSV rows into a JSON array of objects using the header row as property names.",
+    intro:
+      "Turn CSV rows into a JSON array of objects using the header row as property names.",
     convertHeading: "Convert CSV Data to JSON",
     howToHeading: "How to Convert CSV to JSON",
     featuresHeading: "CSV to JSON Features",
@@ -559,8 +759,15 @@ export const documentDataTools: ToolDefinition[] = [
     relatedToolsHeading: "Related Data Tools",
     hideReport: true,
     processingMode: "browser",
-    features: ["Convert CSV to JSON", "Upload or paste input where supported", "Clear convert → result → download flow", "No account required", "Mobile-friendly workspace"],
-    howToSteps: [{
+    features: [
+      "Convert CSV to JSON",
+      "Upload or paste input where supported",
+      "Clear convert → result → download flow",
+      "No account required",
+      "Mobile-friendly workspace",
+    ],
+    howToSteps: [
+      {
         title: "Upload or Paste CSV",
         description: "Provide CSV with a header row.",
       },
@@ -571,19 +778,25 @@ export const documentDataTools: ToolDefinition[] = [
       {
         title: "Copy or Download JSON",
         description: "Use the JSON in your app or save it.",
-      }],
-    faq: [{
+      },
+    ],
+    faq: [
+      {
         question: "Is CSV to JSON Converter free?",
-        answer: "Yes. ToolMyra converters are free to use and do not require an account.",
+        answer:
+          "Yes. ToolMyra converters are free to use and do not require an account.",
       },
       {
         question: "Are quoted commas supported?",
-        answer: "Yes. The converter parses standard CSV quoting so commas inside quoted fields stay in the same value.",
+        answer:
+          "Yes. The converter parses standard CSV quoting so commas inside quoted fields stay in the same value.",
       },
       {
         question: "What if conversion fails?",
-        answer: "Check that the file is valid and not empty or corrupted, then try again with another file.",
-      }],
+        answer:
+          "Check that the file is valid and not empty or corrupted, then try again with another file.",
+      },
+    ],
     inputFormats: ["CSV"],
     outputFormats: ["JSON"],
   }),
@@ -599,11 +812,18 @@ export const documentDataTools: ToolDefinition[] = [
     popular: true,
     new: false,
     supportedFormats: ["CSV", "JSON"],
-    relatedToolIds: ["csv-to-json", "csv-to-xml", "json-to-xml", "json-to-yaml"],
+    relatedToolIds: [
+      "csv-to-json",
+      "csv-to-xml",
+      "json-to-xml",
+      "json-to-yaml",
+    ],
     seoTitle: "JSON to CSV Converter — Free Online | ToolMyra",
-    seoDescription: "Convert JSON to CSV online with ToolMyra. Transform arrays of objects into properly escaped CSV files.",
+    seoDescription:
+      "Convert JSON to CSV online with ToolMyra. Transform arrays of objects into properly escaped CSV files.",
     h1: "JSON to CSV Converter",
-    intro: "Convert tabular JSON arrays into CSV with correct quoting for commas and newlines.",
+    intro:
+      "Convert tabular JSON arrays into CSV with correct quoting for commas and newlines.",
     convertHeading: "Convert JSON to CSV Online",
     howToHeading: "How to Convert JSON to CSV",
     featuresHeading: "JSON to CSV Features",
@@ -611,8 +831,15 @@ export const documentDataTools: ToolDefinition[] = [
     relatedToolsHeading: "Related Data Tools",
     hideReport: true,
     processingMode: "browser",
-    features: ["Convert JSON to CSV", "Upload or paste input where supported", "Clear convert → result → download flow", "No account required", "Mobile-friendly workspace"],
-    howToSteps: [{
+    features: [
+      "Convert JSON to CSV",
+      "Upload or paste input where supported",
+      "Clear convert → result → download flow",
+      "No account required",
+      "Mobile-friendly workspace",
+    ],
+    howToSteps: [
+      {
         title: "Upload or Paste Input",
         description: "Provide the source file or text for conversion.",
       },
@@ -623,19 +850,25 @@ export const documentDataTools: ToolDefinition[] = [
       {
         title: "Copy or Download",
         description: "Copy text output or download the converted file.",
-      }],
-    faq: [{
+      },
+    ],
+    faq: [
+      {
         question: "Is JSON to CSV Converter free?",
-        answer: "Yes. ToolMyra converters are free to use and do not require an account.",
+        answer:
+          "Yes. ToolMyra converters are free to use and do not require an account.",
       },
       {
         question: "What JSON shape is required?",
-        answer: "Use an array of objects. Nested objects are stringified into CSV cells so the table stays valid.",
+        answer:
+          "Use an array of objects. Nested objects are stringified into CSV cells so the table stays valid.",
       },
       {
         question: "What if conversion fails?",
-        answer: "Check that the file is valid and not empty or corrupted, then try again with another file.",
-      }],
+        answer:
+          "Check that the file is valid and not empty or corrupted, then try again with another file.",
+      },
+    ],
     inputFormats: ["JSON"],
     outputFormats: ["CSV"],
   }),
@@ -653,9 +886,11 @@ export const documentDataTools: ToolDefinition[] = [
     supportedFormats: ["CSV", "XML"],
     relatedToolIds: ["csv-to-json", "xml-to-json", "json-to-xml", "tsv-to-csv"],
     seoTitle: "CSV to XML Converter — Free Online | ToolMyra",
-    seoDescription: "Convert CSV to XML online with ToolMyra. Generate well-formed XML records from tabular CSV data.",
+    seoDescription:
+      "Convert CSV to XML online with ToolMyra. Generate well-formed XML records from tabular CSV data.",
     h1: "CSV to XML Converter",
-    intro: "Map CSV headers and rows into nested XML elements for interchange and storage.",
+    intro:
+      "Map CSV headers and rows into nested XML elements for interchange and storage.",
     convertHeading: "Convert CSV to XML Online",
     howToHeading: "How to Convert CSV to XML",
     featuresHeading: "CSV to XML Features",
@@ -663,8 +898,15 @@ export const documentDataTools: ToolDefinition[] = [
     relatedToolsHeading: "Related Data Tools",
     hideReport: true,
     processingMode: "browser",
-    features: ["Convert CSV to XML", "Upload or paste input where supported", "Clear convert → result → download flow", "No account required", "Mobile-friendly workspace"],
-    howToSteps: [{
+    features: [
+      "Convert CSV to XML",
+      "Upload or paste input where supported",
+      "Clear convert → result → download flow",
+      "No account required",
+      "Mobile-friendly workspace",
+    ],
+    howToSteps: [
+      {
         title: "Upload or Paste Input",
         description: "Provide the source file or text for conversion.",
       },
@@ -675,19 +917,25 @@ export const documentDataTools: ToolDefinition[] = [
       {
         title: "Copy or Download",
         description: "Copy text output or download the converted file.",
-      }],
-    faq: [{
+      },
+    ],
+    faq: [
+      {
         question: "Is CSV to XML Converter free?",
-        answer: "Yes. ToolMyra converters are free to use and do not require an account.",
+        answer:
+          "Yes. ToolMyra converters are free to use and do not require an account.",
       },
       {
         question: "Will my formatting stay perfect?",
-        answer: "Supported content is converted as accurately as practical. Complex layouts may be simplified depending on the formats involved.",
+        answer:
+          "Supported content is converted as accurately as practical. Complex layouts may be simplified depending on the formats involved.",
       },
       {
         question: "What if conversion fails?",
-        answer: "Check that the file is valid and not empty or corrupted, then try again with another file.",
-      }],
+        answer:
+          "Check that the file is valid and not empty or corrupted, then try again with another file.",
+      },
+    ],
     inputFormats: ["CSV"],
     outputFormats: ["XML"],
   }),
@@ -703,11 +951,18 @@ export const documentDataTools: ToolDefinition[] = [
     popular: true,
     new: false,
     supportedFormats: ["JSON", "XML"],
-    relatedToolIds: ["json-to-xml", "csv-to-json", "yaml-to-json", "json-to-yaml"],
+    relatedToolIds: [
+      "json-to-xml",
+      "csv-to-json",
+      "yaml-to-json",
+      "json-to-yaml",
+    ],
     seoTitle: "XML to JSON Converter — Free Online | ToolMyra",
-    seoDescription: "Convert XML to JSON online with ToolMyra. Parse XML safely and download structured JSON output.",
+    seoDescription:
+      "Convert XML to JSON online with ToolMyra. Parse XML safely and download structured JSON output.",
     h1: "XML to JSON Converter",
-    intro: "Convert nested XML elements and attributes into JSON objects and arrays.",
+    intro:
+      "Convert nested XML elements and attributes into JSON objects and arrays.",
     convertHeading: "Convert XML to JSON Online",
     howToHeading: "How to Convert XML to JSON",
     featuresHeading: "XML to JSON Features",
@@ -715,8 +970,15 @@ export const documentDataTools: ToolDefinition[] = [
     relatedToolsHeading: "Related Data Tools",
     hideReport: true,
     processingMode: "browser",
-    features: ["Convert XML to JSON", "Upload or paste input where supported", "Clear convert → result → download flow", "No account required", "Mobile-friendly workspace"],
-    howToSteps: [{
+    features: [
+      "Convert XML to JSON",
+      "Upload or paste input where supported",
+      "Clear convert → result → download flow",
+      "No account required",
+      "Mobile-friendly workspace",
+    ],
+    howToSteps: [
+      {
         title: "Upload or Paste Input",
         description: "Provide the source file or text for conversion.",
       },
@@ -727,19 +989,25 @@ export const documentDataTools: ToolDefinition[] = [
       {
         title: "Copy or Download",
         description: "Copy text output or download the converted file.",
-      }],
-    faq: [{
+      },
+    ],
+    faq: [
+      {
         question: "Is XML to JSON Converter free?",
-        answer: "Yes. ToolMyra converters are free to use and do not require an account.",
+        answer:
+          "Yes. ToolMyra converters are free to use and do not require an account.",
       },
       {
         question: "Will my formatting stay perfect?",
-        answer: "Supported content is converted as accurately as practical. Complex layouts may be simplified depending on the formats involved.",
+        answer:
+          "Supported content is converted as accurately as practical. Complex layouts may be simplified depending on the formats involved.",
       },
       {
         question: "What if conversion fails?",
-        answer: "Check that the file is valid and not empty or corrupted, then try again with another file.",
-      }],
+        answer:
+          "Check that the file is valid and not empty or corrupted, then try again with another file.",
+      },
+    ],
     inputFormats: ["XML"],
     outputFormats: ["JSON"],
   }),
@@ -755,11 +1023,18 @@ export const documentDataTools: ToolDefinition[] = [
     popular: false,
     new: false,
     supportedFormats: ["JSON", "XML"],
-    relatedToolIds: ["xml-to-json", "json-to-csv", "json-to-yaml", "csv-to-xml"],
+    relatedToolIds: [
+      "xml-to-json",
+      "json-to-csv",
+      "json-to-yaml",
+      "csv-to-xml",
+    ],
     seoTitle: "JSON to XML Converter — Free Online | ToolMyra",
-    seoDescription: "Convert JSON to XML online with ToolMyra. Transform objects and arrays into well-formed XML.",
+    seoDescription:
+      "Convert JSON to XML online with ToolMyra. Transform objects and arrays into well-formed XML.",
     h1: "JSON to XML Converter",
-    intro: "Generate XML from nested JSON structures with clear array handling.",
+    intro:
+      "Generate XML from nested JSON structures with clear array handling.",
     convertHeading: "Convert JSON to XML Online",
     howToHeading: "How to Convert JSON to XML",
     featuresHeading: "JSON to XML Features",
@@ -767,8 +1042,15 @@ export const documentDataTools: ToolDefinition[] = [
     relatedToolsHeading: "Related Data Tools",
     hideReport: true,
     processingMode: "browser",
-    features: ["Convert JSON to XML", "Upload or paste input where supported", "Clear convert → result → download flow", "No account required", "Mobile-friendly workspace"],
-    howToSteps: [{
+    features: [
+      "Convert JSON to XML",
+      "Upload or paste input where supported",
+      "Clear convert → result → download flow",
+      "No account required",
+      "Mobile-friendly workspace",
+    ],
+    howToSteps: [
+      {
         title: "Upload or Paste Input",
         description: "Provide the source file or text for conversion.",
       },
@@ -779,19 +1061,25 @@ export const documentDataTools: ToolDefinition[] = [
       {
         title: "Copy or Download",
         description: "Copy text output or download the converted file.",
-      }],
-    faq: [{
+      },
+    ],
+    faq: [
+      {
         question: "Is JSON to XML Converter free?",
-        answer: "Yes. ToolMyra converters are free to use and do not require an account.",
+        answer:
+          "Yes. ToolMyra converters are free to use and do not require an account.",
       },
       {
         question: "Will my formatting stay perfect?",
-        answer: "Supported content is converted as accurately as practical. Complex layouts may be simplified depending on the formats involved.",
+        answer:
+          "Supported content is converted as accurately as practical. Complex layouts may be simplified depending on the formats involved.",
       },
       {
         question: "What if conversion fails?",
-        answer: "Check that the file is valid and not empty or corrupted, then try again with another file.",
-      }],
+        answer:
+          "Check that the file is valid and not empty or corrupted, then try again with another file.",
+      },
+    ],
     inputFormats: ["JSON"],
     outputFormats: ["XML"],
   }),
@@ -809,9 +1097,11 @@ export const documentDataTools: ToolDefinition[] = [
     supportedFormats: ["CSV", "TXT"],
     relatedToolIds: ["csv-to-tsv", "tsv-to-csv", "csv-to-json", "txt-to-docx"],
     seoTitle: "TXT to CSV Converter — Free Online | ToolMyra",
-    seoDescription: "Convert TXT to CSV online with ToolMyra. Split lines with a delimiter and download a CSV file.",
+    seoDescription:
+      "Convert TXT to CSV online with ToolMyra. Split lines with a delimiter and download a CSV file.",
     h1: "TXT to CSV Converter",
-    intro: "Turn plain text lines into CSV using a simple delimiter you control.",
+    intro:
+      "Turn plain text lines into CSV using a simple delimiter you control.",
     convertHeading: "Convert TXT to CSV Online",
     howToHeading: "How to Convert TXT to CSV",
     featuresHeading: "TXT to CSV Features",
@@ -819,8 +1109,15 @@ export const documentDataTools: ToolDefinition[] = [
     relatedToolsHeading: "Related Data Tools",
     hideReport: true,
     processingMode: "browser",
-    features: ["Convert TXT to CSV", "Upload or paste input where supported", "Clear convert → result → download flow", "No account required", "Mobile-friendly workspace"],
-    howToSteps: [{
+    features: [
+      "Convert TXT to CSV",
+      "Upload or paste input where supported",
+      "Clear convert → result → download flow",
+      "No account required",
+      "Mobile-friendly workspace",
+    ],
+    howToSteps: [
+      {
         title: "Upload or Paste Input",
         description: "Provide the source file or text for conversion.",
       },
@@ -831,19 +1128,25 @@ export const documentDataTools: ToolDefinition[] = [
       {
         title: "Copy or Download",
         description: "Copy text output or download the converted file.",
-      }],
-    faq: [{
+      },
+    ],
+    faq: [
+      {
         question: "Is TXT to CSV Converter free?",
-        answer: "Yes. ToolMyra converters are free to use and do not require an account.",
+        answer:
+          "Yes. ToolMyra converters are free to use and do not require an account.",
       },
       {
         question: "Will my formatting stay perfect?",
-        answer: "Supported content is converted as accurately as practical. Complex layouts may be simplified depending on the formats involved.",
+        answer:
+          "Supported content is converted as accurately as practical. Complex layouts may be simplified depending on the formats involved.",
       },
       {
         question: "What if conversion fails?",
-        answer: "Check that the file is valid and not empty or corrupted, then try again with another file.",
-      }],
+        answer:
+          "Check that the file is valid and not empty or corrupted, then try again with another file.",
+      },
+    ],
     inputFormats: ["TXT"],
     outputFormats: ["CSV"],
   }),
@@ -861,9 +1164,11 @@ export const documentDataTools: ToolDefinition[] = [
     supportedFormats: ["CSV", "TSV"],
     relatedToolIds: ["tsv-to-csv", "csv-to-json", "txt-to-csv", "json-to-csv"],
     seoTitle: "CSV to TSV Converter — Free Online | ToolMyra",
-    seoDescription: "Convert CSV to TSV online with ToolMyra. Parse quoted CSV fields and download tab-separated output.",
+    seoDescription:
+      "Convert CSV to TSV online with ToolMyra. Parse quoted CSV fields and download tab-separated output.",
     h1: "CSV to TSV Converter",
-    intro: "Transform comma-separated values into tab-separated values without losing field boundaries.",
+    intro:
+      "Transform comma-separated values into tab-separated values without losing field boundaries.",
     convertHeading: "Convert CSV to TSV Online",
     howToHeading: "How to Convert CSV to TSV",
     featuresHeading: "CSV to TSV Features",
@@ -871,8 +1176,15 @@ export const documentDataTools: ToolDefinition[] = [
     relatedToolsHeading: "Related Data Tools",
     hideReport: true,
     processingMode: "browser",
-    features: ["Convert CSV to TSV", "Upload or paste input where supported", "Clear convert → result → download flow", "No account required", "Mobile-friendly workspace"],
-    howToSteps: [{
+    features: [
+      "Convert CSV to TSV",
+      "Upload or paste input where supported",
+      "Clear convert → result → download flow",
+      "No account required",
+      "Mobile-friendly workspace",
+    ],
+    howToSteps: [
+      {
         title: "Upload or Paste Input",
         description: "Provide the source file or text for conversion.",
       },
@@ -883,19 +1195,25 @@ export const documentDataTools: ToolDefinition[] = [
       {
         title: "Copy or Download",
         description: "Copy text output or download the converted file.",
-      }],
-    faq: [{
+      },
+    ],
+    faq: [
+      {
         question: "Is CSV to TSV Converter free?",
-        answer: "Yes. ToolMyra converters are free to use and do not require an account.",
+        answer:
+          "Yes. ToolMyra converters are free to use and do not require an account.",
       },
       {
         question: "Will my formatting stay perfect?",
-        answer: "Supported content is converted as accurately as practical. Complex layouts may be simplified depending on the formats involved.",
+        answer:
+          "Supported content is converted as accurately as practical. Complex layouts may be simplified depending on the formats involved.",
       },
       {
         question: "What if conversion fails?",
-        answer: "Check that the file is valid and not empty or corrupted, then try again with another file.",
-      }],
+        answer:
+          "Check that the file is valid and not empty or corrupted, then try again with another file.",
+      },
+    ],
     inputFormats: ["CSV"],
     outputFormats: ["TSV"],
   }),
@@ -913,9 +1231,11 @@ export const documentDataTools: ToolDefinition[] = [
     supportedFormats: ["CSV", "TSV"],
     relatedToolIds: ["csv-to-tsv", "csv-to-json", "txt-to-csv", "json-to-csv"],
     seoTitle: "TSV to CSV Converter — Free Online | ToolMyra",
-    seoDescription: "Convert TSV to CSV online with ToolMyra. Parse tab-separated values and download escaped CSV output.",
+    seoDescription:
+      "Convert TSV to CSV online with ToolMyra. Parse tab-separated values and download escaped CSV output.",
     h1: "TSV to CSV Converter",
-    intro: "Turn tab-separated data into CSV with correct comma and quote escaping.",
+    intro:
+      "Turn tab-separated data into CSV with correct comma and quote escaping.",
     convertHeading: "Convert TSV to CSV Online",
     howToHeading: "How to Convert TSV to CSV",
     featuresHeading: "TSV to CSV Features",
@@ -923,8 +1243,15 @@ export const documentDataTools: ToolDefinition[] = [
     relatedToolsHeading: "Related Data Tools",
     hideReport: true,
     processingMode: "browser",
-    features: ["Convert TSV to CSV", "Upload or paste input where supported", "Clear convert → result → download flow", "No account required", "Mobile-friendly workspace"],
-    howToSteps: [{
+    features: [
+      "Convert TSV to CSV",
+      "Upload or paste input where supported",
+      "Clear convert → result → download flow",
+      "No account required",
+      "Mobile-friendly workspace",
+    ],
+    howToSteps: [
+      {
         title: "Upload or Paste Input",
         description: "Provide the source file or text for conversion.",
       },
@@ -935,19 +1262,25 @@ export const documentDataTools: ToolDefinition[] = [
       {
         title: "Copy or Download",
         description: "Copy text output or download the converted file.",
-      }],
-    faq: [{
+      },
+    ],
+    faq: [
+      {
         question: "Is TSV to CSV Converter free?",
-        answer: "Yes. ToolMyra converters are free to use and do not require an account.",
+        answer:
+          "Yes. ToolMyra converters are free to use and do not require an account.",
       },
       {
         question: "Will my formatting stay perfect?",
-        answer: "Supported content is converted as accurately as practical. Complex layouts may be simplified depending on the formats involved.",
+        answer:
+          "Supported content is converted as accurately as practical. Complex layouts may be simplified depending on the formats involved.",
       },
       {
         question: "What if conversion fails?",
-        answer: "Check that the file is valid and not empty or corrupted, then try again with another file.",
-      }],
+        answer:
+          "Check that the file is valid and not empty or corrupted, then try again with another file.",
+      },
+    ],
     inputFormats: ["TSV"],
     outputFormats: ["CSV"],
   }),
@@ -959,15 +1292,27 @@ export const documentDataTools: ToolDefinition[] = [
     description: "Convert YAML configuration data into JSON.",
     shortDescription: "Convert YAML files to JSON.",
     icon: "text",
-    keywords: ["yaml to json", "yml to json", "convert yaml to json", "yaml json converter"],
+    keywords: [
+      "yaml to json",
+      "yml to json",
+      "convert yaml to json",
+      "yaml json converter",
+    ],
     popular: true,
     new: false,
     supportedFormats: ["JSON", "YAML", "YML"],
-    relatedToolIds: ["json-to-yaml", "xml-to-json", "json-to-xml", "csv-to-json"],
+    relatedToolIds: [
+      "json-to-yaml",
+      "xml-to-json",
+      "json-to-xml",
+      "csv-to-json",
+    ],
     seoTitle: "YAML to JSON Converter — Free Online | ToolMyra",
-    seoDescription: "Convert YAML to JSON online with ToolMyra. Parse YAML structures and download valid JSON.",
+    seoDescription:
+      "Convert YAML to JSON online with ToolMyra. Parse YAML structures and download valid JSON.",
     h1: "YAML to JSON Converter",
-    intro: "Convert YAML objects, arrays, and scalars into JSON for APIs and apps.",
+    intro:
+      "Convert YAML objects, arrays, and scalars into JSON for APIs and apps.",
     convertHeading: "Convert YAML to JSON Online",
     howToHeading: "How to Convert YAML to JSON",
     featuresHeading: "YAML to JSON Features",
@@ -975,8 +1320,15 @@ export const documentDataTools: ToolDefinition[] = [
     relatedToolsHeading: "Related Data Tools",
     hideReport: true,
     processingMode: "browser",
-    features: ["Convert YAML to JSON", "Upload or paste input where supported", "Clear convert → result → download flow", "No account required", "Mobile-friendly workspace"],
-    howToSteps: [{
+    features: [
+      "Convert YAML to JSON",
+      "Upload or paste input where supported",
+      "Clear convert → result → download flow",
+      "No account required",
+      "Mobile-friendly workspace",
+    ],
+    howToSteps: [
+      {
         title: "Upload or Paste Input",
         description: "Provide the source file or text for conversion.",
       },
@@ -987,19 +1339,25 @@ export const documentDataTools: ToolDefinition[] = [
       {
         title: "Copy or Download",
         description: "Copy text output or download the converted file.",
-      }],
-    faq: [{
+      },
+    ],
+    faq: [
+      {
         question: "Is YAML to JSON Converter free?",
-        answer: "Yes. ToolMyra converters are free to use and do not require an account.",
+        answer:
+          "Yes. ToolMyra converters are free to use and do not require an account.",
       },
       {
         question: "Will my formatting stay perfect?",
-        answer: "Supported content is converted as accurately as practical. Complex layouts may be simplified depending on the formats involved.",
+        answer:
+          "Supported content is converted as accurately as practical. Complex layouts may be simplified depending on the formats involved.",
       },
       {
         question: "What if conversion fails?",
-        answer: "Check that the file is valid and not empty or corrupted, then try again with another file.",
-      }],
+        answer:
+          "Check that the file is valid and not empty or corrupted, then try again with another file.",
+      },
+    ],
     inputFormats: ["YAML", "YML"],
     outputFormats: ["JSON"],
   }),
@@ -1015,11 +1373,18 @@ export const documentDataTools: ToolDefinition[] = [
     popular: true,
     new: false,
     supportedFormats: ["JSON", "YAML"],
-    relatedToolIds: ["yaml-to-json", "json-to-xml", "json-to-csv", "xml-to-json"],
+    relatedToolIds: [
+      "yaml-to-json",
+      "json-to-xml",
+      "json-to-csv",
+      "xml-to-json",
+    ],
     seoTitle: "JSON to YAML Converter — Free Online | ToolMyra",
-    seoDescription: "Convert JSON to YAML online with ToolMyra. Validate JSON first, then copy or download clean YAML.",
+    seoDescription:
+      "Convert JSON to YAML online with ToolMyra. Validate JSON first, then copy or download clean YAML.",
     h1: "JSON to YAML Converter",
-    intro: "Turn JSON objects and arrays into readable YAML for configuration files.",
+    intro:
+      "Turn JSON objects and arrays into readable YAML for configuration files.",
     convertHeading: "Convert JSON to YAML Online",
     howToHeading: "How to Convert JSON to YAML",
     featuresHeading: "JSON to YAML Features",
@@ -1027,8 +1392,15 @@ export const documentDataTools: ToolDefinition[] = [
     relatedToolsHeading: "Related Data Tools",
     hideReport: true,
     processingMode: "browser",
-    features: ["Convert JSON to YAML", "Upload or paste input where supported", "Clear convert → result → download flow", "No account required", "Mobile-friendly workspace"],
-    howToSteps: [{
+    features: [
+      "Convert JSON to YAML",
+      "Upload or paste input where supported",
+      "Clear convert → result → download flow",
+      "No account required",
+      "Mobile-friendly workspace",
+    ],
+    howToSteps: [
+      {
         title: "Upload or Paste Input",
         description: "Provide the source file or text for conversion.",
       },
@@ -1039,21 +1411,26 @@ export const documentDataTools: ToolDefinition[] = [
       {
         title: "Copy or Download",
         description: "Copy text output or download the converted file.",
-      }],
-    faq: [{
+      },
+    ],
+    faq: [
+      {
         question: "Is JSON to YAML Converter free?",
-        answer: "Yes. ToolMyra converters are free to use and do not require an account.",
+        answer:
+          "Yes. ToolMyra converters are free to use and do not require an account.",
       },
       {
         question: "Will my formatting stay perfect?",
-        answer: "Supported content is converted as accurately as practical. Complex layouts may be simplified depending on the formats involved.",
+        answer:
+          "Supported content is converted as accurately as practical. Complex layouts may be simplified depending on the formats involved.",
       },
       {
         question: "What if conversion fails?",
-        answer: "Check that the file is valid and not empty or corrupted, then try again with another file.",
-      }],
+        answer:
+          "Check that the file is valid and not empty or corrupted, then try again with another file.",
+      },
+    ],
     inputFormats: ["JSON"],
     outputFormats: ["YAML"],
   }),
-
 ];

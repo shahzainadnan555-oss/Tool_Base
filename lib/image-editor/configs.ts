@@ -162,10 +162,8 @@ export const imageEditorConfigs: Record<string, ImageEditorConfig> = {
       forceOutputMime: "image/png",
       forceOutputExtension: "png",
       processingLabel: "Removing background…",
-      notices: [
-        "Background removal runs in your browser using an on-device model. The first run downloads model files and can take longer. Accuracy varies by subject, lighting, and image complexity.",
-      ],
-      resetLabel: "Edit Another Image",
+      notices: [],
+      resetLabel: "Remove Another Image",
     },
   ),
   "image-color-picker": make(

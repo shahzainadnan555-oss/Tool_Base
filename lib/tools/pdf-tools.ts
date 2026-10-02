@@ -14,7 +14,6 @@ function tool(
 
 /** PDF tools — Prompt 4 */
 export const pdfTools: ToolDefinition[] = [
-
   tool({
     id: "pdf-to-jpg",
     name: "PDF to JPG",
@@ -23,15 +22,29 @@ export const pdfTools: ToolDefinition[] = [
     description: "Convert PDF pages into JPG images.",
     shortDescription: "Convert PDF pages to JPG images.",
     icon: "pdf",
-    keywords: ["pdf to jpg", "convert pdf to jpg", "pdf jpg converter", "pdf to jpeg"],
+    keywords: [
+      "pdf to jpg",
+      "convert pdf to jpg",
+      "pdf jpg converter",
+      "pdf to jpeg",
+    ],
     popular: true,
     new: false,
     supportedFormats: ["JPG", "PDF"],
-    relatedToolIds: ["pdf-to-png", "pdf-to-webp", "jpg-to-pdf", "pdf-compressor", "pdf-splitter", "pdf-page-extractor"],
+    relatedToolIds: [
+      "pdf-to-png",
+      "pdf-to-webp",
+      "jpg-to-pdf",
+      "pdf-compressor",
+      "pdf-splitter",
+      "pdf-page-extractor",
+    ],
     seoTitle: "PDF to JPG Converter — Free Online | ToolMyra",
-    seoDescription: "Convert PDF to JPG online with ToolMyra. Turn PDF pages into JPG images and download the results instantly.",
+    seoDescription:
+      "Convert PDF to JPG online with ToolMyra. Turn PDF pages into JPG images and download the results instantly.",
     h1: "PDF to JPG",
-    intro: "Convert PDF pages into JPG images online. Upload a PDF, choose pages if needed, and download high-quality JPG output.",
+    intro:
+      "Convert PDF pages into JPG images online. Upload a PDF, choose pages if needed, and download high-quality JPG output.",
     convertHeading: "Convert PDF to JPG Online",
     howToHeading: "How to Convert PDF to JPG",
     featuresHeading: "PDF to JPG Features",
@@ -39,8 +52,15 @@ export const pdfTools: ToolDefinition[] = [
     relatedToolsHeading: "Related PDF Tools",
     hideReport: true,
     processingMode: "browser",
-    features: ["Works with PDF files", "Clear upload → process → download flow", "One processing state with accurate progress when measurable", "No account required", "Mobile-friendly controls"],
-    howToSteps: [{
+    features: [
+      "Works with PDF files",
+      "Clear upload → process → download flow",
+      "One processing state with accurate progress when measurable",
+      "No account required",
+      "Mobile-friendly controls",
+    ],
+    howToSteps: [
+      {
         title: "Upload Your PDF",
         description: "Select the PDF to convert.",
       },
@@ -51,19 +71,25 @@ export const pdfTools: ToolDefinition[] = [
       {
         title: "Download Images",
         description: "Save the image file or ZIP of pages.",
-      }],
-    faq: [{
+      },
+    ],
+    faq: [
+      {
         question: "Is PDF to JPG free to use?",
-        answer: "Yes. ToolMyra PDF tools are free to use and do not require an account.",
+        answer:
+          "Yes. ToolMyra PDF tools are free to use and do not require an account.",
       },
       {
         question: "Does PDF to JPG keep my files private?",
-        answer: "This tool is designed to process PDF files in your browser for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
+        answer:
+          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
       },
       {
         question: "What if my PDF fails?",
-        answer: "Try another file, confirm the PDF is not damaged, and check whether a password is required.",
-      }],
+        answer:
+          "Try another file, confirm the PDF is not damaged, and check whether a password is required.",
+      },
+    ],
     inputFormats: ["PDF"],
     outputFormats: ["JPG"],
   }),
@@ -75,15 +101,28 @@ export const pdfTools: ToolDefinition[] = [
     description: "Convert JPG images into a PDF document.",
     shortDescription: "Create a PDF from JPG images.",
     icon: "pdf",
-    keywords: ["jpg to pdf", "jpeg to pdf", "convert jpg to pdf", "image to pdf"],
+    keywords: [
+      "jpg to pdf",
+      "jpeg to pdf",
+      "convert jpg to pdf",
+      "image to pdf",
+    ],
     popular: true,
     new: false,
     supportedFormats: ["JPEG", "JPG", "PDF"],
-    relatedToolIds: ["png-to-pdf", "pdf-to-jpg", "pdf-merger", "pdf-compressor", "pdf-page-reorderer"],
+    relatedToolIds: [
+      "png-to-pdf",
+      "pdf-to-jpg",
+      "pdf-merger",
+      "pdf-compressor",
+      "pdf-page-reorderer",
+    ],
     seoTitle: "JPG to PDF Converter — Free Online | ToolMyra",
-    seoDescription: "Convert JPG to PDF online with ToolMyra. Combine one or more JPEG images into a downloadable PDF.",
+    seoDescription:
+      "Convert JPG to PDF online with ToolMyra. Combine one or more JPEG images into a downloadable PDF.",
     h1: "JPG to PDF",
-    intro: "Turn JPG or JPEG images into a PDF. Upload one or multiple images, reorder pages, and download a ready-to-share document.",
+    intro:
+      "Turn JPG or JPEG images into a PDF. Upload one or multiple images, reorder pages, and download a ready-to-share document.",
     convertHeading: "Convert JPG to PDF Online",
     howToHeading: "How to Convert JPG to PDF",
     featuresHeading: "JPG to PDF Features",
@@ -91,8 +130,15 @@ export const pdfTools: ToolDefinition[] = [
     relatedToolsHeading: "Related PDF Tools",
     hideReport: true,
     processingMode: "browser",
-    features: ["Works with JPG, JPEG files", "Clear upload → process → download flow", "One processing state with accurate progress when measurable", "No account required", "Mobile-friendly controls"],
-    howToSteps: [{
+    features: [
+      "Works with JPG, JPEG files",
+      "Clear upload → process → download flow",
+      "One processing state with accurate progress when measurable",
+      "No account required",
+      "Mobile-friendly controls",
+    ],
+    howToSteps: [
+      {
         title: "Upload Images",
         description: "Add one or more images and reorder them if needed.",
       },
@@ -103,19 +149,25 @@ export const pdfTools: ToolDefinition[] = [
       {
         title: "Download PDF",
         description: "Save the new PDF document.",
-      }],
-    faq: [{
+      },
+    ],
+    faq: [
+      {
         question: "Is JPG to PDF free to use?",
-        answer: "Yes. ToolMyra PDF tools are free to use and do not require an account.",
+        answer:
+          "Yes. ToolMyra PDF tools are free to use and do not require an account.",
       },
       {
         question: "Does JPG to PDF keep my files private?",
-        answer: "This tool is designed to process PDF files in your browser for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
+        answer:
+          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
       },
       {
         question: "What if my PDF fails?",
-        answer: "Try another file, confirm the PDF is not damaged, and check whether a password is required.",
-      }],
+        answer:
+          "Try another file, confirm the PDF is not damaged, and check whether a password is required.",
+      },
+    ],
     inputFormats: ["JPG", "JPEG"],
     outputFormats: ["PDF"],
   }),
@@ -131,11 +183,18 @@ export const pdfTools: ToolDefinition[] = [
     popular: false,
     new: true,
     supportedFormats: ["PDF", "PNG"],
-    relatedToolIds: ["jpg-to-pdf", "pdf-to-png", "pdf-merger", "pdf-compressor"],
+    relatedToolIds: [
+      "jpg-to-pdf",
+      "pdf-to-png",
+      "pdf-merger",
+      "pdf-compressor",
+    ],
     seoTitle: "PNG to PDF Converter — Free Online | ToolMyra",
-    seoDescription: "Convert PNG to PDF online with ToolMyra. Combine PNG images into a clean PDF document for sharing or printing.",
+    seoDescription:
+      "Convert PNG to PDF online with ToolMyra. Combine PNG images into a clean PDF document for sharing or printing.",
     h1: "PNG to PDF",
-    intro: "Create a PDF from PNG images. Upload files, set page order, and download a PDF that preserves your image layout.",
+    intro:
+      "Create a PDF from PNG images. Upload files, set page order, and download a PDF that preserves your image layout.",
     convertHeading: "Convert PNG to PDF Online",
     howToHeading: "How to Convert PNG to PDF",
     featuresHeading: "PNG to PDF Features",
@@ -143,8 +202,15 @@ export const pdfTools: ToolDefinition[] = [
     relatedToolsHeading: "Related PDF Tools",
     hideReport: true,
     processingMode: "browser",
-    features: ["Works with PNG files", "Clear upload → process → download flow", "One processing state with accurate progress when measurable", "No account required", "Mobile-friendly controls"],
-    howToSteps: [{
+    features: [
+      "Works with PNG files",
+      "Clear upload → process → download flow",
+      "One processing state with accurate progress when measurable",
+      "No account required",
+      "Mobile-friendly controls",
+    ],
+    howToSteps: [
+      {
         title: "Upload Images",
         description: "Add one or more images and reorder them if needed.",
       },
@@ -155,19 +221,25 @@ export const pdfTools: ToolDefinition[] = [
       {
         title: "Download PDF",
         description: "Save the new PDF document.",
-      }],
-    faq: [{
+      },
+    ],
+    faq: [
+      {
         question: "Is PNG to PDF free to use?",
-        answer: "Yes. ToolMyra PDF tools are free to use and do not require an account.",
+        answer:
+          "Yes. ToolMyra PDF tools are free to use and do not require an account.",
       },
       {
         question: "Does PNG to PDF keep my files private?",
-        answer: "This tool is designed to process PDF files in your browser for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
+        answer:
+          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
       },
       {
         question: "What if my PDF fails?",
-        answer: "Try another file, confirm the PDF is not damaged, and check whether a password is required.",
-      }],
+        answer:
+          "Try another file, confirm the PDF is not damaged, and check whether a password is required.",
+      },
+    ],
     inputFormats: ["PNG"],
     outputFormats: ["PDF"],
   }),
@@ -183,11 +255,19 @@ export const pdfTools: ToolDefinition[] = [
     popular: true,
     new: false,
     supportedFormats: ["PDF", "PNG"],
-    relatedToolIds: ["pdf-to-jpg", "pdf-to-webp", "png-to-pdf", "pdf-compressor", "pdf-splitter"],
+    relatedToolIds: [
+      "pdf-to-jpg",
+      "pdf-to-webp",
+      "png-to-pdf",
+      "pdf-compressor",
+      "pdf-splitter",
+    ],
     seoTitle: "PDF to PNG Converter — Free Online | ToolMyra",
-    seoDescription: "Convert PDF to PNG online with ToolMyra. Export PDF pages as PNG images with optional page selection.",
+    seoDescription:
+      "Convert PDF to PNG online with ToolMyra. Export PDF pages as PNG images with optional page selection.",
     h1: "PDF to PNG",
-    intro: "Export PDF pages as PNG images. Choose specific pages or convert the whole document, then download the results.",
+    intro:
+      "Export PDF pages as PNG images. Choose specific pages or convert the whole document, then download the results.",
     convertHeading: "Convert PDF to PNG Online",
     howToHeading: "How to Convert PDF to PNG",
     featuresHeading: "PDF to PNG Features",
@@ -195,8 +275,15 @@ export const pdfTools: ToolDefinition[] = [
     relatedToolsHeading: "Related PDF Tools",
     hideReport: true,
     processingMode: "browser",
-    features: ["Works with PDF files", "Clear upload → process → download flow", "One processing state with accurate progress when measurable", "No account required", "Mobile-friendly controls"],
-    howToSteps: [{
+    features: [
+      "Works with PDF files",
+      "Clear upload → process → download flow",
+      "One processing state with accurate progress when measurable",
+      "No account required",
+      "Mobile-friendly controls",
+    ],
+    howToSteps: [
+      {
         title: "Upload Your PDF",
         description: "Select the PDF to convert.",
       },
@@ -207,19 +294,25 @@ export const pdfTools: ToolDefinition[] = [
       {
         title: "Download Images",
         description: "Save the image file or ZIP of pages.",
-      }],
-    faq: [{
+      },
+    ],
+    faq: [
+      {
         question: "Is PDF to PNG free to use?",
-        answer: "Yes. ToolMyra PDF tools are free to use and do not require an account.",
+        answer:
+          "Yes. ToolMyra PDF tools are free to use and do not require an account.",
       },
       {
         question: "Does PDF to PNG keep my files private?",
-        answer: "This tool is designed to process PDF files in your browser for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
+        answer:
+          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
       },
       {
         question: "What if my PDF fails?",
-        answer: "Try another file, confirm the PDF is not damaged, and check whether a password is required.",
-      }],
+        answer:
+          "Try another file, confirm the PDF is not damaged, and check whether a password is required.",
+      },
+    ],
     inputFormats: ["PDF"],
     outputFormats: ["PNG"],
   }),
@@ -235,11 +328,18 @@ export const pdfTools: ToolDefinition[] = [
     popular: false,
     new: true,
     supportedFormats: ["PDF", "WebP"],
-    relatedToolIds: ["pdf-to-jpg", "pdf-to-png", "pdf-compressor", "webp-compressor"],
+    relatedToolIds: [
+      "pdf-to-jpg",
+      "pdf-to-png",
+      "pdf-compressor",
+      "webp-compressor",
+    ],
     seoTitle: "PDF to WebP Converter — Free Online | ToolMyra",
-    seoDescription: "Convert PDF to WebP online with ToolMyra. Turn PDF pages into modern WebP images for the web.",
+    seoDescription:
+      "Convert PDF to WebP online with ToolMyra. Turn PDF pages into modern WebP images for the web.",
     h1: "PDF to WebP",
-    intro: "Convert PDF pages into WebP images for lighter web delivery. Select pages and download valid WebP output.",
+    intro:
+      "Convert PDF pages into WebP images for lighter web delivery. Select pages and download valid WebP output.",
     convertHeading: "Convert PDF to WebP Online",
     howToHeading: "How to Convert PDF to WebP",
     featuresHeading: "PDF to WebP Features",
@@ -247,8 +347,15 @@ export const pdfTools: ToolDefinition[] = [
     relatedToolsHeading: "Related PDF Tools",
     hideReport: true,
     processingMode: "browser",
-    features: ["Works with PDF files", "Clear upload → process → download flow", "One processing state with accurate progress when measurable", "No account required", "Mobile-friendly controls"],
-    howToSteps: [{
+    features: [
+      "Works with PDF files",
+      "Clear upload → process → download flow",
+      "One processing state with accurate progress when measurable",
+      "No account required",
+      "Mobile-friendly controls",
+    ],
+    howToSteps: [
+      {
         title: "Upload Your PDF",
         description: "Select the PDF to convert.",
       },
@@ -259,19 +366,25 @@ export const pdfTools: ToolDefinition[] = [
       {
         title: "Download Images",
         description: "Save the image file or ZIP of pages.",
-      }],
-    faq: [{
+      },
+    ],
+    faq: [
+      {
         question: "Is PDF to WebP free to use?",
-        answer: "Yes. ToolMyra PDF tools are free to use and do not require an account.",
+        answer:
+          "Yes. ToolMyra PDF tools are free to use and do not require an account.",
       },
       {
         question: "Does PDF to WebP keep my files private?",
-        answer: "This tool is designed to process PDF files in your browser for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
+        answer:
+          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
       },
       {
         question: "What if my PDF fails?",
-        answer: "Try another file, confirm the PDF is not damaged, and check whether a password is required.",
-      }],
+        answer:
+          "Try another file, confirm the PDF is not damaged, and check whether a password is required.",
+      },
+    ],
     inputFormats: ["PDF"],
     outputFormats: ["WebP"],
   }),
@@ -287,11 +400,19 @@ export const pdfTools: ToolDefinition[] = [
     popular: true,
     new: false,
     supportedFormats: ["PDF"],
-    relatedToolIds: ["pdf-splitter", "pdf-page-extractor", "pdf-compressor", "pdf-page-reorderer", "jpg-to-pdf"],
+    relatedToolIds: [
+      "pdf-splitter",
+      "pdf-page-extractor",
+      "pdf-compressor",
+      "pdf-page-reorderer",
+      "jpg-to-pdf",
+    ],
     seoTitle: "PDF Merger — Merge PDF Files Online | ToolMyra",
-    seoDescription: "Merge PDF files online with ToolMyra. Upload multiple PDFs, set the order, and download one combined document.",
+    seoDescription:
+      "Merge PDF files online with ToolMyra. Upload multiple PDFs, set the order, and download one combined document.",
     h1: "PDF Merger",
-    intro: "Combine multiple PDF files into a single document. Upload files, reorder them, merge, and download the result.",
+    intro:
+      "Combine multiple PDF files into a single document. Upload files, reorder them, merge, and download the result.",
     convertHeading: "Merge PDF Files Online",
     howToHeading: "How to Merge PDFs",
     featuresHeading: "PDF Merger Features",
@@ -299,8 +420,15 @@ export const pdfTools: ToolDefinition[] = [
     relatedToolsHeading: "Related PDF Tools",
     hideReport: true,
     processingMode: "browser",
-    features: ["Works with PDF files", "Clear upload → process → download flow", "One processing state with accurate progress when measurable", "No account required", "Mobile-friendly controls"],
-    howToSteps: [{
+    features: [
+      "Works with PDF files",
+      "Clear upload → process → download flow",
+      "One processing state with accurate progress when measurable",
+      "No account required",
+      "Mobile-friendly controls",
+    ],
+    howToSteps: [
+      {
         title: "Upload PDF Files",
         description: "Add two or more PDFs and arrange them in order.",
       },
@@ -311,19 +439,25 @@ export const pdfTools: ToolDefinition[] = [
       {
         title: "Download Merged PDF",
         description: "Save the merged result.",
-      }],
-    faq: [{
+      },
+    ],
+    faq: [
+      {
         question: "Is PDF Merger free to use?",
-        answer: "Yes. ToolMyra PDF tools are free to use and do not require an account.",
+        answer:
+          "Yes. ToolMyra PDF tools are free to use and do not require an account.",
       },
       {
         question: "Does PDF Merger keep my files private?",
-        answer: "This tool is designed to process PDF files in your browser for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
+        answer:
+          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
       },
       {
         question: "What if my PDF fails?",
-        answer: "Try another file, confirm the PDF is not damaged, and check whether a password is required.",
-      }],
+        answer:
+          "Try another file, confirm the PDF is not damaged, and check whether a password is required.",
+      },
+    ],
     inputFormats: ["PDF"],
     outputFormats: ["PDF"],
   }),
@@ -335,15 +469,28 @@ export const pdfTools: ToolDefinition[] = [
     description: "Split a PDF into separate files by pages or ranges.",
     shortDescription: "Split PDFs by pages or ranges.",
     icon: "pdf",
-    keywords: ["split pdf", "pdf splitter", "extract pages from pdf", "separate pdf pages"],
+    keywords: [
+      "split pdf",
+      "pdf splitter",
+      "extract pages from pdf",
+      "separate pdf pages",
+    ],
     popular: true,
     new: false,
     supportedFormats: ["PDF"],
-    relatedToolIds: ["pdf-page-extractor", "pdf-merger", "pdf-rotator", "pdf-cropper", "pdf-compressor"],
+    relatedToolIds: [
+      "pdf-page-extractor",
+      "pdf-merger",
+      "pdf-rotator",
+      "pdf-cropper",
+      "pdf-compressor",
+    ],
     seoTitle: "PDF Splitter — Split PDF Online | ToolMyra",
-    seoDescription: "Split PDF files online with ToolMyra. Separate pages or ranges into individual PDF files and download the results.",
+    seoDescription:
+      "Split PDF files online with ToolMyra. Separate pages or ranges into individual PDF files and download the results.",
     h1: "PDF Splitter",
-    intro: "Split a PDF by individual pages or ranges such as 1-3, 5, 8-10. Download each part as its own PDF.",
+    intro:
+      "Split a PDF by individual pages or ranges such as 1-3, 5, 8-10. Download each part as its own PDF.",
     convertHeading: "Split PDF Files Online",
     howToHeading: "How to Split a PDF",
     featuresHeading: "PDF Splitter Features",
@@ -351,8 +498,15 @@ export const pdfTools: ToolDefinition[] = [
     relatedToolsHeading: "Related PDF Tools",
     hideReport: true,
     processingMode: "browser",
-    features: ["Works with PDF files", "Clear upload → process → download flow", "One processing state with accurate progress when measurable", "No account required", "Mobile-friendly controls"],
-    howToSteps: [{
+    features: [
+      "Works with PDF files",
+      "Clear upload → process → download flow",
+      "One processing state with accurate progress when measurable",
+      "No account required",
+      "Mobile-friendly controls",
+    ],
+    howToSteps: [
+      {
         title: "Upload Your File",
         description: "Choose the file you want to process with PDF Splitter.",
       },
@@ -363,19 +517,25 @@ export const pdfTools: ToolDefinition[] = [
       {
         title: "Download the Result",
         description: "Save the finished file to your device.",
-      }],
-    faq: [{
+      },
+    ],
+    faq: [
+      {
         question: "Is PDF Splitter free to use?",
-        answer: "Yes. ToolMyra PDF tools are free to use and do not require an account.",
+        answer:
+          "Yes. ToolMyra PDF tools are free to use and do not require an account.",
       },
       {
         question: "Does PDF Splitter keep my files private?",
-        answer: "This tool is designed to process PDF files in your browser for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
+        answer:
+          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
       },
       {
         question: "What if my PDF fails?",
-        answer: "Try another file, confirm the PDF is not damaged, and check whether a password is required.",
-      }],
+        answer:
+          "Try another file, confirm the PDF is not damaged, and check whether a password is required.",
+      },
+    ],
     inputFormats: ["PDF"],
     outputFormats: ["PDF"],
   }),
@@ -387,15 +547,29 @@ export const pdfTools: ToolDefinition[] = [
     description: "Compress PDF files to reduce document size.",
     shortDescription: "Reduce PDF file size online.",
     icon: "pdf",
-    keywords: ["pdf compressor", "compress pdf", "reduce pdf size", "pdf size reducer"],
+    keywords: [
+      "pdf compressor",
+      "compress pdf",
+      "reduce pdf size",
+      "pdf size reducer",
+    ],
     popular: true,
     new: false,
     supportedFormats: ["PDF"],
-    relatedToolIds: ["pdf-merger", "pdf-splitter", "pdf-to-jpg", "pdf-to-png", "pdf-to-webp", "pdf-text-extractor"],
+    relatedToolIds: [
+      "pdf-merger",
+      "pdf-splitter",
+      "pdf-to-jpg",
+      "pdf-to-png",
+      "pdf-to-webp",
+      "pdf-text-extractor",
+    ],
     seoTitle: "PDF Compressor — Compress PDF Online | ToolMyra",
-    seoDescription: "Compress PDF files online with ToolMyra. Reduce document size and compare original vs compressed file sizes.",
+    seoDescription:
+      "Compress PDF files online with ToolMyra. Reduce document size and compare original vs compressed file sizes.",
     h1: "PDF Compressor",
-    intro: "Reduce PDF file size for easier sharing and uploads. Upload a PDF, compress it, review real size savings, and download.",
+    intro:
+      "Reduce PDF file size for easier sharing and uploads. Upload a PDF, compress it, review real size savings, and download.",
     convertHeading: "Compress PDF Files Online",
     howToHeading: "How to Compress a PDF",
     featuresHeading: "PDF Compression Features",
@@ -403,31 +577,45 @@ export const pdfTools: ToolDefinition[] = [
     relatedToolsHeading: "Related PDF Tools",
     hideReport: true,
     processingMode: "browser",
-    features: ["Works with PDF files", "Clear upload → process → download flow", "One processing state with accurate progress when measurable", "No account required", "Mobile-friendly controls"],
-    howToSteps: [{
+    features: [
+      "Works with PDF files",
+      "Clear upload → process → download flow",
+      "One processing state with accurate progress when measurable",
+      "No account required",
+      "Mobile-friendly controls",
+    ],
+    howToSteps: [
+      {
         title: "Upload Your PDF",
         description: "Choose the PDF you want to compress.",
       },
       {
         title: "Compress Your File",
-        description: "Start compression and wait for the measured size comparison.",
+        description:
+          "Start compression and wait for the measured size comparison.",
       },
       {
         title: "Download the Compressed PDF",
         description: "Save the reduced PDF when processing finishes.",
-      }],
-    faq: [{
+      },
+    ],
+    faq: [
+      {
         question: "Is PDF Compressor free to use?",
-        answer: "Yes. ToolMyra PDF tools are free to use and do not require an account.",
+        answer:
+          "Yes. ToolMyra PDF tools are free to use and do not require an account.",
       },
       {
         question: "Does PDF Compressor keep my files private?",
-        answer: "This tool is designed to process PDF files in your browser for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
+        answer:
+          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
       },
       {
         question: "Will every PDF get smaller?",
-        answer: "No. Already optimized PDFs may not shrink further. ToolMyra always shows actual measured sizes.",
-      }],
+        answer:
+          "No. Already optimized PDFs may not shrink further. ToolMyra always shows actual measured sizes.",
+      },
+    ],
     inputFormats: ["PDF"],
     outputFormats: ["PDF"],
   }),
@@ -439,15 +627,26 @@ export const pdfTools: ToolDefinition[] = [
     description: "Extract selected pages into a new PDF.",
     shortDescription: "Extract specific pages from a PDF.",
     icon: "pdf",
-    keywords: ["pdf page extractor", "extract pages from pdf", "pdf extract pages"],
+    keywords: [
+      "pdf page extractor",
+      "extract pages from pdf",
+      "pdf extract pages",
+    ],
     popular: false,
     new: true,
     supportedFormats: ["PDF"],
-    relatedToolIds: ["pdf-splitter", "pdf-merger", "pdf-page-reorderer", "pdf-rotator"],
+    relatedToolIds: [
+      "pdf-splitter",
+      "pdf-merger",
+      "pdf-page-reorderer",
+      "pdf-rotator",
+    ],
     seoTitle: "PDF Page Extractor — Extract PDF Pages | ToolMyra",
-    seoDescription: "Extract PDF pages online with ToolMyra. Keep only the pages you need and download a new PDF.",
+    seoDescription:
+      "Extract PDF pages online with ToolMyra. Keep only the pages you need and download a new PDF.",
     h1: "PDF Page Extractor",
-    intro: "Pull selected pages such as 2,4,7-9 into a new PDF while leaving the rest behind.",
+    intro:
+      "Pull selected pages such as 2,4,7-9 into a new PDF while leaving the rest behind.",
     convertHeading: "Extract PDF Pages Online",
     howToHeading: "How to Extract PDF Pages",
     featuresHeading: "PDF Page Extractor Features",
@@ -455,10 +654,18 @@ export const pdfTools: ToolDefinition[] = [
     relatedToolsHeading: "Related PDF Tools",
     hideReport: true,
     processingMode: "browser",
-    features: ["Works with PDF files", "Clear upload → process → download flow", "One processing state with accurate progress when measurable", "No account required", "Mobile-friendly controls"],
-    howToSteps: [{
+    features: [
+      "Works with PDF files",
+      "Clear upload → process → download flow",
+      "One processing state with accurate progress when measurable",
+      "No account required",
+      "Mobile-friendly controls",
+    ],
+    howToSteps: [
+      {
         title: "Upload Your File",
-        description: "Choose the file you want to process with PDF Page Extractor.",
+        description:
+          "Choose the file you want to process with PDF Page Extractor.",
       },
       {
         title: "Configure and Process",
@@ -467,19 +674,25 @@ export const pdfTools: ToolDefinition[] = [
       {
         title: "Download the Result",
         description: "Save the finished file to your device.",
-      }],
-    faq: [{
+      },
+    ],
+    faq: [
+      {
         question: "Is PDF Page Extractor free to use?",
-        answer: "Yes. ToolMyra PDF tools are free to use and do not require an account.",
+        answer:
+          "Yes. ToolMyra PDF tools are free to use and do not require an account.",
       },
       {
         question: "Does PDF Page Extractor keep my files private?",
-        answer: "This tool is designed to process PDF files in your browser for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
+        answer:
+          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
       },
       {
         question: "What if my PDF fails?",
-        answer: "Try another file, confirm the PDF is not damaged, and check whether a password is required.",
-      }],
+        answer:
+          "Try another file, confirm the PDF is not damaged, and check whether a password is required.",
+      },
+    ],
     inputFormats: ["PDF"],
     outputFormats: ["PDF"],
   }),
@@ -495,11 +708,18 @@ export const pdfTools: ToolDefinition[] = [
     popular: false,
     new: true,
     supportedFormats: ["PDF"],
-    relatedToolIds: ["pdf-page-extractor", "pdf-merger", "pdf-rotator", "pdf-splitter"],
+    relatedToolIds: [
+      "pdf-page-extractor",
+      "pdf-merger",
+      "pdf-rotator",
+      "pdf-splitter",
+    ],
     seoTitle: "PDF Page Reorderer — Rearrange PDF Pages | ToolMyra",
-    seoDescription: "Reorder PDF pages online with ToolMyra. Move pages up or down, remove unwanted pages, and download the new order.",
+    seoDescription:
+      "Reorder PDF pages online with ToolMyra. Move pages up or down, remove unwanted pages, and download the new order.",
     h1: "PDF Page Reorderer",
-    intro: "Rearrange PDF pages into the exact order you need. Move pages, remove extras, and generate an updated PDF.",
+    intro:
+      "Rearrange PDF pages into the exact order you need. Move pages, remove extras, and generate an updated PDF.",
     convertHeading: "Reorder PDF Pages Online",
     howToHeading: "How to Reorder PDF Pages",
     featuresHeading: "PDF Page Reorderer Features",
@@ -507,10 +727,18 @@ export const pdfTools: ToolDefinition[] = [
     relatedToolsHeading: "Related PDF Tools",
     hideReport: true,
     processingMode: "browser",
-    features: ["Works with PDF files", "Clear upload → process → download flow", "One processing state with accurate progress when measurable", "No account required", "Mobile-friendly controls"],
-    howToSteps: [{
+    features: [
+      "Works with PDF files",
+      "Clear upload → process → download flow",
+      "One processing state with accurate progress when measurable",
+      "No account required",
+      "Mobile-friendly controls",
+    ],
+    howToSteps: [
+      {
         title: "Upload Your File",
-        description: "Choose the file you want to process with PDF Page Reorderer.",
+        description:
+          "Choose the file you want to process with PDF Page Reorderer.",
       },
       {
         title: "Configure and Process",
@@ -519,19 +747,25 @@ export const pdfTools: ToolDefinition[] = [
       {
         title: "Download the Result",
         description: "Save the finished file to your device.",
-      }],
-    faq: [{
+      },
+    ],
+    faq: [
+      {
         question: "Is PDF Page Reorderer free to use?",
-        answer: "Yes. ToolMyra PDF tools are free to use and do not require an account.",
+        answer:
+          "Yes. ToolMyra PDF tools are free to use and do not require an account.",
       },
       {
         question: "Does PDF Page Reorderer keep my files private?",
-        answer: "This tool is designed to process PDF files in your browser for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
+        answer:
+          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
       },
       {
         question: "What if my PDF fails?",
-        answer: "Try another file, confirm the PDF is not damaged, and check whether a password is required.",
-      }],
+        answer:
+          "Try another file, confirm the PDF is not damaged, and check whether a password is required.",
+      },
+    ],
     inputFormats: ["PDF"],
     outputFormats: ["PDF"],
   }),
@@ -547,11 +781,18 @@ export const pdfTools: ToolDefinition[] = [
     popular: false,
     new: false,
     supportedFormats: ["PDF"],
-    relatedToolIds: ["pdf-cropper", "pdf-page-reorderer", "pdf-splitter", "pdf-page-extractor"],
+    relatedToolIds: [
+      "pdf-cropper",
+      "pdf-page-reorderer",
+      "pdf-splitter",
+      "pdf-page-extractor",
+    ],
     seoTitle: "PDF Rotator — Rotate PDF Pages Online | ToolMyra",
-    seoDescription: "Rotate PDF pages online with ToolMyra. Apply 90°, 180°, or 270° rotation and download the updated PDF.",
+    seoDescription:
+      "Rotate PDF pages online with ToolMyra. Apply 90°, 180°, or 270° rotation and download the updated PDF.",
     h1: "PDF Rotator",
-    intro: "Fix sideways or upside-down PDF pages by rotating them, then download a corrected document.",
+    intro:
+      "Fix sideways or upside-down PDF pages by rotating them, then download a corrected document.",
     convertHeading: "Rotate PDF Pages Online",
     howToHeading: "How to Rotate a PDF",
     featuresHeading: "PDF Rotator Features",
@@ -559,8 +800,15 @@ export const pdfTools: ToolDefinition[] = [
     relatedToolsHeading: "Related PDF Tools",
     hideReport: true,
     processingMode: "browser",
-    features: ["Works with PDF files", "Clear upload → process → download flow", "One processing state with accurate progress when measurable", "No account required", "Mobile-friendly controls"],
-    howToSteps: [{
+    features: [
+      "Works with PDF files",
+      "Clear upload → process → download flow",
+      "One processing state with accurate progress when measurable",
+      "No account required",
+      "Mobile-friendly controls",
+    ],
+    howToSteps: [
+      {
         title: "Upload Your File",
         description: "Choose the file you want to process with PDF Rotator.",
       },
@@ -571,19 +819,25 @@ export const pdfTools: ToolDefinition[] = [
       {
         title: "Download the Result",
         description: "Save the finished file to your device.",
-      }],
-    faq: [{
+      },
+    ],
+    faq: [
+      {
         question: "Is PDF Rotator free to use?",
-        answer: "Yes. ToolMyra PDF tools are free to use and do not require an account.",
+        answer:
+          "Yes. ToolMyra PDF tools are free to use and do not require an account.",
       },
       {
         question: "Does PDF Rotator keep my files private?",
-        answer: "This tool is designed to process PDF files in your browser for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
+        answer:
+          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
       },
       {
         question: "What if my PDF fails?",
-        answer: "Try another file, confirm the PDF is not damaged, and check whether a password is required.",
-      }],
+        answer:
+          "Try another file, confirm the PDF is not damaged, and check whether a password is required.",
+      },
+    ],
     inputFormats: ["PDF"],
     outputFormats: ["PDF"],
   }),
@@ -599,11 +853,18 @@ export const pdfTools: ToolDefinition[] = [
     popular: false,
     new: true,
     supportedFormats: ["PDF"],
-    relatedToolIds: ["pdf-rotator", "pdf-page-extractor", "pdf-splitter", "pdf-compressor"],
+    relatedToolIds: [
+      "pdf-rotator",
+      "pdf-page-extractor",
+      "pdf-splitter",
+      "pdf-compressor",
+    ],
     seoTitle: "PDF Cropper — Crop PDF Pages Online | ToolMyra",
-    seoDescription: "Crop PDF pages online with ToolMyra. Trim margins on selected pages and download a clipped PDF.",
+    seoDescription:
+      "Crop PDF pages online with ToolMyra. Trim margins on selected pages and download a clipped PDF.",
     h1: "PDF Cropper",
-    intro: "Trim unwanted margins from PDF pages. Set crop percentages, apply to selected pages, and download the result.",
+    intro:
+      "Trim unwanted margins from PDF pages. Set crop percentages, apply to selected pages, and download the result.",
     convertHeading: "Crop PDF Pages Online",
     howToHeading: "How to Crop a PDF",
     featuresHeading: "PDF Cropper Features",
@@ -611,8 +872,15 @@ export const pdfTools: ToolDefinition[] = [
     relatedToolsHeading: "Related PDF Tools",
     hideReport: true,
     processingMode: "browser",
-    features: ["Works with PDF files", "Clear upload → process → download flow", "One processing state with accurate progress when measurable", "No account required", "Mobile-friendly controls"],
-    howToSteps: [{
+    features: [
+      "Works with PDF files",
+      "Clear upload → process → download flow",
+      "One processing state with accurate progress when measurable",
+      "No account required",
+      "Mobile-friendly controls",
+    ],
+    howToSteps: [
+      {
         title: "Upload Your File",
         description: "Choose the file you want to process with PDF Cropper.",
       },
@@ -623,19 +891,25 @@ export const pdfTools: ToolDefinition[] = [
       {
         title: "Download the Result",
         description: "Save the finished file to your device.",
-      }],
-    faq: [{
+      },
+    ],
+    faq: [
+      {
         question: "Is PDF Cropper free to use?",
-        answer: "Yes. ToolMyra PDF tools are free to use and do not require an account.",
+        answer:
+          "Yes. ToolMyra PDF tools are free to use and do not require an account.",
       },
       {
         question: "Does PDF Cropper keep my files private?",
-        answer: "This tool is designed to process PDF files in your browser for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
+        answer:
+          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
       },
       {
         question: "What if my PDF fails?",
-        answer: "Try another file, confirm the PDF is not damaged, and check whether a password is required.",
-      }],
+        answer:
+          "Try another file, confirm the PDF is not damaged, and check whether a password is required.",
+      },
+    ],
     inputFormats: ["PDF"],
     outputFormats: ["PDF"],
   }),
@@ -651,11 +925,17 @@ export const pdfTools: ToolDefinition[] = [
     popular: false,
     new: false,
     supportedFormats: ["PDF"],
-    relatedToolIds: ["pdf-metadata-remover", "pdf-text-extractor", "pdf-compressor"],
+    relatedToolIds: [
+      "pdf-metadata-remover",
+      "pdf-text-extractor",
+      "pdf-compressor",
+    ],
     seoTitle: "PDF Metadata Viewer — View PDF Info Online | ToolMyra",
-    seoDescription: "View PDF metadata online with ToolMyra. Inspect title, author, dates, page count, and other available fields.",
+    seoDescription:
+      "View PDF metadata online with ToolMyra. Inspect title, author, dates, page count, and other available fields.",
     h1: "PDF Metadata Viewer",
-    intro: "Inspect PDF document information such as title, author, creator, dates, and page count when those fields exist.",
+    intro:
+      "Inspect PDF document information such as title, author, creator, dates, and page count when those fields exist.",
     convertHeading: "View PDF Metadata Online",
     howToHeading: "How to View PDF Metadata",
     featuresHeading: "PDF Metadata Viewer Features",
@@ -663,10 +943,18 @@ export const pdfTools: ToolDefinition[] = [
     relatedToolsHeading: "Related PDF Tools",
     hideReport: true,
     processingMode: "browser",
-    features: ["Works with PDF files", "Clear upload → process → download flow", "One processing state with accurate progress when measurable", "No account required", "Mobile-friendly controls"],
-    howToSteps: [{
+    features: [
+      "Works with PDF files",
+      "Clear upload → process → download flow",
+      "One processing state with accurate progress when measurable",
+      "No account required",
+      "Mobile-friendly controls",
+    ],
+    howToSteps: [
+      {
         title: "Upload Your File",
-        description: "Choose the file you want to process with PDF Metadata Viewer.",
+        description:
+          "Choose the file you want to process with PDF Metadata Viewer.",
       },
       {
         title: "Configure and Process",
@@ -675,19 +963,25 @@ export const pdfTools: ToolDefinition[] = [
       {
         title: "Download the Result",
         description: "Save the finished file to your device.",
-      }],
-    faq: [{
+      },
+    ],
+    faq: [
+      {
         question: "Is PDF Metadata Viewer free to use?",
-        answer: "Yes. ToolMyra PDF tools are free to use and do not require an account.",
+        answer:
+          "Yes. ToolMyra PDF tools are free to use and do not require an account.",
       },
       {
         question: "Does PDF Metadata Viewer keep my files private?",
-        answer: "This tool is designed to process PDF files in your browser for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
+        answer:
+          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
       },
       {
         question: "What if my PDF fails?",
-        answer: "Try another file, confirm the PDF is not damaged, and check whether a password is required.",
-      }],
+        answer:
+          "Try another file, confirm the PDF is not damaged, and check whether a password is required.",
+      },
+    ],
     inputFormats: ["PDF"],
     outputFormats: ["PDF"],
   }),
@@ -699,15 +993,25 @@ export const pdfTools: ToolDefinition[] = [
     description: "Remove common PDF metadata fields.",
     shortDescription: "Clear PDF document info fields.",
     icon: "pdf",
-    keywords: ["remove pdf metadata", "pdf metadata remover", "strip pdf metadata"],
+    keywords: [
+      "remove pdf metadata",
+      "pdf metadata remover",
+      "strip pdf metadata",
+    ],
     popular: false,
     new: true,
     supportedFormats: ["PDF"],
-    relatedToolIds: ["pdf-metadata-viewer", "pdf-password-protector", "pdf-compressor"],
+    relatedToolIds: [
+      "pdf-metadata-viewer",
+      "pdf-password-protector",
+      "pdf-compressor",
+    ],
     seoTitle: "PDF Metadata Remover — Remove PDF Info | ToolMyra",
-    seoDescription: "Remove PDF metadata online with ToolMyra. Clear common document info fields and download a cleaned PDF.",
+    seoDescription:
+      "Remove PDF metadata online with ToolMyra. Clear common document info fields and download a cleaned PDF.",
     h1: "PDF Metadata Remover",
-    intro: "Clear common PDF info fields before sharing. Upload a PDF, remove supported metadata, and download the cleaned file.",
+    intro:
+      "Clear common PDF info fields before sharing. Upload a PDF, remove supported metadata, and download the cleaned file.",
     convertHeading: "Remove PDF Metadata Online",
     howToHeading: "How to Remove PDF Metadata",
     featuresHeading: "PDF Metadata Remover Features",
@@ -715,10 +1019,18 @@ export const pdfTools: ToolDefinition[] = [
     relatedToolsHeading: "Related PDF Tools",
     hideReport: true,
     processingMode: "browser",
-    features: ["Works with PDF files", "Clear upload → process → download flow", "One processing state with accurate progress when measurable", "No account required", "Mobile-friendly controls"],
-    howToSteps: [{
+    features: [
+      "Works with PDF files",
+      "Clear upload → process → download flow",
+      "One processing state with accurate progress when measurable",
+      "No account required",
+      "Mobile-friendly controls",
+    ],
+    howToSteps: [
+      {
         title: "Upload Your File",
-        description: "Choose the file you want to process with PDF Metadata Remover.",
+        description:
+          "Choose the file you want to process with PDF Metadata Remover.",
       },
       {
         title: "Configure and Process",
@@ -727,19 +1039,25 @@ export const pdfTools: ToolDefinition[] = [
       {
         title: "Download the Result",
         description: "Save the finished file to your device.",
-      }],
-    faq: [{
+      },
+    ],
+    faq: [
+      {
         question: "Is PDF Metadata Remover free to use?",
-        answer: "Yes. ToolMyra PDF tools are free to use and do not require an account.",
+        answer:
+          "Yes. ToolMyra PDF tools are free to use and do not require an account.",
       },
       {
         question: "Does PDF Metadata Remover keep my files private?",
-        answer: "This tool is designed to process PDF files in your browser for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
+        answer:
+          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
       },
       {
         question: "What if my PDF fails?",
-        answer: "Try another file, confirm the PDF is not damaged, and check whether a password is required.",
-      }],
+        answer:
+          "Try another file, confirm the PDF is not damaged, and check whether a password is required.",
+      },
+    ],
     inputFormats: ["PDF"],
     outputFormats: ["PDF"],
   }),
@@ -757,9 +1075,11 @@ export const pdfTools: ToolDefinition[] = [
     supportedFormats: ["PDF"],
     relatedToolIds: ["pdf-unlocker", "pdf-metadata-remover", "pdf-compressor"],
     seoTitle: "PDF Password Protector — Encrypt PDF Online | ToolMyra",
-    seoDescription: "Password-protect PDF files online with ToolMyra. Encrypt a PDF with your password and download the secured file.",
+    seoDescription:
+      "Password-protect PDF files online with ToolMyra. Encrypt a PDF with your password and download the secured file.",
     h1: "PDF Password Protector",
-    intro: "Add password protection to a PDF before sharing. Enter and confirm a password, then download an encrypted document.",
+    intro:
+      "Add password protection to a PDF before sharing. Enter and confirm a password, then download an encrypted document.",
     convertHeading: "Protect PDF Files Online",
     howToHeading: "How to Password Protect a PDF",
     featuresHeading: "PDF Password Protector Features",
@@ -767,10 +1087,18 @@ export const pdfTools: ToolDefinition[] = [
     relatedToolsHeading: "Related PDF Tools",
     hideReport: true,
     processingMode: "browser",
-    features: ["Works with PDF files", "Clear upload → process → download flow", "One processing state with accurate progress when measurable", "No account required", "Mobile-friendly controls"],
-    howToSteps: [{
+    features: [
+      "Works with PDF files",
+      "Clear upload → process → download flow",
+      "One processing state with accurate progress when measurable",
+      "No account required",
+      "Mobile-friendly controls",
+    ],
+    howToSteps: [
+      {
         title: "Upload Your File",
-        description: "Choose the file you want to process with PDF Password Protector.",
+        description:
+          "Choose the file you want to process with PDF Password Protector.",
       },
       {
         title: "Configure and Process",
@@ -779,19 +1107,25 @@ export const pdfTools: ToolDefinition[] = [
       {
         title: "Download the Result",
         description: "Save the finished file to your device.",
-      }],
-    faq: [{
+      },
+    ],
+    faq: [
+      {
         question: "Is PDF Password Protector free to use?",
-        answer: "Yes. ToolMyra PDF tools are free to use and do not require an account.",
+        answer:
+          "Yes. ToolMyra PDF tools are free to use and do not require an account.",
       },
       {
         question: "Does PDF Password Protector keep my files private?",
-        answer: "This tool is designed to process PDF files in your browser for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
+        answer:
+          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
       },
       {
         question: "Is the password stored?",
-        answer: "No. The password is used only to encrypt the file in your browser session and is not stored by ToolMyra.",
-      }],
+        answer:
+          "No. The password is used only to encrypt the file session and is not stored by ToolMyra.",
+      },
+    ],
     inputFormats: ["PDF"],
     outputFormats: ["PDF"],
   }),
@@ -803,15 +1137,26 @@ export const pdfTools: ToolDefinition[] = [
     description: "Unlock a PDF when you know the password.",
     shortDescription: "Remove PDF password with authorization.",
     icon: "pdf",
-    keywords: ["pdf unlocker", "unlock pdf", "remove pdf password", "decrypt pdf"],
+    keywords: [
+      "pdf unlocker",
+      "unlock pdf",
+      "remove pdf password",
+      "decrypt pdf",
+    ],
     popular: false,
     new: false,
     supportedFormats: ["PDF"],
-    relatedToolIds: ["pdf-password-protector", "pdf-metadata-remover", "pdf-compressor"],
+    relatedToolIds: [
+      "pdf-password-protector",
+      "pdf-metadata-remover",
+      "pdf-compressor",
+    ],
     seoTitle: "PDF Unlocker — Unlock PDF Online | ToolMyra",
-    seoDescription: "Unlock PDF files online with ToolMyra when you know the password. Create an unprotected copy you are authorized to open.",
+    seoDescription:
+      "Unlock PDF files online with ToolMyra when you know the password. Create an unprotected copy you are authorized to open.",
     h1: "PDF Unlocker",
-    intro: "Remove password protection from a PDF you are authorized to open. Provide the password and download an unlocked copy.",
+    intro:
+      "Remove password protection from a PDF you are authorized to open. Provide the password and download an unlocked copy.",
     convertHeading: "Unlock PDF Files Online",
     howToHeading: "How to Unlock a PDF",
     featuresHeading: "PDF Unlocker Features",
@@ -819,8 +1164,15 @@ export const pdfTools: ToolDefinition[] = [
     relatedToolsHeading: "Related PDF Tools",
     hideReport: true,
     processingMode: "browser",
-    features: ["Works with PDF files", "Clear upload → process → download flow", "One processing state with accurate progress when measurable", "No account required", "Mobile-friendly controls"],
-    howToSteps: [{
+    features: [
+      "Works with PDF files",
+      "Clear upload → process → download flow",
+      "One processing state with accurate progress when measurable",
+      "No account required",
+      "Mobile-friendly controls",
+    ],
+    howToSteps: [
+      {
         title: "Upload Your File",
         description: "Choose the file you want to process with PDF Unlocker.",
       },
@@ -831,19 +1183,25 @@ export const pdfTools: ToolDefinition[] = [
       {
         title: "Download the Result",
         description: "Save the finished file to your device.",
-      }],
-    faq: [{
+      },
+    ],
+    faq: [
+      {
         question: "Is PDF Unlocker free to use?",
-        answer: "Yes. ToolMyra PDF tools are free to use and do not require an account.",
+        answer:
+          "Yes. ToolMyra PDF tools are free to use and do not require an account.",
       },
       {
         question: "Does PDF Unlocker keep my files private?",
-        answer: "This tool is designed to process PDF files in your browser for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
+        answer:
+          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
       },
       {
         question: "Can it crack unknown passwords?",
-        answer: "No. You must provide the correct password for a PDF you are authorized to open.",
-      }],
+        answer:
+          "No. You must provide the correct password for a PDF you are authorized to open.",
+      },
+    ],
     inputFormats: ["PDF"],
     outputFormats: ["PDF"],
   }),
@@ -859,11 +1217,18 @@ export const pdfTools: ToolDefinition[] = [
     popular: false,
     new: true,
     supportedFormats: ["PDF"],
-    relatedToolIds: ["pdf-watermark", "pdf-page-reorderer", "pdf-rotator", "pdf-compressor"],
+    relatedToolIds: [
+      "pdf-watermark",
+      "pdf-page-reorderer",
+      "pdf-rotator",
+      "pdf-compressor",
+    ],
     seoTitle: "PDF Page Numbering — Add Page Numbers Online | ToolMyra",
-    seoDescription: "Add page numbers to PDF files online with ToolMyra. Choose position, format, and starting number, then download.",
+    seoDescription:
+      "Add page numbers to PDF files online with ToolMyra. Choose position, format, and starting number, then download.",
     h1: "PDF Page Numbering Tool",
-    intro: "Add clear page numbers to your PDF. Choose position, starting number, and format such as 1 or Page 1.",
+    intro:
+      "Add clear page numbers to your PDF. Choose position, starting number, and format such as 1 or Page 1.",
     convertHeading: "Add PDF Page Numbers Online",
     howToHeading: "How to Add Page Numbers to a PDF",
     featuresHeading: "PDF Page Numbering Features",
@@ -871,10 +1236,18 @@ export const pdfTools: ToolDefinition[] = [
     relatedToolsHeading: "Related PDF Tools",
     hideReport: true,
     processingMode: "browser",
-    features: ["Works with PDF files", "Clear upload → process → download flow", "One processing state with accurate progress when measurable", "No account required", "Mobile-friendly controls"],
-    howToSteps: [{
+    features: [
+      "Works with PDF files",
+      "Clear upload → process → download flow",
+      "One processing state with accurate progress when measurable",
+      "No account required",
+      "Mobile-friendly controls",
+    ],
+    howToSteps: [
+      {
         title: "Upload Your File",
-        description: "Choose the file you want to process with PDF Page Numbering.",
+        description:
+          "Choose the file you want to process with PDF Page Numbering.",
       },
       {
         title: "Configure and Process",
@@ -883,19 +1256,25 @@ export const pdfTools: ToolDefinition[] = [
       {
         title: "Download the Result",
         description: "Save the finished file to your device.",
-      }],
-    faq: [{
+      },
+    ],
+    faq: [
+      {
         question: "Is PDF Page Numbering free to use?",
-        answer: "Yes. ToolMyra PDF tools are free to use and do not require an account.",
+        answer:
+          "Yes. ToolMyra PDF tools are free to use and do not require an account.",
       },
       {
         question: "Does PDF Page Numbering keep my files private?",
-        answer: "This tool is designed to process PDF files in your browser for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
+        answer:
+          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
       },
       {
         question: "What if my PDF fails?",
-        answer: "Try another file, confirm the PDF is not damaged, and check whether a password is required.",
-      }],
+        answer:
+          "Try another file, confirm the PDF is not damaged, and check whether a password is required.",
+      },
+    ],
     inputFormats: ["PDF"],
     outputFormats: ["PDF"],
   }),
@@ -911,11 +1290,18 @@ export const pdfTools: ToolDefinition[] = [
     popular: false,
     new: true,
     supportedFormats: ["PDF"],
-    relatedToolIds: ["pdf-page-numbering", "pdf-password-protector", "pdf-compressor", "pdf-metadata-remover"],
+    relatedToolIds: [
+      "pdf-page-numbering",
+      "pdf-password-protector",
+      "pdf-compressor",
+      "pdf-metadata-remover",
+    ],
     seoTitle: "PDF Watermark Tool — Add Watermark Online | ToolMyra",
-    seoDescription: "Add a text watermark to PDF files online with ToolMyra. Control opacity, rotation, size, and color, then download.",
+    seoDescription:
+      "Add a text watermark to PDF files online with ToolMyra. Control opacity, rotation, size, and color, then download.",
     h1: "PDF Watermark Tool",
-    intro: "Place a custom text watermark across PDF pages. Adjust opacity, rotation, size, and position, then download the result.",
+    intro:
+      "Place a custom text watermark across PDF pages. Adjust opacity, rotation, size, and position, then download the result.",
     convertHeading: "Watermark PDF Files Online",
     howToHeading: "How to Watermark a PDF",
     featuresHeading: "PDF Watermark Features",
@@ -923,10 +1309,18 @@ export const pdfTools: ToolDefinition[] = [
     relatedToolsHeading: "Related PDF Tools",
     hideReport: true,
     processingMode: "browser",
-    features: ["Works with PDF files", "Clear upload → process → download flow", "One processing state with accurate progress when measurable", "No account required", "Mobile-friendly controls"],
-    howToSteps: [{
+    features: [
+      "Works with PDF files",
+      "Clear upload → process → download flow",
+      "One processing state with accurate progress when measurable",
+      "No account required",
+      "Mobile-friendly controls",
+    ],
+    howToSteps: [
+      {
         title: "Upload Your File",
-        description: "Choose the file you want to process with PDF Watermark Tool.",
+        description:
+          "Choose the file you want to process with PDF Watermark Tool.",
       },
       {
         title: "Configure and Process",
@@ -935,19 +1329,25 @@ export const pdfTools: ToolDefinition[] = [
       {
         title: "Download the Result",
         description: "Save the finished file to your device.",
-      }],
-    faq: [{
+      },
+    ],
+    faq: [
+      {
         question: "Is PDF Watermark Tool free to use?",
-        answer: "Yes. ToolMyra PDF tools are free to use and do not require an account.",
+        answer:
+          "Yes. ToolMyra PDF tools are free to use and do not require an account.",
       },
       {
         question: "Does PDF Watermark Tool keep my files private?",
-        answer: "This tool is designed to process PDF files in your browser for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
+        answer:
+          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
       },
       {
         question: "What if my PDF fails?",
-        answer: "Try another file, confirm the PDF is not damaged, and check whether a password is required.",
-      }],
+        answer:
+          "Try another file, confirm the PDF is not damaged, and check whether a password is required.",
+      },
+    ],
     inputFormats: ["PDF"],
     outputFormats: ["PDF"],
   }),
@@ -963,11 +1363,18 @@ export const pdfTools: ToolDefinition[] = [
     popular: true,
     new: false,
     supportedFormats: ["PDF", "TXT"],
-    relatedToolIds: ["pdf-to-text", "pdf-metadata-viewer", "pdf-compressor", "pdf-to-jpg"],
+    relatedToolIds: [
+      "pdf-to-text",
+      "pdf-metadata-viewer",
+      "pdf-compressor",
+      "pdf-to-jpg",
+    ],
     seoTitle: "PDF Text Extractor — Extract Text Online | ToolMyra",
-    seoDescription: "Extract text from PDF files online with ToolMyra. Copy or download the text layer when the document contains selectable text.",
+    seoDescription:
+      "Extract text from PDF files online with ToolMyra. Copy or download the text layer when the document contains selectable text.",
     h1: "PDF Text Extractor",
-    intro: "Extract available text from a PDF’s text layer. Copy results or download a TXT file. Scanned image-only PDFs may not include extractable text.",
+    intro:
+      "Extract available text from a PDF’s text layer. Copy results or download a TXT file. Scanned image-only PDFs may not include extractable text.",
     convertHeading: "Extract Text from PDF Online",
     howToHeading: "How to Extract Text from a PDF",
     featuresHeading: "PDF Text Extractor Features",
@@ -975,8 +1382,15 @@ export const pdfTools: ToolDefinition[] = [
     relatedToolsHeading: "Related PDF Tools",
     hideReport: true,
     processingMode: "browser",
-    features: ["Works with PDF files", "Clear upload → process → download flow", "One processing state with accurate progress when measurable", "No account required", "Mobile-friendly controls"],
-    howToSteps: [{
+    features: [
+      "Works with PDF files",
+      "Clear upload → process → download flow",
+      "One processing state with accurate progress when measurable",
+      "No account required",
+      "Mobile-friendly controls",
+    ],
+    howToSteps: [
+      {
         title: "Upload Your PDF",
         description: "Choose a PDF that contains a text layer.",
       },
@@ -987,19 +1401,25 @@ export const pdfTools: ToolDefinition[] = [
       {
         title: "Copy or Download",
         description: "Copy the text or download a TXT file.",
-      }],
-    faq: [{
+      },
+    ],
+    faq: [
+      {
         question: "Is PDF Text Extractor free to use?",
-        answer: "Yes. ToolMyra PDF tools are free to use and do not require an account.",
+        answer:
+          "Yes. ToolMyra PDF tools are free to use and do not require an account.",
       },
       {
         question: "Does PDF Text Extractor keep my files private?",
-        answer: "This tool is designed to process PDF files in your browser for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
+        answer:
+          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
       },
       {
         question: "Does this use OCR?",
-        answer: "No. It extracts the existing text layer. Scanned image-only PDFs may have little or no extractable text.",
-      }],
+        answer:
+          "No. It extracts the existing text layer. Scanned image-only PDFs may have little or no extractable text.",
+      },
+    ],
     inputFormats: ["PDF"],
     outputFormats: ["TXT"],
   }),
@@ -1011,15 +1431,27 @@ export const pdfTools: ToolDefinition[] = [
     description: "Convert PDF text into a TXT file.",
     shortDescription: "Convert PDF documents to TXT.",
     icon: "pdf",
-    keywords: ["pdf to text", "pdf to txt", "convert pdf to text", "pdf txt converter"],
+    keywords: [
+      "pdf to text",
+      "pdf to txt",
+      "convert pdf to text",
+      "pdf txt converter",
+    ],
     popular: true,
     new: false,
     supportedFormats: ["PDF", "TXT"],
-    relatedToolIds: ["pdf-text-extractor", "pdf-to-jpg", "pdf-compressor", "pdf-metadata-viewer"],
+    relatedToolIds: [
+      "pdf-text-extractor",
+      "pdf-to-jpg",
+      "pdf-compressor",
+      "pdf-metadata-viewer",
+    ],
     seoTitle: "PDF to Text Converter — PDF to TXT Online | ToolMyra",
-    seoDescription: "Convert PDF to text online with ToolMyra. Turn available PDF text into a downloadable TXT file.",
+    seoDescription:
+      "Convert PDF to text online with ToolMyra. Turn available PDF text into a downloadable TXT file.",
     h1: "PDF to Text Converter",
-    intro: "Convert a PDF’s text layer into a TXT file while preserving a sensible reading order across pages when text is available.",
+    intro:
+      "Convert a PDF’s text layer into a TXT file while preserving a sensible reading order across pages when text is available.",
     convertHeading: "Convert PDF to Text Online",
     howToHeading: "How to Convert PDF to Text",
     featuresHeading: "PDF to Text Features",
@@ -1027,8 +1459,15 @@ export const pdfTools: ToolDefinition[] = [
     relatedToolsHeading: "Related PDF Tools",
     hideReport: true,
     processingMode: "browser",
-    features: ["Works with PDF files", "Clear upload → process → download flow", "One processing state with accurate progress when measurable", "No account required", "Mobile-friendly controls"],
-    howToSteps: [{
+    features: [
+      "Works with PDF files",
+      "Clear upload → process → download flow",
+      "One processing state with accurate progress when measurable",
+      "No account required",
+      "Mobile-friendly controls",
+    ],
+    howToSteps: [
+      {
         title: "Upload Your File",
         description: "Choose the file you want to process with PDF to Text.",
       },
@@ -1039,21 +1478,26 @@ export const pdfTools: ToolDefinition[] = [
       {
         title: "Download the Result",
         description: "Save the finished file to your device.",
-      }],
-    faq: [{
+      },
+    ],
+    faq: [
+      {
         question: "Is PDF to Text free to use?",
-        answer: "Yes. ToolMyra PDF tools are free to use and do not require an account.",
+        answer:
+          "Yes. ToolMyra PDF tools are free to use and do not require an account.",
       },
       {
         question: "Does PDF to Text keep my files private?",
-        answer: "This tool is designed to process PDF files in your browser for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
+        answer:
+          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
       },
       {
         question: "What if my PDF fails?",
-        answer: "Try another file, confirm the PDF is not damaged, and check whether a password is required.",
-      }],
+        answer:
+          "Try another file, confirm the PDF is not damaged, and check whether a password is required.",
+      },
+    ],
     inputFormats: ["PDF"],
     outputFormats: ["TXT"],
   }),
-
 ];

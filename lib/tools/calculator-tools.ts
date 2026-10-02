@@ -17,7 +17,10 @@ const sharedHowTo = (
   b: string,
   c: string,
 ): ToolDefinition["howToSteps"] => [
-  { title: a, description: "Provide the values or units for this calculation." },
+  {
+    title: a,
+    description: "Provide the values or units for this calculation.",
+  },
   { title: b, description: "The result updates as you change inputs." },
   { title: c, description: "Copy the result or reset to start again." },
 ];
@@ -68,7 +71,11 @@ export const calculatorTools: ToolDefinition[] = [
       "Swap units without losing your value",
       "Copy the exact formatted result",
     ],
-    howToSteps: sharedHowTo("Choose a category", "Enter a value and units", "Review and copy"),
+    howToSteps: sharedHowTo(
+      "Choose a category",
+      "Enter a value and units",
+      "Review and copy",
+    ),
     faq: [
       {
         question: "Which categories are supported?",
@@ -82,7 +89,8 @@ export const calculatorTools: ToolDefinition[] = [
       },
       {
         question: "Is this free?",
-        answer: "Yes. The unit converter is free to use with no account required.",
+        answer:
+          "Yes. The unit converter is free to use with no account required.",
       },
     ],
     inputFormats: ["Numbers", "Units"],
@@ -147,7 +155,11 @@ export const calculatorTools: ToolDefinition[] = [
       "Swap units instantly",
       "Copy formatted results",
     ],
-    howToSteps: sharedHowTo("Choose your units", "Enter a value", "Review the result"),
+    howToSteps: sharedHowTo(
+      "Choose your units",
+      "Enter a value",
+      "Review the result",
+    ),
     faq: [
       {
         question: "How many centimeters are in a meter?",
@@ -230,7 +242,11 @@ export const calculatorTools: ToolDefinition[] = [
       "Live conversion",
       "Swap and copy",
     ],
-    howToSteps: sharedHowTo("Select mass units", "Enter a value", "Review the conversion"),
+    howToSteps: sharedHowTo(
+      "Select mass units",
+      "Enter a value",
+      "Review the conversion",
+    ),
     faq: [
       {
         question: "Is this weight or mass?",
@@ -303,7 +319,11 @@ export const calculatorTools: ToolDefinition[] = [
       "Negative values supported",
       "Instant results",
     ],
-    howToSteps: sharedHowTo("Choose scales", "Enter a temperature", "Review the converted value"),
+    howToSteps: sharedHowTo(
+      "Choose scales",
+      "Enter a temperature",
+      "Review the converted value",
+    ),
     faq: [
       {
         question: "What is 0°C in Fahrenheit?",
@@ -385,7 +405,11 @@ export const calculatorTools: ToolDefinition[] = [
       "Live conversion",
       "Swap and copy",
     ],
-    howToSteps: sharedHowTo("Choose area units", "Enter a value", "Review the result"),
+    howToSteps: sharedHowTo(
+      "Choose area units",
+      "Enter a value",
+      "Review the result",
+    ),
     faq: [
       {
         question: "How many square centimeters are in a square meter?",
@@ -457,7 +481,11 @@ export const calculatorTools: ToolDefinition[] = [
       "Live conversion",
       "Swap and copy",
     ],
-    howToSteps: sharedHowTo("Choose volume units", "Enter a value", "Review the result"),
+    howToSteps: sharedHowTo(
+      "Choose volume units",
+      "Enter a value",
+      "Review the result",
+    ),
     faq: [
       {
         question: "How many milliliters are in a liter?",
@@ -465,7 +493,8 @@ export const calculatorTools: ToolDefinition[] = [
       },
       {
         question: "Are gallons US gallons?",
-        answer: "Yes. This converter uses the US liquid gallon (exactly 3.785411784 liters).",
+        answer:
+          "Yes. This converter uses the US liquid gallon (exactly 3.785411784 liters).",
       },
     ],
     inputFormats: ["Volume values"],
@@ -530,7 +559,11 @@ export const calculatorTools: ToolDefinition[] = [
       "Swap units",
       "Copy results",
     ],
-    howToSteps: sharedHowTo("Choose speed units", "Enter a value", "Review the result"),
+    howToSteps: sharedHowTo(
+      "Choose speed units",
+      "Enter a value",
+      "Review the result",
+    ),
     faq: [
       {
         question: "How many mph is 1 km/h?",
@@ -538,7 +571,8 @@ export const calculatorTools: ToolDefinition[] = [
       },
       {
         question: "What is a knot?",
-        answer: "One knot equals one nautical mile per hour (1852 meters per hour).",
+        answer:
+          "One knot equals one nautical mile per hour (1852 meters per hour).",
       },
     ],
     inputFormats: ["Speed values"],
@@ -602,7 +636,11 @@ export const calculatorTools: ToolDefinition[] = [
       "Live conversion",
       "Swap and copy",
     ],
-    howToSteps: sharedHowTo("Choose time units", "Enter a duration", "Review the result"),
+    howToSteps: sharedHowTo(
+      "Choose time units",
+      "Enter a duration",
+      "Review the result",
+    ),
     faq: [
       {
         question: "Why are months not included?",
@@ -676,7 +714,11 @@ export const calculatorTools: ToolDefinition[] = [
       "Clear labeling of both systems",
       "Live conversion",
     ],
-    howToSteps: sharedHowTo("Choose storage units", "Enter a size", "Review the result"),
+    howToSteps: sharedHowTo(
+      "Choose storage units",
+      "Enter a size",
+      "Review the result",
+    ),
     faq: [
       {
         question: "Is 1 KB the same as 1 KiB?",
@@ -750,7 +792,11 @@ export const calculatorTools: ToolDefinition[] = [
       "Negative numbers supported",
       "Copy the spelled result",
     ],
-    howToSteps: sharedHowTo("Enter a number", "Review the words", "Copy the result"),
+    howToSteps: sharedHowTo(
+      "Enter a number",
+      "Review the words",
+      "Copy the result",
+    ),
     faq: [
       {
         question: "How are decimals written?",
@@ -759,7 +805,8 @@ export const calculatorTools: ToolDefinition[] = [
       },
       {
         question: "What is the size limit?",
-        answer: "Integer parts are limited to 18 digits to keep wording practical and exact.",
+        answer:
+          "Integer parts are limited to 18 digits to keep wording practical and exact.",
       },
     ],
     inputFormats: ["Numbers"],
@@ -839,7 +886,8 @@ export const calculatorTools: ToolDefinition[] = [
     faq: [
       {
         question: "How do I calculate X% of Y?",
-        answer: "Result = (Percentage ÷ 100) × Number. Example: 20% of 150 = 30.",
+        answer:
+          "Result = (Percentage ÷ 100) × Number. Example: 20% of 150 = 30.",
       },
       {
         question: "How do I calculate percentage change?",
@@ -914,11 +962,16 @@ export const calculatorTools: ToolDefinition[] = [
       "Decimal companion result",
       "Division-by-zero protection",
     ],
-    howToSteps: sharedHowTo("Enter two fractions", "Choose an operation", "Review the simplified result"),
+    howToSteps: sharedHowTo(
+      "Enter two fractions",
+      "Choose an operation",
+      "Review the simplified result",
+    ),
     faq: [
       {
         question: "How is 1/2 + 1/4 simplified?",
-        answer: "1/2 + 1/4 = 3/4 after finding a common denominator and reducing.",
+        answer:
+          "1/2 + 1/4 = 3/4 after finding a common denominator and reducing.",
       },
       {
         question: "Can denominators be zero?",
@@ -986,7 +1039,11 @@ export const calculatorTools: ToolDefinition[] = [
       "Live calculation",
       "Copy the mean",
     ],
-    howToSteps: sharedHowTo("Enter your numbers", "Review count and sum", "Copy the average"),
+    howToSteps: sharedHowTo(
+      "Enter your numbers",
+      "Review count and sum",
+      "Copy the average",
+    ),
     faq: [
       {
         question: "What formula is used?",
@@ -1058,7 +1115,11 @@ export const calculatorTools: ToolDefinition[] = [
       "Clear mode separation",
       "Copy results",
     ],
-    howToSteps: sharedHowTo("Choose a mode", "Enter ratio terms", "Review the answer"),
+    howToSteps: sharedHowTo(
+      "Choose a mode",
+      "Enter ratio terms",
+      "Review the answer",
+    ),
     faq: [
       {
         question: "How is 10:20 simplified?",
@@ -1130,7 +1191,11 @@ export const calculatorTools: ToolDefinition[] = [
       "Copy final price",
       "Reset inputs",
     ],
-    howToSteps: sharedHowTo("Enter original price", "Enter discount percent", "Review final price"),
+    howToSteps: sharedHowTo(
+      "Enter original price",
+      "Enter discount percent",
+      "Review final price",
+    ),
     faq: [
       {
         question: "How is the final price calculated?",
@@ -1199,7 +1264,11 @@ export const calculatorTools: ToolDefinition[] = [
       "Clear formula breakdown",
       "General calculator disclaimer",
     ],
-    howToSteps: sharedHowTo("Choose add or remove", "Enter price and rate", "Review tax and total"),
+    howToSteps: sharedHowTo(
+      "Choose add or remove",
+      "Enter price and rate",
+      "Review tax and total",
+    ),
     faq: [
       {
         question: "Is this legal tax advice?",
@@ -1273,7 +1342,11 @@ export const calculatorTools: ToolDefinition[] = [
       "Party size greater than zero",
       "Live breakdown",
     ],
-    howToSteps: sharedHowTo("Enter bill and tip %", "Enter number of people", "Review shares"),
+    howToSteps: sharedHowTo(
+      "Enter bill and tip %",
+      "Enter number of people",
+      "Review shares",
+    ),
     faq: [
       {
         question: "How is the tip calculated?",
@@ -1340,7 +1413,11 @@ export const calculatorTools: ToolDefinition[] = [
       "Leap-year aware",
       "Explicit date controls",
     ],
-    howToSteps: sharedHowTo("Enter start date", "Enter end date", "Review the difference"),
+    howToSteps: sharedHowTo(
+      "Enter start date",
+      "Enter end date",
+      "Review the difference",
+    ),
     faq: [
       {
         question: "Does every month count as 30 days?",
@@ -1366,7 +1443,8 @@ export const calculatorTools: ToolDefinition[] = [
         title: "Leap day span",
         input: "2024-02-28 to 2024-03-01",
         output: "0 years, 0 months, 2 days (2 total days)",
-        description: "2024 is a leap year, so Feb 29 is included in the day count.",
+        description:
+          "2024 is a leap year, so Feb 29 is included in the day count.",
       },
     ],
   }),
@@ -1421,7 +1499,8 @@ export const calculatorTools: ToolDefinition[] = [
       },
       {
         title: "Choose a target date",
-        description: "Defaults to today; change it for a historical or future age check.",
+        description:
+          "Defaults to today; change it for a historical or future age check.",
       },
       {
         title: "Review your age",
@@ -1436,8 +1515,7 @@ export const calculatorTools: ToolDefinition[] = [
       },
       {
         question: "Is age just total days ÷ 365.25?",
-        answer:
-          "No. Age uses calendar-aware years, months, and days.",
+        answer: "No. Age uses calendar-aware years, months, and days.",
       },
     ],
     inputFormats: ["Date of birth", "Target date"],
@@ -1495,7 +1573,11 @@ export const calculatorTools: ToolDefinition[] = [
       "Date rollover shown clearly",
       "UTC reference in details",
     ],
-    howToSteps: sharedHowTo("Enter date and time", "Search and select zones", "Review converted local time"),
+    howToSteps: sharedHowTo(
+      "Enter date and time",
+      "Search and select zones",
+      "Review converted local time",
+    ),
     faq: [
       {
         question: "Why not use fixed offsets like UTC−5?",

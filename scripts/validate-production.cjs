@@ -46,9 +46,12 @@ assert.ok(suggest.includes("analytics event"), "SuggestTool should describe anal
 const report = fs.readFileSync(path.join(ROOT, "components/feedback/ReportTool.tsx"), "utf8");
 assert.ok(!/>Report received</i.test(report), "ReportTool must not claim report received");
 
-const notice = fs.readFileSync(path.join(ROOT, "components/ui/FilePrivacyNotice.tsx"), "utf8");
-assert.ok(!/are not uploaded to complete the conversion/i.test(notice), "overstated privacy notice remains");
-assert.ok(/On-device processing/i.test(notice), "accurate on-device notice missing");
+const shell = fs.readFileSync(path.join(ROOT, "components/tools/ToolPageShell.tsx"), "utf8");
+assert.ok(
+  !shell.includes("FilePrivacyNotice"),
+  "ToolPageShell must not show technical FilePrivacyNotice banners",
+);
+assert.ok(fs.existsSync(path.join(ROOT, "public/tm-logo.png")), "official TM logo asset missing");
 
 const page = fs.readFileSync(path.join(ROOT, "app/page.tsx"), "utf8");
 assert.ok(page.includes('from "@/lib/content/homepage-faq"'), "homepage FAQ source not shared");

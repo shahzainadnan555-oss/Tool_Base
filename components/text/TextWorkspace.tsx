@@ -12,6 +12,7 @@ import type {
 import { LARGE_TEXT_THRESHOLD, MAX_LOREM_COUNT, MAX_REPEAT_COUNT } from "@/lib/text/types";
 import { copyText, downloadTextFile } from "@/lib/text/utils";
 import { computeTextStats } from "@/lib/text/stats";
+import { filterUserFacingNotices } from "@/lib/ui/notices";
 
 interface TextWorkspaceProps {
   config: TextToolConfig;
@@ -208,9 +209,9 @@ export function TextWorkspace({ config, convertHeading }: TextWorkspaceProps) {
     <div className="space-y-5">
       {convertHeading ? <h2 className="tm-h2">{convertHeading}</h2> : null}
 
-      {config.notices.length ? (
+      {filterUserFacingNotices(config.notices).length ? (
         <div className="rounded-2xl border border-blue-100 bg-blue-50 px-4 py-3 text-sm font-medium text-tm-text">
-          {config.notices.map((notice) => (
+          {filterUserFacingNotices(config.notices).map((notice) => (
             <p key={notice}>{notice}</p>
           ))}
         </div>

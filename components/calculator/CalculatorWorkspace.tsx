@@ -16,6 +16,7 @@ import type {
   CalculatorToolConfig,
   UnitCategory,
 } from "@/lib/calculator";
+import { filterUserFacingNotices } from "@/lib/ui/notices";
 
 interface CalculatorWorkspaceProps {
   config: CalculatorToolConfig;
@@ -476,7 +477,7 @@ export function CalculatorWorkspace({
         <h2 className="tm-h2">{convertHeading}</h2>
       ) : null}
 
-      {config.notices.map((notice) => (
+      {filterUserFacingNotices(config.notices).map((notice) => (
         <p
           key={notice}
           className="rounded-xl border border-tm-border bg-tm-soft px-4 py-3 text-sm font-semibold text-tm-muted"
