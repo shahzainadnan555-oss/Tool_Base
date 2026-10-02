@@ -1,9 +1,11 @@
 /**
  * Optional consent banner scaffold.
- * Do not mount this until non-essential cookies/services actually require consent.
+ * Do not mount this until non-essential cookies/services actually require consent
+ * and NEXT_PUBLIC_CONSENT_UI_ENABLED=true.
  */
 "use client";
 
+import Link from "next/link";
 import { setConsentState } from "@/lib/consent";
 
 interface ConsentBannerProps {
@@ -19,15 +21,20 @@ export function ConsentBanner({ onDecision }: ConsentBannerProps) {
     >
       <div className="tm-container flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <p className="max-w-2xl text-sm font-medium text-tm-muted">
-          ToolMyra can store essential preferences required for the site to work. If
-          analytics are enabled later, you can choose whether to allow them.
+          ToolMyra uses essential storage required for the site to work. If analytics or
+          advertising are enabled, you can choose whether to allow those optional
+          technologies. Read the{" "}
+          <Link href="/privacy" className="font-bold text-tm-accent hover:text-tm-accent-hover">
+            Privacy Policy
+          </Link>
+          .
         </p>
         <div className="flex flex-wrap gap-2">
           <button
             type="button"
             className="tm-btn tm-btn-secondary"
             onClick={() => {
-              setConsentState({ analytics: false, marketing: false });
+              setConsentState({ analytics: false, advertising: false });
               onDecision?.();
             }}
           >
@@ -37,11 +44,11 @@ export function ConsentBanner({ onDecision }: ConsentBannerProps) {
             type="button"
             className="tm-btn tm-btn-primary"
             onClick={() => {
-              setConsentState({ analytics: true, marketing: false });
+              setConsentState({ analytics: true, advertising: true });
               onDecision?.();
             }}
           >
-            Allow analytics
+            Allow optional
           </button>
         </div>
       </div>

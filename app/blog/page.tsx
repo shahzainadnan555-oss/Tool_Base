@@ -8,7 +8,7 @@ import { getAllBlogPosts } from "@/lib/blog/posts";
 export const metadata: Metadata = createPageMetadata({
   title: "Guides & Blog",
   description:
-    "Practical ToolMyra guides on image formats, conversions, compression, and everyday digital workflows. Original, useful content — not empty SEO pages.",
+    "Practical ToolMyra guides on image formats, PDF compression, video conversion, JSON formatting, percentage math, and everyday digital workflows.",
   path: "/blog",
 });
 

@@ -8,14 +8,14 @@ const toolLinks = [
   { href: "/new", label: "New Tools" },
 ];
 
-const companyLinks = [
+const contentLinks = [
+  { href: "/blog", label: "Blog" },
   { href: "/about", label: "About" },
-  { href: "/blog", label: "Guides" },
 ];
 
 const legalLinks = [
-  { href: "/privacy", label: "Privacy" },
-  { href: "/terms", label: "Terms" },
+  { href: "/privacy", label: "Privacy Policy" },
+  { href: "/terms", label: "Terms of Service" },
   { href: "/disclaimer", label: "Disclaimer" },
 ];
 
@@ -40,7 +40,7 @@ export function Footer() {
               label: category.name,
             }))}
           />
-          <FooterColumn title="Company" links={companyLinks} />
+          <FooterColumn title="Content" links={contentLinks} />
           <FooterColumn title="Legal" links={legalLinks} />
         </div>
 

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { ConsentRoot } from "@/components/consent/ConsentRoot";
 import { Navbar } from "@/components/layout/Navbar";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -24,6 +25,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Navbar />
         <main className="flex-1">{children}</main>
         <SiteFooter />
+        <ConsentRoot />
       </body>
     </html>
   );

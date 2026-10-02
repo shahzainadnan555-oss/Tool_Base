@@ -1,3 +1,5 @@
+import { hasConsent, shouldShowConsentUi } from "@/lib/consent";
+
 export type AnalyticsEventName =
   | "tool_opened"
   | "tool_completed"
@@ -18,6 +20,11 @@ export interface AnalyticsProvider {
 
 const providers: AnalyticsProvider[] = [];
 
+function analyticsAllowed(): boolean {
+  if (!shouldShowConsentUi()) return true;
+  return hasConsent("analytics");
+}
+
 export function registerAnalyticsProvider(provider: AnalyticsProvider): void {
   providers.push(provider);
 }
@@ -27,6 +34,7 @@ export function trackEvent(
   payload?: AnalyticsPayload,
 ): void {
   if (typeof window === "undefined") return;
+  if (!analyticsAllowed()) return;
 
   for (const provider of providers) {
     try {
@@ -43,6 +51,7 @@ export function trackEvent(
 
 export function trackPageView(path: string): void {
   if (typeof window === "undefined") return;
+  if (!analyticsAllowed()) return;
 
   for (const provider of providers) {
     try {

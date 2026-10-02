@@ -10,6 +10,7 @@
     "typecheck": "tsc --noEmit",
     "validate:registry": "node scripts/validate-registry.cjs",
     "validate:production": "node scripts/validate-production.cjs",
+    "check:adsense-readiness": "node scripts/check-adsense-readiness.cjs",
     "validate": "npm run validate:registry && npm run validate:production && npm run typecheck && npm run lint",
     "smoke:calculators": "node scripts/smoke-calculator-tools.cjs",
     "postinstall": "node scripts/copy-ffmpeg-assets.cjs"

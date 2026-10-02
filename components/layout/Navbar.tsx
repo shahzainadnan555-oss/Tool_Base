@@ -14,6 +14,8 @@ const navItems = [
   { href: "/categories", label: "Categories" },
   { href: "/popular", label: "Popular" },
   { href: "/new", label: "New Tools" },
+  { href: "/blog", label: "Blog" },
+  { href: "/about", label: "About" },
 ];
 
 export function Navbar() {

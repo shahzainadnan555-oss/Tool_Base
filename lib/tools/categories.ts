@@ -14,7 +14,7 @@ export const categories: CategoryDefinition[] = [
       "Free online image tools from ToolMyra. Convert JPG, PNG, WebP, and SVG files, compress images, resize photos, and optimize visuals in your browser.",
     h1: "Image Tools",
     intro:
-      "Use ToolMyra image tools to convert popular formats, compress large files, resize photos, and prepare images for the web — without creating an account.",
+      "Use ToolMyra image tools to convert popular formats, compress large files, resize photos, crop visuals, and prepare images for the web. Each utility focuses on a clear everyday task so you can upload, process, and download without creating an account.",
     route: "/categories/image-tools",
   },
   {
@@ -30,7 +30,7 @@ export const categories: CategoryDefinition[] = [
       "Free online PDF tools from ToolMyra. Compress PDFs, convert images to PDF, and process documents quickly with a clean, account-free workflow.",
     h1: "PDF Tools",
     intro:
-      "Work with PDF files using ToolMyra utilities designed for everyday document tasks like compression, conversion, and file preparation.",
+      "Work with PDF files using ToolMyra utilities designed for everyday document tasks such as compression, conversion, merging, splitting, and related preparation steps. Choose a tool, upload your file, and download the result when processing finishes.",
     route: "/categories/pdf-tools",
   },
   {
@@ -47,7 +47,7 @@ export const categories: CategoryDefinition[] = [
       "Free online document and data converters from ToolMyra. Convert DOCX, PDF, Markdown, CSV, JSON, XML, YAML, and related formats without creating an account.",
     h1: "Document & Data Tools",
     intro:
-      "Convert documents and structured data with ToolMyra utilities for DOCX, text, Markdown, CSV, JSON, XML, YAML, and related everyday formats.",
+      "Convert documents and structured data with ToolMyra utilities for DOCX, text, Markdown, CSV, JSON, XML, YAML, and related everyday formats. These tools help you move content between formats while keeping the workflow simple and account-free.",
     route: "/categories/document-data-tools",
   },
   {
@@ -62,7 +62,7 @@ export const categories: CategoryDefinition[] = [
       "Free online audio tools from ToolMyra. Convert MP3, WAV, and other formats, and process audio files with a simple online experience.",
     h1: "Audio Tools",
     intro:
-      "Convert and process audio files with ToolMyra tools built for quick everyday media tasks.",
+      "Convert and process audio files with ToolMyra tools built for quick everyday media tasks. Format changes, trimming, and related utilities are organized so you can complete a job and download the output without signup.",
     route: "/categories/audio-tools",
   },
   {
@@ -78,7 +78,7 @@ export const categories: CategoryDefinition[] = [
       "Free online video tools from ToolMyra. Convert video formats, extract audio from MP4 files, and handle common video tasks without signing up.",
     h1: "Video Tools",
     intro:
-      "Handle common video conversion and extraction tasks with ToolMyra’s growing set of free online video utilities.",
+      "Handle common video conversion, compression, trimming, resizing, and extraction tasks with ToolMyra’s free online video utilities. Processing can take longer for large files, and output quality may vary by format and settings.",
     route: "/categories/video-tools",
   },
   {
@@ -93,7 +93,7 @@ export const categories: CategoryDefinition[] = [
       "Free online text tools from ToolMyra. Count words, clean content, format text, and complete everyday writing utilities instantly.",
     h1: "Text Tools",
     intro:
-      "Use ToolMyra text tools for counting, formatting, cleaning, and transforming written content.",
+      "Use ToolMyra text tools for counting, formatting, cleaning, comparing, and transforming written content. These utilities are useful for drafting, editing, and preparing text without installing desktop software.",
     route: "/categories/text-tools",
   },
   {
@@ -109,7 +109,7 @@ export const categories: CategoryDefinition[] = [
       "Free online developer tools from ToolMyra. Format JSON, transform data, and use practical coding utilities without creating an account.",
     h1: "Developer Tools",
     intro:
-      "Practical developer utilities for formatting, validating, and transforming common data formats.",
+      "Practical developer utilities for formatting, validating, and transforming common data formats such as JSON and related structured text. Use them for quick debugging and conversion tasks during everyday development work.",
     route: "/categories/developer-tools",
   },
   {
@@ -126,7 +126,7 @@ export const categories: CategoryDefinition[] = [
       "Free online security and encoding utilities from ToolMyra. Generate hashes, encode and decode data, create UUIDs, and work with technical formats.",
     h1: "Security & Encoding",
     intro:
-      "Encode, decode, hash, and generate technical values with ToolMyra utilities designed for developers and everyday technical tasks.",
+      "Encode, decode, hash, and generate technical values with ToolMyra utilities designed for developers and everyday technical tasks. These tools are helpers, not a substitute for a security audit or professional cryptography review.",
     route: "/categories/security-encoding",
   },
   {
@@ -143,7 +143,7 @@ export const categories: CategoryDefinition[] = [
       "Free online calculators and converters from ToolMyra. Calculate percentages, convert units, and handle everyday math and conversion tasks.",
     h1: "Calculators & Converters",
     intro:
-      "Quick calculators and converters for percentages, units, dates, and other everyday measurements.",
+      "Quick calculators and converters for percentages, units, dates, ages, storage, time, and other everyday measurements. Results follow the formulas shown on each tool page and should be verified before important use.",
     route: "/categories/calculators-converters",
   },
 ];
