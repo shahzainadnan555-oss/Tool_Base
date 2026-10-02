@@ -42,8 +42,7 @@ export function SuggestTool() {
         <h3 className="text-base font-bold text-tm-text">Thanks for the idea</h3>
         <p className="mt-2 text-sm font-medium text-tm-muted">
           Your suggestion was recorded as a browser analytics event only. It is not stored
-          in a ToolMyra inbox until a suggestions backend is connected. For a guaranteed
-          delivery path, email support@toolmyra.com.
+          in a ToolMyra inbox until a suggestions backend is connected.
         </p>
       </div>
     );

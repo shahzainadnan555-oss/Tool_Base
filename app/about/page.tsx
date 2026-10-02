@@ -47,10 +47,6 @@ export default function AboutPage() {
           Ready to try something?{" "}
           <Link href="/tools" className="font-bold text-tm-accent hover:text-tm-accent-hover">
             Explore all online tools
-          </Link>{" "}
-          or{" "}
-          <Link href="/contact" className="font-bold text-tm-accent hover:text-tm-accent-hover">
-            contact ToolMyra
           </Link>
           .
         </p>

@@ -48,8 +48,7 @@ export function ReportTool({ toolName, toolSlug }: ReportToolProps) {
         <h3 className="text-base font-bold text-tm-text">Thanks for the feedback</h3>
         <p className="mt-2 text-sm font-medium text-tm-muted">
           Your report for {toolName} was recorded as a browser analytics event only. It is
-          not stored in a ToolMyra inbox until a reporting backend is connected. For a
-          guaranteed delivery path, email support@toolmyra.com with the tool URL and details.
+          not stored in a ToolMyra inbox until a reporting backend is connected.
         </p>
       </div>
     );

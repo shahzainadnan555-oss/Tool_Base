@@ -109,7 +109,6 @@ function fetchText(url) {
     "/new",
     "/blog",
     "/about",
-    "/contact",
     "/privacy",
     "/terms",
     "/disclaimer",
@@ -130,6 +129,7 @@ function fetchText(url) {
     if (route === "/sitemap.xml") {
       assert.ok(body.includes("<urlset"), "sitemap missing urlset");
       assert.ok(!body.includes("localhost"), "sitemap contains localhost");
+      assert.ok(!body.includes("/contact"), "sitemap must not include /contact");
       const toolUrls = (body.match(/\/tools\/[a-z0-9-]+/g) || []).length;
       assert.ok(toolUrls >= 200, `sitemap tool urls expected >=200, got ${toolUrls}`);
     }
@@ -149,7 +149,11 @@ function fetchText(url) {
   assert.ok(missing.status === 404, `expected 404, got ${missing.status}`);
   assert.ok(/Page Not Found/i.test(missing.body), "404 page missing H1 copy");
 
-  console.log(`validate-production live checks: OK (${routes.length} routes + 404)`);
+  const contactGone = await fetchText(`${base.replace(/\/$/, "")}/contact`);
+  assert.ok(contactGone.status === 404, `/contact expected 404, got ${contactGone.status}`);
+  assert.ok(/Page Not Found/i.test(contactGone.body), "/contact should use the normal 404 page");
+
+  console.log(`validate-production live checks: OK (${routes.length} routes + 404 + /contact 404)`);
 })().catch((err) => {
   console.error(err);
   process.exit(1);

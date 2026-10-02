@@ -10,7 +10,6 @@ export const metadata: Metadata = createPageMetadata({
 
 const pages = [
   { path: "/about", label: "About" },
-  { path: "/contact", label: "Contact" },
   { path: "/privacy", label: "Privacy" },
   { path: "/terms", label: "Terms" },
   { path: "/disclaimer", label: "Disclaimer" },

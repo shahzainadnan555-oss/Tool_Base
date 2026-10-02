@@ -8,7 +8,6 @@ export const siteConfig = {
   twitterHandle: undefined as string | undefined,
   /** Served by app/opengraph-image.tsx — do not point at a missing static file. */
   ogImage: "/opengraph-image",
-  supportEmail: "support@toolmyra.com",
   googleSiteVerification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
 } as const;
 

@@ -51,10 +51,6 @@ export default function TermsPage() {
           heading: "Changes",
           body: "We may update these terms from time to time. Continued use after changes means you accept the updated terms. The date of material updates should be reflected when published.",
         },
-        {
-          heading: "Contact",
-          body: "Questions about these terms can be sent to support@toolmyra.com.",
-        },
       ]}
     />
   );

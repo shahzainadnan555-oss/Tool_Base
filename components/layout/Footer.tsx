@@ -10,7 +10,6 @@ const toolLinks = [
 
 const companyLinks = [
   { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
   { href: "/blog", label: "Guides" },
 ];
 

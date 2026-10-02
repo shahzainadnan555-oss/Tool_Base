@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
@@ -22,13 +21,6 @@ export default function AdminDisabledNotFoundPage() {
           Explore All Tools
         </Button>
       </div>
-      <p className="mt-8 text-sm font-medium text-tm-muted">
-        Looking for something else?{" "}
-        <Link href="/contact" className="font-bold text-tm-accent hover:text-tm-accent-hover">
-          Contact ToolMyra
-        </Link>
-        .
-      </p>
     </div>
   );
 }
