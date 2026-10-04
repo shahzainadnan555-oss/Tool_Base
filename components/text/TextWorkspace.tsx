@@ -210,7 +210,7 @@ export function TextWorkspace({ config, convertHeading }: TextWorkspaceProps) {
       {convertHeading ? <h2 className="tm-h2">{convertHeading}</h2> : null}
 
       {filterUserFacingNotices(config.notices).length ? (
-        <div className="rounded-2xl border border-blue-100 bg-blue-50 px-4 py-3 text-sm font-medium text-tm-text">
+        <div className="tm-notice tm-notice-info">
           {filterUserFacingNotices(config.notices).map((notice) => (
             <p key={notice}>{notice}</p>
           ))}
@@ -597,9 +597,9 @@ export function TextWorkspace({ config, convertHeading }: TextWorkspaceProps) {
                 key={`${part.type}-${index}-${part.value.slice(0, 12)}`}
                 className={
                   part.type === "add"
-                    ? "rounded bg-green-50 px-2 py-0.5 text-green-900"
+                    ? "tm-diff-add"
                     : part.type === "remove"
-                      ? "rounded bg-red-50 px-2 py-0.5 text-red-900"
+                      ? "tm-diff-del"
                       : "px-2 py-0.5 text-tm-text"
                 }
               >
@@ -649,13 +649,13 @@ export function TextWorkspace({ config, convertHeading }: TextWorkspaceProps) {
       ) : null}
 
       {result?.notice ? (
-        <p className="rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-medium text-amber-900">
+        <p className="tm-notice tm-notice-warning">
           {result.notice}
         </p>
       ) : null}
 
       {error ? (
-        <p className="rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-800">
+        <p className="tm-notice tm-notice-error">
           {error}
         </p>
       ) : null}

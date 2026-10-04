@@ -35,8 +35,8 @@ export function ImageUpload({
       className={cn(
         "rounded-3xl border-2 border-dashed px-6 py-14 text-center transition-colors outline-none",
         dragging
-          ? "border-tm-accent bg-blue-50"
-          : "border-tm-border bg-tm-soft hover:border-tm-accent hover:bg-blue-50/60",
+          ? "border-tm-accent bg-tm-info"
+          : "border-tm-border bg-tm-soft hover:border-tm-accent hover:bg-tm-info",
         disabled && "pointer-events-none opacity-60",
       )}
       onClick={() => inputRef.current?.click()}

@@ -133,7 +133,7 @@ export function ImageConverterWorkspace({
 
       {filterUserFacingNotices(config.notices).length > 0 &&
       stage !== "done" ? (
-        <div className="rounded-2xl border border-blue-100 bg-blue-50 px-4 py-3 text-sm font-medium text-tm-text">
+        <div className="tm-notice tm-notice-info">
           {filterUserFacingNotices(config.notices).map((notice) => (
             <p key={notice}>{notice}</p>
           ))}

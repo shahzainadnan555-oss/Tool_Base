@@ -129,7 +129,7 @@ export function ToolsDirectory({
                 "rounded-full px-3 py-1.5 text-sm font-bold transition-colors",
                 sort === value
                   ? "bg-tm-accent text-white"
-                  : "bg-tm-soft text-tm-text hover:bg-blue-50 hover:text-tm-accent",
+                  : "bg-tm-soft text-tm-text hover:bg-tm-info hover:text-tm-accent",
               )}
               onClick={() => setSort(value)}
             >

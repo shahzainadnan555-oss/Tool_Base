@@ -29,7 +29,7 @@ export function AudioUpload({
       aria-controls={inputId}
       className={`rounded-3xl border-2 border-dashed px-6 py-12 text-center transition ${
         dragging
-          ? "border-tm-accent bg-blue-50"
+          ? "border-tm-accent bg-tm-info"
           : "border-tm-border bg-tm-soft hover:border-tm-accent/60"
       }`}
       onClick={() => inputRef.current?.click()}

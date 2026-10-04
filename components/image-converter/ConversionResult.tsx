@@ -62,7 +62,7 @@ export function ConversionResultView({
       )}
 
       {result.notice ? (
-        <p className="mt-4 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-medium text-amber-900">
+        <p className="mt-4 tm-notice tm-notice-warning">
           {result.notice}
         </p>
       ) : null}

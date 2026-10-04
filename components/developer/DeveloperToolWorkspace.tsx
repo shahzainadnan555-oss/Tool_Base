@@ -51,11 +51,7 @@ function ValidationBanner({
     <div
       role="status"
       aria-live="polite"
-      className={`rounded-2xl border px-4 py-3 text-sm font-semibold ${
-        valid
-          ? "border-green-200 bg-green-50 text-green-900"
-          : "border-red-200 bg-red-50 text-red-900"
-      }`}
+      className={`tm-notice ${valid ? "tm-notice-success" : "tm-notice-error"}`}
     >
       <p>
         <span aria-hidden="true">{valid ? "✓ " : "✕ "}</span>
@@ -255,7 +251,7 @@ export function DeveloperToolWorkspace({
       {filterUserFacingNotices(config.notices).map((notice) => (
         <div
           key={notice}
-          className="rounded-2xl border border-blue-100 bg-blue-50 px-4 py-3 text-sm font-medium text-tm-text"
+          className="tm-notice tm-notice-info"
         >
           {notice}
         </div>
@@ -449,7 +445,7 @@ export function DeveloperToolWorkspace({
       {result?.regex ? (
         <div className="space-y-3 rounded-2xl border border-tm-border bg-tm-white p-4">
           {result.regex.error ? (
-            <p className="text-sm font-semibold text-red-800" role="alert">
+            <p className="text-sm font-semibold text-tm-error" role="alert">
               {result.regex.timedOut ? "✕ " : ""}
               {result.regex.error}
             </p>
@@ -477,13 +473,13 @@ export function DeveloperToolWorkspace({
       ) : null}
 
       {result?.notice ? (
-        <p className="rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-medium text-amber-900">
+        <p className="tm-notice tm-notice-warning">
           {result.notice}
         </p>
       ) : null}
 
       {error ? (
-        <p className="rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-800" role="alert">
+        <p className="tm-notice tm-notice-error" role="alert">
           {error}
         </p>
       ) : null}

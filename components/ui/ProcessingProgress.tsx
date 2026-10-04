@@ -29,7 +29,7 @@ export function ProcessingProgress({ progress }: ProcessingProgressProps) {
         {progress.detail ? (
           <p className="mt-1 text-xs font-semibold text-tm-muted">{progress.detail}</p>
         ) : null}
-        <div className="mt-3 h-2 overflow-hidden rounded-full bg-tm-white">
+        <div className="mt-3 h-2 overflow-hidden rounded-full bg-tm-track">
           <div
             className="h-full rounded-full bg-tm-accent transition-[width] duration-200"
             style={{ width: `${progress.percent}%` }}

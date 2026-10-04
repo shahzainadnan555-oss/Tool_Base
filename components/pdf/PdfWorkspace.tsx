@@ -268,7 +268,7 @@ export function PdfWorkspace({ config, convertHeading }: PdfWorkspaceProps) {
       {convertHeading ? <h2 className="tm-h2">{convertHeading}</h2> : null}
 
       {filterUserFacingNotices(config.notices).length && !showResult ? (
-        <div className="space-y-1 rounded-2xl border border-blue-100 bg-blue-50 px-4 py-3 text-sm font-medium text-tm-text">
+        <div className="space-y-1 tm-notice tm-notice-info">
           {filterUserFacingNotices(config.notices).map((notice) => (
             <p key={notice}>{notice}</p>
           ))}
@@ -765,7 +765,7 @@ export function PdfWorkspace({ config, convertHeading }: PdfWorkspaceProps) {
           )}
 
           {result.notice ? (
-            <p className="rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-medium text-amber-900">
+            <p className="tm-notice tm-notice-warning">
               {result.notice}
             </p>
           ) : null}

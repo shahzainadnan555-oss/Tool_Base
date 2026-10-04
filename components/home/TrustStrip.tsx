@@ -34,7 +34,7 @@ export function TrustStrip() {
       <div className="tm-container grid gap-4 py-8 sm:grid-cols-2 lg:grid-cols-5">
         {values.map((value) => (
           <div key={value.title} className="rounded-2xl border border-tm-border bg-tm-white p-4">
-            <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-blue-50 text-tm-accent">
+            <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-tm-info text-tm-accent">
               <Icon name={value.icon} className="h-4 w-4" />
             </span>
             <p className="mt-3 text-sm font-extrabold text-tm-text">{value.title}</p>

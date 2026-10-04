@@ -218,7 +218,7 @@ export function ImageEditorWorkspace({
       {convertHeading ? <h2 className="tm-h2">{convertHeading}</h2> : null}
 
       {filterUserFacingNotices(config.notices).length && stage !== "done" ? (
-        <div className="space-y-1 rounded-2xl border border-blue-100 bg-blue-50 px-4 py-3 text-sm font-medium text-tm-text">
+        <div className="space-y-1 tm-notice tm-notice-info">
           {filterUserFacingNotices(config.notices).map((notice) => (
             <p key={notice}>{notice}</p>
           ))}
@@ -731,7 +731,7 @@ export function ImageEditorWorkspace({
               </div>
               <div>
                 <p className="mb-2 text-sm font-bold text-tm-muted">Result</p>
-                <div className="flex min-h-56 items-center justify-center rounded-2xl border border-tm-border bg-[linear-gradient(45deg,#e2e8f0_25%,transparent_25%),linear-gradient(-45deg,#e2e8f0_25%,transparent_25%),linear-gradient(45deg,transparent_75%,#e2e8f0_75%),linear-gradient(-45deg,transparent_75%,#e2e8f0_75%)] bg-[length:16px_16px] bg-tm-white p-3 md:min-h-72">
+                <div className="tm-checkerboard flex min-h-56 items-center justify-center rounded-2xl border border-tm-border p-3 md:min-h-72">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={result.previewUrl}
@@ -744,7 +744,7 @@ export function ImageEditorWorkspace({
           )}
 
           {result.notice && !isTechnicalNotice(result.notice) ? (
-            <p className="rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-medium text-amber-900">
+            <p className="tm-notice tm-notice-warning">
               {result.notice}
             </p>
           ) : null}

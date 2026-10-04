@@ -246,7 +246,7 @@ export function SecurityWorkspace({ config, convertHeading }: SecurityWorkspaceP
       {filterUserFacingNotices(config.notices).map((notice) => (
         <div
           key={notice}
-          className="rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-medium text-amber-950"
+          className="tm-notice tm-notice-warning"
         >
           {notice}
         </div>
@@ -581,13 +581,13 @@ export function SecurityWorkspace({ config, convertHeading }: SecurityWorkspaceP
       ) : null}
 
       {result?.notice ? (
-        <p className="rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-medium text-amber-900">
+        <p className="tm-notice tm-notice-warning">
           {result.notice}
         </p>
       ) : null}
 
       {error ? (
-        <p className="rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-800" role="alert">
+        <p className="tm-notice tm-notice-error" role="alert">
           {error}
         </p>
       ) : null}

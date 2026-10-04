@@ -10,6 +10,8 @@
   --tm-cyan: #00cfe8;
   --tm-white: #ffffff;
   --tm-soft-white: #f7faff;
+  --tm-elevated: #ffffff;
+  --tm-input-bg: #ffffff;
   --tm-light-gray: #e3eaf5;
   --tm-medium-gray: #667085;
   --tm-dark-text: #101828;
@@ -18,6 +20,19 @@
   --tm-error: #dc2626;
   --tm-border: #e3eaf5;
   --tm-border-strong: #d0dae8;
+  --tm-info-bg: #eef4ff;
+  --tm-info-border: #c5d8f7;
+  --tm-info-fg: #101828;
+  --tm-warning-bg: #fff8eb;
+  --tm-warning-border: #f3d19a;
+  --tm-warning-fg: #7a4b08;
+  --tm-error-bg: #fef2f2;
+  --tm-error-border: #fecaca;
+  --tm-error-fg: #991b1b;
+  --tm-success-bg: #ecfdf3;
+  --tm-success-border: #a7f3d0;
+  --tm-success-fg: #166534;
+  --tm-track: #e3eaf5;
   --tm-shadow: 0 10px 30px rgba(11, 22, 53, 0.08);
   --tm-shadow-lg: 0 20px 50px rgba(11, 22, 53, 0.12);
   --background: var(--tm-soft-white);
@@ -35,14 +50,29 @@ html.dark {
   --tm-cyan: #22d3ee;
   --tm-white: #101b31;
   --tm-soft-white: #0b1635;
+  --tm-elevated: #14233f;
+  --tm-input-bg: #0d1830;
   --tm-light-gray: #233553;
-  --tm-medium-gray: #aab7ce;
+  --tm-medium-gray: #94a3b8;
   --tm-dark-text: #f8fafc;
-  --tm-success: #22c55e;
+  --tm-success: #4ade80;
   --tm-warning: #fbbf24;
   --tm-error: #f87171;
   --tm-border: #233553;
   --tm-border-strong: #2d4468;
+  --tm-info-bg: #132445;
+  --tm-info-border: #2b4a7a;
+  --tm-info-fg: #e2e8f0;
+  --tm-warning-bg: #2a2110;
+  --tm-warning-border: #6b5014;
+  --tm-warning-fg: #fde68a;
+  --tm-error-bg: #2a1418;
+  --tm-error-border: #7f1d1d;
+  --tm-error-fg: #fecaca;
+  --tm-success-bg: #10281c;
+  --tm-success-border: #166534;
+  --tm-success-fg: #bbf7d0;
+  --tm-track: #0d1830;
   --tm-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
   --tm-shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.38);
   --background: #071022;
@@ -62,6 +92,8 @@ html.dark {
   --color-tm-cyan: var(--tm-cyan);
   --color-tm-white: var(--tm-white);
   --color-tm-soft: var(--tm-soft-white);
+  --color-tm-elevated: var(--tm-elevated);
+  --color-tm-input: var(--tm-input-bg);
   --color-tm-light: var(--tm-light-gray);
   --color-tm-muted: var(--tm-medium-gray);
   --color-tm-text: var(--tm-dark-text);
@@ -69,6 +101,13 @@ html.dark {
   --color-tm-warning: var(--tm-warning);
   --color-tm-error: var(--tm-error);
   --color-tm-border: var(--tm-border);
+  --color-tm-info: var(--tm-info-bg);
+  --color-tm-info-border: var(--tm-info-border);
+  --color-tm-info-fg: var(--tm-info-fg);
+  --color-tm-warning-bg: var(--tm-warning-bg);
+  --color-tm-error-bg: var(--tm-error-bg);
+  --color-tm-success-bg: var(--tm-success-bg);
+  --color-tm-track: var(--tm-track);
   --font-sans: var(--font-inter);
 }
 
@@ -249,10 +288,87 @@ body {
   padding: 0.7rem 0.95rem;
   border: 1px solid var(--tm-border-strong);
   border-radius: 0.75rem;
-  background: var(--tm-white);
+  background: var(--tm-input-bg);
   color: var(--tm-dark-text);
   font-weight: 500;
   font-size: 0.95rem;
+  color-scheme: inherit;
+}
+
+.tm-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.tm-notice {
+  border-radius: 1rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+.tm-notice-info {
+  background: var(--tm-info-bg);
+  border: 1px solid var(--tm-info-border);
+  color: var(--tm-info-fg);
+}
+
+.tm-notice-warning {
+  background: var(--tm-warning-bg);
+  border: 1px solid var(--tm-warning-border);
+  color: var(--tm-warning-fg);
+}
+
+.tm-notice-error {
+  background: var(--tm-error-bg);
+  border: 1px solid var(--tm-error-border);
+  color: var(--tm-error-fg);
+}
+
+.tm-notice-success {
+  background: var(--tm-success-bg);
+  border: 1px solid var(--tm-success-border);
+  color: var(--tm-success-fg);
+}
+
+.tm-diff-add {
+  border-radius: 0.25rem;
+  background: var(--tm-success-bg);
+  color: var(--tm-success-fg);
+  padding: 0.125rem 0.5rem;
+}
+
+.tm-diff-del {
+  border-radius: 0.25rem;
+  background: var(--tm-error-bg);
+  color: var(--tm-error-fg);
+  padding: 0.125rem 0.5rem;
+}
+
+html.dark option {
+  background-color: var(--tm-elevated);
+  color: var(--tm-dark-text);
+}
+
+html.dark input[type="date"]::-webkit-calendar-picker-indicator,
+html.dark input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.85);
+}
+
+input[type="range"] {
+  accent-color: var(--tm-accent);
+}
+
+.tm-checkerboard {
+  background-color: var(--tm-white);
+  background-image:
+    linear-gradient(45deg, var(--tm-light) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--tm-light) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--tm-light) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--tm-light) 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0;
 }
 
 .tm-input::placeholder {

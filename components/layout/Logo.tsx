@@ -5,13 +5,12 @@ import { cn } from "@/lib/utils/cn";
 interface LogoProps {
   className?: string;
   href?: string;
-  /** Kept for call-site compatibility. The artwork sits on a white plate for contrast. */
+  /** Kept for call-site compatibility. */
   tone?: "light" | "dark";
 }
 
 /**
- * Official Tool Base logo — the uploaded gradient TB + wordmark asset only.
- * A white plate keeps navy wordmark readable on dark header/footer surfaces.
+ * Official Tool Base wordmark on a white plate in both light and dark mode.
  */
 export function Logo({ className, href = "/" }: LogoProps) {
   const content = (
