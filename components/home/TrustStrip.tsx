@@ -3,7 +3,7 @@ import { Icon } from "@/components/ui/Icon";
 const values = [
   {
     title: "100% Free",
-    description: "Use ToolMyra utilities without paid plans or hidden unlocks.",
+    description: "Use Tool Base utilities without paid plans or hidden unlocks.",
     icon: "check",
   },
   {
@@ -30,10 +30,10 @@ const values = [
 
 export function TrustStrip() {
   return (
-    <section aria-label="Why people use ToolMyra" className="border-b border-tm-border bg-tm-soft">
+    <section aria-label="Why people use Tool Base" className="border-b border-tm-border bg-tm-soft">
       <div className="tm-container grid gap-4 py-8 sm:grid-cols-2 lg:grid-cols-5">
         {values.map((value) => (
-          <div key={value.title} className="rounded-2xl border border-tm-border bg-white p-4">
+          <div key={value.title} className="rounded-2xl border border-tm-border bg-tm-white p-4">
             <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-blue-50 text-tm-accent">
               <Icon name={value.icon} className="h-4 w-4" />
             </span>

@@ -26,7 +26,7 @@ export function SearchResults({
     <div
       id={listId}
       role="listbox"
-      className="absolute z-50 mt-2 max-h-80 w-full overflow-auto rounded-2xl border border-tm-border bg-white p-2 shadow-[var(--tm-shadow-lg)]"
+      className="absolute z-50 mt-2 max-h-80 w-full overflow-auto rounded-2xl border border-tm-border bg-tm-white p-2 shadow-[var(--tm-shadow-lg)]"
     >
       {results.length ? (
         <ul className="space-y-1">

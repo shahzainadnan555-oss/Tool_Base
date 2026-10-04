@@ -9,7 +9,7 @@ import { getNewTools, sortToolsAz } from "@/lib/tools/registry";
 export const metadata: Metadata = createPageMetadata({
   title: "New Online Tools",
   description:
-    "See the newest free online tools added to ToolMyra, including converters, generators, and everyday utilities.",
+    "See the newest free online tools added to Tool Base, including converters, generators, and everyday utilities.",
   path: "/new",
 });
 
@@ -22,7 +22,7 @@ export default function NewToolsPage() {
       <header className="max-w-3xl">
         <h1 className="tm-h1">New Tools</h1>
         <p className="tm-lead mt-4">
-          Recently added ToolMyra utilities. This list grows as new converters, generators,
+          Recently added Tool Base utilities. This list grows as new converters, generators,
           and calculators are introduced.
         </p>
       </header>

@@ -65,7 +65,7 @@ export function SearchBar({
   return (
     <div ref={rootRef} className={cn("relative w-full", className)}>
       <label htmlFor={inputId} className="sr-only">
-        Search ToolMyra tools
+        Search Tool Base tools
       </label>
       <div className="relative">
         <Icon

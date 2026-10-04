@@ -2,7 +2,7 @@ const reasons = [
   {
     title: "Simple by Design",
     description:
-      "ToolMyra focuses on a direct path: find a tool, complete the task, and download or copy the result. No onboarding flow stands in the way.",
+      "Tool Base focuses on a direct path: find a tool, complete the task, and download or copy the result. No onboarding flow stands in the way.",
   },
   {
     title: "Fast Results",
@@ -12,7 +12,7 @@ const reasons = [
   {
     title: "No Account Required",
     description:
-      "You do not need to create an account, subscribe, or enter payment details to use ToolMyra’s public tools.",
+      "You do not need to create an account, subscribe, or enter payment details to use Tool Base’s public tools.",
   },
   {
     title: "A Growing Library of Useful Tools",
@@ -22,24 +22,24 @@ const reasons = [
   {
     title: "Built for Everyday Tasks",
     description:
-      "Whether you need to convert a file, compress media, format data, generate a QR code, or calculate a percentage, ToolMyra is designed for practical day-to-day work.",
+      "Whether you need to convert a file, compress media, format data, generate a QR code, or calculate a percentage, Tool Base is designed for practical day-to-day work.",
   },
 ];
 
-export function WhyToolMyraSection() {
+export function WhyToolBaseSection() {
   return (
     <section className="tm-section">
       <div className="tm-container">
         <div className="max-w-3xl">
-          <h2 className="tm-h2">Why Use ToolMyra?</h2>
+          <h2 className="tm-h2">Why Use Tool Base?</h2>
           <p className="tm-lead mt-4">
-            ToolMyra is built to make common digital tasks easier without forcing accounts,
+            Tool Base is built to make common digital tasks easier without forcing accounts,
             plans, or unnecessary steps.
           </p>
         </div>
         <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {reasons.map((reason) => (
-            <article key={reason.title} className="rounded-2xl border border-tm-border bg-white p-6">
+            <article key={reason.title} className="rounded-2xl border border-tm-border bg-tm-white p-6">
               <h3 className="tm-h3">{reason.title}</h3>
               <p className="mt-3 text-base font-medium leading-relaxed text-tm-muted">
                 {reason.description}

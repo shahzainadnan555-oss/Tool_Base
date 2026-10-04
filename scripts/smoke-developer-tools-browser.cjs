@@ -1,16 +1,16 @@
 /**
  * Browser smoke for developer tools.
- * TOOLMYRA_BASE=http://localhost:3000 node scripts/smoke-developer-tools-browser.cjs
+ * TOOLBASE_BASE=http://localhost:3000 node scripts/smoke-developer-tools-browser.cjs
  */
 const { chromium } = require("playwright");
 
-const BASE = process.env.TOOLMYRA_BASE || "http://localhost:3000";
+const BASE = process.env.TOOLBASE_BASE || "http://localhost:3000";
 
 const TOOLS = [
   {
     slug: "json-formatter",
     h1: "JSON Formatter",
-    input: '{"name":"ToolMyra","active":true}',
+    input: '{"name":"Tool Base","active":true}',
     action: "Format JSON",
     expect: '"name"',
   },
@@ -24,9 +24,9 @@ const TOOLS = [
   {
     slug: "json-minifier",
     h1: "JSON Minifier",
-    input: '{\n  "name": "ToolMyra"\n}',
+    input: '{\n  "name": "Tool Base"\n}',
     action: "Minify JSON",
-    expect: '{"name":"ToolMyra"}',
+    expect: '{"name":"Tool Base"}',
   },
   {
     slug: "html-formatter",
@@ -67,7 +67,7 @@ const TOOLS = [
   {
     slug: "xml-formatter",
     h1: "XML Formatter",
-    input: "<root><item id=\"1\">ToolMyra</item></root>",
+    input: "<root><item id=\"1\">Tool Base</item></root>",
     action: "Format XML",
   },
   {
@@ -93,7 +93,7 @@ const TOOLS = [
     slug: "regex-tester",
     h1: "Regex Tester",
     pattern: "hello",
-    input: "hello ToolMyra hello",
+    input: "hello Tool Base hello",
     action: "Test Regex",
     expectText: "Matches:",
   },
@@ -106,7 +106,7 @@ const TOOLS = [
   {
     slug: "base64-encoder",
     h1: "Base64 Encoder",
-    input: "Hello ToolMyra",
+    input: "Hello Tool Base",
     live: true,
   },
   {
@@ -114,7 +114,7 @@ const TOOLS = [
     h1: "Base64 Decoder",
     input: "SGVsbG8gVG9vbE15cmE=",
     live: true,
-    expect: "Hello ToolMyra",
+    expect: "Hello Tool Base",
   },
   {
     slug: "url-encoder",

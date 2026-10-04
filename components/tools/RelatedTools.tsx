@@ -21,7 +21,7 @@ export function RelatedTools({ tool, heading }: RelatedToolsProps) {
             {heading ?? "Related Tools"}
           </h2>
           <p className="mt-2 max-w-2xl text-base font-medium text-tm-muted">
-            Explore related ToolMyra utilities that pair well with {tool.name}.
+            Explore related Tool Base utilities that pair well with {tool.name}.
           </p>
         </div>
         <Link href="/tools" className="text-sm font-bold text-tm-accent hover:text-tm-accent-hover">

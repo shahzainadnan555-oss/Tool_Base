@@ -42,7 +42,7 @@ export function SuggestTool() {
         <h3 className="text-base font-bold text-tm-text">Thanks for the idea</h3>
         <p className="mt-2 text-sm font-medium text-tm-muted">
           Your suggestion was recorded as a browser analytics event only. It is not stored
-          in a ToolMyra inbox until a suggestions backend is connected.
+          in a Tool Base inbox until a suggestions backend is connected.
         </p>
       </div>
     );
@@ -51,14 +51,14 @@ export function SuggestTool() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-2xl border border-tm-border bg-white p-5"
+      className="rounded-2xl border border-tm-border bg-tm-white p-5"
       aria-labelledby={`${formId}-title`}
     >
       <h3 id={`${formId}-title`} className="text-base font-bold text-tm-text">
         Suggest a Tool
       </h3>
       <p className="mt-2 text-sm font-medium text-tm-muted">
-        Share a useful utility idea for ToolMyra. No personal information is required.
+        Share a useful utility idea for Tool Base. No personal information is required.
       </p>
 
       <label className="mt-4 block text-sm font-bold text-tm-text" htmlFor={`${formId}-name`}>

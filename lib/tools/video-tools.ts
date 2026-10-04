@@ -39,9 +39,9 @@ export const videoTools: ToolDefinition[] = [
       "video-thumbnail-extractor",
       "video-metadata-viewer",
     ],
-    seoTitle: "MP4 to MP3 Converter — Free Online | ToolMyra",
+    seoTitle: "MP4 to MP3 Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert MP4 videos to MP3 audio with ToolMyra. Upload your video, extract the audio, and download the resulting MP3 file online.",
+      "Convert MP4 videos to MP3 audio with Tool Base. Upload your video, extract the audio, and download the resulting MP3 file online.",
     h1: "MP4 to MP3 Converter",
     intro:
       "Extract the audio from an MP4 video and download a real MP3 file for listening, editing, or sharing.",
@@ -81,7 +81,7 @@ export const videoTools: ToolDefinition[] = [
       {
         question: "Is the MP3 real?",
         answer:
-          "Yes. ToolMyra extracts the audio stream and encodes a playable MP3.",
+          "Yes. Tool Base extracts the audio stream and encodes a playable MP3.",
       },
       {
         question: "Will quality match the source?",
@@ -115,9 +115,9 @@ export const videoTools: ToolDefinition[] = [
       "mp4-to-gif",
       "video-trimmer",
     ],
-    seoTitle: "MP4 to WAV Converter — Free Online | ToolMyra",
+    seoTitle: "MP4 to WAV Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert MP4 to WAV online with ToolMyra. Extract audio from MP4 and download a valid WAV file.",
+      "Convert MP4 to WAV online with Tool Base. Extract audio from MP4 and download a valid WAV file.",
     h1: "MP4 to WAV Converter",
     intro:
       "Extract audio from MP4 into WAV when you need an uncompressed PCM file. WAV does not restore detail already lost in a compressed source.",
@@ -157,7 +157,7 @@ export const videoTools: ToolDefinition[] = [
       },
       {
         question: "Is output a real WAV?",
-        answer: "Yes. ToolMyra writes a valid WAV container.",
+        answer: "Yes. Tool Base writes a valid WAV container.",
       },
       {
         question: "Audio only?",
@@ -196,9 +196,9 @@ export const videoTools: ToolDefinition[] = [
       "video-compressor",
       "mp4-to-mp3",
     ],
-    seoTitle: "MP4 to GIF Converter — Free Online | ToolMyra",
+    seoTitle: "MP4 to GIF Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert MP4 to GIF online with ToolMyra. Create an animated GIF from a video clip and download the result.",
+      "Convert MP4 to GIF online with Tool Base. Create an animated GIF from a video clip and download the result.",
     h1: "MP4 to GIF Converter",
     intro:
       "Turn a short MP4 segment into an animated GIF. GIF output has no audio track and works best with brief clips.",
@@ -272,9 +272,9 @@ export const videoTools: ToolDefinition[] = [
       "video-trimmer",
       "video-metadata-viewer",
     ],
-    seoTitle: "GIF to MP4 Converter — Free Online | ToolMyra",
+    seoTitle: "GIF to MP4 Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert GIF to MP4 online with ToolMyra. Turn an animated GIF into a readable MP4 video file.",
+      "Convert GIF to MP4 online with Tool Base. Turn an animated GIF into a readable MP4 video file.",
     h1: "GIF to MP4 Converter",
     intro:
       "Preserve an animated GIF as MP4 video for easier sharing and playback. The animation sequence is encoded into a real video file.",
@@ -347,9 +347,9 @@ export const videoTools: ToolDefinition[] = [
       "video-compressor",
       "mp4-to-webm",
     ],
-    seoTitle: "MOV to MP4 Converter — Free Online | ToolMyra",
+    seoTitle: "MOV to MP4 Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert MOV to MP4 online with ToolMyra. Transcode MOV video into a playable MP4 when the codec is supported.",
+      "Convert MOV to MP4 online with Tool Base. Transcode MOV video into a playable MP4 when the codec is supported.",
     h1: "MOV to MP4 Converter",
     intro:
       "Convert MOV recordings to MP4 for broader playback support. Unsupported codecs show a clear error instead of a broken file.",
@@ -385,7 +385,7 @@ export const videoTools: ToolDefinition[] = [
       {
         question: "What if my MOV codec fails?",
         answer:
-          "ToolMyra shows a clear error rather than producing a broken file.",
+          "Tool Base shows a clear error rather than producing a broken file.",
       },
       {
         question: "Is audio kept?",
@@ -423,9 +423,9 @@ export const videoTools: ToolDefinition[] = [
       "video-compressor",
       "video-resizer",
     ],
-    seoTitle: "AVI to MP4 Converter — Free Online | ToolMyra",
+    seoTitle: "AVI to MP4 Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert AVI to MP4 online with ToolMyra. Transcode AVI video into a valid MP4 file.",
+      "Convert AVI to MP4 online with Tool Base. Transcode AVI video into a valid MP4 file.",
     h1: "AVI to MP4 Converter",
     intro:
       "Convert older AVI files into MP4 for modern players and sharing. Output is validated before download is enabled.",
@@ -460,7 +460,7 @@ export const videoTools: ToolDefinition[] = [
     faq: [
       {
         question: "Is conversion real?",
-        answer: "Yes. ToolMyra transcodes the video stream.",
+        answer: "Yes. Tool Base transcodes the video stream.",
       },
       {
         question: "Unsupported codecs?",
@@ -498,9 +498,9 @@ export const videoTools: ToolDefinition[] = [
       "video-compressor",
       "video-metadata-viewer",
     ],
-    seoTitle: "MKV to MP4 Converter — Free Online | ToolMyra",
+    seoTitle: "MKV to MP4 Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert MKV to MP4 online with ToolMyra. Transcode supported MKV streams into MP4.",
+      "Convert MKV to MP4 online with Tool Base. Transcode supported MKV streams into MP4.",
     h1: "MKV to MP4 Converter",
     intro:
       "Convert MKV containers to MP4 when streams can be decoded. Unsupported codecs are reported clearly.",
@@ -535,7 +535,7 @@ export const videoTools: ToolDefinition[] = [
     faq: [
       {
         question: "What if a stream is unsupported?",
-        answer: "ToolMyra shows a clear error rather than a broken file.",
+        answer: "Tool Base shows a clear error rather than a broken file.",
       },
       {
         question: "Is remux always enough?",
@@ -572,9 +572,9 @@ export const videoTools: ToolDefinition[] = [
       "video-resizer",
       "video-trimmer",
     ],
-    seoTitle: "WebM to MP4 Converter — Free Online | ToolMyra",
+    seoTitle: "WebM to MP4 Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert WebM to MP4 online with ToolMyra. Create a playable MP4 from WebM video.",
+      "Convert WebM to MP4 online with Tool Base. Create a playable MP4 from WebM video.",
     h1: "WebM to MP4 Converter",
     intro:
       "Convert WebM clips to MP4 for players and workflows that prefer MP4 containers.",
@@ -647,9 +647,9 @@ export const videoTools: ToolDefinition[] = [
       "video-resizer",
       "video-trimmer",
     ],
-    seoTitle: "MP4 to WebM Converter — Free Online | ToolMyra",
+    seoTitle: "MP4 to WebM Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert MP4 to WebM online with ToolMyra. Create a valid WebM file from MP4 video.",
+      "Convert MP4 to WebM online with Tool Base. Create a valid WebM file from MP4 video.",
     h1: "MP4 to WebM Converter",
     intro:
       "Convert MP4 to WebM when you need an open web-friendly container. Output uses codecs supported by the conversion engine.",
@@ -684,7 +684,7 @@ export const videoTools: ToolDefinition[] = [
     faq: [
       {
         question: "Is WebM valid?",
-        answer: "Yes. ToolMyra writes a real WebM file when encoding succeeds.",
+        answer: "Yes. Tool Base writes a real WebM file when encoding succeeds.",
       },
       {
         question: "Which codecs?",
@@ -728,9 +728,9 @@ export const videoTools: ToolDefinition[] = [
       "mp4-to-webm",
       "video-metadata-viewer",
     ],
-    seoTitle: "Video Compressor — Free Online | ToolMyra",
+    seoTitle: "Video Compressor — Free Online | Tool Base",
     seoDescription:
-      "Compress video online with ToolMyra. Reduce video file size with clear quality settings and measured results.",
+      "Compress video online with Tool Base. Reduce video file size with clear quality settings and measured results.",
     h1: "Video Compressor",
     intro:
       "Reduce video file size for uploads and sharing. Original and compressed sizes are measured from the actual files — savings are never invented.",
@@ -804,9 +804,9 @@ export const videoTools: ToolDefinition[] = [
       "video-rotator",
       "mp4-to-webm",
     ],
-    seoTitle: "Video Resizer — Free Online | ToolMyra",
+    seoTitle: "Video Resizer — Free Online | Tool Base",
     seoDescription:
-      "Resize video online with ToolMyra. Change dimensions with presets or custom width and height.",
+      "Resize video online with Tool Base. Change dimensions with presets or custom width and height.",
     h1: "Video Resizer",
     intro:
       "Change video dimensions for social uploads, embeds, or smaller files. Lock aspect ratio or choose common presets like 1280×720.",
@@ -880,9 +880,9 @@ export const videoTools: ToolDefinition[] = [
       "video-rotator",
       "video-cutter",
     ],
-    seoTitle: "Video Cropper — Free Online | ToolMyra",
+    seoTitle: "Video Cropper — Free Online | Tool Base",
     seoDescription:
-      "Crop video online with ToolMyra. Select a region and download a truly cropped video file.",
+      "Crop video online with Tool Base. Select a region and download a truly cropped video file.",
     h1: "Video Cropper",
     intro:
       "Select a crop region and export a video that is actually cropped — not a CSS-only preview of the original file.",
@@ -955,9 +955,9 @@ export const videoTools: ToolDefinition[] = [
       "video-speed-changer",
       "video-merger",
     ],
-    seoTitle: "Video Trimmer — Free Online | ToolMyra",
+    seoTitle: "Video Trimmer — Free Online | Tool Base",
     seoDescription:
-      "Trim video online with ToolMyra. Select start and end times and download only the chosen segment.",
+      "Trim video online with Tool Base. Select start and end times and download only the chosen segment.",
     h1: "Video Trimmer",
     intro:
       "Select exact start and end times to export only the segment you need. The downloaded file contains that range.",
@@ -1030,9 +1030,9 @@ export const videoTools: ToolDefinition[] = [
       "video-speed-changer",
       "video-merger",
     ],
-    seoTitle: "Video Cutter — Free Online | ToolMyra",
+    seoTitle: "Video Cutter — Free Online | Tool Base",
     seoDescription:
-      "Cut video online with ToolMyra. Select a portion and download the extracted clip.",
+      "Cut video online with Tool Base. Select a portion and download the extracted clip.",
     h1: "Video Cutter",
     intro:
       "Cut out a specific portion of a video with clear start, end, and duration feedback.",
@@ -1106,9 +1106,9 @@ export const videoTools: ToolDefinition[] = [
       "video-resizer",
       "video-speed-changer",
     ],
-    seoTitle: "Video Merger — Free Online | ToolMyra",
+    seoTitle: "Video Merger — Free Online | Tool Base",
     seoDescription:
-      "Merge videos online with ToolMyra. Add, reorder, and combine clips into one downloadable video.",
+      "Merge videos online with Tool Base. Add, reorder, and combine clips into one downloadable video.",
     h1: "Video Merger",
     intro:
       "Combine multiple clips into one continuous video in the exact order you set. Differing formats are normalized during merge.",
@@ -1181,9 +1181,9 @@ export const videoTools: ToolDefinition[] = [
       "video-compressor",
       "video-speed-changer",
     ],
-    seoTitle: "Video Rotator — Free Online | ToolMyra",
+    seoTitle: "Video Rotator — Free Online | Tool Base",
     seoDescription:
-      "Rotate video online with ToolMyra. Turn clips 90°, 180°, or 270° and download a really rotated file.",
+      "Rotate video online with Tool Base. Turn clips 90°, 180°, or 270° and download a really rotated file.",
     h1: "Video Rotator",
     intro:
       "Rotate a video clockwise, counterclockwise, or 180°. The download is encoded with the rotation applied — not just a flipped preview.",
@@ -1261,9 +1261,9 @@ export const videoTools: ToolDefinition[] = [
       "video-rotator",
       "video-merger",
     ],
-    seoTitle: "Video Speed Changer — Free Online | ToolMyra",
+    seoTitle: "Video Speed Changer — Free Online | Tool Base",
     seoDescription:
-      "Change video speed online with ToolMyra. Speed up or slow down from 0.5x to 2x with matched audio timing.",
+      "Change video speed online with Tool Base. Speed up or slow down from 0.5x to 2x with matched audio timing.",
     h1: "Video Speed Changer",
     intro:
       "Adjust playback speed from 0.5x to 2x so the output duration actually changes. Audio tempo is adjusted with the video.",
@@ -1340,9 +1340,9 @@ export const videoTools: ToolDefinition[] = [
       "video-metadata-viewer",
       "video-compressor",
     ],
-    seoTitle: "Video Thumbnail Extractor — Free Online | ToolMyra",
+    seoTitle: "Video Thumbnail Extractor — Free Online | Tool Base",
     seoDescription:
-      "Extract a video thumbnail online with ToolMyra. Pick a timestamp and download a PNG from the actual frame.",
+      "Extract a video thumbnail online with Tool Base. Pick a timestamp and download a PNG from the actual frame.",
     h1: "Video Thumbnail Extractor",
     intro:
       "Choose a timestamp, preview the frame, and download a real PNG thumbnail from that exact position in the video.",
@@ -1419,9 +1419,9 @@ export const videoTools: ToolDefinition[] = [
       "video-metadata-viewer",
       "video-cutter",
     ],
-    seoTitle: "Video Frame Extractor — Free Online | ToolMyra",
+    seoTitle: "Video Frame Extractor — Free Online | Tool Base",
     seoDescription:
-      "Extract a video frame online with ToolMyra. Select a timestamp and download the matching still image.",
+      "Extract a video frame online with Tool Base. Select a timestamp and download the matching still image.",
     h1: "Video Frame Extractor",
     intro:
       "Capture a still frame from any point in the video. The downloaded image matches the selected timestamp.",
@@ -1495,9 +1495,9 @@ export const videoTools: ToolDefinition[] = [
       "video-trimmer",
       "video-frame-extractor",
     ],
-    seoTitle: "Video Metadata Viewer — Free Online | ToolMyra",
+    seoTitle: "Video Metadata Viewer — Free Online | Tool Base",
     seoDescription:
-      "View video metadata online with ToolMyra. Inspect duration, size, dimensions, and other detected fields.",
+      "View video metadata online with Tool Base. Inspect duration, size, dimensions, and other detected fields.",
     h1: "Video Metadata Viewer",
     intro:
       "Inspect file name, size, duration, dimensions, and other fields when they can be detected. Unavailable values are marked as not detected.",

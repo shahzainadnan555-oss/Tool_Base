@@ -39,9 +39,9 @@ export const textTools: ToolDefinition[] = [
       "reading-time-calculator",
       "text-cleaner",
     ],
-    seoTitle: "Word Counter — Count Words & Characters Online | ToolMyra",
+    seoTitle: "Word Counter — Count Words & Characters Online | Tool Base",
     seoDescription:
-      "Count words, characters, sentences, paragraphs, and estimated reading time with ToolMyra’s free online Word Counter.",
+      "Count words, characters, sentences, paragraphs, and estimated reading time with Tool Base’s free online Word Counter.",
     h1: "Word Counter",
     intro:
       "Paste or type your text to instantly count words, characters, sentences, paragraphs, and estimated reading time.",
@@ -116,9 +116,9 @@ export const textTools: ToolDefinition[] = [
       "text-cleaner",
       "text-case-converter",
     ],
-    seoTitle: "Character Counter — Count Characters Online | ToolMyra",
+    seoTitle: "Character Counter — Count Characters Online | Tool Base",
     seoDescription:
-      "Count characters online with ToolMyra. See characters with and without spaces, plus words and lines.",
+      "Count characters online with Tool Base. See characters with and without spaces, plus words and lines.",
     h1: "Character Counter",
     intro:
       "Track character counts for captions, bios, and form limits. Counts update live and handle Unicode text carefully.",
@@ -192,9 +192,9 @@ export const textTools: ToolDefinition[] = [
       "reading-time-calculator",
       "text-cleaner",
     ],
-    seoTitle: "Sentence Counter — Count Sentences Online | ToolMyra",
+    seoTitle: "Sentence Counter — Count Sentences Online | Tool Base",
     seoDescription:
-      "Count sentences online with ToolMyra. Review sentence totals alongside words and paragraphs.",
+      "Count sentences online with Tool Base. Review sentence totals alongside words and paragraphs.",
     h1: "Sentence Counter",
     intro:
       "Estimate how many sentences are in your draft. Detection is heuristic, so abbreviations like Mr. or e.g. are handled carefully where possible.",
@@ -269,9 +269,9 @@ export const textTools: ToolDefinition[] = [
       "text-cleaner",
       "remove-extra-spaces",
     ],
-    seoTitle: "Paragraph Counter — Count Paragraphs Online | ToolMyra",
+    seoTitle: "Paragraph Counter — Count Paragraphs Online | Tool Base",
     seoDescription:
-      "Count paragraphs online with ToolMyra. See paragraph totals based on consistent text boundaries.",
+      "Count paragraphs online with Tool Base. See paragraph totals based on consistent text boundaries.",
     h1: "Paragraph Counter",
     intro:
       "Count paragraphs in essays, articles, and pasted documents. Blank-line boundaries are treated consistently across newline styles.",
@@ -350,9 +350,9 @@ export const textTools: ToolDefinition[] = [
       "paragraph-counter",
       "text-cleaner",
     ],
-    seoTitle: "Reading Time Calculator — Estimate Reading Time | ToolMyra",
+    seoTitle: "Reading Time Calculator — Estimate Reading Time | Tool Base",
     seoDescription:
-      "Estimate reading time online with ToolMyra. Adjust reading speed and see an estimated duration for your text.",
+      "Estimate reading time online with Tool Base. Adjust reading speed and see an estimated duration for your text.",
     h1: "Reading Time Calculator",
     intro:
       "Estimate how long your content may take to read. Choose a reading speed in words per minute — results are clearly labeled as estimates.",
@@ -429,9 +429,9 @@ export const textTools: ToolDefinition[] = [
       "sentence-case-converter",
       "text-cleaner",
     ],
-    seoTitle: "Text Case Converter — Change Text Case Online | ToolMyra",
+    seoTitle: "Text Case Converter — Change Text Case Online | Tool Base",
     seoDescription:
-      "Convert text to uppercase, lowercase, title case, sentence case, and other formats with ToolMyra.",
+      "Convert text to uppercase, lowercase, title case, sentence case, and other formats with Tool Base.",
     h1: "Text Case Converter",
     intro:
       "Change letter casing for headlines, captions, and drafts. Choose a case style and copy or download the result.",
@@ -509,9 +509,9 @@ export const textTools: ToolDefinition[] = [
       "sentence-case-converter",
       "text-cleaner",
     ],
-    seoTitle: "Uppercase Converter — Convert Text to UPPERCASE | ToolMyra",
+    seoTitle: "Uppercase Converter — Convert Text to UPPERCASE | Tool Base",
     seoDescription:
-      "Convert text to uppercase online with ToolMyra. Instant UPPERCASE conversion with copy and download.",
+      "Convert text to uppercase online with Tool Base. Instant UPPERCASE conversion with copy and download.",
     h1: "Uppercase Converter",
     intro:
       "Turn any draft into uppercase in one step. Line breaks stay in place so formatted text remains readable.",
@@ -588,9 +588,9 @@ export const textTools: ToolDefinition[] = [
       "sentence-case-converter",
       "text-cleaner",
     ],
-    seoTitle: "Lowercase Converter — Convert Text to lowercase | ToolMyra",
+    seoTitle: "Lowercase Converter — Convert Text to lowercase | Tool Base",
     seoDescription:
-      "Convert text to lowercase online with ToolMyra. Instant lowercase conversion with copy and download.",
+      "Convert text to lowercase online with Tool Base. Instant lowercase conversion with copy and download.",
     h1: "Lowercase Converter",
     intro:
       "Normalize shouting text or mixed casing into lowercase while keeping your line structure intact.",
@@ -667,9 +667,9 @@ export const textTools: ToolDefinition[] = [
       "lowercase-converter",
       "text-cleaner",
     ],
-    seoTitle: "Title Case Converter — Convert Text to Title Case | ToolMyra",
+    seoTitle: "Title Case Converter — Convert Text to Title Case | Tool Base",
     seoDescription:
-      "Convert text to title case online with ToolMyra. Create headline-style capitalization quickly.",
+      "Convert text to title case online with Tool Base. Create headline-style capitalization quickly.",
     h1: "Title Case Converter",
     intro:
       "Create title-style headings with predictable capitalization. Common short words can remain lowercase except at the start.",
@@ -743,9 +743,9 @@ export const textTools: ToolDefinition[] = [
       "lowercase-converter",
       "text-cleaner",
     ],
-    seoTitle: "Sentence Case Converter — Convert to Sentence Case | ToolMyra",
+    seoTitle: "Sentence Case Converter — Convert to Sentence Case | Tool Base",
     seoDescription:
-      "Convert text to sentence case online with ToolMyra. Capitalize sentences cleanly and copy the result.",
+      "Convert text to sentence case online with Tool Base. Capitalize sentences cleanly and copy the result.",
     h1: "Sentence Case Converter",
     intro:
       "Normalize drafts into sentence case. Letters are lowercased and sentence starts are capitalized after punctuation where detected.",
@@ -819,9 +819,9 @@ export const textTools: ToolDefinition[] = [
       "word-counter",
       "find-and-replace",
     ],
-    seoTitle: "Remove Extra Spaces — Clean Whitespace Online | ToolMyra",
+    seoTitle: "Remove Extra Spaces — Clean Whitespace Online | Tool Base",
     seoDescription:
-      "Remove extra spaces online with ToolMyra. Collapse repeated whitespace and trim lines cleanly.",
+      "Remove extra spaces online with Tool Base. Collapse repeated whitespace and trim lines cleanly.",
     h1: "Remove Extra Spaces",
     intro:
       "Clean up messy pasted text by collapsing repeated spaces and trimming line whitespace. Paragraph structure stays intact unless you choose stronger cleanup.",
@@ -898,9 +898,9 @@ export const textTools: ToolDefinition[] = [
       "text-diff-checker",
       "remove-extra-spaces",
     ],
-    seoTitle: "Remove Duplicate Lines — Unique Lines Online | ToolMyra",
+    seoTitle: "Remove Duplicate Lines — Unique Lines Online | Tool Base",
     seoDescription:
-      "Remove duplicate lines online with ToolMyra. Keep first occurrences and optionally ignore case.",
+      "Remove duplicate lines online with Tool Base. Keep first occurrences and optionally ignore case.",
     h1: "Remove Duplicate Lines",
     intro:
       "Clean lists by removing repeated lines. Choose case sensitivity and whether to keep the first occurrence.",
@@ -977,9 +977,9 @@ export const textTools: ToolDefinition[] = [
       "text-diff-checker",
       "reverse-text",
     ],
-    seoTitle: "Sort Lines Alphabetically — A–Z & Z–A Online | ToolMyra",
+    seoTitle: "Sort Lines Alphabetically — A–Z & Z–A Online | Tool Base",
     seoDescription:
-      "Sort lines alphabetically online with ToolMyra. Sort A to Z or Z to A with optional numeric order.",
+      "Sort lines alphabetically online with Tool Base. Sort A to Z or Z to A with optional numeric order.",
     h1: "Sort Lines Alphabetically",
     intro:
       "Sort lists and line-based text A→Z or Z→A. Optional numeric sorting helps when lines start with numbers.",
@@ -1052,9 +1052,9 @@ export const textTools: ToolDefinition[] = [
       "text-cleaner",
       "word-counter",
     ],
-    seoTitle: "Reverse Text — Flip Characters Online | ToolMyra",
+    seoTitle: "Reverse Text — Flip Characters Online | Tool Base",
     seoDescription:
-      "Reverse text online with ToolMyra. Flip characters carefully with Unicode-aware reversal where supported.",
+      "Reverse text online with Tool Base. Flip characters carefully with Unicode-aware reversal where supported.",
     h1: "Reverse Text",
     intro:
       "Flip your text from end to start. Grapheme-aware reversal is used where the browser supports it so common emojis are less likely to split.",
@@ -1128,9 +1128,9 @@ export const textTools: ToolDefinition[] = [
       "text-cleaner",
       "word-counter",
     ],
-    seoTitle: "Reverse Words — Flip Word Order Online | ToolMyra",
+    seoTitle: "Reverse Words — Flip Word Order Online | Tool Base",
     seoDescription:
-      "Reverse word order online with ToolMyra. Flip words while preserving each word’s spelling.",
+      "Reverse word order online with Tool Base. Flip words while preserving each word’s spelling.",
     h1: "Reverse Words",
     intro:
       "Keep each word intact and reverse only the order. Useful for quick transformations and playful edits.",
@@ -1203,9 +1203,9 @@ export const textTools: ToolDefinition[] = [
       "word-counter",
       "text-case-converter",
     ],
-    seoTitle: "Text Repeater — Repeat Text Online | ToolMyra",
+    seoTitle: "Text Repeater — Repeat Text Online | Tool Base",
     seoDescription:
-      "Repeat text online with ToolMyra. Set a count, choose a separator, and copy the repeated result.",
+      "Repeat text online with Tool Base. Set a count, choose a separator, and copy the repeated result.",
     h1: "Text Repeater",
     intro:
       "Repeat a phrase or block of text with a protected maximum so large counts do not freeze your browser.",
@@ -1278,9 +1278,9 @@ export const textTools: ToolDefinition[] = [
       "sort-lines",
       "word-counter",
     ],
-    seoTitle: "Text Cleaner — Clean & Normalize Text Online | ToolMyra",
+    seoTitle: "Text Cleaner — Clean & Normalize Text Online | Tool Base",
     seoDescription:
-      "Clean text online with ToolMyra. Trim lines, collapse spaces, and normalize blank lines with clear toggles.",
+      "Clean text online with Tool Base. Trim lines, collapse spaces, and normalize blank lines with clear toggles.",
     h1: "Text Cleaner",
     intro:
       "Tidy pasted content with explicit cleanup options. Nothing destructive runs unless you enable that toggle.",
@@ -1353,9 +1353,9 @@ export const textTools: ToolDefinition[] = [
       "sort-lines",
       "word-counter",
     ],
-    seoTitle: "Find & Replace Tool — Replace Text Online | ToolMyra",
+    seoTitle: "Find & Replace Tool — Replace Text Online | Tool Base",
     seoDescription:
-      "Find and replace text online with ToolMyra. Replace matches safely and see how many replacements were made.",
+      "Find and replace text online with Tool Base. Replace matches safely and see how many replacements were made.",
     h1: "Find & Replace Tool",
     intro:
       "Search for plain text and replace matches without running user regular expressions. Match counts help you verify the change.",
@@ -1433,9 +1433,9 @@ export const textTools: ToolDefinition[] = [
       "text-cleaner",
       "word-counter",
     ],
-    seoTitle: "Text Diff Checker — Compare Two Texts Online | ToolMyra",
+    seoTitle: "Text Diff Checker — Compare Two Texts Online | Tool Base",
     seoDescription:
-      "Compare two texts online with ToolMyra. Highlight added and removed lines in an accessible diff view.",
+      "Compare two texts online with Tool Base. Highlight added and removed lines in an accessible diff view.",
     h1: "Text Diff Checker",
     intro:
       "Paste an original version and a modified version to see line-level differences. Added and removed lines are labeled for accessibility, not color alone.",
@@ -1512,9 +1512,9 @@ export const textTools: ToolDefinition[] = [
       "text-case-converter",
       "character-counter",
     ],
-    seoTitle: "Lorem Ipsum Generator — Placeholder Text Online | ToolMyra",
+    seoTitle: "Lorem Ipsum Generator — Placeholder Text Online | Tool Base",
     seoDescription:
-      "Generate Lorem Ipsum online with ToolMyra. Create paragraphs, sentences, or words for design mockups.",
+      "Generate Lorem Ipsum online with Tool Base. Create paragraphs, sentences, or words for design mockups.",
     h1: "Lorem Ipsum Generator",
     intro:
       "Generate placeholder copy for layouts and prototypes. Content comes from a local word list with generation limits to keep things fast.",

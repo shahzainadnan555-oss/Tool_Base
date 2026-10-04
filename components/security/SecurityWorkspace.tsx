@@ -546,7 +546,7 @@ export function SecurityWorkspace({ config, convertHeading }: SecurityWorkspaceP
       ) : null}
 
       {config.kind === "jwt" && result?.jwt ? (
-        <div className="rounded-2xl border border-tm-border bg-white p-4">
+        <div className="rounded-2xl border border-tm-border bg-tm-white p-4">
           <p className="text-sm font-extrabold text-tm-text">Decoded — Not Verified</p>
           <div className="mt-3 grid gap-4 lg:grid-cols-2">
             <pre className="overflow-auto rounded-xl bg-tm-soft p-3 font-mono text-xs leading-relaxed whitespace-pre-wrap break-all">
@@ -560,7 +560,7 @@ export function SecurityWorkspace({ config, convertHeading }: SecurityWorkspaceP
       ) : null}
 
       {config.kind === "qr" && result?.qrDataUrl ? (
-        <div className="rounded-2xl border border-tm-border bg-white p-5">
+        <div className="rounded-2xl border border-tm-border bg-tm-white p-5">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={result.qrDataUrl}

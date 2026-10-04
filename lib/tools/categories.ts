@@ -9,12 +9,12 @@ export const categories: CategoryDefinition[] = [
       "Convert, compress, resize, crop, edit, and optimize images online.",
     shortDescription: "Convert, compress, and optimize images.",
     icon: "image",
-    seoTitle: "Image Tools — Convert, Compress & Edit Images Online | ToolMyra",
+    seoTitle: "Image Tools — Convert, Compress & Edit Images Online | Tool Base",
     seoDescription:
-      "Free online image tools from ToolMyra. Convert JPG, PNG, WebP, and SVG files, compress images, resize photos, and optimize visuals in your browser.",
+      "Free online image tools from Tool Base. Convert JPG, PNG, WebP, and SVG files, compress images, resize photos, and optimize visuals in your browser.",
     h1: "Image Tools",
     intro:
-      "Use ToolMyra image tools to convert popular formats, compress large files, resize photos, crop visuals, and prepare images for the web. Each utility focuses on a clear everyday task so you can upload, process, and download without creating an account.",
+      "Use Tool Base image tools to convert popular formats, compress large files, resize photos, crop visuals, and prepare images for the web. Each utility focuses on a clear everyday task so you can upload, process, and download without creating an account.",
     route: "/categories/image-tools",
   },
   {
@@ -25,12 +25,12 @@ export const categories: CategoryDefinition[] = [
       "Convert, compress, merge, split, extract, and process PDF files.",
     shortDescription: "Convert, compress, and process PDFs.",
     icon: "pdf",
-    seoTitle: "PDF Tools — Compress, Convert & Process PDFs Online | ToolMyra",
+    seoTitle: "PDF Tools — Compress, Convert & Process PDFs Online | Tool Base",
     seoDescription:
-      "Free online PDF tools from ToolMyra. Compress PDFs, convert images to PDF, and process documents quickly with a clean, account-free workflow.",
+      "Free online PDF tools from Tool Base. Compress PDFs, convert images to PDF, and process documents quickly with a clean, account-free workflow.",
     h1: "PDF Tools",
     intro:
-      "Work with PDF files using ToolMyra utilities designed for everyday document tasks such as compression, conversion, merging, splitting, and related preparation steps. Choose a tool, upload your file, and download the result when processing finishes.",
+      "Work with PDF files using Tool Base utilities designed for everyday document tasks such as compression, conversion, merging, splitting, and related preparation steps. Choose a tool, upload your file, and download the result when processing finishes.",
     route: "/categories/pdf-tools",
   },
   {
@@ -42,12 +42,12 @@ export const categories: CategoryDefinition[] = [
     shortDescription: "Convert documents and structured data formats.",
     icon: "text",
     seoTitle:
-      "Document & Data Tools — DOCX, Markdown, CSV, JSON & More | ToolMyra",
+      "Document & Data Tools — DOCX, Markdown, CSV, JSON & More | Tool Base",
     seoDescription:
-      "Free online document and data converters from ToolMyra. Convert DOCX, PDF, Markdown, CSV, JSON, XML, YAML, and related formats without creating an account.",
+      "Free online document and data converters from Tool Base. Convert DOCX, PDF, Markdown, CSV, JSON, XML, YAML, and related formats without creating an account.",
     h1: "Document & Data Tools",
     intro:
-      "Convert documents and structured data with ToolMyra utilities for DOCX, text, Markdown, CSV, JSON, XML, YAML, and related everyday formats. These tools help you move content between formats while keeping the workflow simple and account-free.",
+      "Convert documents and structured data with Tool Base utilities for DOCX, text, Markdown, CSV, JSON, XML, YAML, and related everyday formats. These tools help you move content between formats while keeping the workflow simple and account-free.",
     route: "/categories/document-data-tools",
   },
   {
@@ -57,12 +57,12 @@ export const categories: CategoryDefinition[] = [
     description: "Convert, trim, compress, edit, and process audio files.",
     shortDescription: "Convert and process audio files.",
     icon: "audio",
-    seoTitle: "Audio Tools — Convert & Process Audio Online | ToolMyra",
+    seoTitle: "Audio Tools — Convert & Process Audio Online | Tool Base",
     seoDescription:
-      "Free online audio tools from ToolMyra. Convert MP3, WAV, and other formats, and process audio files with a simple online experience.",
+      "Free online audio tools from Tool Base. Convert MP3, WAV, and other formats, and process audio files with a simple online experience.",
     h1: "Audio Tools",
     intro:
-      "Convert and process audio files with ToolMyra tools built for quick everyday media tasks. Format changes, trimming, and related utilities are organized so you can complete a job and download the output without signup.",
+      "Convert and process audio files with Tool Base tools built for quick everyday media tasks. Format changes, trimming, and related utilities are organized so you can complete a job and download the output without signup.",
     route: "/categories/audio-tools",
   },
   {
@@ -73,12 +73,12 @@ export const categories: CategoryDefinition[] = [
       "Convert, compress, trim, resize, extract, and process video files.",
     shortDescription: "Convert and process video files.",
     icon: "video",
-    seoTitle: "Video Tools — Convert & Extract Video Online | ToolMyra",
+    seoTitle: "Video Tools — Convert & Extract Video Online | Tool Base",
     seoDescription:
-      "Free online video tools from ToolMyra. Convert video formats, extract audio from MP4 files, and handle common video tasks without signing up.",
+      "Free online video tools from Tool Base. Convert video formats, extract audio from MP4 files, and handle common video tasks without signing up.",
     h1: "Video Tools",
     intro:
-      "Handle common video conversion, compression, trimming, resizing, and extraction tasks with ToolMyra’s free online video utilities. Processing can take longer for large files, and output quality may vary by format and settings.",
+      "Handle common video conversion, compression, trimming, resizing, and extraction tasks with Tool Base’s free online video utilities. Processing can take longer for large files, and output quality may vary by format and settings.",
     route: "/categories/video-tools",
   },
   {
@@ -88,12 +88,12 @@ export const categories: CategoryDefinition[] = [
     description: "Count, clean, format, transform, compare, and generate text.",
     shortDescription: "Count, format, and transform text.",
     icon: "text",
-    seoTitle: "Text Tools — Word Counter, Formatters & Utilities | ToolMyra",
+    seoTitle: "Text Tools — Word Counter, Formatters & Utilities | Tool Base",
     seoDescription:
-      "Free online text tools from ToolMyra. Count words, clean content, format text, and complete everyday writing utilities instantly.",
+      "Free online text tools from Tool Base. Count words, clean content, format text, and complete everyday writing utilities instantly.",
     h1: "Text Tools",
     intro:
-      "Use ToolMyra text tools for counting, formatting, cleaning, comparing, and transforming written content. These utilities are useful for drafting, editing, and preparing text without installing desktop software.",
+      "Use Tool Base text tools for counting, formatting, cleaning, comparing, and transforming written content. These utilities are useful for drafting, editing, and preparing text without installing desktop software.",
     route: "/categories/text-tools",
   },
   {
@@ -104,9 +104,9 @@ export const categories: CategoryDefinition[] = [
       "Format, validate, encode, decode, test, and transform developer data and code.",
     shortDescription: "Format, validate, and transform code data.",
     icon: "code",
-    seoTitle: "Developer Tools — JSON, Encoding & Code Utilities | ToolMyra",
+    seoTitle: "Developer Tools — JSON, Encoding & Code Utilities | Tool Base",
     seoDescription:
-      "Free online developer tools from ToolMyra. Format JSON, transform data, and use practical coding utilities without creating an account.",
+      "Free online developer tools from Tool Base. Format JSON, transform data, and use practical coding utilities without creating an account.",
     h1: "Developer Tools",
     intro:
       "Practical developer utilities for formatting, validating, and transforming common data formats such as JSON and related structured text. Use them for quick debugging and conversion tasks during everyday development work.",
@@ -121,12 +121,12 @@ export const categories: CategoryDefinition[] = [
     shortDescription: "Hash, encode, decode, and generate IDs.",
     icon: "shield",
     seoTitle:
-      "Security & Encoding Tools — Hash, Encode & UUID Utilities | ToolMyra",
+      "Security & Encoding Tools — Hash, Encode & UUID Utilities | Tool Base",
     seoDescription:
-      "Free online security and encoding utilities from ToolMyra. Generate hashes, encode and decode data, create UUIDs, and work with technical formats.",
+      "Free online security and encoding utilities from Tool Base. Generate hashes, encode and decode data, create UUIDs, and work with technical formats.",
     h1: "Security & Encoding",
     intro:
-      "Encode, decode, hash, and generate technical values with ToolMyra utilities designed for developers and everyday technical tasks. These tools are helpers, not a substitute for a security audit or professional cryptography review.",
+      "Encode, decode, hash, and generate technical values with Tool Base utilities designed for developers and everyday technical tasks. These tools are helpers, not a substitute for a security audit or professional cryptography review.",
     route: "/categories/security-encoding",
   },
   {
@@ -138,9 +138,9 @@ export const categories: CategoryDefinition[] = [
     shortDescription: "Calculate percentages, dates, and conversions.",
     icon: "calculator",
     seoTitle:
-      "Calculators & Converters — Percentage, Units & More | ToolMyra",
+      "Calculators & Converters — Percentage, Units & More | Tool Base",
     seoDescription:
-      "Free online calculators and converters from ToolMyra. Calculate percentages, convert units, and handle everyday math and conversion tasks.",
+      "Free online calculators and converters from Tool Base. Calculate percentages, convert units, and handle everyday math and conversion tasks.",
     h1: "Calculators & Converters",
     intro:
       "Quick calculators and converters for percentages, units, dates, ages, storage, time, and other everyday measurements. Results follow the formulas shown on each tool page and should be verified before important use.",

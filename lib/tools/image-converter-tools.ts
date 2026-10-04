@@ -39,12 +39,12 @@ export const imageConverterTools: ToolDefinition[] = [
       "image-compressor",
       "image-resizer",
     ],
-    seoTitle: "JPG to PNG Converter — Free Online | ToolMyra",
+    seoTitle: "JPG to PNG Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert JPG and JPEG images to PNG online with ToolMyra. Upload your image, convert it, and download the PNG instantly.",
+      "Convert JPG and JPEG images to PNG online with Tool Base. Upload your image, convert it, and download the PNG instantly.",
     h1: "JPG to PNG Converter",
     intro:
-      "Convert JPG images to PNG format online with ToolMyra. Upload your JPG or JPEG file, convert it directly, and download the resulting PNG — no account required.",
+      "Convert JPG images to PNG format online with Tool Base. Upload your JPG or JPEG file, convert it directly, and download the resulting PNG — no account required.",
     convertHeading: "Convert JPG to PNG Online",
     howToHeading: "How to Convert JPG to PNG",
     featuresHeading: "JPG to PNG Features",
@@ -117,9 +117,9 @@ export const imageConverterTools: ToolDefinition[] = [
       "image-compressor",
       "jpg-to-webp",
     ],
-    seoTitle: "PNG to JPG Converter — Free Online | ToolMyra",
+    seoTitle: "PNG to JPG Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert PNG to JPG online with ToolMyra. Upload a PNG, convert it, and download a JPEG file instantly.",
+      "Convert PNG to JPG online with Tool Base. Upload a PNG, convert it, and download a JPEG file instantly.",
     h1: "PNG to JPG Converter",
     intro:
       "Turn PNG images into JPG files when you need a widely compatible photo format. Transparent PNG areas are filled with a white background because JPG does not support alpha transparency.",
@@ -195,9 +195,9 @@ export const imageConverterTools: ToolDefinition[] = [
       "image-compressor",
       "webp-to-png",
     ],
-    seoTitle: "JPG to WebP Converter — Free Online | ToolMyra",
+    seoTitle: "JPG to WebP Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert JPG to WebP online with ToolMyra. Create WebP images from JPEG files for free.",
+      "Convert JPG to WebP online with Tool Base. Create WebP images from JPEG files for free.",
     h1: "JPG to WebP Converter",
     intro:
       "Convert JPG and JPEG images to WebP for a modern format often used for efficient web delivery. Upload, convert, and download the WebP file.",
@@ -238,12 +238,12 @@ export const imageConverterTools: ToolDefinition[] = [
       {
         question: "Do I need special software?",
         answer:
-          "No. ToolMyra converts the file and lets you download WebP directly.",
+          "No. Tool Base converts the file and lets you download WebP directly.",
       },
       {
         question: "Is quality preserved?",
         answer:
-          "ToolMyra uses a high-quality WebP encoding setting. Exact size savings depend on the image.",
+          "Tool Base uses a high-quality WebP encoding setting. Exact size savings depend on the image.",
       },
     ],
     inputFormats: ["JPG", "JPEG"],
@@ -274,9 +274,9 @@ export const imageConverterTools: ToolDefinition[] = [
       "image-compressor",
       "jpg-to-png",
     ],
-    seoTitle: "WebP to JPG Converter — Free Online | ToolMyra",
+    seoTitle: "WebP to JPG Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert WebP to JPG online with ToolMyra. Upload a WebP image, convert it, and download a JPEG file.",
+      "Convert WebP to JPG online with Tool Base. Upload a WebP image, convert it, and download a JPEG file.",
     h1: "WebP to JPG Converter",
     intro:
       "Convert WebP images to JPG when you need broader compatibility with apps, editors, or devices that prefer JPEG. Transparent areas become white because JPG has no alpha channel.",
@@ -353,9 +353,9 @@ export const imageConverterTools: ToolDefinition[] = [
       "image-compressor",
       "webp-to-jpg",
     ],
-    seoTitle: "PNG to WebP Converter — Free Online | ToolMyra",
+    seoTitle: "PNG to WebP Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert PNG to WebP online with ToolMyra. Upload a PNG, convert it, and download the WebP result.",
+      "Convert PNG to WebP online with Tool Base. Upload a PNG, convert it, and download the WebP result.",
     h1: "PNG to WebP Converter",
     intro:
       "Convert PNG graphics to WebP when you want a modern web-friendly format. Where your browser’s WebP encoder supports alpha, transparent regions can be preserved.",
@@ -391,7 +391,7 @@ export const imageConverterTools: ToolDefinition[] = [
       {
         question: "Does WebP keep PNG transparency?",
         answer:
-          "When your browser supports WebP alpha encoding, ToolMyra attempts to preserve transparency.",
+          "When your browser supports WebP alpha encoding, Tool Base attempts to preserve transparency.",
       },
       {
         question: "Is this better for websites?",
@@ -431,9 +431,9 @@ export const imageConverterTools: ToolDefinition[] = [
       "image-compressor",
       "jpg-to-png",
     ],
-    seoTitle: "WebP to PNG Converter — Free Online | ToolMyra",
+    seoTitle: "WebP to PNG Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert WebP to PNG online with ToolMyra. Upload your WebP file, convert it, and download a PNG.",
+      "Convert WebP to PNG online with Tool Base. Upload your WebP file, convert it, and download a PNG.",
     h1: "WebP to PNG Converter",
     intro:
       "Convert WebP images to PNG when you need a format that is widely supported in design tools and editing workflows. Transparency is preserved when present in the source WebP.",
@@ -508,9 +508,9 @@ export const imageConverterTools: ToolDefinition[] = [
       "image-compressor",
       "webp-to-png",
     ],
-    seoTitle: "GIF to PNG Converter — Free Online | ToolMyra",
+    seoTitle: "GIF to PNG Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert GIF to PNG online with ToolMyra. Upload a GIF, convert the first frame, and download a PNG file.",
+      "Convert GIF to PNG online with Tool Base. Upload a GIF, convert the first frame, and download a PNG file.",
     h1: "GIF to PNG Converter",
     intro:
       "Convert GIF files to PNG online. Animated GIFs are converted using the first visible frame because PNG is a still-image format and cannot represent animation.",
@@ -546,7 +546,7 @@ export const imageConverterTools: ToolDefinition[] = [
       {
         question: "Does this keep GIF animation?",
         answer:
-          "No. PNG is not an animated format. ToolMyra converts the first visible frame and states that clearly.",
+          "No. PNG is not an animated format. Tool Base converts the first visible frame and states that clearly.",
       },
       {
         question: "Why convert GIF to PNG?",
@@ -586,9 +586,9 @@ export const imageConverterTools: ToolDefinition[] = [
       "image-compressor",
       "jpg-to-png",
     ],
-    seoTitle: "GIF to JPG Converter — Free Online | ToolMyra",
+    seoTitle: "GIF to JPG Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert GIF to JPG online with ToolMyra. Upload a GIF, convert the first frame, and download a JPEG file.",
+      "Convert GIF to JPG online with Tool Base. Upload a GIF, convert the first frame, and download a JPEG file.",
     h1: "GIF to JPG Converter",
     intro:
       "Convert GIF files to JPG online. Because JPG is a still format, animated GIFs are converted from the first visible frame. Transparent areas are filled with white.",
@@ -664,9 +664,9 @@ export const imageConverterTools: ToolDefinition[] = [
       "image-compressor",
       "gif-to-jpg",
     ],
-    seoTitle: "BMP to JPG Converter — Free Online | ToolMyra",
+    seoTitle: "BMP to JPG Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert BMP to JPG online with ToolMyra. Upload your bitmap image, convert it, and download a JPEG file.",
+      "Convert BMP to JPG online with Tool Base. Upload your bitmap image, convert it, and download a JPEG file.",
     h1: "BMP to JPG Converter",
     intro:
       "Convert BMP bitmap images to JPG when you need a smaller, more shareable photo format. Upload a BMP file, convert it, and download the JPG result.",
@@ -742,9 +742,9 @@ export const imageConverterTools: ToolDefinition[] = [
       "image-compressor",
       "jpg-to-png",
     ],
-    seoTitle: "BMP to PNG Converter — Free Online | ToolMyra",
+    seoTitle: "BMP to PNG Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert BMP to PNG online with ToolMyra. Upload a BMP image, convert it, and download a PNG file.",
+      "Convert BMP to PNG online with Tool Base. Upload a BMP image, convert it, and download a PNG file.",
     h1: "BMP to PNG Converter",
     intro:
       "Convert BMP images to PNG for a more widely used still-image format in editing and publishing workflows. Process the file and download the PNG.",
@@ -819,12 +819,12 @@ export const imageConverterTools: ToolDefinition[] = [
       "image-compressor",
       "jpg-to-webp",
     ],
-    seoTitle: "TIFF to JPG Converter — Free Online | ToolMyra",
+    seoTitle: "TIFF to JPG Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert TIFF to JPG online with ToolMyra. Decode TIFF files and download a JPEG result.",
+      "Convert TIFF to JPG online with Tool Base. Decode TIFF files and download a JPEG result.",
     h1: "TIFF to JPG Converter",
     intro:
-      "Convert TIFF and TIF images to JPG online. ToolMyra uses a TIFF decoder, then encodes a standard JPEG you can download immediately.",
+      "Convert TIFF and TIF images to JPG online. Tool Base uses a TIFF decoder, then encodes a standard JPEG you can download immediately.",
     convertHeading: "Convert TIFF to JPG Online",
     howToHeading: "How to Convert TIFF to JPG",
     featuresHeading: "TIFF to JPG Features",
@@ -857,7 +857,7 @@ export const imageConverterTools: ToolDefinition[] = [
       {
         question: "What if my TIFF fails to convert?",
         answer:
-          "Some TIFF variants are uncommon. ToolMyra shows a clear message instead of producing a broken file.",
+          "Some TIFF variants are uncommon. Tool Base shows a clear message instead of producing a broken file.",
       },
       {
         question: "Are multi-page TIFFs supported?",
@@ -896,9 +896,9 @@ export const imageConverterTools: ToolDefinition[] = [
       "image-compressor",
       "png-to-webp",
     ],
-    seoTitle: "TIFF to PNG Converter — Free Online | ToolMyra",
+    seoTitle: "TIFF to PNG Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert TIFF to PNG online with ToolMyra. Decode your TIFF in the browser and download a PNG file.",
+      "Convert TIFF to PNG online with Tool Base. Decode your TIFF in the browser and download a PNG file.",
     h1: "TIFF to PNG Converter",
     intro:
       "Convert TIFF and TIF files to PNG online with a decoder. Useful when you need a PNG for editing or publishing instead of a TIFF container.",
@@ -973,9 +973,9 @@ export const imageConverterTools: ToolDefinition[] = [
       "image-resizer",
       "image-compressor",
     ],
-    seoTitle: "SVG to PNG Converter — Free Online | ToolMyra",
+    seoTitle: "SVG to PNG Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert SVG to PNG online with ToolMyra. Render SVG graphics and download a PNG image.",
+      "Convert SVG to PNG online with Tool Base. Render SVG graphics and download a PNG image.",
     h1: "SVG to PNG Converter",
     intro:
       "Convert SVG vector graphics into PNG images online. Render your SVG in the browser, optionally set output dimensions, and download a raster PNG.",
@@ -1053,9 +1053,9 @@ export const imageConverterTools: ToolDefinition[] = [
       "svg-to-jpg",
       "image-compressor",
     ],
-    seoTitle: "PNG to SVG Converter — Free Online | ToolMyra",
+    seoTitle: "PNG to SVG Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert PNG to SVG online with ToolMyra. Trace raster artwork into an SVG-style vector representation.",
+      "Convert PNG to SVG online with Tool Base. Trace raster artwork into an SVG-style vector representation.",
     h1: "PNG to SVG Converter",
     intro:
       "Convert PNG images into SVG-style vector output using tracing. Results vary with image complexity — this is real vectorization, not a renamed file extension.",
@@ -1091,7 +1091,7 @@ export const imageConverterTools: ToolDefinition[] = [
       {
         question: "Is every PNG perfect as SVG?",
         answer:
-          "No. Simple graphics convert more cleanly than complex photos. ToolMyra explains this on the page.",
+          "No. Simple graphics convert more cleanly than complex photos. Tool Base explains this on the page.",
       },
       {
         question: "Do you just rename the file?",
@@ -1130,9 +1130,9 @@ export const imageConverterTools: ToolDefinition[] = [
       "image-resizer",
       "png-to-svg",
     ],
-    seoTitle: "SVG to JPG Converter — Free Online | ToolMyra",
+    seoTitle: "SVG to JPG Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert SVG to JPG online with ToolMyra. Render your SVG in the browser and download a JPEG image.",
+      "Convert SVG to JPG online with Tool Base. Render your SVG in the browser and download a JPEG image.",
     h1: "SVG to JPG Converter",
     intro:
       "Convert SVG files to JPG online by rendering the vector graphic first. Transparent areas are filled with white because JPG cannot store transparency.",
@@ -1208,12 +1208,12 @@ export const imageConverterTools: ToolDefinition[] = [
       "image-resizer",
       "png-to-webp",
     ],
-    seoTitle: "ICO to PNG Converter — Free Online | ToolMyra",
+    seoTitle: "ICO to PNG Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert ICO to PNG online with ToolMyra. Extract icon images and download a PNG file.",
+      "Convert ICO to PNG online with Tool Base. Extract icon images and download a PNG file.",
     h1: "ICO to PNG Converter",
     intro:
-      "Convert ICO icons to PNG online. If an ICO contains multiple sizes, ToolMyra uses the largest available image and tells you what was selected.",
+      "Convert ICO icons to PNG online. If an ICO contains multiple sizes, Tool Base uses the largest available image and tells you what was selected.",
     convertHeading: "Convert ICO to PNG Online",
     howToHeading: "How to Convert ICO to PNG",
     featuresHeading: "ICO to PNG Features",
@@ -1246,7 +1246,7 @@ export const imageConverterTools: ToolDefinition[] = [
       {
         question: "What if my ICO has multiple sizes?",
         answer:
-          "ToolMyra selects the largest available image and notes that choice in the result.",
+          "Tool Base selects the largest available image and notes that choice in the result.",
       },
       {
         question: "Are BMP-style ICO images supported?",
@@ -1286,9 +1286,9 @@ export const imageConverterTools: ToolDefinition[] = [
       "png-to-jpg",
       "png-to-webp",
     ],
-    seoTitle: "PNG to ICO Converter — Free Online | ToolMyra",
+    seoTitle: "PNG to ICO Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert PNG to ICO online with ToolMyra. Create a real ICO file from a PNG image.",
+      "Convert PNG to ICO online with Tool Base. Create a real ICO file from a PNG image.",
     h1: "PNG to ICO Converter",
     intro:
       "Convert PNG images to ICO online by generating a real ICO container with a PNG payload. Ideal for favicons and simple desktop-style icons.",
@@ -1324,7 +1324,7 @@ export const imageConverterTools: ToolDefinition[] = [
       {
         question: "Is this just a renamed PNG?",
         answer:
-          "No. ToolMyra writes a proper ICO container that embeds PNG image data.",
+          "No. Tool Base writes a proper ICO container that embeds PNG image data.",
       },
       {
         question: "What size is generated?",
@@ -1364,9 +1364,9 @@ export const imageConverterTools: ToolDefinition[] = [
       "image-compressor",
       "png-to-jpg",
     ],
-    seoTitle: "HEIC to JPG Converter — Free Online | ToolMyra",
+    seoTitle: "HEIC to JPG Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert HEIC to JPG online with ToolMyra. Decode HEIC/HEIF photos and download a JPEG file.",
+      "Convert HEIC to JPG online with Tool Base. Decode HEIC/HEIF photos and download a JPEG file.",
     h1: "HEIC to JPG Converter",
     intro:
       "Convert HEIC and HEIF photos to JPG online using a decoder. Useful for sharing iPhone photos with apps and devices that prefer JPEG.",
@@ -1402,7 +1402,7 @@ export const imageConverterTools: ToolDefinition[] = [
       {
         question: "My HEIC failed to convert. Why?",
         answer:
-          "Some HEIC variants or damaged files cannot be decoded. ToolMyra shows a clear message instead of a fake success state.",
+          "Some HEIC variants or damaged files cannot be decoded. Tool Base shows a clear message instead of a fake success state.",
       },
       {
         question: "Is HEIF supported too?",
@@ -1441,9 +1441,9 @@ export const imageConverterTools: ToolDefinition[] = [
       "image-compressor",
       "jpg-to-png",
     ],
-    seoTitle: "HEIC to PNG Converter — Free Online | ToolMyra",
+    seoTitle: "HEIC to PNG Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert HEIC to PNG online with ToolMyra. Decode HEIC/HEIF photos and download a PNG file.",
+      "Convert HEIC to PNG online with Tool Base. Decode HEIC/HEIF photos and download a PNG file.",
     h1: "HEIC to PNG Converter",
     intro:
       "Convert HEIC and HEIF images to PNG online with a decoder. Choose PNG when you want a lossless-friendly still image for editing or further conversion.",
@@ -1518,12 +1518,12 @@ export const imageConverterTools: ToolDefinition[] = [
       "image-compressor",
       "png-to-jpg",
     ],
-    seoTitle: "AVIF to JPG Converter — Free Online | ToolMyra",
+    seoTitle: "AVIF to JPG Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert AVIF to JPG online with ToolMyra. Decode AVIF when supported and download a JPEG file.",
+      "Convert AVIF to JPG online with Tool Base. Decode AVIF when supported and download a JPEG file.",
     h1: "AVIF to JPG Converter",
     intro:
-      "Convert AVIF images to JPG online when your browser can decode AVIF. ToolMyra renders the image locally and downloads a standard JPEG file — not a renamed extension.",
+      "Convert AVIF images to JPG online when your browser can decode AVIF. Tool Base renders the image locally and downloads a standard JPEG file — not a renamed extension.",
     convertHeading: "Convert AVIF to JPG Online",
     howToHeading: "How to Convert AVIF to JPG",
     featuresHeading: "AVIF to JPG Features",
@@ -1561,7 +1561,7 @@ export const imageConverterTools: ToolDefinition[] = [
       {
         question: "Is the output a real JPG?",
         answer:
-          "Yes. After decoding, ToolMyra encodes a standard JPEG blob for download.",
+          "Yes. After decoding, Tool Base encodes a standard JPEG blob for download.",
       },
       {
         question: "Do you upload my AVIF to a server?",

@@ -16,7 +16,7 @@ async function main() {
   assert.equal(developerTools.length, 20);
 
   const json = `{
-  "name": "ToolMyra",
+  "name": "Tool Base",
   "tools": ["formatter", "validator", "minifier"],
   "active": true,
   "unicode": "یہ ایک ٹیسٹ ہے 🚀"
@@ -25,7 +25,7 @@ async function main() {
   const fmt = getDeveloperToolConfig("json-formatter")!;
   const formatted = await processDeveloperTool(fmt, json, { indent: "2" });
   assert.ok(formatted.output.includes("\n"));
-  assert.ok(JSON.parse(formatted.output).name === "ToolMyra");
+  assert.ok(JSON.parse(formatted.output).name === "Tool Base");
 
   const val = getDeveloperToolConfig("json-validator")!;
   const good = await processDeveloperTool(val, json);
@@ -40,7 +40,7 @@ async function main() {
   const html = getDeveloperToolConfig("html-formatter")!;
   const htmlOut = await processDeveloperTool(
     html,
-    "<!DOCTYPE html><html><body><h1>Hello ToolMyra</h1></body></html>",
+    "<!DOCTYPE html><html><body><h1>Hello Tool Base</h1></body></html>",
   );
   assert.ok(htmlOut.output.toLowerCase().includes("<html"));
 
@@ -55,7 +55,7 @@ async function main() {
   const xml = getDeveloperToolConfig("xml-formatter")!;
   const xmlOut = await processDeveloperTool(
     xml,
-    '<root><item id="1">ToolMyra</item></root>',
+    '<root><item id="1">Tool Base</item></root>',
   );
   assert.ok(xmlOut.output.includes("root"));
 
@@ -70,8 +70,8 @@ async function main() {
   );
   assert.ok(sqlOut.output.toUpperCase().includes("SELECT"));
 
-  const b64 = encodeBase64("Hello ToolMyra 🚀");
-  assert.equal(decodeBase64(b64), "Hello ToolMyra 🚀");
+  const b64 = encodeBase64("Hello Tool Base 🚀");
+  assert.equal(decodeBase64(b64), "Hello Tool Base 🚀");
 
   assert.equal(
     encodeHtmlEntities("<div>Hello & welcome</div>"),

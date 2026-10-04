@@ -64,7 +64,7 @@ export function ImageUpload({
         handleFiles(event.dataTransfer.files);
       }}
     >
-      <span className="mx-auto inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-tm-accent shadow-sm">
+      <span className="mx-auto inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-tm-white text-tm-accent shadow-sm">
         <Icon name="image" className="h-6 w-6" />
       </span>
       <h3 className="mt-5 text-xl font-extrabold text-tm-text">Upload Your Image</h3>

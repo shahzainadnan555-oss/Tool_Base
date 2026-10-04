@@ -7,7 +7,7 @@ import { getAllBlogPosts } from "@/lib/blog/posts";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Admin Dashboard",
-  description: "Internal ToolMyra admin foundation. Not linked from public navigation.",
+  description: "Internal Tool Base admin foundation. Not linked from public navigation.",
   path: "/admin",
   noIndex: true,
 });
@@ -30,7 +30,7 @@ export default function AdminHomePage() {
       <header>
         <h1 className="tm-h1">Admin overview</h1>
         <p className="tm-lead mt-4 max-w-3xl">
-          Internal frontend foundation for ToolMyra operations. This area is not linked from
+          Internal frontend foundation for Tool Base operations. This area is not linked from
           public navigation and is excluded from robots indexing. Data shown here is derived
           from local registries and mock UI state only.
         </p>
@@ -51,7 +51,7 @@ export default function AdminHomePage() {
             <Link
               key={section.href}
               href={section.href}
-              className="rounded-2xl border border-tm-border bg-white p-5 transition-colors hover:border-tm-accent"
+              className="rounded-2xl border border-tm-border bg-tm-white p-5 transition-colors hover:border-tm-accent"
             >
               <h3 className="tm-h3">{section.label}</h3>
               <p className="mt-2 text-sm font-medium text-tm-muted">{section.description}</p>
@@ -65,7 +65,7 @@ export default function AdminHomePage() {
 
 function Stat({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-2xl border border-tm-border bg-white p-5">
+    <div className="rounded-2xl border border-tm-border bg-tm-white p-5">
       <p className="text-sm font-bold text-tm-muted">{label}</p>
       <p className="mt-2 text-3xl font-extrabold text-tm-text">{value}</p>
     </div>

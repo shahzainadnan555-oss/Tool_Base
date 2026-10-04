@@ -24,7 +24,7 @@ export function CTASection({
       className={
         dark
           ? "tm-surface-dark rounded-3xl px-6 py-12 md:px-10 md:py-14"
-          : "rounded-3xl border border-tm-border bg-white px-6 py-12 md:px-10 md:py-14"
+          : "rounded-3xl border border-tm-border bg-tm-white px-6 py-12 md:px-10 md:py-14"
       }
     >
       <div className="mx-auto max-w-3xl text-center">
@@ -38,7 +38,7 @@ export function CTASection({
             <Button
               href={secondaryHref}
               variant={dark ? "secondary" : "secondary"}
-              className={dark ? "border-white/20 bg-white/10 text-white hover:bg-white hover:text-tm-text" : undefined}
+              className={dark ? "border-white/20 bg-tm-white/10 text-white hover:bg-tm-white hover:text-tm-text" : undefined}
             >
               {secondaryLabel}
             </Button>

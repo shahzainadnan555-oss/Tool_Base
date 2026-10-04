@@ -89,12 +89,12 @@ function reverseGraphemes(text) {
 
 const samples = [
   "The quick brown fox jumps over the lazy dog.",
-  "یہ ToolMyra کا ٹیکسٹ ٹول ہے۔",
-  "مرحبا بكم في ToolMyra",
+  "یہ Tool Base کا ٹیکسٹ ٹول ہے۔",
+  "مرحبا بكم في Tool Base",
   "这是一个文本工具。",
   "これはテキストツールです。",
   "Hello 👋🌍🚀",
-  "ToolMyra — 123 — اردو — العربية — 中文 — 🚀",
+  "Tool Base — 123 — اردو — العربية — 中文 — 🚀",
 ];
 
 for (const sample of samples) {

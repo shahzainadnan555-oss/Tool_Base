@@ -29,7 +29,7 @@ export function ConversionProgress({
           <p className="text-sm font-bold text-tm-text">{label}</p>
           <p className="text-sm font-extrabold text-tm-accent">{value}%</p>
         </div>
-        <div className="mt-3 h-2 overflow-hidden rounded-full bg-white">
+        <div className="mt-3 h-2 overflow-hidden rounded-full bg-tm-white">
           <div
             className="h-full rounded-full bg-tm-accent transition-[width] duration-200"
             style={{ width: `${value}%` }}

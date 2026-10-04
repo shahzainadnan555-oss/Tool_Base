@@ -11,7 +11,7 @@ import { securityTools } from "./security-tools";
 import { calculatorTools } from "./calculator-tools";
 
 /**
- * Central ToolMyra tool registry.
+ * Central Tool Base tool registry.
  * Future prompts should add tools here — pages, cards, search, SEO,
  * related tools, sitemap, and category listings all read from this file.
  */

@@ -588,7 +588,7 @@ export function TextWorkspace({ config, convertHeading }: TextWorkspaceProps) {
       ) : null}
 
       {config.kind === "diff" && result?.diffParts ? (
-        <div className="max-h-96 overflow-auto rounded-2xl border border-tm-border bg-white p-4 font-mono text-sm leading-relaxed">
+        <div className="max-h-96 overflow-auto rounded-2xl border border-tm-border bg-tm-white p-4 font-mono text-sm leading-relaxed">
           {result.diffParts.length === 0 ? (
             <p className="font-sans font-semibold text-tm-muted">No differences found.</p>
           ) : (

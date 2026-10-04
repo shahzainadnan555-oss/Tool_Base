@@ -38,7 +38,7 @@ export function ToolPageShell({ tool, workspace }: ToolPageShellProps) {
 
       <section
         aria-label={`${tool.name} workspace`}
-        className="mt-8 rounded-3xl border border-tm-border bg-white p-5 md:p-8"
+        className="mt-8 rounded-3xl border border-tm-border bg-tm-white p-5 md:p-8"
       >
         {workspace ?? (
           <div className="rounded-2xl border border-dashed border-tm-border bg-tm-soft px-5 py-12 text-center">
@@ -58,7 +58,7 @@ export function ToolPageShell({ tool, workspace }: ToolPageShellProps) {
             {tool.howToSteps.map((step, index) => (
               <li
                 key={step.title}
-                className="rounded-2xl border border-tm-border bg-white p-5"
+                className="rounded-2xl border border-tm-border bg-tm-white p-5"
               >
                 <p className="text-sm font-bold text-tm-accent">Step {index + 1}</p>
                 <h3 className="tm-h3 mt-2">{step.title}</h3>
@@ -76,7 +76,7 @@ export function ToolPageShell({ tool, workspace }: ToolPageShellProps) {
             {tool.features.map((feature) => (
               <li
                 key={feature}
-                className="rounded-xl border border-tm-border bg-white px-4 py-3 text-sm font-semibold text-tm-text"
+                className="rounded-xl border border-tm-border bg-tm-white px-4 py-3 text-sm font-semibold text-tm-text"
               >
                 {feature}
               </li>
@@ -107,7 +107,7 @@ export function ToolPageShell({ tool, workspace }: ToolPageShellProps) {
             <div className="rounded-2xl border border-tm-border bg-tm-soft p-5">
               <h3 className="text-base font-bold text-tm-text">Need another utility?</h3>
               <p className="mt-2 text-sm font-medium text-tm-muted">
-                Browse related converters and utilities, or explore the full ToolMyra directory.
+                Browse related converters and utilities, or explore the full Tool Base directory.
               </p>
               <div className="mt-4 flex flex-wrap gap-3">
                 {category ? (
@@ -125,7 +125,7 @@ export function ToolPageShell({ tool, workspace }: ToolPageShellProps) {
           <section className="rounded-2xl border border-tm-border bg-tm-soft p-5">
             <h3 className="text-base font-bold text-tm-text">Need another utility?</h3>
             <p className="mt-2 text-sm font-medium text-tm-muted">
-              Browse related image converters or explore the full ToolMyra directory.
+              Browse related image converters or explore the full Tool Base directory.
             </p>
             <div className="mt-4 flex flex-wrap gap-3">
               {category ? (
@@ -146,7 +146,7 @@ export function ToolPageShell({ tool, workspace }: ToolPageShellProps) {
 
 function DetailCard({ title, items }: { title: string; items: string[] }) {
   return (
-    <div className="rounded-2xl border border-tm-border bg-white p-5">
+    <div className="rounded-2xl border border-tm-border bg-tm-white p-5">
       <h3 className="tm-h3">{title}</h3>
       <p className="mt-3 text-sm font-semibold text-tm-muted">
         {items.length ? items.join(" · ") : "Not applicable"}

@@ -8,7 +8,7 @@ import { getToolsByCategory } from "@/lib/tools/registry";
 export const metadata: Metadata = createPageMetadata({
   title: "Tool Categories — Image, PDF, Audio, Video & More",
   description:
-    "Explore ToolMyra categories including image tools, PDF tools, audio tools, video tools, text tools, developer utilities, security tools, and calculators.",
+    "Explore Tool Base categories including image tools, PDF tools, audio tools, video tools, text tools, developer utilities, security tools, and calculators.",
   path: "/categories",
 });
 
@@ -17,7 +17,7 @@ export default function CategoriesPage() {
     <div className="tm-container py-10 md:py-14">
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Categories" }]} />
       <header className="max-w-3xl">
-        <h1 className="tm-h1">Explore ToolMyra Categories</h1>
+        <h1 className="tm-h1">Explore Tool Base Categories</h1>
         <p className="tm-lead mt-4">
           Browse free online tools by category. Each category page includes an introduction,
           searchable tool listing, and internal links to related utilities.

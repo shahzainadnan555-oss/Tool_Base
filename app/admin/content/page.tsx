@@ -3,7 +3,7 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Admin · Content",
-  description: "Content management foundation for ToolMyra informational pages.",
+  description: "Content management foundation for Tool Base informational pages.",
   path: "/admin/content",
   noIndex: true,
 });
@@ -27,7 +27,7 @@ export default function AdminContentPage() {
         {pages.map((page) => (
           <li
             key={page.path}
-            className="rounded-2xl border border-tm-border bg-white px-4 py-3 font-semibold text-tm-text"
+            className="rounded-2xl border border-tm-border bg-tm-white px-4 py-3 font-semibold text-tm-text"
           >
             {page.label}
             <span className="ml-2 text-sm font-medium text-tm-muted">{page.path}</span>

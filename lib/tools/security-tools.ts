@@ -38,9 +38,9 @@ export const securityTools: ToolDefinition[] = [
       "sha1-hash-generator",
       "base64-file-converter",
     ],
-    seoTitle: "SHA-256 Hash Generator — Generate Hash Online | ToolMyra",
+    seoTitle: "SHA-256 Hash Generator — Generate Hash Online | Tool Base",
     seoDescription:
-      "Generate SHA-256 hashes from text or files with ToolMyra. Create a SHA-256 digest quickly and copy the resulting hash.",
+      "Generate SHA-256 hashes from text or files with Tool Base. Create a SHA-256 digest quickly and copy the resulting hash.",
     h1: "SHA-256 Hash Generator",
     intro:
       "Create a SHA-256 digest from text or a file. Hashing uses the actual file or UTF-8 text bytes — nothing is altered before hashing.",
@@ -117,9 +117,9 @@ export const securityTools: ToolDefinition[] = [
       "sha1-hash-generator",
       "uuid-generator",
     ],
-    seoTitle: "SHA-512 Hash Generator — Generate Hash Online | ToolMyra",
+    seoTitle: "SHA-512 Hash Generator — Generate Hash Online | Tool Base",
     seoDescription:
-      "Generate SHA-512 hashes from text or files with ToolMyra. Create a SHA-512 digest and copy the result.",
+      "Generate SHA-512 hashes from text or files with Tool Base. Create a SHA-512 digest and copy the result.",
     h1: "SHA-512 Hash Generator",
     intro:
       "Create a SHA-512 digest from text or a file. Results are clearly labeled as SHA-512 and are not confused with SHA-256.",
@@ -197,9 +197,9 @@ export const securityTools: ToolDefinition[] = [
       "sha512-hash-generator",
       "base64-file-converter",
     ],
-    seoTitle: "MD5 Hash Generator — Generate MD5 Online | ToolMyra",
+    seoTitle: "MD5 Hash Generator — Generate MD5 Online | Tool Base",
     seoDescription:
-      "Generate MD5 hashes online with ToolMyra. Create legacy MD5 checksums from text or files for fingerprints and non-security uses.",
+      "Generate MD5 hashes online with Tool Base. Create legacy MD5 checksums from text or files for fingerprints and non-security uses.",
     h1: "MD5 Hash Generator",
     intro:
       "Create an MD5 digest for legacy checksum or fingerprint workflows. MD5 is not suitable for modern password security or collision-resistant security applications.",
@@ -277,9 +277,9 @@ export const securityTools: ToolDefinition[] = [
       "sha512-hash-generator",
       "hex-to-text",
     ],
-    seoTitle: "SHA-1 Hash Generator — Generate SHA-1 Online | ToolMyra",
+    seoTitle: "SHA-1 Hash Generator — Generate SHA-1 Online | Tool Base",
     seoDescription:
-      "Generate SHA-1 hashes online with ToolMyra. Create SHA-1 digests for legacy checksum use — not recommended for modern security.",
+      "Generate SHA-1 hashes online with Tool Base. Create SHA-1 digests for legacy checksum use — not recommended for modern security.",
     h1: "SHA-1 Hash Generator",
     intro:
       "Create a SHA-1 digest when you need a legacy checksum. SHA-1 is considered obsolete for modern cryptographic security applications.",
@@ -352,9 +352,9 @@ export const securityTools: ToolDefinition[] = [
       "random-number-generator",
       "sha256-hash-generator",
     ],
-    seoTitle: "UUID Generator — Create UUIDs Online | ToolMyra",
+    seoTitle: "UUID Generator — Create UUIDs Online | Tool Base",
     seoDescription:
-      "Generate UUID v4 identifiers online with ToolMyra. Create one or many UUIDs and copy or download the results.",
+      "Generate UUID v4 identifiers online with Tool Base. Create one or many UUIDs and copy or download the results.",
     h1: "UUID Generator",
     intro:
       "Generate UUID v4 identifiers for development, testing, and unique IDs. Quantity is capped so large requests stay responsive.",
@@ -433,9 +433,9 @@ export const securityTools: ToolDefinition[] = [
       "sha256-hash-generator",
     ],
     seoTitle:
-      "Secure Password Generator — Generate Random Passwords | ToolMyra",
+      "Secure Password Generator — Generate Random Passwords | Tool Base",
     seoDescription:
-      "Generate strong random passwords with customizable length and character types using ToolMyra’s password generator.",
+      "Generate strong random passwords with customizable length and character types using Tool Base’s password generator.",
     h1: "Secure Password Generator",
     intro:
       "Create a random password with the length and character types you choose. Generation uses cryptographically secure browser randomness where available.",
@@ -513,9 +513,9 @@ export const securityTools: ToolDefinition[] = [
       "uuid-generator",
       "text-to-hex",
     ],
-    seoTitle: "Random String Generator — Create Random Text | ToolMyra",
+    seoTitle: "Random String Generator — Create Random Text | Tool Base",
     seoDescription:
-      "Generate random strings online with ToolMyra. Customize length, quantity, and character types, then copy or download.",
+      "Generate random strings online with Tool Base. Customize length, quantity, and character types, then copy or download.",
     h1: "Random String Generator",
     intro:
       "Create random strings for tokens, placeholders, and testing. Output size is limited so the page stays usable.",
@@ -591,9 +591,9 @@ export const securityTools: ToolDefinition[] = [
       "uuid-generator",
       "decimal-to-binary",
     ],
-    seoTitle: "Random Number Generator — Random Integers & Decimals | ToolMyra",
+    seoTitle: "Random Number Generator — Random Integers & Decimals | Tool Base",
     seoDescription:
-      "Generate random numbers online with ToolMyra. Choose min/max, quantity, and integer or decimal mode.",
+      "Generate random numbers online with Tool Base. Choose min/max, quantity, and integer or decimal mode.",
     h1: "Random Number Generator",
     intro:
       "Generate random numbers inside a validated min/max range. Integer mode supports large ranges with BigInt-safe sampling.",
@@ -665,9 +665,9 @@ export const securityTools: ToolDefinition[] = [
       "text-to-binary",
       "base32-encoder-decoder",
     ],
-    seoTitle: "Hex to Text Converter — Decode Hex Online | ToolMyra",
+    seoTitle: "Hex to Text Converter — Decode Hex Online | Tool Base",
     seoDescription:
-      "Convert hexadecimal bytes to UTF-8 text online with ToolMyra. Validate hex input and decode readable text.",
+      "Convert hexadecimal bytes to UTF-8 text online with Tool Base. Validate hex input and decode readable text.",
     h1: "Hex to Text Converter",
     intro:
       "Decode hexadecimal byte sequences into UTF-8 text. Invalid hex or odd-length input produces a clear error.",
@@ -738,9 +738,9 @@ export const securityTools: ToolDefinition[] = [
       "binary-to-text",
       "base32-encoder-decoder",
     ],
-    seoTitle: "Text to Hex Converter — Encode Text as Hex | ToolMyra",
+    seoTitle: "Text to Hex Converter — Encode Text as Hex | Tool Base",
     seoDescription:
-      "Convert text to hexadecimal online with ToolMyra. Encode Unicode text as UTF-8 hex bytes and copy the result.",
+      "Convert text to hexadecimal online with Tool Base. Encode Unicode text as UTF-8 hex bytes and copy the result.",
     h1: "Text to Hex Converter",
     intro:
       "Encode text as UTF-8 hexadecimal bytes. Unicode and emoji are handled correctly — this is not ASCII-only encoding.",
@@ -812,9 +812,9 @@ export const securityTools: ToolDefinition[] = [
       "text-to-hex",
       "binary-to-decimal",
     ],
-    seoTitle: "Binary to Text Converter — Decode Binary Online | ToolMyra",
+    seoTitle: "Binary to Text Converter — Decode Binary Online | Tool Base",
     seoDescription:
-      "Convert binary bytes to UTF-8 text online with ToolMyra. Validate complete bytes and decode readable text.",
+      "Convert binary bytes to UTF-8 text online with Tool Base. Validate complete bytes and decode readable text.",
     h1: "Binary to Text Converter",
     intro:
       "Decode binary byte sequences into UTF-8 text. Incomplete bytes or invalid characters produce a clear error.",
@@ -885,9 +885,9 @@ export const securityTools: ToolDefinition[] = [
       "hex-to-text",
       "decimal-to-binary",
     ],
-    seoTitle: "Text to Binary Converter — Encode Text as Binary | ToolMyra",
+    seoTitle: "Text to Binary Converter — Encode Text as Binary | Tool Base",
     seoDescription:
-      "Convert text to binary online with ToolMyra. Encode Unicode text as UTF-8 binary bytes and copy the result.",
+      "Convert text to binary online with Tool Base. Encode Unicode text as UTF-8 binary bytes and copy the result.",
     h1: "Text to Binary Converter",
     intro:
       "Encode text as UTF-8 binary bytes. Each byte is shown as an 8-bit sequence for easy inspection.",
@@ -959,9 +959,9 @@ export const securityTools: ToolDefinition[] = [
       "binary-to-text",
       "random-number-generator",
     ],
-    seoTitle: "Decimal to Binary Converter — Convert Numbers Online | ToolMyra",
+    seoTitle: "Decimal to Binary Converter — Convert Numbers Online | Tool Base",
     seoDescription:
-      "Convert decimal integers to binary online with ToolMyra. Large integers are handled without silent rounding.",
+      "Convert decimal integers to binary online with Tool Base. Large integers are handled without silent rounding.",
     h1: "Decimal to Binary Converter",
     intro:
       "Convert whole decimal numbers into binary. Large integers use BigInt so values are not silently rounded.",
@@ -1037,9 +1037,9 @@ export const securityTools: ToolDefinition[] = [
       "text-to-binary",
       "hex-to-text",
     ],
-    seoTitle: "Binary to Decimal Converter — Convert Binary Online | ToolMyra",
+    seoTitle: "Binary to Decimal Converter — Convert Binary Online | Tool Base",
     seoDescription:
-      "Convert binary integers to decimal online with ToolMyra. Large binary values convert exactly with BigInt.",
+      "Convert binary integers to decimal online with Tool Base. Large binary values convert exactly with BigInt.",
     h1: "Binary to Decimal Converter",
     intro:
       "Convert binary integers into exact decimal values. Large inputs use BigInt to avoid JavaScript Number overflow.",
@@ -1116,9 +1116,9 @@ export const securityTools: ToolDefinition[] = [
       "base64-file-converter",
       "text-to-hex",
     ],
-    seoTitle: "Base32 Encoder/Decoder — Encode & Decode Online | ToolMyra",
+    seoTitle: "Base32 Encoder/Decoder — Encode & Decode Online | Tool Base",
     seoDescription:
-      "Encode and decode Base32 online with ToolMyra. Convert text to Base32 or recover UTF-8 text from Base32 input.",
+      "Encode and decode Base32 online with Tool Base. Convert text to Base32 or recover UTF-8 text from Base32 input.",
     h1: "Base32 Encoder/Decoder",
     intro:
       "Switch between encode and decode modes to work with Base32 text. Padding is handled and invalid input is rejected clearly.",
@@ -1190,9 +1190,9 @@ export const securityTools: ToolDefinition[] = [
       "qr-code-generator",
       "sha256-hash-generator",
     ],
-    seoTitle: "Base64 File Converter — File ↔ Base64 Online | ToolMyra",
+    seoTitle: "Base64 File Converter — File ↔ Base64 Online | Tool Base",
     seoDescription:
-      "Convert files to Base64 or decode Base64 into a downloadable file with ToolMyra. Review file name, type, and size.",
+      "Convert files to Base64 or decode Base64 into a downloadable file with Tool Base. Review file name, type, and size.",
     h1: "Base64 File Converter",
     intro:
       "Upload a file to encode as Base64, or paste Base64 to download a reconstructed file. Decoded contents are treated as data and never executed.",
@@ -1269,9 +1269,9 @@ export const securityTools: ToolDefinition[] = [
       "json-formatter",
       "json-validator",
     ],
-    seoTitle: "JWT Decoder — Decode JSON Web Tokens Online | ToolMyra",
+    seoTitle: "JWT Decoder — Decode JSON Web Tokens Online | Tool Base",
     seoDescription:
-      "Decode a JWT into its header, payload, and signature sections with ToolMyra. Decoding does not verify the token’s authenticity.",
+      "Decode a JWT into its header, payload, and signature sections with Tool Base. Decoding does not verify the token’s authenticity.",
     h1: "JWT Decoder",
     intro:
       "Paste a JWT to inspect its header and payload as readable JSON. Successful decoding does not mean the token is authentic or verified.",
@@ -1348,9 +1348,9 @@ export const securityTools: ToolDefinition[] = [
       "random-number-generator",
       "json-formatter",
     ],
-    seoTitle: "Unix Timestamp Generator — Create Epoch Time | ToolMyra",
+    seoTitle: "Unix Timestamp Generator — Create Epoch Time | Tool Base",
     seoDescription:
-      "Generate Unix timestamps online with ToolMyra. Get seconds and milliseconds from now or a selected date/time.",
+      "Generate Unix timestamps online with Tool Base. Get seconds and milliseconds from now or a selected date/time.",
     h1: "Unix Timestamp Generator",
     intro:
       "Generate Unix seconds and milliseconds from the current time or a date/time you choose. Values are computed from real calendar time.",
@@ -1427,9 +1427,9 @@ export const securityTools: ToolDefinition[] = [
       "json-formatter",
       "text-cleaner",
     ],
-    seoTitle: "Unix Timestamp Converter — Epoch to Date | ToolMyra",
+    seoTitle: "Unix Timestamp Converter — Epoch to Date | Tool Base",
     seoDescription:
-      "Convert Unix timestamps to human-readable dates online with ToolMyra. Choose seconds or milliseconds and review local and UTC time.",
+      "Convert Unix timestamps to human-readable dates online with Tool Base. Choose seconds or milliseconds and review local and UTC time.",
     h1: "Unix Timestamp Converter",
     intro:
       "Convert a Unix timestamp into local and UTC date/time. Choose seconds or milliseconds so large millisecond values are not misread as seconds.",
@@ -1507,7 +1507,7 @@ export const securityTools: ToolDefinition[] = [
       "base64-encoder",
       "text-to-hex",
     ],
-    seoTitle: "QR Code Generator — Create QR Codes Online | ToolMyra",
+    seoTitle: "QR Code Generator — Create QR Codes Online | Tool Base",
     seoDescription:
       "Create customizable QR codes from text, URLs, and other supported content, then download the generated QR image.",
     h1: "QR Code Generator",

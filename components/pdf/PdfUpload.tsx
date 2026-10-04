@@ -63,7 +63,7 @@ export function PdfUpload({
         handleFiles(event.dataTransfer.files);
       }}
     >
-      <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-tm-accent shadow-sm">
+      <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-tm-white text-tm-accent shadow-sm">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path
             d="M12 16V4m0 0 4 4m-4-4-4 4M4 16.5V18a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1.5"

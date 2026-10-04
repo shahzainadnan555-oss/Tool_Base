@@ -4,7 +4,7 @@ import { getAllBlogPosts } from "@/lib/blog/posts";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Admin · Blog",
-  description: "Blog and guides management foundation for ToolMyra.",
+  description: "Blog and guides management foundation for Tool Base.",
   path: "/admin/blog",
   noIndex: true,
 });
@@ -21,9 +21,9 @@ export default function AdminBlogPage() {
       </p>
       <ul className="mt-8 space-y-3">
         {posts.map((post) => (
-          <li key={post.slug} className="rounded-2xl border border-tm-border bg-white p-5">
+          <li key={post.slug} className="rounded-2xl border border-tm-border bg-tm-white p-5">
             <p className="font-bold text-tm-text">{post.title}</p>
-            <p className="mt-1 text-sm font-medium text-tm-muted">/blog/{post.slug}</p>
+            <p className="mt-1 text-sm font-medium text-tm-muted">/blogs/{post.slug}</p>
           </li>
         ))}
       </ul>

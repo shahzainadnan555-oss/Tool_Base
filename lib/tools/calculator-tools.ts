@@ -51,9 +51,9 @@ export const calculatorTools: ToolDefinition[] = [
       "temperature-converter",
       "data-storage-converter",
     ],
-    seoTitle: "Unit Converter — Length, Weight, Temperature & More | ToolMyra",
+    seoTitle: "Unit Converter — Length, Weight, Temperature & More | Tool Base",
     seoDescription:
-      "Convert units online with ToolMyra. Switch between length, weight, temperature, area, volume, speed, time, and storage units for free.",
+      "Convert units online with Tool Base. Switch between length, weight, temperature, area, volume, speed, time, and storage units for free.",
     h1: "Unit Converter",
     intro:
       "Convert everyday measurement units quickly. Choose a category, enter a value, pick units, and review the result instantly.",
@@ -135,9 +135,9 @@ export const calculatorTools: ToolDefinition[] = [
       "volume-converter",
       "speed-converter",
     ],
-    seoTitle: "Length Converter — Meters, Feet, Inches & More | ToolMyra",
+    seoTitle: "Length Converter — Meters, Feet, Inches & More | Tool Base",
     seoDescription:
-      "Convert length units online with ToolMyra. Convert meters to feet, inches to centimeters, and other common length measurements for free.",
+      "Convert length units online with Tool Base. Convert meters to feet, inches to centimeters, and other common length measurements for free.",
     h1: "Length Converter",
     intro:
       "Convert metric and imperial length units with accurate factors. Enter a value, choose units, and see the result immediately.",
@@ -222,9 +222,9 @@ export const calculatorTools: ToolDefinition[] = [
       "length-converter",
       "percentage-calculator",
     ],
-    seoTitle: "Weight Converter — kg, lb, oz & More | ToolMyra",
+    seoTitle: "Weight Converter — kg, lb, oz & More | Tool Base",
     seoDescription:
-      "Convert weight and mass units online with ToolMyra. Convert kilograms to pounds, grams to ounces, and other common mass units for free.",
+      "Convert weight and mass units online with Tool Base. Convert kilograms to pounds, grams to ounces, and other common mass units for free.",
     h1: "Weight Converter",
     intro:
       "Convert weight and mass units using accurate SI and avoirdupois factors. This tool converts mass values — not force.",
@@ -299,9 +299,9 @@ export const calculatorTools: ToolDefinition[] = [
       "speed-converter",
       "length-converter",
     ],
-    seoTitle: "Temperature Converter — Celsius, Fahrenheit & Kelvin | ToolMyra",
+    seoTitle: "Temperature Converter — Celsius, Fahrenheit & Kelvin | Tool Base",
     seoDescription:
-      "Convert temperatures between Celsius, Fahrenheit, and Kelvin with ToolMyra’s free online temperature converter.",
+      "Convert temperatures between Celsius, Fahrenheit, and Kelvin with Tool Base’s free online temperature converter.",
     h1: "Temperature Converter",
     intro:
       "Convert between Celsius, Fahrenheit, and Kelvin using the correct offset formulas — not a simple multiply-only scale.",
@@ -385,9 +385,9 @@ export const calculatorTools: ToolDefinition[] = [
       "unit-converter",
       "speed-converter",
     ],
-    seoTitle: "Area Converter — m², ft², Acres & Hectares | ToolMyra",
+    seoTitle: "Area Converter — m², ft², Acres & Hectares | Tool Base",
     seoDescription:
-      "Convert area units online with ToolMyra. Convert square meters, square feet, acres, hectares, and more for free.",
+      "Convert area units online with Tool Base. Convert square meters, square feet, acres, hectares, and more for free.",
     h1: "Area Converter",
     intro:
       "Convert land and surface area units with accurate factors for metric and imperial square measures.",
@@ -461,9 +461,9 @@ export const calculatorTools: ToolDefinition[] = [
       "unit-converter",
       "weight-converter",
     ],
-    seoTitle: "Volume Converter — Liters, Gallons & More | ToolMyra",
+    seoTitle: "Volume Converter — Liters, Gallons & More | Tool Base",
     seoDescription:
-      "Convert volume units online with ToolMyra. Convert liters, milliliters, US gallons, cups, and cubic meters for free.",
+      "Convert volume units online with Tool Base. Convert liters, milliliters, US gallons, cups, and cubic meters for free.",
     h1: "Volume Converter",
     intro:
       "Convert liquid and cubic volume units. US customary fluid units are clearly labeled so they are not mixed with other regional definitions.",
@@ -539,9 +539,9 @@ export const calculatorTools: ToolDefinition[] = [
       "unit-converter",
       "temperature-converter",
     ],
-    seoTitle: "Speed Converter — km/h, mph, m/s & Knots | ToolMyra",
+    seoTitle: "Speed Converter — km/h, mph, m/s & Knots | Tool Base",
     seoDescription:
-      "Convert speed units online with ToolMyra. Convert km/h to mph, m/s, ft/s, and knots with accurate factors.",
+      "Convert speed units online with Tool Base. Convert km/h to mph, m/s, ft/s, and knots with accurate factors.",
     h1: "Speed Converter",
     intro:
       "Convert between common speed units using accurate length-and-time derived factors.",
@@ -616,9 +616,9 @@ export const calculatorTools: ToolDefinition[] = [
       "age-calculator",
       "unit-converter",
     ],
-    seoTitle: "Time Converter — Seconds, Hours, Days & Weeks | ToolMyra",
+    seoTitle: "Time Converter — Seconds, Hours, Days & Weeks | Tool Base",
     seoDescription:
-      "Convert time units online with ToolMyra. Convert milliseconds, seconds, minutes, hours, days, and weeks using fixed-duration units.",
+      "Convert time units online with Tool Base. Convert milliseconds, seconds, minutes, hours, days, and weeks using fixed-duration units.",
     h1: "Time Converter",
     intro:
       "Convert fixed-duration time units. Months and years are intentionally omitted because their lengths vary.",
@@ -694,9 +694,9 @@ export const calculatorTools: ToolDefinition[] = [
       "percentage-calculator",
       "average-calculator",
     ],
-    seoTitle: "Data Storage Converter — KB, MB, GB, KiB & GiB | ToolMyra",
+    seoTitle: "Data Storage Converter — KB, MB, GB, KiB & GiB | Tool Base",
     seoDescription:
-      "Convert data storage units online with ToolMyra. Distinguish decimal KB/MB/GB from binary KiB/MiB/GiB clearly.",
+      "Convert data storage units online with Tool Base. Distinguish decimal KB/MB/GB from binary KiB/MiB/GiB clearly.",
     h1: "Data Storage Converter",
     intro:
       "Convert digital storage sizes with clear decimal (KB, MB, GB) and binary (KiB, MiB, GiB) units — they are not the same.",
@@ -772,9 +772,9 @@ export const calculatorTools: ToolDefinition[] = [
       "average-calculator",
       "ratio-calculator",
     ],
-    seoTitle: "Number to Words Converter — Spell Out Numbers | ToolMyra",
+    seoTitle: "Number to Words Converter — Spell Out Numbers | Tool Base",
     seoDescription:
-      "Convert numbers to English words with ToolMyra. Spell out whole numbers and decimals with a clear, predictable convention.",
+      "Convert numbers to English words with Tool Base. Spell out whole numbers and decimals with a clear, predictable convention.",
     h1: "Number to Words Converter",
     intro:
       "Convert a number into English words. Decimals use a “Point” convention with each digit spoken separately.",
@@ -849,9 +849,9 @@ export const calculatorTools: ToolDefinition[] = [
       "ratio-calculator",
       "average-calculator",
     ],
-    seoTitle: "Percentage Calculator — Calculate Percentages Online | ToolMyra",
+    seoTitle: "Percentage Calculator — Calculate Percentages Online | Tool Base",
     seoDescription:
-      "Calculate percentages, percentage changes, and common percentage problems quickly with ToolMyra’s free online calculator.",
+      "Calculate percentages, percentage changes, and common percentage problems quickly with Tool Base’s free online calculator.",
     h1: "Percentage Calculator",
     intro:
       "Solve common percentage problems: find X% of Y, reverse percentages, or measure percentage increase and decrease.",
@@ -942,9 +942,9 @@ export const calculatorTools: ToolDefinition[] = [
       "average-calculator",
       "number-to-words",
     ],
-    seoTitle: "Fraction Calculator — Add, Multiply & Simplify | ToolMyra",
+    seoTitle: "Fraction Calculator — Add, Multiply & Simplify | Tool Base",
     seoDescription:
-      "Add, subtract, multiply, and divide fractions online with ToolMyra. Results are simplified with exact integer arithmetic.",
+      "Add, subtract, multiply, and divide fractions online with Tool Base. Results are simplified with exact integer arithmetic.",
     h1: "Fraction Calculator",
     intro:
       "Perform fraction arithmetic and get a reduced result plus an optional decimal. Denominators cannot be zero.",
@@ -1019,9 +1019,9 @@ export const calculatorTools: ToolDefinition[] = [
       "fraction-calculator",
       "discount-calculator",
     ],
-    seoTitle: "Average Calculator — Mean of a Number List | ToolMyra",
+    seoTitle: "Average Calculator — Mean of a Number List | Tool Base",
     seoDescription:
-      "Calculate the average (mean) of a list of numbers with ToolMyra. Paste comma-separated values or one number per line.",
+      "Calculate the average (mean) of a list of numbers with Tool Base. Paste comma-separated values or one number per line.",
     h1: "Average Calculator",
     intro:
       "Find the arithmetic mean of your numbers. Empty entries are ignored — they are not treated as zeros.",
@@ -1095,9 +1095,9 @@ export const calculatorTools: ToolDefinition[] = [
       "average-calculator",
       "discount-calculator",
     ],
-    seoTitle: "Ratio Calculator — Simplify & Solve Ratios | ToolMyra",
+    seoTitle: "Ratio Calculator — Simplify & Solve Ratios | Tool Base",
     seoDescription:
-      "Simplify ratios and solve for missing values with ToolMyra’s free online ratio calculator.",
+      "Simplify ratios and solve for missing values with Tool Base’s free online ratio calculator.",
     h1: "Ratio Calculator",
     intro:
       "Simplify a ratio to lowest terms or solve A:B = C:X for the missing value using exact arithmetic where practical.",
@@ -1171,9 +1171,9 @@ export const calculatorTools: ToolDefinition[] = [
       "tip-calculator",
       "ratio-calculator",
     ],
-    seoTitle: "Discount Calculator — Sale Price & Percent Off | ToolMyra",
+    seoTitle: "Discount Calculator — Sale Price & Percent Off | Tool Base",
     seoDescription:
-      "Calculate discount amount and final price online with ToolMyra. Enter an original price and discount percentage.",
+      "Calculate discount amount and final price online with Tool Base. Enter an original price and discount percentage.",
     h1: "Discount Calculator",
     intro:
       "Enter an original price and discount percentage to see the discount amount and final price. Tax is not mixed into the basic discount result.",
@@ -1244,9 +1244,9 @@ export const calculatorTools: ToolDefinition[] = [
       "tip-calculator",
       "average-calculator",
     ],
-    seoTitle: "VAT & Tax Calculator — Add or Remove Tax | ToolMyra",
+    seoTitle: "VAT & Tax Calculator — Add or Remove Tax | Tool Base",
     seoDescription:
-      "Calculate tax-inclusive and tax-exclusive amounts with ToolMyra’s general VAT / tax calculator. Enter any rate you need.",
+      "Calculate tax-inclusive and tax-exclusive amounts with Tool Base’s general VAT / tax calculator. Enter any rate you need.",
     h1: "VAT & Tax Calculator",
     intro:
       "Perform general tax math: add tax to a net price, or extract the tax component from a tax-inclusive total. Enter the rate yourself — this is not country-specific tax advice.",
@@ -1322,9 +1322,9 @@ export const calculatorTools: ToolDefinition[] = [
       "vat-tax-calculator",
       "average-calculator",
     ],
-    seoTitle: "Tip Calculator — Tip Amount & Split Bill | ToolMyra",
+    seoTitle: "Tip Calculator — Tip Amount & Split Bill | Tool Base",
     seoDescription:
-      "Calculate tip amount, total bill, and per-person shares with ToolMyra’s free tip calculator. Choose any tip percentage.",
+      "Calculate tip amount, total bill, and per-person shares with Tool Base’s free tip calculator. Choose any tip percentage.",
     h1: "Tip Calculator",
     intro:
       "Enter a bill amount, tip percentage, and number of people to see tip, total, and per-person amounts. Choose any tip rate — the tool does not prescribe a tipping norm.",
@@ -1393,9 +1393,9 @@ export const calculatorTools: ToolDefinition[] = [
       "time-converter",
       "unit-converter",
     ],
-    seoTitle: "Date Difference Calculator — Days Between Dates | ToolMyra",
+    seoTitle: "Date Difference Calculator — Days Between Dates | Tool Base",
     seoDescription:
-      "Calculate the difference between two dates with ToolMyra. See years, months, days, weeks, and total days with calendar-aware math.",
+      "Calculate the difference between two dates with Tool Base. See years, months, days, weeks, and total days with calendar-aware math.",
     h1: "Date Difference Calculator",
     intro:
       "Compare a start date and end date with calendar-aware years, months, and days. Optional inclusive mode adds one day to the total day count.",
@@ -1472,9 +1472,9 @@ export const calculatorTools: ToolDefinition[] = [
       "unit-converter",
       "time-converter",
     ],
-    seoTitle: "Age Calculator — Calculate Your Exact Age | ToolMyra",
+    seoTitle: "Age Calculator — Calculate Your Exact Age | Tool Base",
     seoDescription:
-      "Calculate your age in years, months, and days using ToolMyra’s calendar-aware age calculator.",
+      "Calculate your age in years, months, and days using Tool Base’s calendar-aware age calculator.",
     h1: "Age Calculator",
     intro:
       "Enter a date of birth and an optional target date (defaults to today) to see age in years, months, and days — not a rough days÷365.25 estimate.",
@@ -1553,9 +1553,9 @@ export const calculatorTools: ToolDefinition[] = [
       "age-calculator",
       "unit-converter",
     ],
-    seoTitle: "Time Zone Converter — Convert Time Between Zones | ToolMyra",
+    seoTitle: "Time Zone Converter — Convert Time Between Zones | Tool Base",
     seoDescription:
-      "Convert a date and time between time zones with ToolMyra. Compare local times while accounting for timezone rules where supported.",
+      "Convert a date and time between time zones with Tool Base. Compare local times while accounting for timezone rules where supported.",
     h1: "Time Zone Converter",
     intro:
       "Pick a date, time, and IANA time zones such as Asia/Karachi or America/New_York. Conversion uses platform timezone data — not hardcoded fixed offsets — so daylight saving is handled where supported.",

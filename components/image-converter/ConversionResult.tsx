@@ -21,7 +21,7 @@ export function ConversionResultView({
     result.outputMimeType.startsWith("image/") && result.outputExtension !== "ico";
 
   return (
-    <div className="rounded-3xl border border-tm-border bg-white p-5 md:p-6">
+    <div className="rounded-3xl border border-tm-border bg-tm-white p-5 md:p-6">
       <h3 className="text-xl font-extrabold text-tm-text">Conversion complete</h3>
       <p className="mt-2 text-sm font-medium text-tm-muted">
         Your file is ready. Download the converted image below.

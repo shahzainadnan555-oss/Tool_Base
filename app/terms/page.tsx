@@ -5,7 +5,7 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = createPageMetadata({
   title: "Terms of Service",
   description:
-    "Terms for using ToolMyra’s free online tools, including acceptable use, availability, limitations, and disclaimer of warranties.",
+    "Terms for using Tool Base’s free online tools, including acceptable use, availability, limitations, and disclaimer of warranties.",
   path: "/terms",
 });
 
@@ -13,15 +13,15 @@ export default function TermsPage() {
   return (
     <LegalPage
       title="Terms of Service"
-      description="These terms govern your use of the ToolMyra website and public tools. By using ToolMyra, you agree to these terms."
+      description="These terms govern your use of the Tool Base website and public tools. By using Tool Base, you agree to these terms."
       sections={[
         {
           heading: "About the Service",
-          body: "ToolMyra provides free online utilities for converting, compressing, editing, generating, calculating, and transforming files and content. Features, limits, and tool availability may change as the platform evolves.",
+          body: "Tool Base provides free online utilities for converting, compressing, editing, generating, calculating, and transforming files and content. Features, limits, and tool availability may change as the platform evolves.",
         },
         {
-          heading: "Use of ToolMyra",
-          body: "You may use ToolMyra’s public tools for lawful personal or business purposes consistent with these terms. Public tools are offered without mandatory login, signup, subscription, or payment. Optional features may be added later and will be described clearly if introduced.",
+          heading: "Use of Tool Base",
+          body: "You may use Tool Base’s public tools for lawful personal or business purposes consistent with these terms. Public tools are offered without mandatory login, signup, subscription, or payment. Optional features may be added later and will be described clearly if introduced.",
         },
         {
           heading: "User Responsibilities",
@@ -29,7 +29,7 @@ export default function TermsPage() {
         },
         {
           heading: "Tool Availability",
-          body: "ToolMyra may add, change, pause, or remove tools at any time. Temporary interruptions can occur due to maintenance, browser limits, network conditions, or third-party runtime dependencies used by specific tools.",
+          body: "Tool Base may add, change, pause, or remove tools at any time. Temporary interruptions can occur due to maintenance, browser limits, network conditions, or third-party runtime dependencies used by specific tools.",
         },
         {
           heading: "Tool Limitations",
@@ -37,15 +37,15 @@ export default function TermsPage() {
         },
         {
           heading: "File and Content Responsibility",
-          body: "You must have the right to process any file or content you submit. Do not use ToolMyra to process content that infringes others’ rights or violates applicable law. You remain responsible for retaining your own copies of important source files and outputs.",
+          body: "You must have the right to process any file or content you submit. Do not use Tool Base to process content that infringes others’ rights or violates applicable law. You remain responsible for retaining your own copies of important source files and outputs.",
         },
         {
           heading: "Intellectual Property",
-          body: "ToolMyra branding, site design, and original site content belong to ToolMyra or its licensors. Tool outputs derived from your inputs remain your responsibility. Third-party libraries used by tools remain subject to their own licenses.",
+          body: "Tool Base branding, site design, and original site content belong to Tool Base or its licensors. Tool outputs derived from your inputs remain your responsibility. Third-party libraries used by tools remain subject to their own licenses.",
         },
         {
           heading: "Prohibited Misuse",
-          body: "Do not use ToolMyra to break the law, distribute malware, abuse infrastructure, attempt unauthorized access, overload the service, scrape the site in a way that harms availability, or evade security controls. Do not use tools to harm others.",
+          body: "Do not use Tool Base to break the law, distribute malware, abuse infrastructure, attempt unauthorized access, overload the service, scrape the site in a way that harms availability, or evade security controls. Do not use tools to harm others.",
         },
         {
           heading: "Third-Party Services",
@@ -57,11 +57,11 @@ export default function TermsPage() {
         },
         {
           heading: "Disclaimer of Warranties",
-          body: "ToolMyra is provided “as is” and “as available.” ToolMyra does not warrant uninterrupted availability, error-free results, or fitness for a particular purpose. Always verify critical conversions, calculations, and documents independently.",
+          body: "Tool Base is provided “as is” and “as available.” Tool Base does not warrant uninterrupted availability, error-free results, or fitness for a particular purpose. Always verify critical conversions, calculations, and documents independently.",
         },
         {
           heading: "Limitation of Liability",
-          body: "To the fullest extent permitted by law, ToolMyra is not liable for indirect, incidental, special, consequential, or punitive damages, or for loss of data, profits, or business arising from your use of the site or tools.",
+          body: "To the fullest extent permitted by law, Tool Base is not liable for indirect, incidental, special, consequential, or punitive damages, or for loss of data, profits, or business arising from your use of the site or tools.",
         },
       ]}
     />

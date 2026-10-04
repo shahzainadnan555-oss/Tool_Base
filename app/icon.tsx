@@ -5,9 +5,9 @@ import { join } from "node:path";
 export const size = { width: 64, height: 64 };
 export const contentType = "image/png";
 
-/** Favicon from the official TM logo on deep navy for contrast at small sizes. */
+/** Favicon from the official Tool Base TB monogram. */
 export default async function Icon() {
-  const bytes = await readFile(join(process.cwd(), "public/tm-logo.png"));
+  const bytes = await readFile(join(process.cwd(), "public/tb-favicon.png"));
   const dataUrl = `data:image/png;base64,${bytes.toString("base64")}`;
 
   return new ImageResponse(
@@ -19,15 +19,14 @@ export default async function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background:
-            "radial-gradient(circle at 50% 40%, #1E3A8A 0%, #0B1220 72%)",
+          background: "#000000",
         }}
       >
         <img
           alt=""
           src={dataUrl}
-          width={48}
-          height={32}
+          width={64}
+          height={64}
           style={{ objectFit: "contain" }}
         />
       </div>

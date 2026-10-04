@@ -447,7 +447,7 @@ export function DeveloperToolWorkspace({
       ) : null}
 
       {result?.regex ? (
-        <div className="space-y-3 rounded-2xl border border-tm-border bg-white p-4">
+        <div className="space-y-3 rounded-2xl border border-tm-border bg-tm-white p-4">
           {result.regex.error ? (
             <p className="text-sm font-semibold text-red-800" role="alert">
               {result.regex.timedOut ? "✕ " : ""}

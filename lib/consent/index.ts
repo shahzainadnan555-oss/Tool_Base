@@ -12,7 +12,7 @@ export interface ConsentState {
   decidedAt?: string;
 }
 
-export const CONSENT_STORAGE_KEY = "toolmyra_consent_v1";
+export const CONSENT_STORAGE_KEY = "tb_consent_v1";
 
 export const defaultConsentState: ConsentState = {
   essential: true,

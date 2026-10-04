@@ -5,49 +5,37 @@ import { cn } from "@/lib/utils/cn";
 interface LogoProps {
   className?: string;
   href?: string;
-  /** On light surfaces the mark sits in a navy badge for contrast; on dark surfaces the mark stands alone. */
+  /** Kept for call-site compatibility. The artwork sits on a white plate for contrast. */
   tone?: "light" | "dark";
 }
 
 /**
- * Official ToolMyra brand mark — the uploaded TM monogram asset only.
- * Do not recreate or alter the artwork. Contrast is handled by the container, not the mark.
+ * Official Tool Base logo — the uploaded gradient TB + wordmark asset only.
+ * A white plate keeps navy wordmark readable on dark header/footer surfaces.
  */
-export function Logo({ className, href = "/", tone = "light" }: LogoProps) {
-  const mark = (
-    <Image
-      src="/tm-logo.png"
-      alt="ToolMyra"
-      width={1536}
-      height={1024}
-      priority
-      className="h-8 w-auto object-contain md:h-9"
-    />
+export function Logo({ className, href = "/" }: LogoProps) {
+  const content = (
+    <span
+      className={cn(
+        "inline-flex items-center rounded-xl bg-white px-2 py-1.5 shadow-[0_0_0_1px_rgba(11,22,53,0.06)]",
+        className,
+      )}
+    >
+      <Image
+        src="/tb-logo.png"
+        alt="Tool Base"
+        width={2032}
+        height={774}
+        priority
+        className="h-7 w-auto max-w-[132px] object-contain object-left sm:h-9 sm:max-w-[176px] md:h-10 md:max-w-[200px]"
+      />
+    </span>
   );
-
-  const content =
-    tone === "dark" ? (
-      <span className={cn("inline-flex items-center", className)}>{mark}</span>
-    ) : (
-      <span
-        className={cn(
-          "inline-flex items-center justify-center rounded-[0.7rem] bg-[#0B1220] px-2 py-1.5",
-          "shadow-[inset_0_0_0_1px_rgba(37,99,235,0.35),0_0_0_1px_rgba(59,130,246,0.12)]",
-          className,
-        )}
-      >
-        {mark}
-      </span>
-    );
 
   if (!href) return content;
 
   return (
-    <Link
-      href={href}
-      aria-label="ToolMyra home"
-      className="inline-flex shrink-0"
-    >
+    <Link href={href} aria-label="Tool Base home" className="inline-flex shrink-0">
       {content}
     </Link>
   );

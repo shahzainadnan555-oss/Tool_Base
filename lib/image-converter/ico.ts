@@ -125,7 +125,7 @@ export async function convertIcoToRaster(
   const selected = entries[0];
   const notice =
     entries.length > 1
-      ? `This ICO contained ${entries.length} sizes. ToolMyra converted the largest available image (${selected.width}×${selected.height}).`
+      ? `This ICO contained ${entries.length} sizes. Tool Base converted the largest available image (${selected.width}×${selected.height}).`
       : undefined;
 
   if (selected.isPng) {

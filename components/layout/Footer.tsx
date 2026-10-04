@@ -4,12 +4,13 @@ import { categories } from "@/lib/tools/categories";
 
 const toolLinks = [
   { href: "/tools", label: "All Tools" },
+  { href: "/categories", label: "Categories" },
   { href: "/popular", label: "Popular Tools" },
   { href: "/new", label: "New Tools" },
 ];
 
 const contentLinks = [
-  { href: "/blog", label: "Blog" },
+  { href: "/blogs", label: "Blogs" },
   { href: "/about", label: "About" },
 ];
 
@@ -45,7 +46,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm font-medium text-slate-400 md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} ToolMyra. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Tool Base. All rights reserved.</p>
           <p>Completely free. No sign-up required.</p>
         </div>
       </div>

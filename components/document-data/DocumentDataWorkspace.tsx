@@ -133,7 +133,7 @@ export function DocumentDataWorkspace({
           ) : null}
 
           {file ? (
-            <div className="rounded-2xl border border-tm-border bg-white px-4 py-3 text-sm font-semibold text-tm-muted">
+            <div className="rounded-2xl border border-tm-border bg-tm-white px-4 py-3 text-sm font-semibold text-tm-muted">
               Selected: <span className="text-tm-text">{file.name}</span> ·{" "}
               {formatBytes(file.size)}
               <button
@@ -193,7 +193,7 @@ export function DocumentDataWorkspace({
       ) : null}
 
       {showResult && result ? (
-        <div className="space-y-5 rounded-3xl border border-tm-border bg-white p-5 md:p-6">
+        <div className="space-y-5 rounded-3xl border border-tm-border bg-tm-white p-5 md:p-6">
           <h3 className="text-xl font-extrabold text-tm-text">Result ready</h3>
 
           {result.stats ? (

@@ -51,7 +51,7 @@ assert.ok(
   !shell.includes("FilePrivacyNotice"),
   "ToolPageShell must not show technical FilePrivacyNotice banners",
 );
-assert.ok(fs.existsSync(path.join(ROOT, "public/tm-logo.png")), "official TM logo asset missing");
+assert.ok(fs.existsSync(path.join(ROOT, "public/tb-logo.png")), "official Tool Base logo asset missing");
 
 const page = fs.readFileSync(path.join(ROOT, "app/page.tsx"), "utf8");
 assert.ok(page.includes('from "@/lib/content/homepage-faq"'), "homepage FAQ source not shared");
@@ -107,7 +107,7 @@ function fetchText(url) {
     "/categories",
     "/popular",
     "/new",
-    "/blog",
+    "/blogs",
     "/about",
     "/privacy",
     "/terms",

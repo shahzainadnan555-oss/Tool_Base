@@ -34,7 +34,7 @@ export function PopularToolsSection() {
           <div className="max-w-3xl">
             <h2 className="tm-h2">Popular Online Tools</h2>
             <p className="tm-lead mt-4">
-              Quickly access some of ToolMyra’s most useful online utilities for converting
+              Quickly access some of Tool Base’s most useful online utilities for converting
               files, compressing media, editing content, generating results, and completing
               everyday digital tasks.
             </p>

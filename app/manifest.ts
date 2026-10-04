@@ -4,12 +4,12 @@ import { siteConfig } from "@/lib/config/site";
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: siteConfig.name,
-    short_name: "ToolMyra",
+    short_name: "Tool Base",
     description: siteConfig.description,
     start_url: "/",
     display: "standalone",
-    background_color: "#F8FAFC",
-    theme_color: "#0B1220",
+    background_color: "#F7FAFF",
+    theme_color: "#0B1635",
     lang: "en",
     icons: [
       {

@@ -4,7 +4,7 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Admin",
-  description: "Internal ToolMyra admin area.",
+  description: "Internal Tool Base admin area.",
   path: "/admin",
   noIndex: true,
 });
@@ -29,7 +29,7 @@ export default function AdminLayout({ children }: LayoutProps<"/admin">) {
             <p className="text-sm font-bold tracking-wide text-blue-200 uppercase">
               Internal only
             </p>
-            <p className="text-xl font-extrabold">ToolMyra Admin</p>
+            <p className="text-xl font-extrabold">Tool Base Admin</p>
           </div>
           <Link href="/" className="text-sm font-bold text-blue-100 hover:text-white">
             Back to public site
@@ -37,7 +37,7 @@ export default function AdminLayout({ children }: LayoutProps<"/admin">) {
         </div>
       </div>
       <div className="tm-container grid gap-8 py-8 lg:grid-cols-[220px_1fr]">
-        <aside className="h-fit rounded-2xl border border-tm-border bg-white p-4">
+        <aside className="h-fit rounded-2xl border border-tm-border bg-tm-white p-4">
           <nav aria-label="Admin" className="grid gap-1">
             {links.map((link) => (
               <Link

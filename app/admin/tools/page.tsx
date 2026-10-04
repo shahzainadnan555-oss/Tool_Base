@@ -5,7 +5,7 @@ import { getCategoryById } from "@/lib/tools/categories";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Admin · Tools",
-  description: "Tool management foundation for ToolMyra.",
+  description: "Tool management foundation for Tool Base.",
   path: "/admin/tools",
   noIndex: true,
 });
@@ -20,7 +20,7 @@ export default function AdminToolsPage() {
         Registry-backed tool listing for internal review. Status values come from the
         frontend registry only.
       </p>
-      <div className="mt-8 overflow-x-auto rounded-2xl border border-tm-border bg-white">
+      <div className="mt-8 overflow-x-auto rounded-2xl border border-tm-border bg-tm-white">
         <table className="min-w-full text-left text-sm">
           <thead className="border-b border-tm-border bg-tm-soft">
             <tr>

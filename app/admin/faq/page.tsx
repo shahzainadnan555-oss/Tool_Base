@@ -4,7 +4,7 @@ import { getAllTools } from "@/lib/tools/registry";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Admin · FAQ",
-  description: "FAQ management foundation for ToolMyra.",
+  description: "FAQ management foundation for Tool Base.",
   path: "/admin/faq",
   noIndex: true,
 });
@@ -19,7 +19,7 @@ export default function AdminFaqPage() {
         FAQ content currently lives in the tool registry and homepage sections. This page
         is the admin foundation for a future editorial workflow.
       </p>
-      <div className="mt-8 rounded-2xl border border-tm-border bg-white p-5">
+      <div className="mt-8 rounded-2xl border border-tm-border bg-tm-white p-5">
         <p className="text-sm font-bold text-tm-muted">FAQ entries in tool registry</p>
         <p className="mt-2 text-3xl font-extrabold text-tm-text">{faqCount}</p>
       </div>

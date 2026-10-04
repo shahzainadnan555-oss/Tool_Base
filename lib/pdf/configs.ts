@@ -135,7 +135,7 @@ export const pdfToolConfigs: Record<string, PdfToolConfig> = {
     "Protect PDF",
     "protected",
     {
-      notices: ["Creates a password-protected PDF. Keep your password safe — ToolMyra does not store it."],
+      notices: ["Creates a password-protected PDF. Keep your password safe — Tool Base does not store it."],
     },
   ),
   "pdf-unlocker": make("pdf-unlocker", "unlock", "Unlock PDF", "unlocked", {

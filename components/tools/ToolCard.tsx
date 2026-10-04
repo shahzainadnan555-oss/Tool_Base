@@ -27,10 +27,10 @@ export function ToolCard({ tool, className }: ToolCardProps) {
         </span>
         <div className="flex flex-wrap justify-end gap-2">
           {tool.popular ? (
-            <span className="tm-badge bg-blue-50 text-tm-accent">Popular</span>
+            <span className="tm-badge bg-tm-soft text-tm-accent">Popular</span>
           ) : null}
           {tool.new ? (
-            <span className="tm-badge bg-emerald-50 text-tm-success">New</span>
+            <span className="tm-badge bg-tm-soft text-tm-success">New</span>
           ) : null}
         </div>
       </div>

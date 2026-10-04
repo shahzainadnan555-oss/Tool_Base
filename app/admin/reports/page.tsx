@@ -4,7 +4,7 @@ import { EmptyState } from "@/components/ui/EmptyState";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Admin · Reports",
-  description: "Tool report inbox foundation for ToolMyra.",
+  description: "Tool report inbox foundation for Tool Base.",
   path: "/admin/reports",
   noIndex: true,
 });

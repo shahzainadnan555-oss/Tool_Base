@@ -7,17 +7,17 @@ import { HomeFaqSection } from "@/components/home/HomeFaqSection";
 import { HowItWorksSection } from "@/components/home/HowItWorksSection";
 import { PopularToolsSection } from "@/components/home/PopularToolsSection";
 import { TrustStrip } from "@/components/home/TrustStrip";
-import { WhyToolMyraSection } from "@/components/home/WhyToolMyraSection";
+import { WhyToolBaseSection } from "@/components/home/WhyToolBaseSection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { homepageFaq } from "@/lib/content/homepage-faq";
 import { createPageMetadata } from "@/lib/seo/metadata";
 import { faqJsonLd } from "@/lib/seo/structured-data";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "ToolMyra — Free Online Tools, Converters & Utilities",
+  title: "Tool Base — Free Online Tools, Converters & Utilities",
   absoluteTitle: true,
   description:
-    "ToolMyra provides free online tools for converting, compressing, editing, generating, calculating, and transforming images, PDFs, audio, video, text, and more. No sign-up required.",
+    "Tool Base provides free online tools for converting, compressing, editing, generating, calculating, and transforming images, PDFs, audio, video, text, and more. No sign-up required.",
   path: "/",
   keywords: [
     "free online tools",
@@ -40,7 +40,7 @@ export default function HomePage() {
       <TrustStrip />
       <PopularToolsSection />
       <CategoriesSection />
-      <WhyToolMyraSection />
+      <WhyToolBaseSection />
       <HowItWorksSection />
       <HomeFaqSection />
       <ExploreAllSection />

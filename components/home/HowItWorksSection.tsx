@@ -18,10 +18,10 @@ const steps = [
 
 export function HowItWorksSection() {
   return (
-    <section className="tm-section bg-white">
+    <section className="tm-section bg-tm-white">
       <div className="tm-container">
         <div className="max-w-3xl">
-          <h2 className="tm-h2">How ToolMyra Works</h2>
+          <h2 className="tm-h2">How Tool Base Works</h2>
           <p className="tm-lead mt-4">
             A simple three-step workflow keeps every utility easy to understand and use.
           </p>

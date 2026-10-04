@@ -39,9 +39,9 @@ export const audioTools: ToolDefinition[] = [
       "audio-compressor",
       "audio-metadata-viewer",
     ],
-    seoTitle: "MP3 to WAV Converter — Free Online | ToolMyra",
+    seoTitle: "MP3 to WAV Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert MP3 to WAV online with ToolMyra. Decode MP3 and download a valid WAV file for free.",
+      "Convert MP3 to WAV online with Tool Base. Decode MP3 and download a valid WAV file for free.",
     h1: "MP3 to WAV Converter",
     intro:
       "Convert MP3 to WAV when you need an uncompressed PCM file for editing or archiving. WAV stores the decoded signal without MP3 compression — it does not restore detail already lost in the MP3.",
@@ -82,7 +82,7 @@ export const audioTools: ToolDefinition[] = [
       {
         question: "Is the output a real WAV file?",
         answer:
-          "Yes. ToolMyra decodes the MP3 and writes a valid WAV container you can download and play.",
+          "Yes. Tool Base decodes the MP3 and writes a valid WAV container you can download and play.",
       },
       {
         question: "Do my files leave this device?",
@@ -117,9 +117,9 @@ export const audioTools: ToolDefinition[] = [
       "flac-to-mp3",
       "audio-metadata-viewer",
     ],
-    seoTitle: "WAV to MP3 Converter — Free Online | ToolMyra",
+    seoTitle: "WAV to MP3 Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert WAV to MP3 online with ToolMyra. Compress WAV into a real MP3 file for free.",
+      "Convert WAV to MP3 online with Tool Base. Compress WAV into a real MP3 file for free.",
     h1: "WAV to MP3 Converter",
     intro:
       "Compress large WAV recordings into MP3 for sharing and storage. Bitrate choices trade file size against retained detail.",
@@ -165,7 +165,7 @@ export const audioTools: ToolDefinition[] = [
       {
         question: "Is encoding real?",
         answer:
-          "Yes. ToolMyra encodes a genuine MP3 bitstream rather than renaming the file.",
+          "Yes. Tool Base encodes a genuine MP3 bitstream rather than renaming the file.",
       },
       {
         question: "Are uploads stored?",
@@ -195,12 +195,12 @@ export const audioTools: ToolDefinition[] = [
       "wav-to-mp3",
       "audio-compressor",
     ],
-    seoTitle: "MP3 to AAC Converter — Free Online | ToolMyra",
+    seoTitle: "MP3 to AAC Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert MP3 to AAC online with ToolMyra. Create AAC audio from MP3 when encoding is supported.",
+      "Convert MP3 to AAC online with Tool Base. Create AAC audio from MP3 when encoding is supported.",
     h1: "MP3 to AAC Converter",
     intro:
-      "Turn MP3 into AAC when you need an AAC bitstream. If decoding or encoding cannot complete, ToolMyra shows a clear error instead of a fake success.",
+      "Turn MP3 into AAC when you need an AAC bitstream. If decoding or encoding cannot complete, Tool Base shows a clear error instead of a fake success.",
     convertHeading: "Convert MP3 to AAC Online",
     howToHeading: "How to Convert MP3 to AAC",
     featuresHeading: "MP3 to AAC Features",
@@ -233,7 +233,7 @@ export const audioTools: ToolDefinition[] = [
       {
         question: "When would AAC fail?",
         answer:
-          "If the encoder or input cannot be handled, ToolMyra shows a clear error instead of pretending success.",
+          "If the encoder or input cannot be handled, Tool Base shows a clear error instead of pretending success.",
       },
       {
         question: "Is AAC smaller than MP3?",
@@ -272,9 +272,9 @@ export const audioTools: ToolDefinition[] = [
       "audio-compressor",
       "audio-metadata-viewer",
     ],
-    seoTitle: "AAC to MP3 Converter — Free Online | ToolMyra",
+    seoTitle: "AAC to MP3 Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert AAC to MP3 online with ToolMyra. Decode supported AAC audio and download a real MP3.",
+      "Convert AAC to MP3 online with Tool Base. Decode supported AAC audio and download a real MP3.",
     h1: "AAC to MP3 Converter",
     intro:
       "Convert AAC audio to MP3 when the decoder can read the file. Unsupported codecs produce a clear error rather than a broken download.",
@@ -318,7 +318,7 @@ export const audioTools: ToolDefinition[] = [
       },
       {
         question: "Is output a real MP3?",
-        answer: "Yes. ToolMyra writes an encoded MP3 file.",
+        answer: "Yes. Tool Base writes an encoded MP3 file.",
       },
       {
         question: "Private processing?",
@@ -347,9 +347,9 @@ export const audioTools: ToolDefinition[] = [
       "audio-compressor",
       "audio-metadata-viewer",
     ],
-    seoTitle: "MP3 to OGG Converter — Free Online | ToolMyra",
+    seoTitle: "MP3 to OGG Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert MP3 to OGG online with ToolMyra. Create a valid OGG audio file from MP3 for free.",
+      "Convert MP3 to OGG online with Tool Base. Create a valid OGG audio file from MP3 for free.",
     h1: "MP3 to OGG Converter",
     intro:
       "Create OGG audio from MP3 with genuine encoding. Output uses a real OGG container and matching file type.",
@@ -423,9 +423,9 @@ export const audioTools: ToolDefinition[] = [
       "audio-compressor",
       "audio-metadata-viewer",
     ],
-    seoTitle: "OGG to MP3 Converter — Free Online | ToolMyra",
+    seoTitle: "OGG to MP3 Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert OGG to MP3 online with ToolMyra. Decode supported OGG audio and download MP3.",
+      "Convert OGG to MP3 online with Tool Base. Decode supported OGG audio and download MP3.",
     h1: "OGG to MP3 Converter",
     intro:
       "Turn OGG audio into MP3 when decoding succeeds. Unusual codecs are reported clearly instead of producing a broken file.",
@@ -461,7 +461,7 @@ export const audioTools: ToolDefinition[] = [
       {
         question: "What if my OGG uses an unusual codec?",
         answer:
-          "ToolMyra reports an unsupported codec instead of producing a broken file.",
+          "Tool Base reports an unsupported codec instead of producing a broken file.",
       },
       {
         question: "Is re-encoding lossless?",
@@ -499,9 +499,9 @@ export const audioTools: ToolDefinition[] = [
       "m4a-to-mp3",
       "audio-metadata-viewer",
     ],
-    seoTitle: "FLAC to MP3 Converter — Free Online | ToolMyra",
+    seoTitle: "FLAC to MP3 Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert FLAC to MP3 online with ToolMyra. Compress FLAC into MP3 with clear quality settings.",
+      "Convert FLAC to MP3 online with Tool Base. Compress FLAC into MP3 with clear quality settings.",
     h1: "FLAC to MP3 Converter",
     intro:
       "Compress FLAC into MP3 for everyday sharing. Higher bitrates retain more detail from the lossless source.",
@@ -545,7 +545,7 @@ export const audioTools: ToolDefinition[] = [
       },
       {
         question: "Is encoding real?",
-        answer: "Yes. ToolMyra decodes FLAC and encodes MP3.",
+        answer: "Yes. Tool Base decodes FLAC and encodes MP3.",
       },
       {
         question: "Stored online?",
@@ -575,9 +575,9 @@ export const audioTools: ToolDefinition[] = [
       "audio-metadata-viewer",
       "wav-to-mp3",
     ],
-    seoTitle: "MP3 to FLAC Converter — Free Online | ToolMyra",
+    seoTitle: "MP3 to FLAC Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert MP3 to FLAC online with ToolMyra. Save MP3 as FLAC without claiming restored quality.",
+      "Convert MP3 to FLAC online with Tool Base. Save MP3 as FLAC without claiming restored quality.",
     h1: "MP3 to FLAC Converter",
     intro:
       "Save an MP3 as FLAC when a workflow expects a lossless container. FLAC stores the decoded MP3 signal losslessly, but it cannot recover information MP3 already discarded.",
@@ -622,7 +622,7 @@ export const audioTools: ToolDefinition[] = [
       },
       {
         question: "Is output real FLAC?",
-        answer: "Yes. ToolMyra encodes a valid FLAC file.",
+        answer: "Yes. Tool Base encodes a valid FLAC file.",
       },
       {
         question: "Private conversion?",
@@ -651,9 +651,9 @@ export const audioTools: ToolDefinition[] = [
       "audio-compressor",
       "audio-metadata-viewer",
     ],
-    seoTitle: "M4A to MP3 Converter — Free Online | ToolMyra",
+    seoTitle: "M4A to MP3 Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert M4A to MP3 online with ToolMyra. Turn common M4A/AAC audio into MP3 for free.",
+      "Convert M4A to MP3 online with Tool Base. Turn common M4A/AAC audio into MP3 for free.",
     h1: "M4A to MP3 Converter",
     intro:
       "Convert M4A/AAC audio to MP3 when the decoder can read the file. Unsupported codecs show a clear error.",
@@ -727,9 +727,9 @@ export const audioTools: ToolDefinition[] = [
       "audio-compressor",
       "audio-metadata-viewer",
     ],
-    seoTitle: "MP3 to M4A Converter — Free Online | ToolMyra",
+    seoTitle: "MP3 to M4A Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert MP3 to M4A online with ToolMyra. Create M4A audio from MP3 with real encoding.",
+      "Convert MP3 to M4A online with Tool Base. Create M4A audio from MP3 with real encoding.",
     h1: "MP3 to M4A Converter",
     intro:
       "Create M4A audio from MP3 using a real encode pipeline. M4A is a common container for AAC audio.",
@@ -765,7 +765,7 @@ export const audioTools: ToolDefinition[] = [
       {
         question: "Is M4A the same as AAC?",
         answer:
-          "M4A is a common container for AAC audio. ToolMyra writes a real M4A file when encoding succeeds.",
+          "M4A is a common container for AAC audio. Tool Base writes a real M4A file when encoding succeeds.",
       },
       {
         question: "Fake extension change?",
@@ -808,9 +808,9 @@ export const audioTools: ToolDefinition[] = [
       "audio-metadata-viewer",
       "mp3-to-m4a",
     ],
-    seoTitle: "Audio Compressor — Free Online | ToolMyra",
+    seoTitle: "Audio Compressor — Free Online | Tool Base",
     seoDescription:
-      "Compress audio online with ToolMyra. Reduce file size with real bitrate control and measured savings.",
+      "Compress audio online with Tool Base. Reduce file size with real bitrate control and measured savings.",
     h1: "Audio Compressor",
     intro:
       "Reduce audio file size with bitrate-oriented compression. Original and output sizes are measured from the actual files — savings are never invented.",
@@ -886,9 +886,9 @@ export const audioTools: ToolDefinition[] = [
       "audio-volume-booster",
       "silence-remover",
     ],
-    seoTitle: "Audio Trimmer — Free Online | ToolMyra",
+    seoTitle: "Audio Trimmer — Free Online | Tool Base",
     seoDescription:
-      "Trim audio online with ToolMyra. Select start and end times and download an exact audio segment.",
+      "Trim audio online with Tool Base. Select start and end times and download an exact audio segment.",
     h1: "Audio Trimmer",
     intro:
       "Select exact start and end times to export only the segment you need. Selected duration updates as you adjust the range, and Trim Audio writes that segment into a real download.",
@@ -923,7 +923,7 @@ export const audioTools: ToolDefinition[] = [
     faq: [
       {
         question: "Is trimming real?",
-        answer: "Yes. ToolMyra exports only the selected time range.",
+        answer: "Yes. Tool Base exports only the selected time range.",
       },
       {
         question: "Can I hear the selection?",
@@ -962,9 +962,9 @@ export const audioTools: ToolDefinition[] = [
       "silence-remover",
       "audio-volume-booster",
     ],
-    seoTitle: "Audio Cutter — Free Online | ToolMyra",
+    seoTitle: "Audio Cutter — Free Online | Tool Base",
     seoDescription:
-      "Cut audio online with ToolMyra. Select start and end points, preview the region, and download the cut.",
+      "Cut audio online with Tool Base. Select start and end points, preview the region, and download the cut.",
     h1: "Audio Cutter",
     intro:
       "Cut audio with a timeline selection and optional playback of the chosen region before export. Start and end points drive a real cut.",
@@ -1038,9 +1038,9 @@ export const audioTools: ToolDefinition[] = [
       "audio-volume-booster",
       "audio-compressor",
     ],
-    seoTitle: "Audio Joiner — Free Online | ToolMyra",
+    seoTitle: "Audio Joiner — Free Online | Tool Base",
     seoDescription:
-      "Join audio online with ToolMyra. Add, reorder, and combine clips into one downloadable track.",
+      "Join audio online with Tool Base. Add, reorder, and combine clips into one downloadable track.",
     h1: "Audio Joiner",
     intro:
       "Combine multiple audio files into one continuous track in the exact order you arrange. Add, remove, and reorder clips, then join into a single downloadable file.",
@@ -1118,9 +1118,9 @@ export const audioTools: ToolDefinition[] = [
       "audio-compressor",
       "silence-remover",
     ],
-    seoTitle: "Audio Volume Booster — Free Online | ToolMyra",
+    seoTitle: "Audio Volume Booster — Free Online | Tool Base",
     seoDescription:
-      "Boost audio volume online with ToolMyra. Adjust gain carefully and download a real processed file.",
+      "Boost audio volume online with Tool Base. Adjust gain carefully and download a real processed file.",
     h1: "Audio Volume Booster",
     intro:
       "Raise or lower loudness with a gain control designed for practical adjustments. Excessive boost can clip and distort — start with a modest value.",
@@ -1199,9 +1199,9 @@ export const audioTools: ToolDefinition[] = [
       "audio-cutter",
       "silence-remover",
     ],
-    seoTitle: "Audio Speed Changer — Free Online | ToolMyra",
+    seoTitle: "Audio Speed Changer — Free Online | Tool Base",
     seoDescription:
-      "Change audio speed online with ToolMyra. Speed up or slow down from 0.5x to 2x and download the result.",
+      "Change audio speed online with Tool Base. Speed up or slow down from 0.5x to 2x and download the result.",
     h1: "Audio Speed Changer",
     intro:
       "Change playback speed so the output duration actually shortens or lengthens. Choose from 0.5x, 0.75x, 1.25x, 1.5x, and 2x.",
@@ -1280,9 +1280,9 @@ export const audioTools: ToolDefinition[] = [
       "audio-waveform-generator",
       "silence-remover",
     ],
-    seoTitle: "Audio Pitch Changer — Free Online | ToolMyra",
+    seoTitle: "Audio Pitch Changer — Free Online | Tool Base",
     seoDescription:
-      "Change audio pitch online with ToolMyra. Raise or lower pitch without presenting speed-only playback as pitch shifting.",
+      "Change audio pitch online with Tool Base. Raise or lower pitch without presenting speed-only playback as pitch shifting.",
     h1: "Audio Pitch Changer",
     intro:
       "Shift pitch with a DSP-oriented approach rather than presenting speed-only playback as pitch shifting. Small semitone moves are usually cleaner than extreme shifts.",
@@ -1361,9 +1361,9 @@ export const audioTools: ToolDefinition[] = [
       "silence-remover",
       "audio-volume-booster",
     ],
-    seoTitle: "Audio Waveform Generator — Free Online | ToolMyra",
+    seoTitle: "Audio Waveform Generator — Free Online | Tool Base",
     seoDescription:
-      "Generate an audio waveform online with ToolMyra. Create a PNG from your real uploaded audio.",
+      "Generate an audio waveform online with Tool Base. Create a PNG from your real uploaded audio.",
     h1: "Audio Waveform Generator",
     intro:
       "Build a waveform image from the samples in your uploaded audio — not a generic decoration. Preview the source, generate the visualization, and download a PNG.",
@@ -1437,9 +1437,9 @@ export const audioTools: ToolDefinition[] = [
       "wav-to-mp3",
       "audio-trimmer",
     ],
-    seoTitle: "Audio Metadata Viewer — Free Online | ToolMyra",
+    seoTitle: "Audio Metadata Viewer — Free Online | Tool Base",
     seoDescription:
-      "View audio metadata online with ToolMyra. Inspect duration, bitrate, sample rate, channels, and tags when available.",
+      "View audio metadata online with Tool Base. Inspect duration, bitrate, sample rate, channels, and tags when available.",
     h1: "Audio Metadata Viewer",
     intro:
       "Inspect duration, size, format, bitrate, sample rate, channels, codec, and tags when those fields exist. Unavailable values stay blank rather than being invented.",
@@ -1517,9 +1517,9 @@ export const audioTools: ToolDefinition[] = [
       "audio-speed-changer",
       "audio-joiner",
     ],
-    seoTitle: "Silence Remover — Free Online | ToolMyra",
+    seoTitle: "Silence Remover — Free Online | Tool Base",
     seoDescription:
-      "Remove silence from audio online with ToolMyra. Use conservative defaults and download cleaned audio.",
+      "Remove silence from audio online with Tool Base. Use conservative defaults and download cleaned audio.",
     h1: "Silence Remover",
     intro:
       "Remove quiet gaps using conservative threshold and minimum-duration defaults. Aggressive settings can clip soft speech or quiet musical passages — start gentle and tighten only if needed.",

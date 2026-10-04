@@ -6,7 +6,7 @@ const { chromium } = require("playwright");
 const fs = require("fs");
 const path = require("path");
 
-const BASE = process.env.TOOLMYRA_BASE || "http://127.0.0.1:3456";
+const BASE = process.env.TOOLBASE_BASE || "http://127.0.0.1:3456";
 const OUT = "/tmp/toolmyra-video-out";
 const SAMPLES = "/tmp/toolmyra-video-samples";
 

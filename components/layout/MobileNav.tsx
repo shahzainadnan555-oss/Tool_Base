@@ -13,7 +13,7 @@ export function MobileNav({ open, items, onNavigate }: MobileNavProps) {
   if (!open) return null;
 
   return (
-    <div id="mobile-nav" className="border-t border-tm-border bg-white lg:hidden">
+    <div id="mobile-nav" className="border-t border-tm-border bg-tm-white lg:hidden">
       <div className="tm-container space-y-4 py-4">
         <SearchBar onNavigate={onNavigate} />
         <nav aria-label="Mobile" className="grid gap-1">

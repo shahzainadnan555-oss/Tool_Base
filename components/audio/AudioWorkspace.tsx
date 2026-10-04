@@ -213,7 +213,7 @@ export function AudioWorkspace({ config, convertHeading }: AudioWorkspaceProps) 
 
       {sources.length > 0 && !showResult ? (
         <>
-          <div className="rounded-3xl border border-tm-border bg-white p-5">
+          <div className="rounded-3xl border border-tm-border bg-tm-white p-5">
             <h3 className="text-lg font-extrabold text-tm-text">
               {config.allowMultiple ? "Selected files" : "Selected audio"}
             </h3>
@@ -473,7 +473,7 @@ export function AudioWorkspace({ config, convertHeading }: AudioWorkspaceProps) 
       ) : null}
 
       {showResult && result ? (
-        <div className="space-y-5 rounded-3xl border border-tm-border bg-white p-5 md:p-6">
+        <div className="space-y-5 rounded-3xl border border-tm-border bg-tm-white p-5 md:p-6">
           <h3 className="text-xl font-extrabold text-tm-text">
             {config.kind === "metadata" ? "Audio metadata" : "Result ready"}
           </h3>

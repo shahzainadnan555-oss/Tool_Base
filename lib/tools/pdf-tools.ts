@@ -39,9 +39,9 @@ export const pdfTools: ToolDefinition[] = [
       "pdf-splitter",
       "pdf-page-extractor",
     ],
-    seoTitle: "PDF to JPG Converter — Free Online | ToolMyra",
+    seoTitle: "PDF to JPG Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert PDF to JPG online with ToolMyra. Turn PDF pages into JPG images and download the results instantly.",
+      "Convert PDF to JPG online with Tool Base. Turn PDF pages into JPG images and download the results instantly.",
     h1: "PDF to JPG",
     intro:
       "Convert PDF pages into JPG images online. Upload a PDF, choose pages if needed, and download high-quality JPG output.",
@@ -77,12 +77,12 @@ export const pdfTools: ToolDefinition[] = [
       {
         question: "Is PDF to JPG free to use?",
         answer:
-          "Yes. ToolMyra PDF tools are free to use and do not require an account.",
+          "Yes. Tool Base PDF tools are free to use and do not require an account.",
       },
       {
         question: "Does PDF to JPG keep my files private?",
         answer:
-          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
+          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to Tool Base servers to complete the operation, though the page may still load Tool Base assets or PDF runtimes over the network.",
       },
       {
         question: "What if my PDF fails?",
@@ -117,9 +117,9 @@ export const pdfTools: ToolDefinition[] = [
       "pdf-compressor",
       "pdf-page-reorderer",
     ],
-    seoTitle: "JPG to PDF Converter — Free Online | ToolMyra",
+    seoTitle: "JPG to PDF Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert JPG to PDF online with ToolMyra. Combine one or more JPEG images into a downloadable PDF.",
+      "Convert JPG to PDF online with Tool Base. Combine one or more JPEG images into a downloadable PDF.",
     h1: "JPG to PDF",
     intro:
       "Turn JPG or JPEG images into a PDF. Upload one or multiple images, reorder pages, and download a ready-to-share document.",
@@ -155,12 +155,12 @@ export const pdfTools: ToolDefinition[] = [
       {
         question: "Is JPG to PDF free to use?",
         answer:
-          "Yes. ToolMyra PDF tools are free to use and do not require an account.",
+          "Yes. Tool Base PDF tools are free to use and do not require an account.",
       },
       {
         question: "Does JPG to PDF keep my files private?",
         answer:
-          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
+          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to Tool Base servers to complete the operation, though the page may still load Tool Base assets or PDF runtimes over the network.",
       },
       {
         question: "What if my PDF fails?",
@@ -189,9 +189,9 @@ export const pdfTools: ToolDefinition[] = [
       "pdf-merger",
       "pdf-compressor",
     ],
-    seoTitle: "PNG to PDF Converter — Free Online | ToolMyra",
+    seoTitle: "PNG to PDF Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert PNG to PDF online with ToolMyra. Combine PNG images into a clean PDF document for sharing or printing.",
+      "Convert PNG to PDF online with Tool Base. Combine PNG images into a clean PDF document for sharing or printing.",
     h1: "PNG to PDF",
     intro:
       "Create a PDF from PNG images. Upload files, set page order, and download a PDF that preserves your image layout.",
@@ -227,12 +227,12 @@ export const pdfTools: ToolDefinition[] = [
       {
         question: "Is PNG to PDF free to use?",
         answer:
-          "Yes. ToolMyra PDF tools are free to use and do not require an account.",
+          "Yes. Tool Base PDF tools are free to use and do not require an account.",
       },
       {
         question: "Does PNG to PDF keep my files private?",
         answer:
-          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
+          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to Tool Base servers to complete the operation, though the page may still load Tool Base assets or PDF runtimes over the network.",
       },
       {
         question: "What if my PDF fails?",
@@ -262,9 +262,9 @@ export const pdfTools: ToolDefinition[] = [
       "pdf-compressor",
       "pdf-splitter",
     ],
-    seoTitle: "PDF to PNG Converter — Free Online | ToolMyra",
+    seoTitle: "PDF to PNG Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert PDF to PNG online with ToolMyra. Export PDF pages as PNG images with optional page selection.",
+      "Convert PDF to PNG online with Tool Base. Export PDF pages as PNG images with optional page selection.",
     h1: "PDF to PNG",
     intro:
       "Export PDF pages as PNG images. Choose specific pages or convert the whole document, then download the results.",
@@ -300,12 +300,12 @@ export const pdfTools: ToolDefinition[] = [
       {
         question: "Is PDF to PNG free to use?",
         answer:
-          "Yes. ToolMyra PDF tools are free to use and do not require an account.",
+          "Yes. Tool Base PDF tools are free to use and do not require an account.",
       },
       {
         question: "Does PDF to PNG keep my files private?",
         answer:
-          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
+          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to Tool Base servers to complete the operation, though the page may still load Tool Base assets or PDF runtimes over the network.",
       },
       {
         question: "What if my PDF fails?",
@@ -334,9 +334,9 @@ export const pdfTools: ToolDefinition[] = [
       "pdf-compressor",
       "webp-compressor",
     ],
-    seoTitle: "PDF to WebP Converter — Free Online | ToolMyra",
+    seoTitle: "PDF to WebP Converter — Free Online | Tool Base",
     seoDescription:
-      "Convert PDF to WebP online with ToolMyra. Turn PDF pages into modern WebP images for the web.",
+      "Convert PDF to WebP online with Tool Base. Turn PDF pages into modern WebP images for the web.",
     h1: "PDF to WebP",
     intro:
       "Convert PDF pages into WebP images for lighter web delivery. Select pages and download valid WebP output.",
@@ -372,12 +372,12 @@ export const pdfTools: ToolDefinition[] = [
       {
         question: "Is PDF to WebP free to use?",
         answer:
-          "Yes. ToolMyra PDF tools are free to use and do not require an account.",
+          "Yes. Tool Base PDF tools are free to use and do not require an account.",
       },
       {
         question: "Does PDF to WebP keep my files private?",
         answer:
-          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
+          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to Tool Base servers to complete the operation, though the page may still load Tool Base assets or PDF runtimes over the network.",
       },
       {
         question: "What if my PDF fails?",
@@ -407,9 +407,9 @@ export const pdfTools: ToolDefinition[] = [
       "pdf-page-reorderer",
       "jpg-to-pdf",
     ],
-    seoTitle: "PDF Merger — Merge PDF Files Online | ToolMyra",
+    seoTitle: "PDF Merger — Merge PDF Files Online | Tool Base",
     seoDescription:
-      "Merge PDF files online with ToolMyra. Upload multiple PDFs, set the order, and download one combined document.",
+      "Merge PDF files online with Tool Base. Upload multiple PDFs, set the order, and download one combined document.",
     h1: "PDF Merger",
     intro:
       "Combine multiple PDF files into a single document. Upload files, reorder them, merge, and download the result.",
@@ -445,12 +445,12 @@ export const pdfTools: ToolDefinition[] = [
       {
         question: "Is PDF Merger free to use?",
         answer:
-          "Yes. ToolMyra PDF tools are free to use and do not require an account.",
+          "Yes. Tool Base PDF tools are free to use and do not require an account.",
       },
       {
         question: "Does PDF Merger keep my files private?",
         answer:
-          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
+          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to Tool Base servers to complete the operation, though the page may still load Tool Base assets or PDF runtimes over the network.",
       },
       {
         question: "What if my PDF fails?",
@@ -485,9 +485,9 @@ export const pdfTools: ToolDefinition[] = [
       "pdf-cropper",
       "pdf-compressor",
     ],
-    seoTitle: "PDF Splitter — Split PDF Online | ToolMyra",
+    seoTitle: "PDF Splitter — Split PDF Online | Tool Base",
     seoDescription:
-      "Split PDF files online with ToolMyra. Separate pages or ranges into individual PDF files and download the results.",
+      "Split PDF files online with Tool Base. Separate pages or ranges into individual PDF files and download the results.",
     h1: "PDF Splitter",
     intro:
       "Split a PDF by individual pages or ranges such as 1-3, 5, 8-10. Download each part as its own PDF.",
@@ -523,12 +523,12 @@ export const pdfTools: ToolDefinition[] = [
       {
         question: "Is PDF Splitter free to use?",
         answer:
-          "Yes. ToolMyra PDF tools are free to use and do not require an account.",
+          "Yes. Tool Base PDF tools are free to use and do not require an account.",
       },
       {
         question: "Does PDF Splitter keep my files private?",
         answer:
-          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
+          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to Tool Base servers to complete the operation, though the page may still load Tool Base assets or PDF runtimes over the network.",
       },
       {
         question: "What if my PDF fails?",
@@ -564,9 +564,9 @@ export const pdfTools: ToolDefinition[] = [
       "pdf-to-webp",
       "pdf-text-extractor",
     ],
-    seoTitle: "PDF Compressor — Compress PDF Online | ToolMyra",
+    seoTitle: "PDF Compressor — Compress PDF Online | Tool Base",
     seoDescription:
-      "Compress PDF files online with ToolMyra. Reduce document size and compare original vs compressed file sizes.",
+      "Compress PDF files online with Tool Base. Reduce document size and compare original vs compressed file sizes.",
     h1: "PDF Compressor",
     intro:
       "Reduce PDF file size for easier sharing and uploads. Upload a PDF, compress it, review real size savings, and download.",
@@ -603,17 +603,17 @@ export const pdfTools: ToolDefinition[] = [
       {
         question: "Is PDF Compressor free to use?",
         answer:
-          "Yes. ToolMyra PDF tools are free to use and do not require an account.",
+          "Yes. Tool Base PDF tools are free to use and do not require an account.",
       },
       {
         question: "Does PDF Compressor keep my files private?",
         answer:
-          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
+          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to Tool Base servers to complete the operation, though the page may still load Tool Base assets or PDF runtimes over the network.",
       },
       {
         question: "Will every PDF get smaller?",
         answer:
-          "No. Already optimized PDFs may not shrink further. ToolMyra always shows actual measured sizes.",
+          "No. Already optimized PDFs may not shrink further. Tool Base always shows actual measured sizes.",
       },
     ],
     inputFormats: ["PDF"],
@@ -641,9 +641,9 @@ export const pdfTools: ToolDefinition[] = [
       "pdf-page-reorderer",
       "pdf-rotator",
     ],
-    seoTitle: "PDF Page Extractor — Extract PDF Pages | ToolMyra",
+    seoTitle: "PDF Page Extractor — Extract PDF Pages | Tool Base",
     seoDescription:
-      "Extract PDF pages online with ToolMyra. Keep only the pages you need and download a new PDF.",
+      "Extract PDF pages online with Tool Base. Keep only the pages you need and download a new PDF.",
     h1: "PDF Page Extractor",
     intro:
       "Pull selected pages such as 2,4,7-9 into a new PDF while leaving the rest behind.",
@@ -680,12 +680,12 @@ export const pdfTools: ToolDefinition[] = [
       {
         question: "Is PDF Page Extractor free to use?",
         answer:
-          "Yes. ToolMyra PDF tools are free to use and do not require an account.",
+          "Yes. Tool Base PDF tools are free to use and do not require an account.",
       },
       {
         question: "Does PDF Page Extractor keep my files private?",
         answer:
-          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
+          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to Tool Base servers to complete the operation, though the page may still load Tool Base assets or PDF runtimes over the network.",
       },
       {
         question: "What if my PDF fails?",
@@ -714,9 +714,9 @@ export const pdfTools: ToolDefinition[] = [
       "pdf-rotator",
       "pdf-splitter",
     ],
-    seoTitle: "PDF Page Reorderer — Rearrange PDF Pages | ToolMyra",
+    seoTitle: "PDF Page Reorderer — Rearrange PDF Pages | Tool Base",
     seoDescription:
-      "Reorder PDF pages online with ToolMyra. Move pages up or down, remove unwanted pages, and download the new order.",
+      "Reorder PDF pages online with Tool Base. Move pages up or down, remove unwanted pages, and download the new order.",
     h1: "PDF Page Reorderer",
     intro:
       "Rearrange PDF pages into the exact order you need. Move pages, remove extras, and generate an updated PDF.",
@@ -753,12 +753,12 @@ export const pdfTools: ToolDefinition[] = [
       {
         question: "Is PDF Page Reorderer free to use?",
         answer:
-          "Yes. ToolMyra PDF tools are free to use and do not require an account.",
+          "Yes. Tool Base PDF tools are free to use and do not require an account.",
       },
       {
         question: "Does PDF Page Reorderer keep my files private?",
         answer:
-          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
+          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to Tool Base servers to complete the operation, though the page may still load Tool Base assets or PDF runtimes over the network.",
       },
       {
         question: "What if my PDF fails?",
@@ -787,9 +787,9 @@ export const pdfTools: ToolDefinition[] = [
       "pdf-splitter",
       "pdf-page-extractor",
     ],
-    seoTitle: "PDF Rotator — Rotate PDF Pages Online | ToolMyra",
+    seoTitle: "PDF Rotator — Rotate PDF Pages Online | Tool Base",
     seoDescription:
-      "Rotate PDF pages online with ToolMyra. Apply 90°, 180°, or 270° rotation and download the updated PDF.",
+      "Rotate PDF pages online with Tool Base. Apply 90°, 180°, or 270° rotation and download the updated PDF.",
     h1: "PDF Rotator",
     intro:
       "Fix sideways or upside-down PDF pages by rotating them, then download a corrected document.",
@@ -825,12 +825,12 @@ export const pdfTools: ToolDefinition[] = [
       {
         question: "Is PDF Rotator free to use?",
         answer:
-          "Yes. ToolMyra PDF tools are free to use and do not require an account.",
+          "Yes. Tool Base PDF tools are free to use and do not require an account.",
       },
       {
         question: "Does PDF Rotator keep my files private?",
         answer:
-          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
+          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to Tool Base servers to complete the operation, though the page may still load Tool Base assets or PDF runtimes over the network.",
       },
       {
         question: "What if my PDF fails?",
@@ -859,9 +859,9 @@ export const pdfTools: ToolDefinition[] = [
       "pdf-splitter",
       "pdf-compressor",
     ],
-    seoTitle: "PDF Cropper — Crop PDF Pages Online | ToolMyra",
+    seoTitle: "PDF Cropper — Crop PDF Pages Online | Tool Base",
     seoDescription:
-      "Crop PDF pages online with ToolMyra. Trim margins on selected pages and download a clipped PDF.",
+      "Crop PDF pages online with Tool Base. Trim margins on selected pages and download a clipped PDF.",
     h1: "PDF Cropper",
     intro:
       "Trim unwanted margins from PDF pages. Set crop percentages, apply to selected pages, and download the result.",
@@ -897,12 +897,12 @@ export const pdfTools: ToolDefinition[] = [
       {
         question: "Is PDF Cropper free to use?",
         answer:
-          "Yes. ToolMyra PDF tools are free to use and do not require an account.",
+          "Yes. Tool Base PDF tools are free to use and do not require an account.",
       },
       {
         question: "Does PDF Cropper keep my files private?",
         answer:
-          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
+          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to Tool Base servers to complete the operation, though the page may still load Tool Base assets or PDF runtimes over the network.",
       },
       {
         question: "What if my PDF fails?",
@@ -930,9 +930,9 @@ export const pdfTools: ToolDefinition[] = [
       "pdf-text-extractor",
       "pdf-compressor",
     ],
-    seoTitle: "PDF Metadata Viewer — View PDF Info Online | ToolMyra",
+    seoTitle: "PDF Metadata Viewer — View PDF Info Online | Tool Base",
     seoDescription:
-      "View PDF metadata online with ToolMyra. Inspect title, author, dates, page count, and other available fields.",
+      "View PDF metadata online with Tool Base. Inspect title, author, dates, page count, and other available fields.",
     h1: "PDF Metadata Viewer",
     intro:
       "Inspect PDF document information such as title, author, creator, dates, and page count when those fields exist.",
@@ -969,12 +969,12 @@ export const pdfTools: ToolDefinition[] = [
       {
         question: "Is PDF Metadata Viewer free to use?",
         answer:
-          "Yes. ToolMyra PDF tools are free to use and do not require an account.",
+          "Yes. Tool Base PDF tools are free to use and do not require an account.",
       },
       {
         question: "Does PDF Metadata Viewer keep my files private?",
         answer:
-          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
+          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to Tool Base servers to complete the operation, though the page may still load Tool Base assets or PDF runtimes over the network.",
       },
       {
         question: "What if my PDF fails?",
@@ -1006,9 +1006,9 @@ export const pdfTools: ToolDefinition[] = [
       "pdf-password-protector",
       "pdf-compressor",
     ],
-    seoTitle: "PDF Metadata Remover — Remove PDF Info | ToolMyra",
+    seoTitle: "PDF Metadata Remover — Remove PDF Info | Tool Base",
     seoDescription:
-      "Remove PDF metadata online with ToolMyra. Clear common document info fields and download a cleaned PDF.",
+      "Remove PDF metadata online with Tool Base. Clear common document info fields and download a cleaned PDF.",
     h1: "PDF Metadata Remover",
     intro:
       "Clear common PDF info fields before sharing. Upload a PDF, remove supported metadata, and download the cleaned file.",
@@ -1045,12 +1045,12 @@ export const pdfTools: ToolDefinition[] = [
       {
         question: "Is PDF Metadata Remover free to use?",
         answer:
-          "Yes. ToolMyra PDF tools are free to use and do not require an account.",
+          "Yes. Tool Base PDF tools are free to use and do not require an account.",
       },
       {
         question: "Does PDF Metadata Remover keep my files private?",
         answer:
-          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
+          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to Tool Base servers to complete the operation, though the page may still load Tool Base assets or PDF runtimes over the network.",
       },
       {
         question: "What if my PDF fails?",
@@ -1074,9 +1074,9 @@ export const pdfTools: ToolDefinition[] = [
     new: false,
     supportedFormats: ["PDF"],
     relatedToolIds: ["pdf-unlocker", "pdf-metadata-remover", "pdf-compressor"],
-    seoTitle: "PDF Password Protector — Encrypt PDF Online | ToolMyra",
+    seoTitle: "PDF Password Protector — Encrypt PDF Online | Tool Base",
     seoDescription:
-      "Password-protect PDF files online with ToolMyra. Encrypt a PDF with your password and download the secured file.",
+      "Password-protect PDF files online with Tool Base. Encrypt a PDF with your password and download the secured file.",
     h1: "PDF Password Protector",
     intro:
       "Add password protection to a PDF before sharing. Enter and confirm a password, then download an encrypted document.",
@@ -1113,17 +1113,17 @@ export const pdfTools: ToolDefinition[] = [
       {
         question: "Is PDF Password Protector free to use?",
         answer:
-          "Yes. ToolMyra PDF tools are free to use and do not require an account.",
+          "Yes. Tool Base PDF tools are free to use and do not require an account.",
       },
       {
         question: "Does PDF Password Protector keep my files private?",
         answer:
-          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
+          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to Tool Base servers to complete the operation, though the page may still load Tool Base assets or PDF runtimes over the network.",
       },
       {
         question: "Is the password stored?",
         answer:
-          "No. The password is used only to encrypt the file session and is not stored by ToolMyra.",
+          "No. The password is used only to encrypt the file session and is not stored by Tool Base.",
       },
     ],
     inputFormats: ["PDF"],
@@ -1151,9 +1151,9 @@ export const pdfTools: ToolDefinition[] = [
       "pdf-metadata-remover",
       "pdf-compressor",
     ],
-    seoTitle: "PDF Unlocker — Unlock PDF Online | ToolMyra",
+    seoTitle: "PDF Unlocker — Unlock PDF Online | Tool Base",
     seoDescription:
-      "Unlock PDF files online with ToolMyra when you know the password. Create an unprotected copy you are authorized to open.",
+      "Unlock PDF files online with Tool Base when you know the password. Create an unprotected copy you are authorized to open.",
     h1: "PDF Unlocker",
     intro:
       "Remove password protection from a PDF you are authorized to open. Provide the password and download an unlocked copy.",
@@ -1189,12 +1189,12 @@ export const pdfTools: ToolDefinition[] = [
       {
         question: "Is PDF Unlocker free to use?",
         answer:
-          "Yes. ToolMyra PDF tools are free to use and do not require an account.",
+          "Yes. Tool Base PDF tools are free to use and do not require an account.",
       },
       {
         question: "Does PDF Unlocker keep my files private?",
         answer:
-          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
+          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to Tool Base servers to complete the operation, though the page may still load Tool Base assets or PDF runtimes over the network.",
       },
       {
         question: "Can it crack unknown passwords?",
@@ -1223,9 +1223,9 @@ export const pdfTools: ToolDefinition[] = [
       "pdf-rotator",
       "pdf-compressor",
     ],
-    seoTitle: "PDF Page Numbering — Add Page Numbers Online | ToolMyra",
+    seoTitle: "PDF Page Numbering — Add Page Numbers Online | Tool Base",
     seoDescription:
-      "Add page numbers to PDF files online with ToolMyra. Choose position, format, and starting number, then download.",
+      "Add page numbers to PDF files online with Tool Base. Choose position, format, and starting number, then download.",
     h1: "PDF Page Numbering Tool",
     intro:
       "Add clear page numbers to your PDF. Choose position, starting number, and format such as 1 or Page 1.",
@@ -1262,12 +1262,12 @@ export const pdfTools: ToolDefinition[] = [
       {
         question: "Is PDF Page Numbering free to use?",
         answer:
-          "Yes. ToolMyra PDF tools are free to use and do not require an account.",
+          "Yes. Tool Base PDF tools are free to use and do not require an account.",
       },
       {
         question: "Does PDF Page Numbering keep my files private?",
         answer:
-          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
+          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to Tool Base servers to complete the operation, though the page may still load Tool Base assets or PDF runtimes over the network.",
       },
       {
         question: "What if my PDF fails?",
@@ -1296,9 +1296,9 @@ export const pdfTools: ToolDefinition[] = [
       "pdf-compressor",
       "pdf-metadata-remover",
     ],
-    seoTitle: "PDF Watermark Tool — Add Watermark Online | ToolMyra",
+    seoTitle: "PDF Watermark Tool — Add Watermark Online | Tool Base",
     seoDescription:
-      "Add a text watermark to PDF files online with ToolMyra. Control opacity, rotation, size, and color, then download.",
+      "Add a text watermark to PDF files online with Tool Base. Control opacity, rotation, size, and color, then download.",
     h1: "PDF Watermark Tool",
     intro:
       "Place a custom text watermark across PDF pages. Adjust opacity, rotation, size, and position, then download the result.",
@@ -1335,12 +1335,12 @@ export const pdfTools: ToolDefinition[] = [
       {
         question: "Is PDF Watermark Tool free to use?",
         answer:
-          "Yes. ToolMyra PDF tools are free to use and do not require an account.",
+          "Yes. Tool Base PDF tools are free to use and do not require an account.",
       },
       {
         question: "Does PDF Watermark Tool keep my files private?",
         answer:
-          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
+          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to Tool Base servers to complete the operation, though the page may still load Tool Base assets or PDF runtimes over the network.",
       },
       {
         question: "What if my PDF fails?",
@@ -1369,9 +1369,9 @@ export const pdfTools: ToolDefinition[] = [
       "pdf-compressor",
       "pdf-to-jpg",
     ],
-    seoTitle: "PDF Text Extractor — Extract Text Online | ToolMyra",
+    seoTitle: "PDF Text Extractor — Extract Text Online | Tool Base",
     seoDescription:
-      "Extract text from PDF files online with ToolMyra. Copy or download the text layer when the document contains selectable text.",
+      "Extract text from PDF files online with Tool Base. Copy or download the text layer when the document contains selectable text.",
     h1: "PDF Text Extractor",
     intro:
       "Extract available text from a PDF’s text layer. Copy results or download a TXT file. Scanned image-only PDFs may not include extractable text.",
@@ -1407,12 +1407,12 @@ export const pdfTools: ToolDefinition[] = [
       {
         question: "Is PDF Text Extractor free to use?",
         answer:
-          "Yes. ToolMyra PDF tools are free to use and do not require an account.",
+          "Yes. Tool Base PDF tools are free to use and do not require an account.",
       },
       {
         question: "Does PDF Text Extractor keep my files private?",
         answer:
-          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
+          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to Tool Base servers to complete the operation, though the page may still load Tool Base assets or PDF runtimes over the network.",
       },
       {
         question: "Does this use OCR?",
@@ -1446,9 +1446,9 @@ export const pdfTools: ToolDefinition[] = [
       "pdf-compressor",
       "pdf-metadata-viewer",
     ],
-    seoTitle: "PDF to Text Converter — PDF to TXT Online | ToolMyra",
+    seoTitle: "PDF to Text Converter — PDF to TXT Online | Tool Base",
     seoDescription:
-      "Convert PDF to text online with ToolMyra. Turn available PDF text into a downloadable TXT file.",
+      "Convert PDF to text online with Tool Base. Turn available PDF text into a downloadable TXT file.",
     h1: "PDF to Text Converter",
     intro:
       "Convert a PDF’s text layer into a TXT file while preserving a sensible reading order across pages when text is available.",
@@ -1484,12 +1484,12 @@ export const pdfTools: ToolDefinition[] = [
       {
         question: "Is PDF to Text free to use?",
         answer:
-          "Yes. ToolMyra PDF tools are free to use and do not require an account.",
+          "Yes. Tool Base PDF tools are free to use and do not require an account.",
       },
       {
         question: "Does PDF to Text keep my files private?",
         answer:
-          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to ToolMyra servers to complete the operation, though the page may still load ToolMyra assets or PDF runtimes over the network.",
+          "This tool is designed to process PDF files for this workflow. Your source file is not uploaded to Tool Base servers to complete the operation, though the page may still load Tool Base assets or PDF runtimes over the network.",
       },
       {
         question: "What if my PDF fails?",

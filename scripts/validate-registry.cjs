@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 /**
- * Validates the ToolMyra central registry for production readiness.
+ * Validates the Tool Base central registry for production readiness.
  * Run: node scripts/validate-registry.cjs
  */
 const assert = require("assert");
@@ -128,8 +128,8 @@ for (const tool of tools) {
       errors.push(`${tool.slug}: broken relatedToolId "${related}"`);
     }
   }
-  if (tool.seoTitle && !tool.seoTitle.includes("ToolMyra")) {
-    errors.push(`${tool.slug}: seoTitle should include ToolMyra`);
+  if (tool.seoTitle && !tool.seoTitle.includes("Tool Base")) {
+    errors.push(`${tool.slug}: seoTitle should include Tool Base`);
   }
   if (tool.seoDescription && tool.seoDescription.length < 50) {
     errors.push(`${tool.slug}: seoDescription too short`);

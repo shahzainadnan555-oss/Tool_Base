@@ -36,14 +36,14 @@ export async function generateMetadata({
   if (!tool) {
     return createPageMetadata({
       title: "Tool Not Found",
-      description: "The requested ToolMyra tool could not be found.",
+      description: "The requested Tool Base tool could not be found.",
       path: `/tools/${slug}`,
       noIndex: true,
     });
   }
 
   return createPageMetadata({
-    title: tool.seoTitle.replace(" | ToolMyra", ""),
+    title: tool.seoTitle.replace(" | Tool Base", ""),
     description: tool.seoDescription,
     path: tool.route,
     keywords: tool.keywords,

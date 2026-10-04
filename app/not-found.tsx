@@ -6,7 +6,7 @@ import { getPopularTools } from "@/lib/tools/registry";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Page Not Found",
-  description: "The ToolMyra page you requested could not be found.",
+  description: "The Tool Base page you requested could not be found.",
   path: "/404",
   noIndex: true,
 });
@@ -36,7 +36,7 @@ export default function NotFound() {
             <li key={tool.id}>
               <Link
                 href={tool.route}
-                className="block rounded-2xl border border-tm-border bg-white px-4 py-3 font-bold text-tm-text transition-colors hover:border-tm-accent hover:text-tm-accent"
+                className="block rounded-2xl border border-tm-border bg-tm-white px-4 py-3 font-bold text-tm-text transition-colors hover:border-tm-accent hover:text-tm-accent"
               >
                 {tool.name}
               </Link>

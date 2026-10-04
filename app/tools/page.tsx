@@ -9,7 +9,7 @@ import type { CategoryId } from "@/lib/tools/types";
 export const metadata: Metadata = createPageMetadata({
   title: "All Online Tools — Free Converters & Utilities",
   description:
-    "Browse all free online tools on ToolMyra. Search converters, compressors, generators, calculators, and utilities by category, popularity, or keyword.",
+    "Browse all free online tools on Tool Base. Search converters, compressors, generators, calculators, and utilities by category, popularity, or keyword.",
   path: "/tools",
 });
 
@@ -34,7 +34,7 @@ export default async function ToolsPage({
           All Online Tools
         </h1>
         <p className="tm-lead mt-4">
-          Explore ToolMyra’s growing directory of free online tools for images, PDFs,
+          Explore Tool Base’s growing directory of free online tools for images, PDFs,
           audio, video, text, developers, encoding, and everyday calculations. Search by
           name or keyword, filter by category, and sort by popular, new, or A–Z.
         </p>

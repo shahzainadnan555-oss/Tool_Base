@@ -5,9 +5,9 @@ import { join } from "node:path";
 export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
 
-/** Apple touch icon from the official TM logo on deep navy. */
+/** Apple touch icon from the official Tool Base TB monogram. */
 export default async function AppleIcon() {
-  const bytes = await readFile(join(process.cwd(), "public/tm-logo.png"));
+  const bytes = await readFile(join(process.cwd(), "public/tb-favicon.png"));
   const dataUrl = `data:image/png;base64,${bytes.toString("base64")}`;
 
   return new ImageResponse(
@@ -19,16 +19,14 @@ export default async function AppleIcon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background:
-            "radial-gradient(circle at 50% 40%, #1E3A8A 0%, #0B1220 70%)",
-          borderRadius: 36,
+          background: "#000000",
         }}
       >
         <img
           alt=""
           src={dataUrl}
-          width={132}
-          height={88}
+          width={180}
+          height={180}
           style={{ objectFit: "contain" }}
         />
       </div>

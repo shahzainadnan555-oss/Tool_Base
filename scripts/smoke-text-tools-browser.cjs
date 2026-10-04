@@ -1,10 +1,10 @@
 /**
  * Browser smoke for all 20 text tools against a running Next server.
- * Usage: TOOLMYRA_BASE=http://127.0.0.1:3000 node scripts/smoke-text-tools-browser.cjs
+ * Usage: TOOLBASE_BASE=http://127.0.0.1:3000 node scripts/smoke-text-tools-browser.cjs
  */
 const { chromium } = require("playwright");
 
-const BASE = process.env.TOOLMYRA_BASE || "http://127.0.0.1:3000";
+const BASE = process.env.TOOLBASE_BASE || "http://127.0.0.1:3000";
 
 const TOOLS = [
   { slug: "word-counter", h1: "Word Counter", live: true, type: "stats" },
@@ -21,7 +21,7 @@ const TOOLS = [
   { slug: "remove-duplicate-lines", h1: "Remove Duplicate Lines", live: true, type: "io", input: "apple\nbanana\napple\norange", expectOut: "apple\nbanana\norange" },
   { slug: "sort-lines", h1: "Sort Lines Alphabetically", live: true, type: "io", input: "banana\napple\ncherry" },
   { slug: "reverse-text", h1: "Reverse Text", live: true, type: "io", input: "Hello", expectOut: "olleH" },
-  { slug: "reverse-words", h1: "Reverse Words", live: true, type: "io", input: "Hello world from ToolMyra", expectOut: "ToolMyra from world Hello" },
+  { slug: "reverse-words", h1: "Reverse Words", live: true, type: "io", input: "Hello world from Tool Base", expectOut: "Tool Base from world Hello" },
   { slug: "text-repeater", h1: "Text Repeater", live: false, type: "repeat", input: "Hi", action: "Repeat Text" },
   { slug: "text-cleaner", h1: "Text Cleaner", live: true, type: "io", input: "  hello   \n\n\n  world  " },
   { slug: "find-and-replace", h1: "Find & Replace Tool", live: false, type: "replace", input: "hello hello", action: "Replace" },
@@ -43,7 +43,7 @@ async function main() {
       if (h1 !== tool.h1) throw new Error(`H1 mismatch: got "${h1}"`);
 
       const title = await page.title();
-      if (!title.includes(tool.h1.split(" ")[0]) && !title.includes("ToolMyra")) {
+      if (!title.includes(tool.h1.split(" ")[0]) && !title.includes("Tool Base")) {
         throw new Error(`Unexpected title: ${title}`);
       }
 

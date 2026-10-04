@@ -57,7 +57,7 @@ export function AudioUpload({
         handleFiles(event.dataTransfer.files);
       }}
     >
-      <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-tm-accent shadow-sm">
+      <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-tm-white text-tm-accent shadow-sm">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path
             d="M9 18V6l10-2v12"

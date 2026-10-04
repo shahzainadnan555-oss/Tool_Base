@@ -70,8 +70,8 @@ export function createRootMetadata(): Metadata {
   return {
     metadataBase: new URL(siteConfig.url),
     title: {
-      default: "ToolMyra — Free Online Tools, Converters & Utilities",
-      template: "%s | ToolMyra",
+      default: "Tool Base — Free Online Tools, Converters & Utilities",
+      template: "%s | Tool Base",
     },
     description: siteConfig.description,
     applicationName: siteConfig.name,
@@ -88,7 +88,7 @@ export function createRootMetadata(): Metadata {
       siteName: siteConfig.name,
       locale: siteConfig.locale,
       url: siteConfig.url,
-      title: "ToolMyra — Free Online Tools, Converters & Utilities",
+      title: "Tool Base — Free Online Tools, Converters & Utilities",
       description: siteConfig.description,
       images: [
         {
@@ -101,7 +101,7 @@ export function createRootMetadata(): Metadata {
     },
     twitter: {
       card: "summary_large_image",
-      title: "ToolMyra — Free Online Tools, Converters & Utilities",
+      title: "Tool Base — Free Online Tools, Converters & Utilities",
       description: siteConfig.description,
       images: [defaultOg],
       ...(siteConfig.twitterHandle

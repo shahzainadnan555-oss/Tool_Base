@@ -5,7 +5,7 @@ import { getToolsByCategory } from "@/lib/tools/registry";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Admin · Categories",
-  description: "Category management foundation for ToolMyra.",
+  description: "Category management foundation for Tool Base.",
   path: "/admin/categories",
   noIndex: true,
 });
@@ -19,7 +19,7 @@ export default function AdminCategoriesPage() {
       </p>
       <div className="mt-8 grid gap-4 md:grid-cols-2">
         {categories.map((category) => (
-          <article key={category.id} className="rounded-2xl border border-tm-border bg-white p-5">
+          <article key={category.id} className="rounded-2xl border border-tm-border bg-tm-white p-5">
             <h2 className="tm-h3">{category.name}</h2>
             <p className="mt-2 text-sm font-medium text-tm-muted">{category.description}</p>
             <p className="mt-4 text-sm font-bold text-tm-accent">

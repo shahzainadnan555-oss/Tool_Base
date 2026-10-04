@@ -1,10 +1,10 @@
 /**
  * Browser smoke for security/encoding tools.
- * TOOLMYRA_BASE=http://localhost:3000 node scripts/smoke-security-tools-browser.cjs
+ * TOOLBASE_BASE=http://localhost:3000 node scripts/smoke-security-tools-browser.cjs
  */
 const { chromium } = require("playwright");
 
-const BASE = process.env.TOOLMYRA_BASE || "http://localhost:3000";
+const BASE = process.env.TOOLBASE_BASE || "http://localhost:3000";
 
 const TOOLS = [
   { slug: "sha256-hash-generator", h1: "SHA-256 Hash Generator", input: "abc", action: "Generate Hash", expect: "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad" },
@@ -26,7 +26,7 @@ const TOOLS = [
   { slug: "jwt-decoder", h1: "JWT Decoder", action: "Decode JWT", jwt: true },
   { slug: "unix-timestamp-generator", h1: "Unix Timestamp Generator", action: "Generate Timestamp" },
   { slug: "unix-timestamp-converter", h1: "Unix Timestamp Converter", input: "0", live: true, expectText: "UTC" },
-  { slug: "qr-code-generator", h1: "QR Code Generator", input: "https://toolmyra.com", action: "Generate QR Code", qr: true },
+  { slug: "qr-code-generator", h1: "QR Code Generator", input: "https://tool-base.app", action: "Generate QR Code", qr: true },
 ];
 
 async function main() {
@@ -49,13 +49,13 @@ async function main() {
         await page.waitForSelector('input[type="file"]', { timeout: 30000 });
       } else if (tool.jwt) {
           const header = Buffer.from(JSON.stringify({ alg: "none", typ: "JWT" })).toString("base64url");
-          const payload = Buffer.from(JSON.stringify({ sub: "1", name: "ToolMyra" })).toString("base64url");
+          const payload = Buffer.from(JSON.stringify({ sub: "1", name: "Tool Base" })).toString("base64url");
           await page.waitForSelector("textarea", { timeout: 30000 });
           await page.locator("textarea").first().fill(`${header}.${payload}.sig`);
           await page.getByRole("button", { name: tool.action }).click();
           await page.waitForTimeout(400);
           const body = await page.locator("main").innerText();
-          if (!body.includes("Decoded — Not Verified") || !body.includes("ToolMyra")) {
+          if (!body.includes("Decoded — Not Verified") || !body.includes("Tool Base")) {
             throw new Error("JWT decode failed");
           }
         } else if (tool.qr) {

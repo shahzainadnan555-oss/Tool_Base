@@ -17,11 +17,11 @@ export function ConsentBanner({ onDecision }: ConsentBannerProps) {
     <div
       role="dialog"
       aria-label="Privacy preferences"
-      className="fixed inset-x-0 bottom-0 z-50 border-t border-tm-border bg-white p-4 shadow-[var(--tm-shadow-lg)]"
+      className="fixed inset-x-0 bottom-0 z-50 border-t border-tm-border bg-tm-white p-4 shadow-[var(--tm-shadow-lg)]"
     >
       <div className="tm-container flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <p className="max-w-2xl text-sm font-medium text-tm-muted">
-          ToolMyra uses essential storage required for the site to work. If analytics or
+          Tool Base uses essential storage required for the site to work. If analytics or
           advertising are enabled, you can choose whether to allow those optional
           technologies. Read the{" "}
           <Link href="/privacy" className="font-bold text-tm-accent hover:text-tm-accent-hover">

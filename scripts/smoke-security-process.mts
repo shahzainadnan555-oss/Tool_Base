@@ -40,14 +40,14 @@ async function main() {
   assert.equal(hexToText(textToHex("Hello")), "Hello");
   assert.equal(binaryToText(textToBinary("Hi")), "Hi");
   assert.equal(binaryToDecimal(decimalToBinary("42")), "42");
-  assert.equal(decodeBase32(encodeBase32("ToolMyra")), "ToolMyra");
+  assert.equal(decodeBase32(encodeBase32("Tool Base")), "Tool Base");
   assert.equal(hexToText(textToHex("اردو")), "اردو");
 
   // sample JWT header.payload.sig (unsigned dummy)
   const header = Buffer.from(JSON.stringify({ alg: "none", typ: "JWT" })).toString("base64url");
-  const payload = Buffer.from(JSON.stringify({ sub: "123", name: "ToolMyra" })).toString("base64url");
+  const payload = Buffer.from(JSON.stringify({ sub: "123", name: "Tool Base" })).toString("base64url");
   const jwt = decodeJwt(`${header}.${payload}.signature`);
-  assert.equal((jwt.payload as { name: string }).name, "ToolMyra");
+  assert.equal((jwt.payload as { name: string }).name, "Tool Base");
 
   const qr = await generateQr({ text: "https://toolmyra.com" });
   assert.ok(qr.dataUrl.startsWith("data:image/png"));

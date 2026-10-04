@@ -39,9 +39,9 @@ export const developerTools: ToolDefinition[] = [
       "yaml-to-json",
       "json-to-yaml",
     ],
-    seoTitle: "JSON Formatter — Format JSON Online | ToolMyra",
+    seoTitle: "JSON Formatter — Format JSON Online | Tool Base",
     seoDescription:
-      "Format and beautify JSON online with ToolMyra. Paste your JSON, validate its syntax, format nested structures, and copy or download the result.",
+      "Format and beautify JSON online with Tool Base. Paste your JSON, validate its syntax, format nested structures, and copy or download the result.",
     h1: "JSON Formatter",
     intro:
       "Paste raw JSON and format it into a clean, readable structure. Invalid JSON is reported instead of silently reformatted.",
@@ -120,9 +120,9 @@ export const developerTools: ToolDefinition[] = [
       "json-to-csv",
       "json-to-xml",
     ],
-    seoTitle: "JSON Validator — Validate JSON Online | ToolMyra",
+    seoTitle: "JSON Validator — Validate JSON Online | Tool Base",
     seoDescription:
-      "Validate JSON online with ToolMyra. Check JSON syntax instantly and review helpful error details when parsing fails.",
+      "Validate JSON online with Tool Base. Check JSON syntax instantly and review helpful error details when parsing fails.",
     h1: "JSON Validator",
     intro:
       "Check whether your JSON is valid. When parsing fails, see a clear message with approximate location details where available.",
@@ -200,9 +200,9 @@ export const developerTools: ToolDefinition[] = [
       "css-minifier",
       "html-minifier",
     ],
-    seoTitle: "JSON Minifier — Minify JSON Online | ToolMyra",
+    seoTitle: "JSON Minifier — Minify JSON Online | Tool Base",
     seoDescription:
-      "Minify JSON online with ToolMyra. Remove unnecessary whitespace from valid JSON and copy or download the compact result.",
+      "Minify JSON online with Tool Base. Remove unnecessary whitespace from valid JSON and copy or download the compact result.",
     h1: "JSON Minifier",
     intro:
       "Compress valid JSON into a compact single-line form. Values stay the same — only unnecessary whitespace is removed.",
@@ -280,9 +280,9 @@ export const developerTools: ToolDefinition[] = [
       "markdown-to-html",
       "html-to-markdown",
     ],
-    seoTitle: "HTML Formatter — Format HTML Online | ToolMyra",
+    seoTitle: "HTML Formatter — Format HTML Online | Tool Base",
     seoDescription:
-      "Format and beautify HTML online with ToolMyra. Indent nested elements and copy or download readable HTML source.",
+      "Format and beautify HTML online with Tool Base. Indent nested elements and copy or download readable HTML source.",
     h1: "HTML Formatter",
     intro:
       "Turn messy HTML into readable source with consistent indentation. Markup is treated as text and is never executed.",
@@ -355,9 +355,9 @@ export const developerTools: ToolDefinition[] = [
       "html-entity-encoder",
       "html-to-markdown",
     ],
-    seoTitle: "HTML Minifier — Minify HTML Online | ToolMyra",
+    seoTitle: "HTML Minifier — Minify HTML Online | Tool Base",
     seoDescription:
-      "Minify HTML online with ToolMyra. Reduce unnecessary whitespace conservatively and copy the compact HTML source.",
+      "Minify HTML online with Tool Base. Reduce unnecessary whitespace conservatively and copy the compact HTML source.",
     h1: "HTML Minifier",
     intro:
       "Reduce unnecessary whitespace in HTML source without executing scripts or breaking quoted attributes.",
@@ -435,9 +435,9 @@ export const developerTools: ToolDefinition[] = [
       "html-minifier",
       "json-formatter",
     ],
-    seoTitle: "CSS Formatter — Format CSS Online | ToolMyra",
+    seoTitle: "CSS Formatter — Format CSS Online | Tool Base",
     seoDescription:
-      "Format CSS online with ToolMyra. Beautify selectors and declarations, then copy or download readable CSS.",
+      "Format CSS online with Tool Base. Beautify selectors and declarations, then copy or download readable CSS.",
     h1: "CSS Formatter",
     intro:
       "Beautify CSS source for easier reading and review. Formatting preserves CSS semantics while improving indentation.",
@@ -511,9 +511,9 @@ export const developerTools: ToolDefinition[] = [
       "html-formatter",
       "json-minifier",
     ],
-    seoTitle: "CSS Minifier — Minify CSS Online | ToolMyra",
+    seoTitle: "CSS Minifier — Minify CSS Online | Tool Base",
     seoDescription:
-      "Minify CSS online with ToolMyra. Remove safe unnecessary whitespace and copy compact CSS for production use.",
+      "Minify CSS online with Tool Base. Remove safe unnecessary whitespace and copy compact CSS for production use.",
     h1: "CSS Minifier",
     intro:
       "Create compact CSS by removing safe unnecessary whitespace and comments. Strings, URLs, and custom properties are handled carefully.",
@@ -592,9 +592,9 @@ export const developerTools: ToolDefinition[] = [
       "html-formatter",
       "regex-tester",
     ],
-    seoTitle: "JavaScript Formatter — Format JS Online | ToolMyra",
+    seoTitle: "JavaScript Formatter — Format JS Online | Tool Base",
     seoDescription:
-      "Format JavaScript online with ToolMyra. Beautify source code safely without executing it, then copy or download the result.",
+      "Format JavaScript online with Tool Base. Beautify source code safely without executing it, then copy or download the result.",
     h1: "JavaScript Formatter",
     intro:
       "Beautify JavaScript source with a reliable formatter. Your code is treated as text and is never executed in the browser.",
@@ -672,12 +672,12 @@ export const developerTools: ToolDefinition[] = [
       "json-minifier",
       "regex-tester",
     ],
-    seoTitle: "JavaScript Minifier — Minify JS Online | ToolMyra",
+    seoTitle: "JavaScript Minifier — Minify JS Online | Tool Base",
     seoDescription:
-      "Minify JavaScript online with ToolMyra. Compress source safely without executing code, then copy or download the result.",
+      "Minify JavaScript online with Tool Base. Compress source safely without executing code, then copy or download the result.",
     h1: "JavaScript Minifier",
     intro:
-      "Compress JavaScript source with a parser-based minifier. Code is never evaluated or run in ToolMyra.",
+      "Compress JavaScript source with a parser-based minifier. Code is never evaluated or run in Tool Base.",
     convertHeading: "Minify JavaScript Online",
     howToHeading: "How to Minify JavaScript",
     featuresHeading: "JavaScript Minifier Features",
@@ -753,9 +753,9 @@ export const developerTools: ToolDefinition[] = [
       "xml-to-json",
       "html-formatter",
     ],
-    seoTitle: "XML Formatter — Format XML Online | ToolMyra",
+    seoTitle: "XML Formatter — Format XML Online | Tool Base",
     seoDescription:
-      "Format XML online with ToolMyra. Beautify valid XML with readable indentation and copy or download the result.",
+      "Format XML online with Tool Base. Beautify valid XML with readable indentation and copy or download the result.",
     h1: "XML Formatter",
     intro:
       "Format valid XML into a readable tree. Malformed XML produces an error instead of fake formatted output.",
@@ -829,9 +829,9 @@ export const developerTools: ToolDefinition[] = [
       "json-to-xml",
       "html-formatter",
     ],
-    seoTitle: "XML Validator — Validate XML Online | ToolMyra",
+    seoTitle: "XML Validator — Validate XML Online | Tool Base",
     seoDescription:
-      "Validate XML online with ToolMyra. Check XML syntax and review parser errors with helpful location details.",
+      "Validate XML online with Tool Base. Check XML syntax and review parser errors with helpful location details.",
     h1: "XML Validator",
     intro:
       "Confirm whether your XML is well-formed. Invalid documents show a clear parser message with location details when available.",
@@ -909,9 +909,9 @@ export const developerTools: ToolDefinition[] = [
       "text-diff-checker",
       "find-and-replace",
     ],
-    seoTitle: "SQL Formatter — Format SQL Online | ToolMyra",
+    seoTitle: "SQL Formatter — Format SQL Online | Tool Base",
     seoDescription:
-      "Format SQL online with ToolMyra. Beautify queries for readability without executing them against any database.",
+      "Format SQL online with Tool Base. Beautify queries for readability without executing them against any database.",
     h1: "SQL Formatter",
     intro:
       "Beautify SQL text for easier review. Nothing is executed against a database — this tool only transforms and displays SQL.",
@@ -984,9 +984,9 @@ export const developerTools: ToolDefinition[] = [
       "find-and-replace",
       "text-cleaner",
     ],
-    seoTitle: "SQL Minifier — Minify SQL Online | ToolMyra",
+    seoTitle: "SQL Minifier — Minify SQL Online | Tool Base",
     seoDescription:
-      "Minify SQL online with ToolMyra. Collapse safe whitespace without executing queries or corrupting string literals.",
+      "Minify SQL online with Tool Base. Collapse safe whitespace without executing queries or corrupting string literals.",
     h1: "SQL Minifier",
     intro:
       "Create compact SQL text by removing safe unnecessary whitespace. String literals and comments are handled carefully, and nothing is executed.",
@@ -1064,9 +1064,9 @@ export const developerTools: ToolDefinition[] = [
       "javascript-formatter",
       "word-counter",
     ],
-    seoTitle: "Regex Tester — Test Regular Expressions Online | ToolMyra",
+    seoTitle: "Regex Tester — Test Regular Expressions Online | Tool Base",
     seoDescription:
-      "Test regular expressions against sample text with ToolMyra. Review matches, capture groups, and regex errors in a simple online tester.",
+      "Test regular expressions against sample text with Tool Base. Review matches, capture groups, and regex errors in a simple online tester.",
     h1: "Regex Tester",
     intro:
       "Enter a pattern and test text to review matches and capture groups. Expensive patterns are stopped automatically so they cannot freeze the page.",
@@ -1144,9 +1144,9 @@ export const developerTools: ToolDefinition[] = [
       "url-encoder",
       "html-entity-encoder",
     ],
-    seoTitle: "Regex Generator — Build Regex Patterns Online | ToolMyra",
+    seoTitle: "Regex Generator — Build Regex Patterns Online | Tool Base",
     seoDescription:
-      "Generate practical regex patterns online with ToolMyra. Choose templates and options, then copy or test the expression.",
+      "Generate practical regex patterns online with Tool Base. Choose templates and options, then copy or test the expression.",
     h1: "Regex Generator",
     intro:
       "Build a starting regex from templates like email-like, URL-like, digits, and custom character sets. Generated patterns are practical templates, not universal validators.",
@@ -1218,9 +1218,9 @@ export const developerTools: ToolDefinition[] = [
       "html-entity-encoder",
       "json-formatter",
     ],
-    seoTitle: "Base64 Encoder — Encode Text to Base64 | ToolMyra",
+    seoTitle: "Base64 Encoder — Encode Text to Base64 | Tool Base",
     seoDescription:
-      "Encode text to Base64 online with ToolMyra. Convert Unicode text into Base64 and copy or download the result.",
+      "Encode text to Base64 online with Tool Base. Convert Unicode text into Base64 and copy or download the result.",
     h1: "Base64 Encoder",
     intro:
       "Convert text into Base64 using Unicode-aware encoding. This encodes text data — it is not encryption.",
@@ -1293,9 +1293,9 @@ export const developerTools: ToolDefinition[] = [
       "html-entity-encoder",
       "json-formatter",
     ],
-    seoTitle: "Base64 Decoder — Decode Base64 to Text | ToolMyra",
+    seoTitle: "Base64 Decoder — Decode Base64 to Text | Tool Base",
     seoDescription:
-      "Decode Base64 online with ToolMyra. Convert valid Base64 into Unicode text and review clear errors for invalid input.",
+      "Decode Base64 online with Tool Base. Convert valid Base64 into Unicode text and review clear errors for invalid input.",
     h1: "Base64 Decoder",
     intro:
       "Decode Base64 into UTF-8 text. Invalid Base64 or non-UTF-8 payloads produce a clear error instead of corrupted silent output.",
@@ -1368,9 +1368,9 @@ export const developerTools: ToolDefinition[] = [
       "regex-generator",
       "find-and-replace",
     ],
-    seoTitle: "URL Encoder — Encode URL Components Online | ToolMyra",
+    seoTitle: "URL Encoder — Encode URL Components Online | Tool Base",
     seoDescription:
-      "Encode URL components online with ToolMyra. Apply percent-encoding with clear URI component or full URI modes.",
+      "Encode URL components online with Tool Base. Apply percent-encoding with clear URI component or full URI modes.",
     h1: "URL Encoder",
     intro:
       "Percent-encode text for safe use in URLs. Choose URI component mode for values, or full URI mode when encoding a broader URL string.",
@@ -1444,9 +1444,9 @@ export const developerTools: ToolDefinition[] = [
       "find-and-replace",
       "text-cleaner",
     ],
-    seoTitle: "URL Decoder — Decode URL Encoding Online | ToolMyra",
+    seoTitle: "URL Decoder — Decode URL Encoding Online | Tool Base",
     seoDescription:
-      "Decode percent-encoded text online with ToolMyra. Convert sequences like %20 into readable characters safely.",
+      "Decode percent-encoded text online with Tool Base. Convert sequences like %20 into readable characters safely.",
     h1: "URL Decoder",
     intro:
       "Decode percent-encoded text such as %20 back into readable characters. Malformed sequences produce a clear error instead of crashing.",
@@ -1524,9 +1524,9 @@ export const developerTools: ToolDefinition[] = [
       "base64-encoder",
       "markdown-to-html",
     ],
-    seoTitle: "HTML Entity Encoder — Escape HTML Characters | ToolMyra",
+    seoTitle: "HTML Entity Encoder — Escape HTML Characters | Tool Base",
     seoDescription:
-      "Encode HTML entities online with ToolMyra. Escape characters like <, >, and & for safe HTML source use.",
+      "Encode HTML entities online with Tool Base. Escape characters like <, >, and & for safe HTML source use.",
     h1: "HTML Entity Encoder",
     intro:
       "Convert special characters into HTML entities such as &lt; and &amp;. The result is shown as source text and is never rendered as HTML.",

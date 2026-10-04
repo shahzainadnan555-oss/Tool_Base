@@ -8,11 +8,11 @@ interface FilePrivacyNoticeProps {
 const copy: Record<ProcessingMode, { title: string; body: string }> = {
   browser: {
     title: "On-device processing",
-    body: "This tool is designed to process your input in the browser on your device. Your source file is not uploaded to ToolMyra servers to complete the operation. The page may still load ToolMyra assets or tool runtimes over the network.",
+    body: "This tool is designed to process your input in the browser on your device. Your source file is not uploaded to Tool Base servers to complete the operation. The page may still load Tool Base assets or tool runtimes over the network.",
   },
   server: {
     title: "File Processing",
-    body: "This tool processes files on ToolMyra servers. Uploaded files are used only to complete the requested operation. Retention and deletion details are documented for each server-based tool.",
+    body: "This tool processes files on Tool Base servers. Uploaded files are used only to complete the requested operation. Retention and deletion details are documented for each server-based tool.",
   },
   hybrid: {
     title: "File Processing",

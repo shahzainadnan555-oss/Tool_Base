@@ -18,7 +18,7 @@ export function ExamplesBlock({
         {examples.map((example) => (
           <article
             key={example.title}
-            className="rounded-2xl border border-tm-border bg-white p-5"
+            className="rounded-2xl border border-tm-border bg-tm-white p-5"
           >
             <h3 className="tm-h3">{example.title}</h3>
             {example.description ? (

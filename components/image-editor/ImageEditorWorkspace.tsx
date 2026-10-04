@@ -235,7 +235,7 @@ export function ImageEditorWorkspace({
 
       {(stage === "ready" || stage === "processing") && selected ? (
         <>
-          <div className="rounded-3xl border border-tm-border bg-white p-5">
+          <div className="rounded-3xl border border-tm-border bg-tm-white p-5">
             <div className="grid gap-5 md:grid-cols-[240px_1fr]">
               <div className="flex min-h-48 items-center justify-center overflow-hidden rounded-2xl border border-tm-border bg-[linear-gradient(45deg,#e2e8f0_25%,transparent_25%),linear-gradient(-45deg,#e2e8f0_25%,transparent_25%),linear-gradient(45deg,transparent_75%,#e2e8f0_75%),linear-gradient(-45deg,transparent_75%,#e2e8f0_75%)] bg-size-[16px_16px] bg-position-[0_0,0_8px,8px_-8px,-8px_0] bg-tm-soft p-3">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -630,7 +630,7 @@ export function ImageEditorWorkspace({
       ) : null}
 
       {stage === "done" && selected && result ? (
-        <div className="space-y-5 rounded-3xl border border-tm-border bg-white p-5 md:p-6">
+        <div className="space-y-5 rounded-3xl border border-tm-border bg-tm-white p-5 md:p-6">
           <h3 className="text-xl font-extrabold text-tm-text">
             {config.kind === "metadata-viewer"
               ? "Image metadata"
@@ -731,7 +731,7 @@ export function ImageEditorWorkspace({
               </div>
               <div>
                 <p className="mb-2 text-sm font-bold text-tm-muted">Result</p>
-                <div className="flex min-h-56 items-center justify-center rounded-2xl border border-tm-border bg-[linear-gradient(45deg,#e2e8f0_25%,transparent_25%),linear-gradient(-45deg,#e2e8f0_25%,transparent_25%),linear-gradient(45deg,transparent_75%,#e2e8f0_75%),linear-gradient(-45deg,transparent_75%,#e2e8f0_75%)] bg-[length:16px_16px] bg-white p-3 md:min-h-72">
+                <div className="flex min-h-56 items-center justify-center rounded-2xl border border-tm-border bg-[linear-gradient(45deg,#e2e8f0_25%,transparent_25%),linear-gradient(-45deg,#e2e8f0_25%,transparent_25%),linear-gradient(45deg,transparent_75%,#e2e8f0_75%),linear-gradient(-45deg,transparent_75%,#e2e8f0_75%)] bg-[length:16px_16px] bg-tm-white p-3 md:min-h-72">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={result.previewUrl}

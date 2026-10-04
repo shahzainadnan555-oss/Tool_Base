@@ -61,7 +61,7 @@ export function ToolsDirectory({
 
   return (
     <div>
-      <div className="rounded-3xl border border-tm-border bg-white p-4 md:p-5">
+      <div className="rounded-3xl border border-tm-border bg-tm-white p-4 md:p-5">
         <div className="grid gap-3 lg:grid-cols-[1.4fr_1fr_1fr]">
           <div>
             <label htmlFor="tools-search" className="mb-2 block text-sm font-bold text-tm-text">

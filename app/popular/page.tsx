@@ -8,7 +8,7 @@ import { getPopularTools, sortToolsAz } from "@/lib/tools/registry";
 export const metadata: Metadata = createPageMetadata({
   title: "Popular Online Tools",
   description:
-    "Explore popular free online tools on ToolMyra, including image converters, compressors, PDF utilities, audio tools, and everyday calculators.",
+    "Explore popular free online tools on Tool Base, including image converters, compressors, PDF utilities, audio tools, and everyday calculators.",
   path: "/popular",
 });
 
@@ -21,7 +21,7 @@ export default function PopularToolsPage() {
       <header className="max-w-3xl">
         <h1 className="tm-h1">Popular Online Tools</h1>
         <p className="tm-lead mt-4">
-          Start with ToolMyra’s most commonly useful utilities for converting files,
+          Start with Tool Base’s most commonly useful utilities for converting files,
           compressing media, formatting content, and completing everyday digital tasks.
         </p>
       </header>

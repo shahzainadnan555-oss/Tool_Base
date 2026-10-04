@@ -27,14 +27,14 @@ export async function generateMetadata({
   if (!category) {
     return createPageMetadata({
       title: "Category Not Found",
-      description: "The requested ToolMyra category could not be found.",
+      description: "The requested Tool Base category could not be found.",
       path: `/categories/${slug}`,
       noIndex: true,
     });
   }
 
   return createPageMetadata({
-    title: category.seoTitle.replace(" | ToolMyra", ""),
+    title: category.seoTitle.replace(" | Tool Base", ""),
     description: category.seoDescription,
     path: category.route,
   });
@@ -86,7 +86,7 @@ export default async function CategoryPage({
         <section className="mt-12 max-w-3xl">
           <h2 className="tm-h2">Related categories</h2>
           <p className="mt-3 text-base font-medium text-tm-muted">
-            Explore neighboring ToolMyra categories for related workflows.
+            Explore neighboring Tool Base categories for related workflows.
           </p>
           <ul className="mt-4 flex flex-wrap gap-3">
             {categories
@@ -96,7 +96,7 @@ export default async function CategoryPage({
                 <li key={item.id}>
                   <Link
                     href={item.route}
-                    className="inline-flex rounded-xl border border-tm-border bg-white px-3 py-2 text-sm font-bold text-tm-text transition-colors hover:border-tm-accent hover:text-tm-accent"
+                    className="inline-flex rounded-xl border border-tm-border bg-tm-white px-3 py-2 text-sm font-bold text-tm-text transition-colors hover:border-tm-accent hover:text-tm-accent"
                   >
                     {item.name}
                   </Link>
