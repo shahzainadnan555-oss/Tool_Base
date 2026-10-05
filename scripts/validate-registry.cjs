@@ -19,6 +19,8 @@ const TOOL_FILES = [
   "lib/tools/developer-tools.ts",
   "lib/tools/security-tools.ts",
   "lib/tools/calculator-tools.ts",
+  "lib/tools/specialized-calculator-tools.ts",
+  "lib/tools/generator-tools.ts",
 ];
 
 const CATEGORIES = [
@@ -31,6 +33,8 @@ const CATEGORIES = [
   "developer-tools",
   "security-encoding",
   "calculators-converters",
+  "specialized-calculators",
+  "generators",
 ];
 
 const REQUIRED_FIELDS = [
@@ -82,8 +86,11 @@ const errors = [];
 for (const file of TOOL_FILES) {
   const src = fs.readFileSync(path.join(ROOT, file), "utf8");
   const blocks = extractToolBlocks(src);
-  if (blocks.length !== 20) {
-    errors.push(`${file}: expected 20 tools, found ${blocks.length}`);
+  let expected = 20;
+  if (file.includes("specialized-calculator-tools")) expected = 9;
+  if (file.includes("generator-tools")) expected = 1;
+  if (blocks.length !== expected) {
+    errors.push(`${file}: expected ${expected} tools, found ${blocks.length}`);
   }
   for (const block of blocks) {
     const tool = {};
@@ -102,7 +109,7 @@ for (const file of TOOL_FILES) {
   }
 }
 
-assert.strictEqual(tools.length, 200, `expected 200 tools, got ${tools.length}`);
+assert.strictEqual(tools.length, 210, `expected 210 tools, got ${tools.length}`);
 
 const dup = (arr) => [...new Set(arr.filter((v, i) => arr.indexOf(v) !== i))];
 for (const id of dup(ids)) errors.push(`duplicate id: ${id}`);
@@ -145,6 +152,10 @@ for (const file of TOOL_FILES) {
   // imageConverterTools style
 }
 assert.ok(registry.includes("...calculatorTools"), "registry missing calculatorTools");
+assert.ok(registry.includes("...specializedCalculatorTools"), "registry missing specializedCalculatorTools");
+assert.ok(registry.includes("...generatorTools"), "registry missing generatorTools");
+assert.ok(!registry.includes("blox-fruits"), "Blox Fruits calculator must not be registered");
+assert.ok(!/dose-calculator/i.test(registry), "dose calculator must not be registered");
 assert.ok(registry.includes("...securityTools"), "registry missing securityTools");
 assert.ok(!/tool\(\{\s*id:/.test(registry), "registry should not contain inline tool stubs");
 

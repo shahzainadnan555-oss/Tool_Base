@@ -13,6 +13,7 @@
     "check:adsense-readiness": "node scripts/check-adsense-readiness.cjs",
     "validate": "npm run validate:registry && npm run validate:production && npm run typecheck && npm run lint",
     "smoke:calculators": "node scripts/smoke-calculator-tools.cjs",
+    "smoke:specialized": "node scripts/smoke-specialized-calculators.cjs",
     "postinstall": "node scripts/copy-ffmpeg-assets.cjs"
   },
   "dependencies": {

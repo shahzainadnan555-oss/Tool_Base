@@ -8,7 +8,7 @@ import { getToolsByCategory } from "@/lib/tools/registry";
 export const metadata: Metadata = createPageMetadata({
   title: "Tool Categories — Image, PDF, Audio, Video & More",
   description:
-    "Explore Tool Base categories including image tools, PDF tools, audio tools, video tools, text tools, developer utilities, security tools, and calculators.",
+    "Explore Tool Base categories including image tools, PDF tools, audio tools, video tools, text tools, developer utilities, security tools, calculators, and generators.",
   path: "/categories",
 });
 

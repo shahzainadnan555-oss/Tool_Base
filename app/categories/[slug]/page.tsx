@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { ToolsDirectory } from "@/components/tools/ToolsDirectory";
+import { ToolGrid } from "@/components/tools/ToolGrid";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { createPageMetadata } from "@/lib/seo/metadata";
 import { breadcrumbJsonLd } from "@/lib/seo/structured-data";
@@ -12,6 +13,7 @@ import {
   getCategoryBySlug,
 } from "@/lib/tools/categories";
 import { getToolsByCategory } from "@/lib/tools/registry";
+import type { ToolDefinition } from "@/lib/tools/types";
 
 export function generateStaticParams() {
   return getAllCategorySlugs().map((slug) => ({ slug }));
@@ -76,11 +78,15 @@ export default async function CategoryPage({
           </p>
         </header>
         <div className="mt-8">
-          <ToolsDirectory
-            tools={tools}
-            initialCategory={category.id}
-            headingId="category-tools"
-          />
+          {category.id === "specialized-calculators" ? (
+            <SpecializedCalculatorGroups tools={tools} />
+          ) : (
+            <ToolsDirectory
+              tools={tools}
+              initialCategory={category.id}
+              headingId="category-tools"
+            />
+          )}
         </div>
 
         <section className="mt-12 max-w-3xl">
@@ -106,5 +112,44 @@ export default async function CategoryPage({
         </section>
       </div>
     </>
+  );
+}
+
+const SPECIALIZED_GROUPS = [
+  { title: "Auto & Insurance", slugs: ["totaled-car-value-calculator"] },
+  { title: "Property & Tax", slugs: ["capital-gains-tax-calculator-on-sale-of-property"] },
+  {
+    title: "Education",
+    slugs: [
+      "middle-school-gpa-calculator",
+      "ap-chem-score-calculator",
+      "ap-bio-score-calculator",
+      "ap-calc-bc-score-calculator",
+      "ap-lit-score-calculator",
+    ],
+  },
+  { title: "Retirement & Finance", slugs: ["retirement-calculator-dave-ramsey"] },
+  { title: "Home Services", slugs: ["tree-removal-cost-calculator"] },
+] as const;
+
+function SpecializedCalculatorGroups({ tools }: { tools: ToolDefinition[] }) {
+  const bySlug = new Map(tools.map((tool) => [tool.slug, tool]));
+  return (
+    <div id="category-tools" className="space-y-10">
+      {SPECIALIZED_GROUPS.map((group) => {
+        const groupTools = group.slugs
+          .map((slug) => bySlug.get(slug))
+          .filter((tool): tool is ToolDefinition => Boolean(tool));
+        if (!groupTools.length) return null;
+        return (
+          <section key={group.title}>
+            <h2 className="tm-h2">{group.title}</h2>
+            <div className="mt-4">
+              <ToolGrid tools={groupTools} />
+            </div>
+          </section>
+        );
+      })}
+    </div>
   );
 }

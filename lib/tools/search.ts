@@ -29,11 +29,19 @@ export function searchTools(query: string, limit = 50): SearchResult[] {
 
   const results: SearchResult[] = [];
 
+  const normalizedQuery = normalize(query);
+
   for (const tool of getAllTools()) {
     const haystacks: Array<{ label: string; value: string; weight: number }> = [
       { label: "name", value: tool.name, weight: 12 },
       { label: "slug", value: tool.slug.replace(/-/g, " "), weight: 10 },
       { label: "keywords", value: tool.keywords.join(" "), weight: 8 },
+      { label: "aliases", value: (tool.aliases ?? []).join(" "), weight: 9 },
+      {
+        label: "exactPrimaryKeyword",
+        value: tool.exactPrimaryKeyword ?? "",
+        weight: 16,
+      },
       { label: "category", value: categoryNameById.get(tool.category) ?? "", weight: 6 },
       { label: "shortDescription", value: tool.shortDescription, weight: 4 },
       { label: "description", value: tool.description, weight: 3 },
@@ -46,6 +54,14 @@ export function searchTools(query: string, limit = 50): SearchResult[] {
 
     let score = 0;
     const matchedOn = new Set<string>();
+
+    if (tool.exactPrimaryKeyword && normalize(tool.exactPrimaryKeyword) === normalizedQuery) {
+      score += 80;
+      matchedOn.add("exactPrimaryKeyword");
+    } else if (tool.keywords.some((keyword) => normalize(keyword) === normalizedQuery)) {
+      score += 60;
+      matchedOn.add("keywords");
+    }
 
     for (const token of tokens) {
       let tokenMatched = false;

@@ -7,7 +7,9 @@ export type CategoryId =
   | "text-tools"
   | "developer-tools"
   | "security-encoding"
-  | "calculators-converters";
+  | "calculators-converters"
+  | "specialized-calculators"
+  | "generators";
 
 export type ProcessingMode = "browser" | "server" | "hybrid" | "unspecified";
 
@@ -34,6 +36,10 @@ export interface ToolDefinition {
   name: string;
   slug: string;
   category: CategoryId;
+  subcategory?: string;
+  tags?: string[];
+  exactPrimaryKeyword?: string;
+  aliases?: string[];
   description: string;
   shortDescription: string;
   icon: string;

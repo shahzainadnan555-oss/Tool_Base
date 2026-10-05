@@ -9,6 +9,8 @@ import { textTools } from "./text-tools";
 import { developerTools } from "./developer-tools";
 import { securityTools } from "./security-tools";
 import { calculatorTools } from "./calculator-tools";
+import { specializedCalculatorTools } from "./specialized-calculator-tools";
+import { generatorTools } from "./generator-tools";
 
 /**
  * Central Tool Base tool registry.
@@ -26,6 +28,8 @@ export const tools: ToolDefinition[] = [
   ...developerTools,
   ...securityTools,
   ...calculatorTools,
+  ...specializedCalculatorTools,
+  ...generatorTools,
 ];
 
 export function getAllTools(): ToolDefinition[] {
@@ -41,6 +45,13 @@ export function getToolById(id: string): ToolDefinition | undefined {
 }
 
 export function getToolsByCategory(categoryId: string): ToolDefinition[] {
+  if (categoryId === "calculators-converters") {
+    return tools.filter(
+      (item) =>
+        item.category === "calculators-converters" ||
+        item.category === "specialized-calculators",
+    );
+  }
   return tools.filter((item) => item.category === categoryId);
 }
 

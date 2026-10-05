@@ -143,8 +143,40 @@ export const categories: CategoryDefinition[] = [
       "Free online calculators and converters from Tool Base. Calculate percentages, convert units, and handle everyday math and conversion tasks.",
     h1: "Calculators & Converters",
     intro:
-      "Quick calculators and converters for percentages, units, dates, ages, storage, time, and other everyday measurements. Results follow the formulas shown on each tool page and should be verified before important use.",
+      "Quick calculators and converters for percentages, units, dates, ages, storage, time, and other everyday measurements. Specialized Calculators for insurance, tax, GPA, AP scores, retirement, and home-service estimates live in this parent group as well. Results follow the formulas shown on each tool page and should be verified before important use.",
     route: "/categories/calculators-converters",
+  },
+  {
+    id: "specialized-calculators",
+    name: "Specialized Calculators",
+    slug: "specialized-calculators",
+    description:
+      "Focused estimators for totaled-car value, property capital gains, GPA, AP scores, retirement projections, and tree-removal costs.",
+    shortDescription: "Specialized estimates for auto, tax, school, and home.",
+    icon: "calculator",
+    seoTitle: "Specialized Calculators — Auto, Tax, AP, Retirement | Tool Base",
+    seoDescription:
+      "Free specialized calculators from Tool Base. Estimate totaled-car value, capital gains on a property sale, GPA, AP scores, retirement savings, and tree-removal cost.",
+    h1: "Specialized Calculators",
+    intro:
+      "Specialized Calculators sit under the Calculators & Converters parent group. Each tool is an estimator for a specific search task — auto insurance math, property capital gains, middle-school GPA, AP section scoring, retirement compounding, or tree-removal budgeting. Results use the inputs and assumptions you provide and are not official determinations from an insurer, tax authority, College Board, or contractor.",
+    route: "/categories/specialized-calculators",
+  },
+  {
+    id: "generators",
+    name: "Generators",
+    slug: "generators",
+    description:
+      "Generate temporary-looking test emails, identifiers, and related synthetic values for development and examples.",
+    shortDescription: "Generate test emails and related values.",
+    icon: "text",
+    seoTitle: "Generators — Temporary Email & More | Tool Base",
+    seoDescription:
+      "Free generator tools from Tool Base. Create temporary-looking email addresses and related synthetic values for testing and examples.",
+    h1: "Generators",
+    intro:
+      "Generator tools create synthetic values for testing, mockups, and development. The Temporary Email Generator produces a temporary-looking address only — it does not provide an inbox or receive email.",
+    route: "/categories/generators",
   },
 ];
 

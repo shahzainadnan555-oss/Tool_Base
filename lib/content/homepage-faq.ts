@@ -20,7 +20,7 @@ export const homepageFaq: ToolFaq[] = [
   {
     question: "What types of tools does Tool Base provide?",
     answer:
-      "Tool Base includes image tools, PDF tools, audio tools, video tools, text tools, developer utilities, security and encoding tools, and calculators and converters — with more tools added over time.",
+      "Tool Base includes image tools, PDF tools, audio tools, video tools, text tools, developer utilities, security and encoding tools, calculators and converters, and generators — with more tools added over time.",
   },
   {
     question: "Can I use Tool Base on my phone?",

@@ -32,7 +32,12 @@ export function ToolsDirectory({
     let list = tools;
 
     if (category !== "all") {
-      list = list.filter((tool) => tool.category === category);
+      list = list.filter(
+        (tool) =>
+          tool.category === category ||
+          (category === "calculators-converters" &&
+            tool.category === "specialized-calculators"),
+      );
     }
 
     if (query.trim()) {

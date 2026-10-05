@@ -25,6 +25,9 @@ export const calculatorsGuide: BlogPost = {
     "length-converter",
     "vat-tax-calculator",
     "date-difference-calculator",
+    "totaled-car-value-calculator",
+    "capital-gains-tax-calculator-on-sale-of-property",
+    "middle-school-gpa-calculator",
   ],
   relatedArticleIds: [
     "developer-and-text-tools-guide",
@@ -85,6 +88,11 @@ export const calculatorsGuide: BlogPost = {
     {
       type: "p",
       text: "Time-zone conversion uses IANA timezone data in the browser when the tool says so. DST gaps and overlaps can still surprise you around transition hours. The [[time-zone-converter|time zone converter]] is for civil time, not for stopwatch physics. Always include the date: 09:00 in America/New_York is a different offset in July than in January.",
+    },
+    { type: "h2", text: "Specialized Calculators" },
+    {
+      type: "p",
+      text: "Some questions need a dedicated estimator rather than a generic percentage tool. The [[totaled-car-value-calculator|totaled car value calculator]] models vehicle value minus deductible. The [[capital-gains-tax-calculator-on-sale-of-property|capital gains tax calculator on sale of property]] uses the rate you enter. Students can try the [[middle-school-gpa-calculator|middle school gpa calculator]] or AP score estimators such as the [[ap-chem-score-calculator|ap chem score calculator]]. Retirement compounding lives on the [[retirement-calculator-dave-ramsey|retirement calculator dave ramsey]] page as an independent Tool Base projection, and site work can start with the [[tree-removal-cost-calculator|tree removal cost calculator]]. Those pages label estimates clearly; they are not official insurance, tax, College Board, or contractor results.",
     },
     { type: "h2", text: "How to Avoid Wrong Answers" },
     {
