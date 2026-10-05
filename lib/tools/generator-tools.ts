@@ -1,4 +1,5 @@
 import type { ToolDefinition } from "./types";
+import { contentGeneratorTools } from "./content-generator-tools";
 
 function tool(
   partial: Omit<ToolDefinition, "route" | "status"> & {
@@ -119,6 +120,7 @@ export const generatorTools: ToolDefinition[] = [
       },
     ],
   }),
+  ...contentGeneratorTools,
 ];
 
 export function isGeneratorToolSlug(slug: string): boolean {

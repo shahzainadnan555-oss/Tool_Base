@@ -167,15 +167,15 @@ export const categories: CategoryDefinition[] = [
     name: "Generators",
     slug: "generators",
     description:
-      "Generate temporary-looking test emails, identifiers, and related synthetic values for development and examples.",
-    shortDescription: "Generate test emails and related values.",
+      "Generate usernames, titles, CSS, meta tags, robots.txt, sitemaps, mock data, cron expressions, and more in your browser.",
+    shortDescription: "Generate text, CSS, SEO, and test data.",
     icon: "text",
-    seoTitle: "Generators — Temporary Email & More | Tool Base",
+    seoTitle: "Generators — Email, CSS, SEO & Data Tools | Tool Base",
     seoDescription:
-      "Free generator tools from Tool Base. Create temporary-looking email addresses and related synthetic values for testing and examples.",
+      "Free generator tools from Tool Base. Create temporary emails, usernames, CSS, meta tags, robots.txt, sitemaps, mock data, and cron expressions.",
     h1: "Generators",
     intro:
-      "Generator tools create synthetic values for testing, mockups, and development. The Temporary Email Generator produces a temporary-looking address only — it does not provide an inbox or receive email.",
+      "Generator tools create synthetic values for testing, mockups, content ideas, CSS snippets, SEO files, and developer fixtures. Outputs are generated locally in your browser. The Temporary Email Generator produces a temporary-looking address only — it does not provide an inbox or receive email.",
     route: "/categories/generators",
   },
 ];

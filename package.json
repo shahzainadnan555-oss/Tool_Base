@@ -14,6 +14,7 @@
     "validate": "npm run validate:registry && npm run validate:production && npm run typecheck && npm run lint",
     "smoke:calculators": "node scripts/smoke-calculator-tools.cjs",
     "smoke:specialized": "node scripts/smoke-specialized-calculators.cjs",
+    "smoke:generators": "node scripts/smoke-content-generators.cjs",
     "postinstall": "node scripts/copy-ffmpeg-assets.cjs"
   },
   "dependencies": {

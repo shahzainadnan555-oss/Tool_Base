@@ -12,7 +12,7 @@ import { getDeveloperToolConfig } from "@/lib/developer/configs";
 import { getSecurityToolConfig } from "@/lib/security/configs";
 import { getCalculatorToolConfig } from "@/lib/calculator/configs";
 import { getSpecializedCalculatorConfig } from "@/lib/specialized-calculators";
-import { isGeneratorToolSlug } from "@/lib/tools/generator-tools";
+import { getGeneratorToolConfig } from "@/lib/generators/configs";
 import type { ToolDefinition } from "@/lib/tools/types";
 import { LoadingState } from "@/components/ui/LoadingState";
 
@@ -134,6 +134,14 @@ const TemporaryEmailWorkspace = dynamic(
   { ssr: false },
 );
 
+const GeneratorWorkspace = dynamic(
+  () =>
+    import("@/components/generators/GeneratorWorkspace").then(
+      (mod) => mod.GeneratorWorkspace,
+    ),
+  { ssr: false },
+);
+
 interface ToolWorkspaceProps {
   tool: ToolDefinition;
 }
@@ -237,8 +245,18 @@ export function ToolWorkspace({ tool }: ToolWorkspaceProps) {
     );
   }
 
-  if (isGeneratorToolSlug(tool.slug) && tool.slug === "temporary-email-generator") {
+  if (tool.slug === "temporary-email-generator") {
     return <TemporaryEmailWorkspace convertHeading={tool.convertHeading} />;
+  }
+
+  const generatorConfig = getGeneratorToolConfig(tool.slug);
+  if (generatorConfig) {
+    return (
+      <GeneratorWorkspace
+        config={generatorConfig}
+        convertHeading={tool.convertHeading}
+      />
+    );
   }
 
   return null;
