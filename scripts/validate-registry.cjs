@@ -22,6 +22,7 @@ const TOOL_FILES = [
   "lib/tools/specialized-calculator-tools.ts",
   "lib/tools/generator-tools.ts",
   "lib/tools/content-generator-tools.ts",
+  "lib/tools/typing-tools.ts",
 ];
 
 const CATEGORIES = [
@@ -36,6 +37,7 @@ const CATEGORIES = [
   "calculators-converters",
   "specialized-calculators",
   "generators",
+  "typing-productivity",
 ];
 
 const REQUIRED_FIELDS = [
@@ -91,6 +93,7 @@ for (const file of TOOL_FILES) {
   if (file.includes("specialized-calculator-tools")) expected = 9;
   if (file.endsWith("generator-tools.ts")) expected = 1;
   if (file.endsWith("content-generator-tools.ts")) expected = 20;
+  if (file.endsWith("typing-tools.ts")) expected = 1;
   if (blocks.length !== expected) {
     errors.push(`${file}: expected ${expected} tools, found ${blocks.length}`);
   }
@@ -111,7 +114,7 @@ for (const file of TOOL_FILES) {
   }
 }
 
-assert.strictEqual(tools.length, 230, `expected 230 tools, got ${tools.length}`);
+assert.strictEqual(tools.length, 231, `expected 231 tools, got ${tools.length}`);
 
 const dup = (arr) => [...new Set(arr.filter((v, i) => arr.indexOf(v) !== i))];
 for (const id of dup(ids)) errors.push(`duplicate id: ${id}`);
@@ -156,6 +159,7 @@ for (const file of TOOL_FILES) {
 assert.ok(registry.includes("...calculatorTools"), "registry missing calculatorTools");
 assert.ok(registry.includes("...specializedCalculatorTools"), "registry missing specializedCalculatorTools");
 assert.ok(registry.includes("...generatorTools"), "registry missing generatorTools");
+assert.ok(registry.includes("...typingTools"), "registry missing typingTools");
 assert.ok(
   fs.readFileSync(path.join(ROOT, "lib/tools/generator-tools.ts"), "utf8").includes("contentGeneratorTools"),
   "generator-tools must include contentGeneratorTools",

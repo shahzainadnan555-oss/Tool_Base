@@ -178,6 +178,22 @@ export const categories: CategoryDefinition[] = [
       "Generator tools create synthetic values for testing, mockups, content ideas, CSS snippets, SEO files, and developer fixtures. Outputs are generated locally in your browser. The Temporary Email Generator produces a temporary-looking address only — it does not provide an inbox or receive email.",
     route: "/categories/generators",
   },
+  {
+    id: "typing-productivity",
+    name: "Typing & Productivity",
+    slug: "typing-productivity",
+    description:
+      "Practice typing speed and accuracy with focused browser-based productivity tools.",
+    shortDescription: "Typing speed tests and productivity practice.",
+    icon: "text",
+    seoTitle: "Typing & Productivity — WPM Tests Online | Tool Base",
+    seoDescription:
+      "Free typing and productivity tools from Tool Base. Take a typing speed test and measure WPM, accuracy, raw speed, and errors.",
+    h1: "Typing & Productivity",
+    intro:
+      "Typing & Productivity tools help you practice keyboard speed and accuracy in the browser. The Typing Speed Test measures words per minute with clear timing and error rules — no account required.",
+    route: "/categories/typing-productivity",
+  },
 ];
 
 export function getCategoryById(id: CategoryId): CategoryDefinition | undefined {

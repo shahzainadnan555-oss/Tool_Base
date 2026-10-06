@@ -9,7 +9,8 @@ export type CategoryId =
   | "security-encoding"
   | "calculators-converters"
   | "specialized-calculators"
-  | "generators";
+  | "generators"
+  | "typing-productivity";
 
 export type ProcessingMode = "browser" | "server" | "hybrid" | "unspecified";
 
@@ -66,6 +67,8 @@ export interface ToolDefinition {
   howToHeading?: string;
   featuresHeading?: string;
   supportedFormatsHeading?: string;
+  tipsHeading?: string;
+  tips?: string[];
   relatedToolsHeading?: string;
   /** Hide report UI for focused converter experiences */
   hideReport?: boolean;

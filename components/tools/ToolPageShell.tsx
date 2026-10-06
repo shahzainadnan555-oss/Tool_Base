@@ -97,6 +97,22 @@ export function ToolPageShell({ tool, workspace }: ToolPageShellProps) {
 
         {tool.examples?.length ? <ExamplesBlock examples={tool.examples} /> : null}
 
+        {tool.tipsHeading && tool.tips?.length ? (
+          <section>
+            <h2 className="tm-h2">{tool.tipsHeading}</h2>
+            <ul className="mt-6 grid gap-3 md:grid-cols-2">
+              {tool.tips.map((tip) => (
+                <li
+                  key={tip}
+                  className="rounded-xl border border-tm-border bg-tm-white px-4 py-3 text-sm font-semibold text-tm-text"
+                >
+                  {tip}
+                </li>
+              ))}
+            </ul>
+          </section>
+        ) : null}
+
         <FAQ items={tool.faq} />
 
         <RelatedTools tool={tool} heading={tool.relatedToolsHeading} />

@@ -13,6 +13,7 @@ import { getSecurityToolConfig } from "@/lib/security/configs";
 import { getCalculatorToolConfig } from "@/lib/calculator/configs";
 import { getSpecializedCalculatorConfig } from "@/lib/specialized-calculators";
 import { getGeneratorToolConfig } from "@/lib/generators/configs";
+import { isTypingToolSlug } from "@/lib/tools/typing-tools";
 import type { ToolDefinition } from "@/lib/tools/types";
 import { LoadingState } from "@/components/ui/LoadingState";
 
@@ -142,6 +143,14 @@ const GeneratorWorkspace = dynamic(
   { ssr: false },
 );
 
+const TypingSpeedTestWorkspace = dynamic(
+  () =>
+    import("@/components/typing/TypingSpeedTestWorkspace").then(
+      (mod) => mod.TypingSpeedTestWorkspace,
+    ),
+  { ssr: false },
+);
+
 interface ToolWorkspaceProps {
   tool: ToolDefinition;
 }
@@ -257,6 +266,10 @@ export function ToolWorkspace({ tool }: ToolWorkspaceProps) {
         convertHeading={tool.convertHeading}
       />
     );
+  }
+
+  if (isTypingToolSlug(tool.slug) && tool.slug === "typing-speed-test") {
+    return <TypingSpeedTestWorkspace convertHeading={tool.convertHeading} />;
   }
 
   return null;

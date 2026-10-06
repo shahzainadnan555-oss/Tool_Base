@@ -23,6 +23,7 @@ import { isSecurityToolSlug } from "@/lib/security/configs";
 import { isCalculatorToolSlug } from "@/lib/calculator/configs";
 import { isSpecializedCalculatorSlug } from "@/lib/specialized-calculators";
 import { isGeneratorToolSlug } from "@/lib/tools/generator-tools";
+import { isTypingToolSlug } from "@/lib/tools/typing-tools";
 
 export function generateStaticParams() {
   return getAllToolSlugs().map((slug) => ({ slug }));
@@ -74,7 +75,8 @@ export default async function ToolPage({
     isSecurityToolSlug(tool.slug) ||
     isCalculatorToolSlug(tool.slug) ||
     isSpecializedCalculatorSlug(tool.slug) ||
-    isGeneratorToolSlug(tool.slug) ? (
+    isGeneratorToolSlug(tool.slug) ||
+    isTypingToolSlug(tool.slug) ? (
       <ToolWorkspace tool={tool} />
     ) : undefined;
 

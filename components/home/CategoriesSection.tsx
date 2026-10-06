@@ -10,7 +10,7 @@ export function CategoriesSection() {
           <h2 className="tm-h2">Explore Tool Base Categories</h2>
           <p className="tm-lead mt-4">
             Browse free online tools by category — from image and PDF utilities to audio,
-            video, text, developer, security, calculator, and generator tools.
+            video, text, developer, security, calculator, generator, and typing tools.
           </p>
         </div>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
