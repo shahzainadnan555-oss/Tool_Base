@@ -21,7 +21,7 @@ export const contentGeneratorTools: ToolDefinition[] = [
     category: "generators",
     exactPrimaryKeyword: "username generator",
     aliases: ["random username","generate username"],
-    description: "Generate random usernames from adjective/noun patterns, optional numbers, and separators — all in your browser with local word lists.",
+    description: "Generate random usernames from adjective/noun patterns, optional numbers, and separators using local word lists.",
     shortDescription: "Generate random usernames from local word rules.",
     icon: "text",
     keywords: ["username generator","random username generator","username maker"],
@@ -43,7 +43,7 @@ export const contentGeneratorTools: ToolDefinition[] = [
     features: ["Adjective + noun and short styles","Optional numbers and separators","Batch generation with quantity limits","Copy one, copy all, or download TXT","Local word lists — no AI API"],
     howToSteps: [
       { title: "Choose Username Options", description: "Pick style, length, numbers, separator, and quantity." },
-      { title: "Generate Usernames", description: "Create a fresh batch instantly in your browser." },
+      { title: "Generate Usernames", description: "Create a fresh batch instantly." },
       { title: "Copy or Download", description: "Copy results or download a TXT file." },
     ],
     faq: [

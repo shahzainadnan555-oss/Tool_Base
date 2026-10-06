@@ -18,7 +18,10 @@ export type DeveloperToolKind =
   | "base64-decode"
   | "url-encode"
   | "url-decode"
-  | "html-entity-encode";
+  | "html-entity-encode"
+  | "html-entity-decode"
+  | "hex-to-rgb"
+  | "rgb-to-hex";
 
 export type IndentStyle = "2" | "4" | "tab";
 

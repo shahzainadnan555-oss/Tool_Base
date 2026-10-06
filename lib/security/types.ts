@@ -15,9 +15,19 @@ export type SecurityToolKind =
   | "jwt"
   | "timestamp-generate"
   | "timestamp-convert"
-  | "qr";
+  | "qr"
+  | "aes-encrypt"
+  | "aes-decrypt"
+  | "ip-to-binary"
+  | "random-ip";
 
-export type HashAlgorithm = "SHA-256" | "SHA-512" | "MD5" | "SHA-1";
+export type HashAlgorithm =
+  | "SHA-256"
+  | "SHA-512"
+  | "MD5"
+  | "SHA-1"
+  | "SHA-384"
+  | "RIPEMD-160";
 
 export interface SecurityToolConfig {
   slug: string;
@@ -66,6 +76,8 @@ export interface SecurityProcessOptions {
   qrMargin?: number;
   qrDark?: string;
   qrLight?: string;
+  passphrase?: string;
+  ipv4Count?: number;
 }
 
 export interface JwtDecoded {

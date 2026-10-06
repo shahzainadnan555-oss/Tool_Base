@@ -53,7 +53,7 @@ export async function convertHeicFile(
     });
   } catch {
     throw new Error(
-      "We couldn't decode this HEIC/HEIF image in your browser. Please try another file.",
+      "We couldn't decode this HEIC/HEIF image. Please try another file.",
     );
   }
 

@@ -348,6 +348,27 @@ export async function sharpenImage(
   }
 }
 
+async function filterImage(
+  source: EditorImageFile,
+  config: ImageEditorConfig,
+  cssFilter: string,
+): Promise<EditorProcessResult> {
+  const mime = config.forceOutputMime ?? mimeFromFile(source.file, "image/png");
+  const { image, objectUrl, width, height } = await imageFileToCanvas(source.file);
+  try {
+    const canvas = createCanvas(width, height);
+    const ctx = canvas.getContext("2d");
+    if (!ctx) throw new Error("Your browser could not prepare an image canvas.");
+    ctx.filter = cssFilter;
+    ctx.drawImage(image, 0, 0);
+    ctx.filter = "none";
+    const blob = await encodeCanvas(canvas, mime, 0.92);
+    return finalize(blob, config, source, width, height, mime);
+  } finally {
+    URL.revokeObjectURL(objectUrl);
+  }
+}
+
 export async function blurImage(
   source: EditorImageFile,
   config: ImageEditorConfig,
@@ -943,6 +964,10 @@ export async function processEditorImage(
       return removeBackground(source, config, options);
     case "color-picker":
       throw new Error("Color picker does not require processing.");
+    case "invert":
+      return filterImage(source, config, "invert(1)");
+    case "grayscale":
+      return filterImage(source, config, "grayscale(1)");
     default:
       throw new Error("Unsupported image tool.");
   }

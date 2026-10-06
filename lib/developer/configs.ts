@@ -185,6 +185,30 @@ export const developerToolConfigs: Record<string, DeveloperToolConfig> = {
     languageHint: "html",
     notices: ["Encoded text is shown as source only and is never rendered as HTML."],
   }),
+  "html-decode": make("html-decode", "html-entity-decode", {
+    actionLabel: "Decode HTML",
+    downloadName: "decoded-html.txt",
+    inputLabel: "HTML entities",
+    outputLabel: "Decoded text",
+    live: true,
+    languageHint: "html",
+  }),
+  "hex-to-rgb": make("hex-to-rgb", "hex-to-rgb", {
+    actionLabel: "Convert to RGB",
+    downloadName: "rgb.txt",
+    inputLabel: "HEX color",
+    outputLabel: "RGB",
+    live: true,
+    languageHint: "text",
+  }),
+  "rgb-to-hex": make("rgb-to-hex", "rgb-to-hex", {
+    actionLabel: "Convert to HEX",
+    downloadName: "hex.txt",
+    inputLabel: "RGB color",
+    outputLabel: "HEX",
+    live: true,
+    languageHint: "text",
+  }),
 };
 
 export function getDeveloperToolConfig(slug: string): DeveloperToolConfig | undefined {

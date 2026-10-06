@@ -1,3 +1,6 @@
+import { asciiToText, textToAscii } from "@/lib/utilities/ascii";
+import { krutidevToUnicode, unicodeToKrutidev } from "@/lib/utilities/krutidev";
+import { randomizeList, reverseList } from "@/lib/utilities/lists";
 import {
   computeTextStats,
   reverseGraphemes,
@@ -499,6 +502,24 @@ export function processTextTool(
       }
       if (config.slug === "reverse-words") {
         return { output: reverseWordsFn(input), stats };
+      }
+      if (config.slug === "randomize-list") {
+        return { output: randomizeList(input), stats };
+      }
+      if (config.slug === "reverse-list") {
+        return { output: reverseList(input), stats };
+      }
+      if (config.slug === "text-to-ascii") {
+        return { output: textToAscii(input), stats };
+      }
+      if (config.slug === "ascii-to-text") {
+        return { output: asciiToText(input), stats };
+      }
+      if (config.slug === "unicode-to-krutidev") {
+        return { output: unicodeToKrutidev(input), stats };
+      }
+      if (config.slug === "krutidev-to-unicode") {
+        return { output: krutidevToUnicode(input), stats };
       }
       return { output: input, stats };
     }

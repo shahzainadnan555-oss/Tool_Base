@@ -12,6 +12,8 @@ import { calculatorTools } from "./calculator-tools";
 import { specializedCalculatorTools } from "./specialized-calculator-tools";
 import { generatorTools } from "./generator-tools";
 import { typingTools } from "./typing-tools";
+import { expansionTools } from "./expansion-tools";
+import { categoryPackTools } from "./category-pack-tools";
 
 /**
  * Central Tool Base tool registry.
@@ -32,6 +34,8 @@ export const tools: ToolDefinition[] = [
   ...specializedCalculatorTools,
   ...generatorTools,
   ...typingTools,
+  ...expansionTools,
+  ...categoryPackTools,
 ];
 
 export function getAllTools(): ToolDefinition[] {

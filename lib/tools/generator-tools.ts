@@ -54,7 +54,7 @@ export const generatorTools: ToolDefinition[] = [
       "Generate a random temporary-looking email address for testing, examples, and development with Tool Base. This tool does not provide an inbox or receive emails.",
     h1: "Temporary Email Generator",
     intro:
-      "Generate a temporary-looking email address for testing and examples. The Temporary Email Generator creates a synthetic address on a reserved test domain in your browser. It does not create a mailbox, inbox, or email-receiving service.",
+      "Generate a temporary-looking email address for testing and examples. The Temporary Email Generator creates a synthetic address on a reserved test domain. It does not create a mailbox, inbox, or email-receiving service.",
     convertHeading: "Generate a Temporary Email Address",
     howToHeading: "How the Temporary Email Generator Works",
     featuresHeading: "What This Tool Provides",

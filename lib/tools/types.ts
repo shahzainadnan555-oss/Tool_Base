@@ -10,7 +10,9 @@ export type CategoryId =
   | "calculators-converters"
   | "specialized-calculators"
   | "generators"
-  | "typing-productivity";
+  | "typing-productivity"
+  | "design-creative"
+  | "utilities";
 
 export type ProcessingMode = "browser" | "server" | "hybrid" | "unspecified";
 
@@ -86,4 +88,5 @@ export interface CategoryDefinition {
   h1: string;
   intro: string;
   route: string;
+  faq?: ToolFaq[];
 }

@@ -7,8 +7,8 @@ interface FilePrivacyNoticeProps {
 
 const copy: Record<ProcessingMode, { title: string; body: string }> = {
   browser: {
-    title: "On-device processing",
-    body: "This tool is designed to process your input in the browser on your device. Your source file is not uploaded to Tool Base servers to complete the operation. The page may still load Tool Base assets or tool runtimes over the network.",
+    title: "File Processing",
+    body: "Upload a file or enter text, then copy or download the result. No account is required.",
   },
   server: {
     title: "File Processing",
@@ -16,7 +16,7 @@ const copy: Record<ProcessingMode, { title: string; body: string }> = {
   },
   hybrid: {
     title: "File Processing",
-    body: "This tool may use a mix of on-device and server steps depending on the file and operation. The tool page explains what happens during processing.",
+    body: "This tool may use more than one processing step depending on the file and operation. The tool page explains what happens while your result is prepared.",
   },
   unspecified: {
     title: "File Processing",

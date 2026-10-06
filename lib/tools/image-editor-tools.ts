@@ -25,9 +25,12 @@ export const imageEditorTools: ToolDefinition[] = [
     keywords: [
       "image compressor",
       "compress image",
+      "compress jpg",
+      "jpg compressor",
       "image size reducer",
       "reduce image size",
       "compress photo",
+      "convert photo",
     ],
     popular: true,
     new: false,

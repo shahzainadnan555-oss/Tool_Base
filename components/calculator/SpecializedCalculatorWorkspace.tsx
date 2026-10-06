@@ -4,10 +4,14 @@ import { useId, useMemo, useState } from "react";
 import {
   CURRENCIES,
   calculateCapitalGains,
+  calculateCarLoan,
+  calculateFinalGradeNeeded,
   calculateMiddleSchoolGpa,
   calculateRetirement,
+  calculateSalesCommission,
   calculateTotaledCar,
   calculateTreeRemoval,
+  calculateWeightedGrade,
   DEFAULT_GPA_SCALE,
   estimateApScore,
   getApConfig,
@@ -17,6 +21,7 @@ import {
   type GpaCourse,
   type SpecializedCalculatorConfig,
   type SpecializedCalcResult,
+  type WeightedComponent,
 } from "@/lib/specialized-calculators";
 import { copyText as copyClipboard } from "@/lib/calculator/utils";
 
@@ -125,7 +130,25 @@ export function SpecializedCalculatorWorkspace({ config, convertHeading }: Props
     { name: "History", grade: "A", credits: "1" },
   ]);
   const [scaleText, setScaleText] = useState(DEFAULT_SCALE);
-  const [weighted, setWeighted] = useState(false);
+  const [weighted, setWeighted] = useState(Boolean(config.forceWeighted));
+
+  const [components, setComponents] = useState<WeightedComponent[]>([
+    { name: "Homework", score: "88", weight: "20" },
+    { name: "Midterm", score: "82", weight: "30" },
+    { name: "Labs", score: "91", weight: "20" },
+    { name: "Final", score: "85", weight: "30" },
+  ]);
+  const [currentGrade, setCurrentGrade] = useState("84");
+  const [desiredGrade, setDesiredGrade] = useState("90");
+  const [finalWeight, setFinalWeight] = useState("25");
+  const [loanPrincipal, setLoanPrincipal] = useState("28000");
+  const [loanRate, setLoanRate] = useState("6.5");
+  const [loanMonths, setLoanMonths] = useState("60");
+  const [loanExtra, setLoanExtra] = useState("");
+  const [salesAmount, setSalesAmount] = useState("120000");
+  const [commissionRate, setCommissionRate] = useState("8");
+  const [commissionBonus, setCommissionBonus] = useState("");
+  const [commissionThreshold, setCommissionThreshold] = useState("0");
 
   const apCourse = config.apCourse as ApCourseId | undefined;
   const years = apCourse ? listApYears(apCourse) : [];
@@ -183,9 +206,34 @@ export function SpecializedCalculatorWorkspace({ config, convertHeading }: Props
           error: null,
         };
       }
-      if (config.kind === "middle-school-gpa") {
+      if (config.kind === "middle-school-gpa" || config.kind === "gpa") {
         return {
-          result: calculateMiddleSchoolGpa({ courses, scaleText, weighted }),
+          result: calculateMiddleSchoolGpa({
+            courses,
+            scaleText,
+            weighted: config.forceWeighted ? true : weighted,
+            audienceNote:
+              config.gpaLabel === "college"
+                ? "College GPA uses the credit hours and scale you entered. Registrar policies still govern official GPA."
+                : config.gpaLabel === "high school"
+                  ? "High-school GPA uses the scale you entered. Honors or AP extra points should be in that scale."
+                  : config.gpaLabel === "weighted"
+                    ? "Weighted GPA = sum(points × credits) ÷ sum(credits)."
+                    : undefined,
+          }),
+          error: null,
+        };
+      }
+      if (config.kind === "weighted-grade") {
+        return { result: calculateWeightedGrade(components), error: null };
+      }
+      if (config.kind === "final-grade") {
+        return {
+          result: calculateFinalGradeNeeded({
+            current: currentGrade,
+            desired: desiredGrade,
+            finalWeight,
+          }),
           error: null,
         };
       }
@@ -234,18 +282,45 @@ export function SpecializedCalculatorWorkspace({ config, convertHeading }: Props
           error: null,
         };
       }
-      return {
-        result: calculateTreeRemoval({
-          height,
-          trees: treeCount,
-          access,
-          condition,
-          stump,
-          cleanup,
-          currency,
-        }),
-        error: null,
-      };
+      if (config.kind === "car-loan") {
+        return {
+          result: calculateCarLoan({
+            principal: loanPrincipal,
+            annualRate: loanRate,
+            months: loanMonths,
+            extraPayment: loanExtra,
+            currency,
+          }),
+          error: null,
+        };
+      }
+      if (config.kind === "sales-commission") {
+        return {
+          result: calculateSalesCommission({
+            sales: salesAmount,
+            rate: commissionRate,
+            bonus: commissionBonus,
+            threshold: commissionThreshold,
+            currency,
+          }),
+          error: null,
+        };
+      }
+      if (config.kind === "tree-removal") {
+        return {
+          result: calculateTreeRemoval({
+            height,
+            trees: treeCount,
+            access,
+            condition,
+            stump,
+            cleanup,
+            currency,
+          }),
+          error: null,
+        };
+      }
+      return { result: null, error: null };
     } catch (err) {
       return { result: null, error: err instanceof Error ? err.message : "Check your inputs." };
     }
@@ -288,6 +363,20 @@ export function SpecializedCalculatorWorkspace({ config, convertHeading }: Props
     condition,
     stump,
     cleanup,
+    components,
+    currentGrade,
+    desiredGrade,
+    finalWeight,
+    loanPrincipal,
+    loanRate,
+    loanMonths,
+    loanExtra,
+    salesAmount,
+    commissionRate,
+    commissionBonus,
+    commissionThreshold,
+    config.forceWeighted,
+    config.gpaLabel,
   ]);
 
   function resetAll() {
@@ -315,7 +404,24 @@ export function SpecializedCalculatorWorkspace({ config, convertHeading }: Props
       { name: "History", grade: "A", credits: "1" },
     ]);
     setScaleText(DEFAULT_SCALE);
-    setWeighted(false);
+    setWeighted(Boolean(config.forceWeighted));
+    setComponents([
+      { name: "Homework", score: "88", weight: "20" },
+      { name: "Midterm", score: "82", weight: "30" },
+      { name: "Labs", score: "91", weight: "20" },
+      { name: "Final", score: "85", weight: "30" },
+    ]);
+    setCurrentGrade("84");
+    setDesiredGrade("90");
+    setFinalWeight("25");
+    setLoanPrincipal("28000");
+    setLoanRate("6.5");
+    setLoanMonths("60");
+    setLoanExtra("");
+    setSalesAmount("120000");
+    setCommissionRate("8");
+    setCommissionBonus("");
+    setCommissionThreshold("0");
     setExamYear(apCourse ? getLatestApConfig(apCourse).examYear : 2026);
     setMcCorrect("");
     setFrqEarned("");
@@ -536,13 +642,14 @@ export function SpecializedCalculatorWorkspace({ config, convertHeading }: Props
             </>
           ) : null}
 
-          {config.kind === "middle-school-gpa" ? (
+          {config.kind === "middle-school-gpa" || config.kind === "gpa" ? (
             <>
               <label className="flex items-center gap-2 text-sm font-bold text-tm-text">
                 <input
                   type="checkbox"
                   className="size-4 accent-[var(--tm-accent)]"
-                  checked={weighted}
+                  checked={config.forceWeighted ? true : weighted}
+                  disabled={Boolean(config.forceWeighted)}
                   onChange={(e) => setWeighted(e.target.checked)}
                 />
                 Use credits / weights
@@ -561,7 +668,7 @@ export function SpecializedCalculatorWorkspace({ config, convertHeading }: Props
                     <tr>
                       <th>Course</th>
                       <th>Grade</th>
-                      {weighted ? <th>Credits</th> : null}
+                      {weighted || config.forceWeighted ? <th>Credits</th> : null}
                       <th>
                         <span className="sr-only">Remove</span>
                       </th>
@@ -594,7 +701,7 @@ export function SpecializedCalculatorWorkspace({ config, convertHeading }: Props
                             aria-label={`Course ${index + 1} grade`}
                           />
                         </td>
-                        {weighted ? (
+                        {weighted || config.forceWeighted ? (
                           <td>
                             <input
                               className="tm-input"
@@ -778,6 +885,48 @@ export function SpecializedCalculatorWorkspace({ config, convertHeading }: Props
                   onChange={(e) => setTargetIncome(e.target.value)}
                 />
               </Field>
+            </>
+          ) : null}
+
+          {config.kind === "weighted-grade" ? (
+            <>
+              {components.map((item, index) => (
+                <div key={index} className="grid gap-2 md:grid-cols-4">
+                  <input className="tm-input" value={item.name} aria-label="Component" onChange={(e) => setComponents((rows) => rows.map((row, i) => i === index ? { ...row, name: e.target.value } : row))} />
+                  <input className="tm-input" value={item.score} aria-label="Score" onChange={(e) => setComponents((rows) => rows.map((row, i) => i === index ? { ...row, score: e.target.value } : row))} />
+                  <input className="tm-input" value={item.weight} aria-label="Weight" onChange={(e) => setComponents((rows) => rows.map((row, i) => i === index ? { ...row, weight: e.target.value } : row))} />
+                  <button type="button" className="tm-btn tm-btn-ghost" onClick={() => setComponents((rows) => rows.filter((_, i) => i !== index))}>Remove</button>
+                </div>
+              ))}
+              <button type="button" className="tm-btn tm-btn-secondary" onClick={() => setComponents((rows) => [...rows, { name: "", score: "", weight: "10" }])}>Add component</button>
+            </>
+          ) : null}
+
+          {config.kind === "final-grade" ? (
+            <>
+              <Field id={`${id}-cur`} label="Current grade %"><input id={`${id}-cur`} className="tm-input" value={currentGrade} onChange={(e) => setCurrentGrade(e.target.value)} /></Field>
+              <Field id={`${id}-des`} label="Desired grade %"><input id={`${id}-des`} className="tm-input" value={desiredGrade} onChange={(e) => setDesiredGrade(e.target.value)} /></Field>
+              <Field id={`${id}-fw`} label="Final exam weight %"><input id={`${id}-fw`} className="tm-input" value={finalWeight} onChange={(e) => setFinalWeight(e.target.value)} /></Field>
+            </>
+          ) : null}
+
+          {config.kind === "car-loan" ? (
+            <>
+              {currencySelect}
+              <Field id={`${id}-lp`} label="Loan amount"><input id={`${id}-lp`} className="tm-input" value={loanPrincipal} onChange={(e) => setLoanPrincipal(e.target.value)} /></Field>
+              <Field id={`${id}-lr`} label="Annual interest rate %"><input id={`${id}-lr`} className="tm-input" value={loanRate} onChange={(e) => setLoanRate(e.target.value)} /></Field>
+              <Field id={`${id}-lm`} label="Term (months)"><input id={`${id}-lm`} className="tm-input" value={loanMonths} onChange={(e) => setLoanMonths(e.target.value)} /></Field>
+              <Field id={`${id}-le`} label="Extra monthly principal (optional)"><input id={`${id}-le`} className="tm-input" value={loanExtra} onChange={(e) => setLoanExtra(e.target.value)} /></Field>
+            </>
+          ) : null}
+
+          {config.kind === "sales-commission" ? (
+            <>
+              {currencySelect}
+              <Field id={`${id}-sa`} label="Sales amount"><input id={`${id}-sa`} className="tm-input" value={salesAmount} onChange={(e) => setSalesAmount(e.target.value)} /></Field>
+              <Field id={`${id}-cr`} label="Commission rate %"><input id={`${id}-cr`} className="tm-input" value={commissionRate} onChange={(e) => setCommissionRate(e.target.value)} /></Field>
+              <Field id={`${id}-ct`} label="Threshold (optional)"><input id={`${id}-ct`} className="tm-input" value={commissionThreshold} onChange={(e) => setCommissionThreshold(e.target.value)} /></Field>
+              <Field id={`${id}-cb`} label="Flat bonus (optional)"><input id={`${id}-cb`} className="tm-input" value={commissionBonus} onChange={(e) => setCommissionBonus(e.target.value)} /></Field>
             </>
           ) : null}
 

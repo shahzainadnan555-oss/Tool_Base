@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { CategoriesSection } from "@/components/home/CategoriesSection";
+import { CategoryNav } from "@/components/home/CategoryNav";
+import { CategoryToolSections } from "@/components/home/CategoryToolSections";
 import { ExploreAllSection } from "@/components/home/ExploreAllSection";
 import { FinalCtaSection } from "@/components/home/FinalCtaSection";
 import { Hero } from "@/components/home/Hero";
@@ -39,7 +40,12 @@ export default function HomePage() {
       <Hero />
       <TrustStrip />
       <PopularToolsSection />
-      <CategoriesSection />
+      <CategoryNav />
+      <section className="tm-section bg-tm-white">
+        <div className="tm-container">
+          <CategoryToolSections />
+        </div>
+      </section>
       <WhyToolBaseSection />
       <HowItWorksSection />
       <HomeFaqSection />

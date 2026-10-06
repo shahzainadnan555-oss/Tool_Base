@@ -77,6 +77,14 @@ export default async function CategoryPage({
             {tools.length} {tools.length === 1 ? "tool" : "tools"} in this category
           </p>
         </header>
+        {tools.filter((item) => item.popular).length ? (
+          <section className="mt-10">
+            <h2 className="tm-h2">Featured in {category.name}</h2>
+            <div className="mt-4">
+              <ToolGrid tools={tools.filter((item) => item.popular).slice(0, 8)} />
+            </div>
+          </section>
+        ) : null}
         <div className="mt-8">
           {category.id === "specialized-calculators" ? (
             <SpecializedCalculatorGroups tools={tools} />
@@ -110,6 +118,19 @@ export default async function CategoryPage({
               ))}
           </ul>
         </section>
+        {category.faq?.length ? (
+          <section className="mt-12 max-w-3xl">
+            <h2 className="tm-h2">Frequently asked questions</h2>
+            <dl className="mt-6 space-y-6">
+              {category.faq.map((item) => (
+                <div key={item.question}>
+                  <dt className="text-lg font-black text-tm-text">{item.question}</dt>
+                  <dd className="mt-2 text-base font-medium text-tm-muted">{item.answer}</dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+        ) : null}
       </div>
     </>
   );
@@ -122,13 +143,25 @@ const SPECIALIZED_GROUPS = [
     title: "Education",
     slugs: [
       "middle-school-gpa-calculator",
+      "college-gpa-calculator",
+      "high-school-gpa-calculator",
+      "weighted-gpa-calculator",
+      "final-grade-needed-calculator",
+      "weighted-grade-calculator",
       "ap-chem-score-calculator",
       "ap-bio-score-calculator",
       "ap-calc-bc-score-calculator",
       "ap-lit-score-calculator",
+      "ap-english-language-score-calculator",
+      "ap-us-history-score-calculator",
+      "ap-world-history-score-calculator",
+      "ap-psychology-score-calculator",
     ],
   },
-  { title: "Retirement & Finance", slugs: ["retirement-calculator-dave-ramsey"] },
+  {
+    title: "Retirement & Finance",
+    slugs: ["retirement-calculator-dave-ramsey", "car-loan-payment-calculator", "sales-commission-calculator"],
+  },
   { title: "Home Services", slugs: ["tree-removal-cost-calculator"] },
 ] as const;
 

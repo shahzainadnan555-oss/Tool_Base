@@ -23,6 +23,8 @@ const TOOL_FILES = [
   "lib/tools/generator-tools.ts",
   "lib/tools/content-generator-tools.ts",
   "lib/tools/typing-tools.ts",
+  "lib/tools/expansion-tools.ts",
+  "lib/tools/category-pack-tools.ts",
 ];
 
 const CATEGORIES = [
@@ -38,6 +40,8 @@ const CATEGORIES = [
   "specialized-calculators",
   "generators",
   "typing-productivity",
+  "design-creative",
+  "utilities",
 ];
 
 const REQUIRED_FIELDS = [
@@ -55,7 +59,7 @@ const REQUIRED_FIELDS = [
 
 function extractToolBlocks(src) {
   const tools = [];
-  const re = /tool\(\{([\s\S]*?)\n\s*\}\)/g;
+  const re = /(?:tool|base)\(\{([\s\S]*?)\n\s*\}\)/g;
   let match;
   while ((match = re.exec(src))) {
     tools.push(match[1]);
@@ -90,23 +94,38 @@ for (const file of TOOL_FILES) {
   const src = fs.readFileSync(path.join(ROOT, file), "utf8");
   const blocks = extractToolBlocks(src);
   let expected = 20;
-  if (file.includes("specialized-calculator-tools")) expected = 9;
+  if (file.includes("specialized-calculator-tools")) expected = 20;
   if (file.endsWith("generator-tools.ts")) expected = 1;
   if (file.endsWith("content-generator-tools.ts")) expected = 20;
   if (file.endsWith("typing-tools.ts")) expected = 1;
+  if (file.endsWith("expansion-tools.ts")) expected = 38;
+  if (file.endsWith("category-pack-tools.ts")) expected = 51;
   if (blocks.length !== expected) {
     errors.push(`${file}: expected ${expected} tools, found ${blocks.length}`);
   }
   for (const block of blocks) {
     const tool = {};
     for (const key of REQUIRED_FIELDS) {
-      const value = field(block, key);
+      let value = field(block, key);
+      if (!value && key === "slug") value = field(block, "id");
+      if (!value && key === "h1") value = field(block, "name");
+      if (!value && key === "seoTitle") {
+        const name = field(block, "name");
+        value = name ? `${name} — Free Online | Tool Base` : null;
+      }
+      if (!value && key === "seoDescription") value = field(block, "description");
       if (!value) errors.push(`${file}: missing ${key}`);
       tool[key] = value;
     }
     tool.relatedToolIds = relatedIds(block);
     tool.keywords = keywords(block);
     tool.file = file;
+    if (!tool.slug) tool.slug = tool.id;
+    if (!tool.h1) tool.h1 = field(block, "name");
+    if (!tool.seoTitle && tool.name) {
+      tool.seoTitle = `${tool.name} — Free Online | Tool Base`;
+    }
+    if (!tool.seoDescription) tool.seoDescription = tool.description;
     tools.push(tool);
     if (tool.id) ids.push(tool.id);
     if (tool.slug) slugs.push(tool.slug);
@@ -114,7 +133,7 @@ for (const file of TOOL_FILES) {
   }
 }
 
-assert.strictEqual(tools.length, 231, `expected 231 tools, got ${tools.length}`);
+assert.strictEqual(tools.length, 331, `expected 331 tools, got ${tools.length}`);
 
 const dup = (arr) => [...new Set(arr.filter((v, i) => arr.indexOf(v) !== i))];
 for (const id of dup(ids)) errors.push(`duplicate id: ${id}`);
@@ -159,7 +178,8 @@ for (const file of TOOL_FILES) {
 assert.ok(registry.includes("...calculatorTools"), "registry missing calculatorTools");
 assert.ok(registry.includes("...specializedCalculatorTools"), "registry missing specializedCalculatorTools");
 assert.ok(registry.includes("...generatorTools"), "registry missing generatorTools");
-assert.ok(registry.includes("...typingTools"), "registry missing typingTools");
+assert.ok(registry.includes("...expansionTools"), "registry missing expansionTools");
+assert.ok(registry.includes("...categoryPackTools"), "registry missing categoryPackTools");
 assert.ok(
   fs.readFileSync(path.join(ROOT, "lib/tools/generator-tools.ts"), "utf8").includes("contentGeneratorTools"),
   "generator-tools must include contentGeneratorTools",
@@ -168,6 +188,21 @@ assert.ok(!registry.includes("blox-fruits"), "Blox Fruits calculator must not be
 assert.ok(!/dose-calculator/i.test(registry), "dose calculator must not be registered");
 assert.ok(registry.includes("...securityTools"), "registry missing securityTools");
 assert.ok(!/tool\(\{\s*id:/.test(registry), "registry should not contain inline tool stubs");
+
+const byCategory = {};
+for (const tool of tools) {
+  byCategory[tool.category] = (byCategory[tool.category] || 0) + 1;
+}
+for (const [id, expected] of [
+  ["specialized-calculators", 20],
+  ["typing-productivity", 20],
+  ["design-creative", 20],
+  ["utilities", 20],
+]) {
+  if (byCategory[id] !== expected) {
+    errors.push(`${id}: expected ${expected} tools, found ${byCategory[id] || 0}`);
+  }
+}
 
 const site = fs.readFileSync(path.join(ROOT, "lib/config/site.ts"), "utf8");
 assert.ok(!site.includes("localhost"), "site config must not hardcode localhost");

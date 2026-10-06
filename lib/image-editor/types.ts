@@ -15,7 +15,9 @@ export type ImageEditorKind =
   | "circular"
   | "border"
   | "background-remover"
-  | "color-picker";
+  | "color-picker"
+  | "invert"
+  | "grayscale";
 
 export type OutputMime = "image/jpeg" | "image/png" | "image/webp";
 

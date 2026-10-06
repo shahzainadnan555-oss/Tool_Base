@@ -14,6 +14,8 @@ import { getCalculatorToolConfig } from "@/lib/calculator/configs";
 import { getSpecializedCalculatorConfig } from "@/lib/specialized-calculators";
 import { getGeneratorToolConfig } from "@/lib/generators/configs";
 import { isTypingToolSlug } from "@/lib/tools/typing-tools";
+import { isUtilityToolSlug } from "@/lib/utilities/slugs";
+import { isCategoryPackSlug } from "@/lib/tools/category-pack-tools";
 import type { ToolDefinition } from "@/lib/tools/types";
 import { LoadingState } from "@/components/ui/LoadingState";
 
@@ -143,10 +145,26 @@ const GeneratorWorkspace = dynamic(
   { ssr: false },
 );
 
+const UtilityWorkspace = dynamic(
+  () =>
+    import("@/components/utilities/UtilityWorkspace").then(
+      (mod) => mod.UtilityWorkspace,
+    ),
+  { ssr: false },
+);
+
 const TypingSpeedTestWorkspace = dynamic(
   () =>
     import("@/components/typing/TypingSpeedTestWorkspace").then(
       (mod) => mod.TypingSpeedTestWorkspace,
+    ),
+  { ssr: false },
+);
+
+const CategoryPackWorkspace = dynamic(
+  () =>
+    import("@/components/pack/CategoryPackWorkspace").then(
+      (mod) => mod.CategoryPackWorkspace,
     ),
   { ssr: false },
 );
@@ -270,6 +288,16 @@ export function ToolWorkspace({ tool }: ToolWorkspaceProps) {
 
   if (isTypingToolSlug(tool.slug) && tool.slug === "typing-speed-test") {
     return <TypingSpeedTestWorkspace convertHeading={tool.convertHeading} />;
+  }
+
+  if (isUtilityToolSlug(tool.slug)) {
+    return (
+      <UtilityWorkspace slug={tool.slug} convertHeading={tool.convertHeading} />
+    );
+  }
+
+  if (isCategoryPackSlug(tool.slug)) {
+    return <CategoryPackWorkspace tool={tool} />;
   }
 
   return null;

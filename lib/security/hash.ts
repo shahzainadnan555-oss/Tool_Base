@@ -1,7 +1,9 @@
 import {
   createMD5,
+  createRIPEMD160,
   createSHA1,
   createSHA256,
+  createSHA384,
   createSHA512,
 } from "hash-wasm";
 import type { HashAlgorithm } from "./types";
@@ -18,6 +20,10 @@ async function createHasher(algorithm: HashAlgorithm) {
       return createSHA1();
     case "MD5":
       return createMD5();
+    case "SHA-384":
+      return createSHA384();
+    case "RIPEMD-160":
+      return createRIPEMD160();
     default:
       throw new Error("Unsupported hash algorithm.");
   }

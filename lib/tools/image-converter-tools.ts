@@ -27,6 +27,7 @@ export const imageConverterTools: ToolDefinition[] = [
       "jpeg to png",
       "jpg png converter",
       "convert jpg to png",
+      "convert photo",
       "online jpg to png converter",
     ],
     popular: true,

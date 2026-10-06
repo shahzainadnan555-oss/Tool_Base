@@ -131,6 +131,55 @@ const paths: Record<string, React.ReactNode> = {
   ),
 };
 
+export const ICON_CATALOG: Array<{ name: string; category: string; label: string }> = [
+  { name: "image", category: "Media", label: "Image" },
+  { name: "image-convert", category: "Media", label: "Convert" },
+  { name: "pdf", category: "Documents", label: "PDF" },
+  { name: "audio", category: "Media", label: "Audio" },
+  { name: "video", category: "Media", label: "Video" },
+  { name: "text", category: "Text", label: "Text" },
+  { name: "code", category: "Developer", label: "Code" },
+  { name: "shield", category: "Security", label: "Shield" },
+  { name: "calculator", category: "Math", label: "Calculator" },
+  { name: "compress", category: "Media", label: "Compress" },
+  { name: "resize", category: "Media", label: "Resize" },
+  { name: "qr", category: "Utilities", label: "QR" },
+  { name: "search", category: "Interface", label: "Search" },
+  { name: "check", category: "Interface", label: "Check" },
+  { name: "arrow", category: "Interface", label: "Arrow" },
+  { name: "close", category: "Interface", label: "Close" },
+  { name: "menu", category: "Interface", label: "Menu" },
+  { name: "chevron", category: "Interface", label: "Chevron" },
+  { name: "home", category: "Interface", label: "Home" },
+  { name: "sun", category: "Interface", label: "Sun" },
+  { name: "moon", category: "Interface", label: "Moon" },
+];
+
+export function iconSvgMarkup(name: string): string {
+  const node = paths[name] ?? paths.image;
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${flattenSvg(node)}</svg>`;
+}
+
+function flattenSvg(node: React.ReactNode): string {
+  if (node == null || typeof node === "boolean") return "";
+  if (typeof node === "string" || typeof node === "number") return String(node);
+  if (Array.isArray(node)) return node.map(flattenSvg).join("");
+  if (typeof node === "object" && "props" in node) {
+    const el = node as { type: unknown; props: Record<string, unknown> };
+    const { children, ...rest } = el.props;
+    const attrs = Object.entries(rest)
+      .map(([key, value]) => {
+        const attr = key === "strokeWidth" ? "stroke-width" : key;
+        return `${attr}="${String(value)}"`;
+      })
+      .join(" ");
+    const tag = typeof el.type === "string" ? el.type : "g";
+    const child = flattenSvg(children as React.ReactNode);
+    return child ? `<${tag} ${attrs}>${child}</${tag}>` : `<${tag} ${attrs} />`;
+  }
+  return "";
+}
+
 export function Icon({ name, className, title }: IconProps) {
   return (
     <svg

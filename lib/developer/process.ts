@@ -1,4 +1,5 @@
-import { decodeBase64, decodeUrl, encodeBase64, encodeHtmlEntities, encodeUrl } from "./encode";
+import { hexToRgb, rgbToHex } from "@/lib/utilities/color";
+import { decodeBase64, decodeHtmlEntities, decodeUrl, encodeBase64, encodeHtmlEntities, encodeUrl } from "./encode";
 import {
   formatCss,
   formatHtml,
@@ -110,6 +111,12 @@ export async function processDeveloperTool(
       return { output: decodeUrl(input) };
     case "html-entity-encode":
       return { output: encodeHtmlEntities(input) };
+    case "html-entity-decode":
+      return { output: decodeHtmlEntities(input) };
+    case "hex-to-rgb":
+      return { output: hexToRgb(input) };
+    case "rgb-to-hex":
+      return { output: rgbToHex(input) };
     default:
       return { output: input };
   }

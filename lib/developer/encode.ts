@@ -51,8 +51,30 @@ const ENTITY_MAP: Record<string, string> = {
 
 export function encodeHtmlEntities(input: string): string {
   if (!input) throw new Error("Please enter text to encode.");
-  // Encode special characters once; do not double-encode existing entities unexpectedly.
-  // Characters already part of "&amp;" etc. get encoded because & becomes &amp; first —
-  // use a single-pass replacement that only targets raw special chars.
   return input.replace(/[&<>"']/g, (ch) => ENTITY_MAP[ch] ?? ch);
+}
+
+export function decodeHtmlEntities(input: string): string {
+  if (!input) throw new Error("Please enter HTML entities to decode.");
+  const named: Record<string, string> = {
+    "&amp;": "&",
+    "&lt;": "<",
+    "&gt;": ">",
+    "&quot;": '"',
+    "&#39;": "'",
+    "&apos;": "'",
+    "&nbsp;": " ",
+  };
+  return input.replace(/&(#x?[0-9a-fA-F]+|[a-zA-Z]+);/g, (entity, body: string) => {
+    if (named[entity]) return named[entity];
+    if (body.startsWith("#x") || body.startsWith("#X")) {
+      const n = parseInt(body.slice(2), 16);
+      return Number.isFinite(n) ? String.fromCodePoint(n) : entity;
+    }
+    if (body.startsWith("#")) {
+      const n = Number(body.slice(1));
+      return Number.isFinite(n) ? String.fromCodePoint(n) : entity;
+    }
+    return entity;
+  });
 }

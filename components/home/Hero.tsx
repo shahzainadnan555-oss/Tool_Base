@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SearchBar } from "@/components/search/SearchBar";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 
@@ -34,7 +35,10 @@ export function Hero() {
             video, text, developers, conversions, and everyday tasks — with no sign-up
             required.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 max-w-xl rounded-2xl border-2 border-tm-border bg-tm-input p-2 shadow-[var(--tm-shadow)]">
+            <SearchBar placeholder="Search tools, like compress jpg or convert photo" />
+          </div>
+          <div className="mt-5 flex flex-wrap gap-3">
             <Button href="/tools">Explore All Tools</Button>
             <Button href="/categories" variant="secondary">
               Browse Categories

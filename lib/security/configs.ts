@@ -166,6 +166,22 @@ export const securityToolConfigs: Record<string, SecurityToolConfig> = {
     inputLabel: "Text or URL",
     outputLabel: "QR preview",
   }),
+  "sha384-hash": make("sha384-hash", "hash", {
+    actionLabel: "Generate Hash",
+    downloadName: "sha384.txt",
+    hashAlgorithm: "SHA-384",
+    allowFile: true,
+    inputLabel: "Text to hash",
+    outputLabel: "SHA-384",
+  }),
+  "ripemd160": make("ripemd160", "hash", {
+    actionLabel: "Generate Hash",
+    downloadName: "ripemd160.txt",
+    hashAlgorithm: "RIPEMD-160",
+    allowFile: true,
+    inputLabel: "Text to hash",
+    outputLabel: "RIPEMD-160",
+  }),
 };
 
 export function getSecurityToolConfig(slug: string): SecurityToolConfig | undefined {

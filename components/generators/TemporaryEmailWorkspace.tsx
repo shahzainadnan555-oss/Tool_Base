@@ -72,7 +72,7 @@ export function TemporaryEmailWorkspace({ convertHeading }: Props) {
         <p className="text-sm font-medium leading-relaxed text-tm-muted">
           Choose Generate New Email to create another random local-part on the
           reserved <span className="font-bold text-tm-text">example.com</span>{" "}
-          domain. Addresses are synthetic and stay in your browser session only.
+          domain. Addresses are synthetic and exist only for this session.
         </p>
         <h3 className="tm-h3">Copy the Email Address</h3>
         <p className="text-sm font-medium leading-relaxed text-tm-muted">

@@ -115,6 +115,36 @@ export const textToolConfigs: Record<string, TextToolConfig> = {
     actionLabel: "Generate",
     downloadName: "lorem-ipsum.txt",
   }),
+  "capitalize-words": make("capitalize-words", "case", {
+    lockedCaseMode: "capitalized",
+    downloadName: "capitalized-text.txt",
+  }),
+  "randomize-list": make("randomize-list", "transform", {
+    live: false,
+    actionLabel: "Randomize List",
+    downloadName: "randomized-list.txt",
+  }),
+  "reverse-list": make("reverse-list", "transform", {
+    actionLabel: "Reverse List",
+    downloadName: "reversed-list.txt",
+  }),
+  "text-to-ascii": make("text-to-ascii", "transform", {
+    actionLabel: "Convert to ASCII Codes",
+    downloadName: "ascii-codes.txt",
+  }),
+  "ascii-to-text": make("ascii-to-text", "transform", {
+    actionLabel: "Convert ASCII to Text",
+    downloadName: "decoded-text.txt",
+  }),
+  "unicode-to-krutidev": make("unicode-to-krutidev", "transform", {
+    actionLabel: "Convert to KrutiDev",
+    downloadName: "krutidev-text.txt",
+    notices: ["This mapping covers everyday Devanagari characters. Rare conjuncts may need a manual check."],
+  }),
+  "krutidev-to-unicode": make("krutidev-to-unicode", "transform", {
+    actionLabel: "Convert to Unicode",
+    downloadName: "unicode-text.txt",
+  }),
 };
 
 export function getTextToolConfig(slug: string): TextToolConfig | undefined {

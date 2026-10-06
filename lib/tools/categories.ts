@@ -11,7 +11,7 @@ export const categories: CategoryDefinition[] = [
     icon: "image",
     seoTitle: "Image Tools — Convert, Compress & Edit Images Online | Tool Base",
     seoDescription:
-      "Free online image tools from Tool Base. Convert JPG, PNG, WebP, and SVG files, compress images, resize photos, and optimize visuals in your browser.",
+      "Free online image tools from Tool Base. Convert JPG, PNG, WebP, and SVG files, compress images, resize photos, and optimize visuals.",
     h1: "Image Tools",
     intro:
       "Use Tool Base image tools to convert popular formats, compress large files, resize photos, crop visuals, and prepare images for the web. Each utility focuses on a clear everyday task so you can upload, process, and download without creating an account.",
@@ -151,23 +151,28 @@ export const categories: CategoryDefinition[] = [
     name: "Specialized Calculators",
     slug: "specialized-calculators",
     description:
-      "Focused estimators for totaled-car value, property capital gains, GPA, AP scores, retirement projections, and tree-removal costs.",
+      "Focused estimators for totaled-car value, property capital gains, GPA, AP scores, car loans, commissions, retirement projections, and tree-removal costs.",
     shortDescription: "Specialized estimates for auto, tax, school, and home.",
     icon: "calculator",
-    seoTitle: "Specialized Calculators — Auto, Tax, AP, Retirement | Tool Base",
+    seoTitle: "Specialized Calculators — GPA, AP, Auto, Tax | Tool Base",
     seoDescription:
-      "Free specialized calculators from Tool Base. Estimate totaled-car value, capital gains on a property sale, GPA, AP scores, retirement savings, and tree-removal cost.",
+      "Free specialized calculators from Tool Base. Estimate GPA, AP scores, car loan payments, commissions, totaled-car value, capital gains, retirement savings, and tree-removal cost.",
     h1: "Specialized Calculators",
     intro:
-      "Specialized Calculators sit under the Calculators & Converters parent group. Each tool is an estimator for a specific search task — auto insurance math, property capital gains, middle-school GPA, AP section scoring, retirement compounding, or tree-removal budgeting. Results use the inputs and assumptions you provide and are not official determinations from an insurer, tax authority, College Board, or contractor.",
+      "Specialized Calculators sit under the Calculators & Converters parent group. Use them for GPA and AP score estimates, auto and tax figures, commission math, retirement compounding, and tree-removal budgeting. Results follow the inputs and assumptions you provide and are not official determinations from an insurer, tax authority, College Board, or contractor.",
     route: "/categories/specialized-calculators",
+    faq: [
+      { question: "Are AP score results official?", answer: "No. They estimate from published exam structure. College Board issues official scores." },
+      { question: "Can I use the GPA tools for any school?", answer: "Yes, if you set the scale and credits to match that school. The registrar’s record remains official." },
+      { question: "Are finance results quotes?", answer: "No. Loan and commission figures use the formulas on each page and are not lender or payroll quotes." },
+    ],
   },
   {
     id: "generators",
     name: "Generators",
     slug: "generators",
     description:
-      "Generate usernames, titles, CSS, meta tags, robots.txt, sitemaps, mock data, cron expressions, and more in your browser.",
+      "Generate usernames, titles, CSS, meta tags, robots.txt, sitemaps, mock data, cron expressions, and more.",
     shortDescription: "Generate text, CSS, SEO, and test data.",
     icon: "text",
     seoTitle: "Generators — Email, CSS, SEO & Data Tools | Tool Base",
@@ -175,7 +180,7 @@ export const categories: CategoryDefinition[] = [
       "Free generator tools from Tool Base. Create temporary emails, usernames, CSS, meta tags, robots.txt, sitemaps, mock data, and cron expressions.",
     h1: "Generators",
     intro:
-      "Generator tools create synthetic values for testing, mockups, content ideas, CSS snippets, SEO files, and developer fixtures. Outputs are generated locally in your browser. The Temporary Email Generator produces a temporary-looking address only — it does not provide an inbox or receive email.",
+      "Generator tools create synthetic values for testing, mockups, content ideas, CSS snippets, SEO files, and developer fixtures. The Temporary Email Generator produces a temporary-looking address only — it does not provide an inbox or receive email.",
     route: "/categories/generators",
   },
   {
@@ -183,16 +188,63 @@ export const categories: CategoryDefinition[] = [
     name: "Typing & Productivity",
     slug: "typing-productivity",
     description:
-      "Practice typing speed and accuracy with focused browser-based productivity tools.",
-    shortDescription: "Typing speed tests and productivity practice.",
+      "Typing speed tests, timers, notepads, lists, and everyday productivity helpers.",
+    shortDescription: "Typing tests, timers, and productivity helpers.",
     icon: "text",
-    seoTitle: "Typing & Productivity — WPM Tests Online | Tool Base",
+    seoTitle: "Typing & Productivity — WPM, Timers & Lists | Tool Base",
     seoDescription:
-      "Free typing and productivity tools from Tool Base. Take a typing speed test and measure WPM, accuracy, raw speed, and errors.",
+      "Free typing and productivity tools from Tool Base. Measure WPM, run focus timers, draft notes, and pick from lists.",
     h1: "Typing & Productivity",
     intro:
-      "Typing & Productivity tools help you practice keyboard speed and accuracy in the browser. The Typing Speed Test measures words per minute with clear timing and error rules — no account required.",
+      "Typing & Productivity tools cover speed tests, timers, notes, checklists, and quick decision helpers. The Typing Speed Test measures words per minute with timestamp-based timing. Companion tools help you plan sessions, draft text, and pick from lists.",
     route: "/categories/typing-productivity",
+    faq: [
+      { question: "How is typing WPM calculated?", answer: "WPM uses (typed characters ÷ 5) ÷ elapsed minutes, with elapsed time from timestamps." },
+      { question: "Do timers keep accurate remaining time?", answer: "Remaining time is derived from start timestamps rather than counting animation frames as the clock." },
+      { question: "Are notes stored in an account?", answer: "The notepad keeps a draft in this browser until you clear it." },
+    ],
+  },
+  {
+    id: "design-creative",
+    name: "Design & Creative",
+    slug: "design-creative",
+    description:
+      "Create memes, signatures, invoices, CSS snippets, palettes, SVG shapes, and image canvases.",
+    shortDescription: "Creative CSS, image, and document tools.",
+    icon: "image",
+    seoTitle: "Design & Creative Tools — CSS, Memes & Images | Tool Base",
+    seoDescription:
+      "Free design and creative tools from Tool Base. Generate CSS, extract palettes, build placeholders, draw pixel art, and create invoices or memes.",
+    h1: "Design & Creative",
+    intro:
+      "Design & Creative tools cover captioned images, signatures, invoices, icon SVG copy, CSS generators, palettes, placeholders, and SVG shapes. Use them to draft visuals and copy the output into your project.",
+    route: "/categories/design-creative",
+    faq: [
+      { question: "Do CSS tools output real CSS?", answer: "Yes. Each generator shows a live preview and a copyable declaration or snippet." },
+      { question: "Can I download images?", answer: "Favicon, placeholder, social-size, pixel art, and meme tools export PNG where that is the result." },
+      { question: "Are palettes sampled from my image?", answer: "The palette extractor groups sampled pixels from the file you upload." },
+    ],
+  },
+  {
+    id: "utilities",
+    name: "Utilities",
+    slug: "utilities",
+    description:
+      "Check screens, parse URLs, generate barcodes, inspect files, and look up HTTP status codes.",
+    shortDescription: "Device checks, parsers, and lookup utilities.",
+    icon: "qr",
+    seoTitle: "Utilities — Screen, URL, Barcode & Lookups | Tool Base",
+    seoDescription:
+      "Free utilities from Tool Base including screen and viewport checks, barcode generation, URL parsing, MIME lookup, and HTTP status codes.",
+    h1: "Utilities",
+    intro:
+      "Utilities cover device and viewport checks, user-agent reading, keyboard and mouse tests, barcodes, data URIs, MIME and file-signature lookup, and HTTP status codes. Each page reports the values it can actually read or generate.",
+    route: "/categories/utilities",
+    faq: [
+      { question: "Where do screen numbers come from?", answer: "They are the values this browser reports for screen, viewport, and devicePixelRatio." },
+      { question: "Does the barcode tool create QR codes?", answer: "The barcode tool encodes Code 39. Use the QR Code Generator for QR codes." },
+      { question: "Does file signature reading upload my file?", answer: "The checker reads leading bytes in the page to compare known signatures." },
+    ],
   },
 ];
 

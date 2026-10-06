@@ -173,6 +173,20 @@ export const imageEditorConfigs: Record<string, ImageEditorConfig> = {
     "color",
     { resetLabel: "Pick From Another Image" },
   ),
+  "invert-image-colors": make(
+    "invert-image-colors",
+    "invert",
+    "Invert Colors",
+    "inverted",
+    { resetLabel: "Invert Another Image" },
+  ),
+  "black-and-white-image": make(
+    "black-and-white-image",
+    "grayscale",
+    "Convert to Black and White",
+    "black-and-white",
+    { resetLabel: "Convert Another Image" },
+  ),
 };
 
 export function getImageEditorConfig(slug: string): ImageEditorConfig | undefined {

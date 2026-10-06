@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
+import { CategoryNav } from "@/components/home/CategoryNav";
+import { CategoryToolSections } from "@/components/home/CategoryToolSections";
 import { ToolsDirectory } from "@/components/tools/ToolsDirectory";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SuggestTool } from "@/components/feedback/SuggestTool";
+import { SearchBar } from "@/components/search/SearchBar";
 import { createPageMetadata } from "@/lib/seo/metadata";
 import { getAllTools } from "@/lib/tools/registry";
 import type { CategoryId } from "@/lib/tools/types";
@@ -31,23 +34,35 @@ export default async function ToolsPage({
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "All Tools" }]} />
       <header className="max-w-3xl">
         <h1 id="tools-directory-heading" className="tm-h1">
-          All Online Tools
+          All Tools
         </h1>
         <p className="tm-lead mt-4">
-          Explore Tool Base’s growing directory of free online tools for images, PDFs,
-          audio, video, text, developers, encoding, and everyday calculations. Search by
-          name or keyword, filter by category, and sort by popular, new, or A–Z.
+          Browse Tool Base by category, then open a complete hub when you want every
+          tool in that group. Search if you already know the job you need to finish.
         </p>
       </header>
 
-      <div className="mt-8">
-        <ToolsDirectory
-          tools={tools}
-          initialQuery={initialQuery}
-          initialCategory={initialCategory}
-          headingId="tools-directory-heading"
-        />
+      <div className="mt-8 rounded-2xl border-2 border-tm-border bg-tm-input p-3">
+        <SearchBar placeholder="Search tools by name, alias, or keyword" />
       </div>
+
+      {initialQuery || initialCategory !== "all" ? (
+        <div className="mt-8">
+          <ToolsDirectory
+            tools={tools}
+            initialQuery={initialQuery}
+            initialCategory={initialCategory}
+            headingId="tools-directory-heading"
+          />
+        </div>
+      ) : (
+        <div className="mt-10">
+          <CategoryNav />
+          <div className="mt-10">
+            <CategoryToolSections limit={8} />
+          </div>
+        </div>
+      )}
 
       <div className="mt-14 max-w-2xl">
         <SuggestTool />

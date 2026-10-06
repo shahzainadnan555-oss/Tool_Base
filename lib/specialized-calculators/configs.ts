@@ -68,6 +68,78 @@ export const specializedCalculatorConfigs: Record<string, SpecializedCalculatorC
       "This calculator provides an estimate based on the selected exam configuration and available scoring information. It is not an official College Board score calculator.",
     ],
   },
+  "college-gpa-calculator": {
+    slug: "college-gpa-calculator",
+    kind: "gpa",
+    gpaLabel: "college",
+    forceWeighted: true,
+    notices: ["College GPA policies vary. Use the credit hours and scale your school publishes."],
+  },
+  "high-school-gpa-calculator": {
+    slug: "high-school-gpa-calculator",
+    kind: "gpa",
+    gpaLabel: "high school",
+    notices: ["High-school weighting for honors/AP varies. Edit the scale if your campus uses plus/minus or extra points."],
+  },
+  "weighted-gpa-calculator": {
+    slug: "weighted-gpa-calculator",
+    kind: "gpa",
+    gpaLabel: "weighted",
+    forceWeighted: true,
+    notices: ["Enter credits or weights for each course. Honors/AP extra points belong in the scale, not as a hidden bonus."],
+  },
+  "final-grade-needed-calculator": {
+    slug: "final-grade-needed-calculator",
+    kind: "final-grade",
+    notices: ["Assumes one remaining assessment worth the stated percentage of the course."],
+  },
+  "weighted-grade-calculator": {
+    slug: "weighted-grade-calculator",
+    kind: "weighted-grade",
+    notices: ["Weights can be percentages or any consistent proportions."],
+  },
+  "ap-english-language-score-calculator": {
+    slug: "ap-english-language-score-calculator",
+    kind: "ap-score",
+    apCourse: "ap-lang",
+    notices: [
+      "This calculator provides an estimate based on the selected exam configuration and available scoring information. It is not an official College Board score calculator.",
+    ],
+  },
+  "ap-us-history-score-calculator": {
+    slug: "ap-us-history-score-calculator",
+    kind: "ap-score",
+    apCourse: "ap-ush",
+    notices: [
+      "This calculator provides an estimate based on the selected exam configuration and available scoring information. It is not an official College Board score calculator.",
+    ],
+  },
+  "ap-world-history-score-calculator": {
+    slug: "ap-world-history-score-calculator",
+    kind: "ap-score",
+    apCourse: "ap-world",
+    notices: [
+      "This calculator provides an estimate based on the selected exam configuration and available scoring information. It is not an official College Board score calculator.",
+    ],
+  },
+  "ap-psychology-score-calculator": {
+    slug: "ap-psychology-score-calculator",
+    kind: "ap-score",
+    apCourse: "ap-psych",
+    notices: [
+      "This calculator provides an estimate based on the selected exam configuration and available scoring information. It is not an official College Board score calculator.",
+    ],
+  },
+  "car-loan-payment-calculator": {
+    slug: "car-loan-payment-calculator",
+    kind: "car-loan",
+    notices: ["This amortization estimate is not a lender quote."],
+  },
+  "sales-commission-calculator": {
+    slug: "sales-commission-calculator",
+    kind: "sales-commission",
+    notices: ["Commission plans vary. Results use only the rate, threshold, and bonus you enter."],
+  },
 };
 
 export function getSpecializedCalculatorConfig(

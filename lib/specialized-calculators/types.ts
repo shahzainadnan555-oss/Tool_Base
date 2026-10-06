@@ -2,17 +2,32 @@ export type SpecializedCalculatorKind =
   | "totaled-car"
   | "capital-gains"
   | "middle-school-gpa"
+  | "gpa"
+  | "weighted-grade"
+  | "final-grade"
   | "ap-score"
   | "retirement-ramsey-style"
-  | "tree-removal";
+  | "tree-removal"
+  | "car-loan"
+  | "sales-commission";
 
-export type ApCourseId = "ap-chem" | "ap-bio" | "ap-calc-bc" | "ap-lit";
+export type ApCourseId =
+  | "ap-chem"
+  | "ap-bio"
+  | "ap-calc-bc"
+  | "ap-lit"
+  | "ap-lang"
+  | "ap-ush"
+  | "ap-world"
+  | "ap-psych";
 
 export interface SpecializedCalculatorConfig {
   slug: string;
   kind: SpecializedCalculatorKind;
   apCourse?: ApCourseId;
   notices: string[];
+  gpaLabel?: string;
+  forceWeighted?: boolean;
 }
 
 export interface CalcBreakdownRow {

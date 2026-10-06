@@ -102,6 +102,82 @@ export const apCourseConfigs: Record<ApCourseId, APCourseYearConfig[]> = {
         "Section I: 55 multiple-choice questions, 45% of score. Section II: 3 essays, 55% of score, each scored 0–6 on the analytic rubric (thesis, evidence/commentary, sophistication).",
     },
   ],
+  "ap-lang": [
+    {
+      course: "AP English Language and Composition",
+      courseId: "ap-lang",
+      examYear: 2026,
+      multipleChoiceQuestions: 45,
+      multipleChoiceWeight: 0.45,
+      freeResponseQuestions: 3,
+      freeResponseWeight: 0.55,
+      freeResponseMaximumPoints: 18,
+      estimationMethod: "illustrative-composite-bands",
+      officialSource: SOURCE,
+      officialSourceReference:
+        "https://apcentral.collegeboard.org/courses/ap-english-language-and-composition/exam",
+      lastVerifiedDate: VERIFIED,
+      structureNotes:
+        "Section I: 45 multiple-choice questions, 45% of score. Section II: 3 free-response questions, 55% of score, each scored 0–6 (18-point combined maximum).",
+    },
+  ],
+  "ap-ush": [
+    {
+      course: "AP United States History",
+      courseId: "ap-ush",
+      examYear: 2026,
+      multipleChoiceQuestions: 55,
+      multipleChoiceWeight: 0.4,
+      freeResponseQuestions: 5,
+      freeResponseWeight: 0.6,
+      freeResponseMaximumPoints: 22,
+      estimationMethod: "illustrative-composite-bands",
+      officialSource: SOURCE,
+      officialSourceReference:
+        "https://apcentral.collegeboard.org/courses/ap-united-states-history/exam",
+      lastVerifiedDate: VERIFIED,
+      structureNotes:
+        "Section I: 55 multiple-choice (40%) plus 3 short-answer questions (20%). Section II: DBQ (25%) and LEQ (15%). Written work is entered here as a combined 22-point total (SAQ 9, DBQ 7, LEQ 6).",
+    },
+  ],
+  "ap-world": [
+    {
+      course: "AP World History: Modern",
+      courseId: "ap-world",
+      examYear: 2026,
+      multipleChoiceQuestions: 55,
+      multipleChoiceWeight: 0.4,
+      freeResponseQuestions: 5,
+      freeResponseWeight: 0.6,
+      freeResponseMaximumPoints: 22,
+      estimationMethod: "illustrative-composite-bands",
+      officialSource: SOURCE,
+      officialSourceReference:
+        "https://apcentral.collegeboard.org/courses/ap-world-history-modern/exam",
+      lastVerifiedDate: VERIFIED,
+      structureNotes:
+        "Same published section weights as other AP History exams: 55 multiple-choice (40%), short-answer (20%), DBQ (25%), LEQ (15%). Combined written maximum used here is 22 points.",
+    },
+  ],
+  "ap-psych": [
+    {
+      course: "AP Psychology",
+      courseId: "ap-psych",
+      examYear: 2026,
+      multipleChoiceQuestions: 75,
+      multipleChoiceWeight: 2 / 3,
+      freeResponseQuestions: 2,
+      freeResponseWeight: 1 / 3,
+      freeResponseMaximumPoints: 25,
+      estimationMethod: "illustrative-composite-bands",
+      officialSource: SOURCE,
+      officialSourceReference:
+        "https://apcentral.collegeboard.org/courses/ap-psychology/exam",
+      lastVerifiedDate: VERIFIED,
+      structureNotes:
+        "Section I: 75 multiple-choice questions, two-thirds of the score. Section II: 2 free-response questions, one-third of the score. Enter FRQ points out of 25 as a combined earned total.",
+    },
+  ],
 };
 
 export function listApYears(course: ApCourseId): number[] {

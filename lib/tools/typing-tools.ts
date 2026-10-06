@@ -48,9 +48,9 @@ export const typingTools: ToolDefinition[] = [
     relatedToolIds: [
       "word-counter",
       "character-counter",
+      "pomodoro-timer",
+      "online-notepad",
       "text-case-converter",
-      "text-diff-checker",
-      "random-string-generator",
     ],
     seoTitle: "Typing Speed Test — Check Your WPM & Accuracy | Tool Base",
     seoDescription:
@@ -129,7 +129,7 @@ export const typingTools: ToolDefinition[] = [
       {
         question: "Are the results saved?",
         answer:
-          "No. Results stay in your browser session for the current test. Tool Base does not create fake leaderboards or stored personal-best claims.",
+          "No. Results stay on this page for the current test. Tool Base does not create fake leaderboards or stored personal-best claims.",
       },
     ],
     inputFormats: ["Keyboard typing"],

@@ -224,3 +224,84 @@ export function calculateRetirement(input: {
     copyText: `Projected retirement savings: ${money(projected)} in ${years} years`,
   };
 }
+
+export function calculateCarLoan(input: {
+  principal: string;
+  annualRate: string;
+  months: string;
+  extraPayment?: string;
+  currency: string;
+}): SpecializedCalcResult {
+  const principal = parseMoney(input.principal, "loan amount");
+  const annual = Number(input.annualRate);
+  const months = Number(input.months);
+  const extra = parseOptionalMoney(input.extraPayment ?? "", "extra payment");
+  if (!Number.isFinite(annual) || annual < 0) throw new Error("Enter a valid annual interest rate.");
+  if (!Number.isInteger(months) || months <= 0) throw new Error("Term must be a whole number of months.");
+  const monthlyRate = annual / 100 / 12;
+  const payment =
+    monthlyRate === 0
+      ? principal / months
+      : (principal * monthlyRate * (1 + monthlyRate) ** months) /
+        ((1 + monthlyRate) ** months - 1);
+  const scheduled = payment + extra;
+  const totalPaid = scheduled * months;
+  const interest = totalPaid - principal;
+  const money = (n: number) => formatMoney(n, input.currency);
+  return {
+    headline: money(payment),
+    subhead: "Estimated monthly payment before extra principal",
+    primaryLabel: "Monthly payment",
+    primary: money(payment),
+    breakdown: [
+      { label: "Loan amount", value: money(principal) },
+      { label: "Annual rate", value: `${annual}%` },
+      { label: "Term", value: `${months} months` },
+      { label: "Monthly payment", value: money(payment) },
+      ...(extra ? [{ label: "Extra monthly principal", value: money(extra) }] : []),
+      { label: "Interest if paid as scheduled", value: money(interest) },
+      { label: "Total paid if paid as scheduled", value: money(totalPaid) },
+    ],
+    formula:
+      "Payment = P × r × (1 + r)^n ÷ ((1 + r)^n − 1), with r = annual rate ÷ 12 and n = months. If r = 0, payment = P ÷ n.",
+    notes: [
+      "This is an amortization estimate. Taxes, insurance, fees, and variable rates are not included unless you add them to the principal.",
+      "Results are not a lender quote.",
+    ],
+    copyText: `Estimated car loan payment: ${money(payment)} per month`,
+  };
+}
+
+export function calculateSalesCommission(input: {
+  sales: string;
+  rate: string;
+  bonus?: string;
+  threshold?: string;
+  currency: string;
+}): SpecializedCalcResult {
+  const sales = parseMoney(input.sales, "sales amount");
+  const rate = Number(input.rate);
+  const bonus = parseOptionalMoney(input.bonus ?? "", "bonus");
+  const threshold = parseOptionalMoney(input.threshold ?? "", "threshold");
+  if (!Number.isFinite(rate) || rate < 0) throw new Error("Enter a valid commission rate.");
+  const commissionable = Math.max(0, sales - threshold);
+  const commission = commissionable * (rate / 100) + bonus;
+  const money = (n: number) => formatMoney(n, input.currency);
+  return {
+    headline: money(commission),
+    subhead: "Estimated commission from the rate and sales you entered",
+    primaryLabel: "Estimated commission",
+    primary: money(commission),
+    breakdown: [
+      { label: "Sales", value: money(sales) },
+      { label: "Rate", value: `${rate}%` },
+      ...(threshold ? [{ label: "Threshold (not commissioned)", value: money(threshold) }] : []),
+      { label: "Commissionable sales", value: money(commissionable) },
+      ...(bonus ? [{ label: "Flat bonus", value: money(bonus) }] : []),
+      { label: "Estimated commission", value: money(commission) },
+    ],
+    formula: "Commission = max(0, sales − threshold) × rate + bonus",
+    notes: ["Plan rules vary. This estimate uses only the rate, threshold, and bonus you entered."],
+    copyText: `Estimated commission: ${money(commission)}`,
+  };
+}
