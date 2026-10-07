@@ -21,9 +21,9 @@ export function PopularToolsSection() {
     .slice(0, 8);
 
   return (
-    <section className="tm-section border-b border-tm-border bg-tm-white">
+    <section className="tm-section border-b border-tm-border bg-tm-elevated">
       <div className="tm-container">
-        <div className="flex flex-wrap items-end justify-between gap-4">
+        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-end sm:justify-between sm:gap-4">
           <div className="max-w-2xl">
             <p className="tm-eyebrow">Quick access</p>
             <h2 className="tm-h2 mt-3">Featured Tools</h2>
@@ -34,12 +34,12 @@ export function PopularToolsSection() {
           </div>
           <Link
             href="/tools"
-            className="text-sm font-bold text-tm-accent transition-colors hover:text-tm-accent-hover"
+            className="inline-flex min-h-11 items-center text-sm font-bold text-tm-accent transition-colors hover:text-tm-accent-hover"
           >
             Browse all tools →
           </Link>
         </div>
-        <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4">
           {tools.map((tool) => (
             <ToolCard key={tool.id} tool={tool} compact />
           ))}

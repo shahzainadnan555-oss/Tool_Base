@@ -63,11 +63,11 @@ export function SearchBar({
   }
 
   return (
-    <div ref={rootRef} className={cn("relative w-full", className)}>
+    <div ref={rootRef} className={cn("relative w-full min-w-0", className)}>
       <label htmlFor={inputId} className="sr-only">
         Search Tool Base tools
       </label>
-      <div className={cn(compact ? "relative" : "tm-search-shell")}>
+      <div className={cn(compact ? "relative min-w-0" : "tm-search-shell min-w-0")}>
         {compact ? (
           <>
             <Icon
@@ -81,7 +81,7 @@ export function SearchBar({
               autoFocus={autoFocus}
               autoComplete="off"
               placeholder={placeholder}
-              className="tm-input min-h-10 !pl-10 !pr-16 text-sm"
+              className="tm-input min-h-11 !pl-10 !pr-16 text-sm"
               onChange={(event) => {
                 setQuery(event.target.value);
                 setOpen(true);
@@ -118,7 +118,7 @@ export function SearchBar({
               autoFocus={autoFocus}
               autoComplete="off"
               placeholder={placeholder}
-              className="tm-input flex-1"
+              className="tm-input min-w-0 flex-1"
               onChange={(event) => {
                 setQuery(event.target.value);
                 setOpen(true);
@@ -146,10 +146,12 @@ export function SearchBar({
             ) : (
               <button
                 type="button"
-                className="tm-btn tm-btn-primary shrink-0 !min-h-10 !px-4"
+                className="tm-btn tm-btn-primary shrink-0 !min-h-10 !px-3 sm:!px-4"
                 onClick={() => commitSearch(query)}
+                aria-label="Search"
               >
-                Search
+                <span className="sm:hidden">Go</span>
+                <span className="hidden sm:inline">Search</span>
               </button>
             )}
           </>

@@ -20,8 +20,8 @@ export function TextShadowPanel() {
         <Field id="tsb" label="Blur"><input id="tsb" className="tm-input" value={blur} onChange={(e) => setBlur(e.target.value)} /></Field>
         <Field id="tsc" label="Color"><input id="tsc" type="color" className="h-11 w-full" value={color} onChange={(e) => setColor(e.target.value)} /></Field>
       </div>
-      <p className="rounded-2xl border border-tm-border bg-tm-white p-8 text-center text-3xl font-black text-tm-text" style={{ textShadow: css }}>Sample text</p>
-      <pre className="overflow-x-auto rounded-xl border border-tm-border bg-tm-white p-3 text-sm">text-shadow: {css};</pre>
+      <p className="rounded-2xl border border-tm-border bg-tm-elevated p-8 text-center text-3xl font-black text-tm-text" style={{ textShadow: css }}>Sample text</p>
+      <pre className="overflow-x-auto rounded-xl border border-tm-border bg-tm-elevated p-3 text-sm">text-shadow: {css};</pre>
       <button type="button" className="tm-btn tm-btn-primary" onClick={async () => { if (await copyText(`text-shadow: ${css};`)) done("Copied."); else fail("Copy failed. Try again."); }}>Copy CSS</button>
       <Status error={error} ok={ok} />
     </div>
@@ -51,7 +51,7 @@ export function ClipPathPanel() {
       <div className="flex justify-center rounded-2xl border border-tm-border bg-slate-100 p-8 dark:bg-slate-800">
         <div className="h-40 w-40 bg-[var(--tm-accent)]" style={{ clipPath: css }} />
       </div>
-      <pre className="overflow-x-auto rounded-xl border border-tm-border bg-tm-white p-3 text-sm">clip-path: {css};</pre>
+      <pre className="overflow-x-auto rounded-xl border border-tm-border bg-tm-elevated p-3 text-sm">clip-path: {css};</pre>
       <button type="button" className="tm-btn tm-btn-primary" onClick={async () => { if (await copyText(`clip-path: ${css};`)) done("Copied."); else fail("Copy failed. Try again."); }}>Copy CSS</button>
       <Status error={error} ok={ok} />
     </div>
@@ -180,7 +180,7 @@ export function SocialSizePanel() {
         <Field id="sh" label="Height"><input id="sh" className="tm-input" value={h} onChange={(e) => { setH(e.target.value); setPreset("Custom"); }} /></Field>
       </div>
       <Field id="st" label="Title"><input id="st" className="tm-input" value={title} onChange={(e) => setTitle(e.target.value)} /></Field>
-      <canvas ref={canvasRef} className="max-h-80 w-full rounded-xl border border-tm-border bg-tm-white object-contain" />
+      <canvas ref={canvasRef} className="max-h-80 w-full rounded-xl border border-tm-border bg-tm-elevated object-contain" />
       <div className="flex flex-wrap gap-2">
         <button type="button" className="tm-btn tm-btn-secondary" onClick={() => { if (render()) done("Preview updated."); }}>Preview</button>
         <button type="button" className="tm-btn tm-btn-primary" onClick={() => {
@@ -330,7 +330,7 @@ export function AsciiArtPanel() {
   return (
     <div className="space-y-4">
       <Field id="aa" label="Text"><input id="aa" className="tm-input" value={text} onChange={(e) => setText(e.target.value)} /></Field>
-      <pre className="overflow-x-auto rounded-xl border border-tm-border bg-tm-white p-3 font-mono text-xs leading-4">{art}</pre>
+      <pre className="overflow-x-auto rounded-xl border border-tm-border bg-tm-elevated p-3 font-mono text-xs leading-4">{art}</pre>
       <div className="flex flex-wrap gap-2">
         <button type="button" className="tm-btn tm-btn-primary" onClick={async () => { if (!text.trim()) { fail("Empty input."); return; } if (await copyText(art)) done("Copied."); else fail("Copy failed. Try again."); }}>Copy</button>
         <button type="button" className="tm-btn tm-btn-secondary" onClick={() => { if (!text.trim()) { fail("Empty input."); return; } downloadTextFile(art, "ascii-art.txt"); done("Downloaded."); }}>Download</button>
@@ -426,8 +426,8 @@ export function SvgShapePanel() {
         <Field id="sf" label="Fill"><input id="sf" type="color" className="h-11 w-full" value={fill} onChange={(e) => setFill(e.target.value)} /></Field>
         <Field id="sk" label="Stroke"><input id="sk" type="color" className="h-11 w-full" value={stroke} onChange={(e) => setStroke(e.target.value)} /></Field>
       </div>
-      <div className="flex justify-center rounded-2xl border border-tm-border bg-tm-white p-6" dangerouslySetInnerHTML={{ __html: svg }} />
-      <pre className="overflow-x-auto rounded-xl border border-tm-border bg-tm-white p-3 text-xs">{svg}</pre>
+      <div className="flex justify-center rounded-2xl border border-tm-border bg-tm-elevated p-6" dangerouslySetInnerHTML={{ __html: svg }} />
+      <pre className="overflow-x-auto rounded-xl border border-tm-border bg-tm-elevated p-3 text-xs">{svg}</pre>
       <div className="flex flex-wrap gap-2">
         <button type="button" className="tm-btn tm-btn-primary" onClick={async () => { if (await copyText(svg)) done("Copied."); else fail("Copy failed. Try again."); }}>Copy SVG</button>
         <button type="button" className="tm-btn tm-btn-secondary" onClick={() => { downloadTextFile(svg, "shape.svg"); done("Downloaded."); }}>Download</button>
@@ -457,7 +457,7 @@ export function TransformPanel() {
       <div className="flex h-48 items-center justify-center rounded-2xl border border-tm-border bg-slate-100 dark:bg-slate-800">
         <div className="h-16 w-24 rounded-lg bg-[var(--tm-accent)]" style={{ transform: css }} />
       </div>
-      <pre className="overflow-x-auto rounded-xl border border-tm-border bg-tm-white p-3 text-sm">transform: {css};</pre>
+      <pre className="overflow-x-auto rounded-xl border border-tm-border bg-tm-elevated p-3 text-sm">transform: {css};</pre>
       <div className="flex flex-wrap gap-2">
         <button type="button" className="tm-btn tm-btn-primary" onClick={async () => { if (await copyText(`transform: ${css};`)) done("Copied."); else fail("Copy failed. Try again."); }}>Copy CSS</button>
         <button type="button" className="tm-btn tm-btn-ghost" onClick={() => { setX("0"); setY("0"); setRot("0"); setSx("1"); setSy("1"); setKx("0"); setKy("0"); }}>Reset</button>
@@ -491,11 +491,11 @@ export function ButtonGenPanel() {
         <Field id="fg" label="Text"><input id="fg" type="color" className="h-11 w-full" value={fg} onChange={(e) => setFg(e.target.value)} /></Field>
         <Field id="sh" label="Shadow"><input id="sh" className="tm-input" value={shadow} onChange={(e) => setShadow(e.target.value)} /></Field>
       </div>
-      <div className="rounded-2xl border border-tm-border bg-tm-white p-6 text-center">
+      <div className="rounded-2xl border border-tm-border bg-tm-elevated p-6 text-center">
         <style>{css}</style>
         <button className="tb-btn" type="button">Button</button>
       </div>
-      <pre className="overflow-x-auto rounded-xl border border-tm-border bg-tm-white p-3 text-xs">{html}\n{css}</pre>
+      <pre className="overflow-x-auto rounded-xl border border-tm-border bg-tm-elevated p-3 text-xs">{html}\n{css}</pre>
       <button type="button" className="tm-btn tm-btn-primary" onClick={async () => { if (await copyText(`${html}\n${css}`)) done("Copied."); else fail("Copy failed. Try again."); }}>Copy HTML/CSS</button>
       <Status error={error} ok={ok} />
     </div>
@@ -518,7 +518,7 @@ export function FilterPanel() {
         </Field>
       ))}
       <div className="h-28 rounded-2xl bg-gradient-to-r from-sky-400 to-indigo-500" style={{ filter: css }} />
-      <pre className="overflow-x-auto rounded-xl border border-tm-border bg-tm-white p-3 text-sm">filter: {css};</pre>
+      <pre className="overflow-x-auto rounded-xl border border-tm-border bg-tm-elevated p-3 text-sm">filter: {css};</pre>
       <button type="button" className="tm-btn tm-btn-primary" onClick={async () => { if (await copyText(`filter: ${css};`)) done("Copied."); else fail("Copy failed. Try again."); }}>Copy CSS</button>
       <Status error={error} ok={ok} />
     </div>
@@ -543,7 +543,7 @@ export function FlexboxPanel() {
         <Field id="fa" label="Align"><select id="fa" className="tm-input" value={align} onChange={(e) => setAlign(e.target.value)}><option>stretch</option><option>flex-start</option><option>center</option><option>flex-end</option></select></Field>
       </div>
       <Field id="fg" label="Gap"><input id="fg" className="tm-input" value={gap} onChange={(e) => setGap(e.target.value)} /></Field>
-      <div className="rounded-2xl border border-tm-border bg-tm-white p-4" style={{ display: "flex", flexDirection: dir as "row", flexWrap: wrap as "wrap", justifyContent: justify, alignItems: align, gap: `${gap}px` }}>
+      <div className="rounded-2xl border border-tm-border bg-tm-elevated p-4" style={{ display: "flex", flexDirection: dir as "row", flexWrap: wrap as "wrap", justifyContent: justify, alignItems: align, gap: `${gap}px` }}>
         {Array.from({ length: count }, (_, i) => <div key={i} className="rounded-lg bg-[var(--tm-accent)] px-3 py-4 text-center text-xs font-bold text-white">Item {i + 1}</div>)}
       </div>
       <div className="flex flex-wrap gap-2">
@@ -551,7 +551,7 @@ export function FlexboxPanel() {
         <button type="button" className="tm-btn tm-btn-ghost" onClick={() => setCount((n) => Math.max(1, n - 1))}>Remove item</button>
         <button type="button" className="tm-btn tm-btn-primary" onClick={async () => { if (await copyText(css)) done("Copied."); else fail("Copy failed. Try again."); }}>Copy CSS</button>
       </div>
-      <pre className="overflow-x-auto rounded-xl border border-tm-border bg-tm-white p-3 text-sm">{css}</pre>
+      <pre className="overflow-x-auto rounded-xl border border-tm-border bg-tm-elevated p-3 text-sm">{css}</pre>
       <Status error={error} ok={ok} />
     </div>
   );
@@ -569,9 +569,9 @@ export function GlassPanel() {
       <Field id="ga" label="Fill alpha"><input id="ga" className="tm-input" value={alpha} onChange={(e) => setAlpha(e.target.value)} /></Field>
       <Field id="gr" label="Radius"><input id="gr" className="tm-input" value={radius} onChange={(e) => setRadius(e.target.value)} /></Field>
       <div className="rounded-2xl bg-gradient-to-br from-sky-400 to-indigo-600 p-10">
-        <div className="p-6 text-sm font-bold text-slate-900" style={{ background: `rgba(255,255,255,${alpha})`, backdropFilter: `blur(${blur}px) saturate(160%)`, border: "1px solid rgba(255,255,255,.4)", borderRadius: `${radius}px` }}>Glass card</div>
+        <div className="p-6 text-sm font-bold text-tm-text" style={{ background: `rgba(255,255,255,${alpha})`, backdropFilter: `blur(${blur}px) saturate(160%)`, border: "1px solid rgba(255,255,255,.4)", borderRadius: `${radius}px` }}>Glass card</div>
       </div>
-      <pre className="overflow-x-auto rounded-xl border border-tm-border bg-tm-white p-3 text-sm">{css}</pre>
+      <pre className="overflow-x-auto rounded-xl border border-tm-border bg-tm-elevated p-3 text-sm">{css}</pre>
       <button type="button" className="tm-btn tm-btn-primary" onClick={async () => { if (await copyText(css)) done("Copied."); else fail("Copy failed. Try again."); }}>Copy CSS</button>
       <Status error={error} ok={ok} />
     </div>

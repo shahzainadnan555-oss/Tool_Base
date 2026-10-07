@@ -31,7 +31,7 @@ export function BlogsDirectory({ posts, categories, tags }: BlogsDirectoryProps)
 
   return (
     <div className="mt-8 space-y-8">
-      <div className="grid gap-3 rounded-2xl border border-tm-border bg-tm-white p-4 md:grid-cols-3">
+      <div className="grid gap-3 rounded-2xl border border-tm-border bg-tm-elevated p-4 md:grid-cols-3">
         <label className="text-sm font-bold text-tm-text">
           Search guides
           <input
@@ -81,7 +81,7 @@ export function BlogsDirectory({ posts, categories, tags }: BlogsDirectoryProps)
           </div>
         </section>
       ) : (
-        <p className="rounded-2xl border border-tm-border bg-tm-white px-4 py-6 text-sm font-medium text-tm-muted">
+        <p className="rounded-2xl border border-tm-border bg-tm-elevated px-4 py-6 text-sm font-medium text-tm-muted">
           No guides match that filter. Try another search or topic.
         </p>
       )}

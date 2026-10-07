@@ -443,7 +443,7 @@ export function DeveloperToolWorkspace({
       ) : null}
 
       {result?.regex ? (
-        <div className="space-y-3 rounded-2xl border border-tm-border bg-tm-white p-4">
+        <div className="space-y-3 rounded-2xl border border-tm-border bg-tm-elevated p-4">
           {result.regex.error ? (
             <p className="text-sm font-semibold text-tm-error" role="alert">
               {result.regex.timedOut ? "✕ " : ""}
@@ -481,12 +481,6 @@ export function DeveloperToolWorkspace({
       {error ? (
         <p className="tm-notice tm-notice-error" role="alert">
           {error}
-        </p>
-      ) : null}
-
-      {busy ? (
-        <p className="text-sm font-bold text-tm-muted" aria-live="polite">
-          Working…
         </p>
       ) : null}
 

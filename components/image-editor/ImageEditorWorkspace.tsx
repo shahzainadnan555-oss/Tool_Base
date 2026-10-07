@@ -3,12 +3,13 @@
 import { useEffect, useId, useMemo, useRef, useState } from "react";
 import type { Area } from "react-easy-crop";
 import { ConvertButton } from "@/components/image-converter/ConvertButton";
-import { ConversionProgress } from "@/components/image-converter/ConversionProgress";
 import { FileValidationMessage } from "@/components/image-converter/FileValidationMessage";
 import { ImageUpload } from "@/components/image-converter/ImageUpload";
 import { ImageColorPickerPanel } from "@/components/image-editor/ImageColorPickerPanel";
 import { ImageCropperControl } from "@/components/image-editor/ImageCropperControl";
+import { ProcessingProgress } from "@/components/ui/ProcessingProgress";
 import { downloadBlob } from "@/lib/image-converter/convert";
+import { preloadBackgroundRemoval } from "@/lib/image-editor/background-removal";
 import { processEditorImage } from "@/lib/image-editor/process";
 import type {
   EditorImageFile,
@@ -22,6 +23,7 @@ import {
   revokeObjectUrl,
 } from "@/lib/image-editor/utils";
 import { validateEditorFile } from "@/lib/image-editor/validate";
+import { useOperationController } from "@/lib/processing";
 import { filterUserFacingNotices, isTechnicalNotice } from "@/lib/ui/notices";
 
 interface ImageEditorWorkspaceProps {
@@ -36,7 +38,8 @@ export function ImageEditorWorkspace({
   convertHeading,
 }: ImageEditorWorkspaceProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const opIdRef = useRef(0);
+  const loadGenRef = useRef(0);
+  const controller = useOperationController(config.processingLabel);
   const widthId = useId();
   const heightId = useId();
   const qualityId = useId();
@@ -44,7 +47,6 @@ export function ImageEditorWorkspace({
   const [selected, setSelected] = useState<EditorImageFile | null>(null);
   const [result, setResult] = useState<EditorProcessResult | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [progressPercent, setProgressPercent] = useState<number | null>(null);
 
   const [quality, setQuality] = useState(75);
   const [width, setWidth] = useState("");
@@ -74,11 +76,23 @@ export function ImageEditorWorkspace({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Warm the background-removal engine as soon as this tool is open.
+  useEffect(() => {
+    if (config.kind !== "background-remover") return;
+    void preloadBackgroundRemoval();
+  }, [config.kind]);
+
   const needsProcessButton =
-    config.kind !== "color-picker" && config.kind !== "metadata-viewer";
+    config.kind !== "color-picker" &&
+    config.kind !== "metadata-viewer" &&
+    config.kind !== "background-remover";
+
+  const autoProcessOnUpload =
+    config.kind === "background-remover" || config.kind === "metadata-viewer";
 
   function resetAll() {
-    opIdRef.current += 1;
+    loadGenRef.current += 1;
+    controller.reset();
     revokeObjectUrl(selected?.previewUrl);
     if (result?.previewUrl !== selected?.previewUrl)
       revokeObjectUrl(result?.previewUrl);
@@ -86,67 +100,16 @@ export function ImageEditorWorkspace({
     setResult(null);
     setError(null);
     setCropPixels(null);
-    setProgressPercent(null);
     setStage("upload");
   }
 
-  async function handleFileSelected(file: File) {
-    if (stage === "processing") return;
+  async function runProcess(source: EditorImageFile): Promise<void> {
     setError(null);
-    const validationError = validateEditorFile(file, config);
-    if (validationError) {
-      setError(validationError);
-      return;
-    }
-
-    opIdRef.current += 1;
-    const loadId = opIdRef.current;
-    revokeObjectUrl(selected?.previewUrl);
-    if (result?.previewUrl !== selected?.previewUrl)
-      revokeObjectUrl(result?.previewUrl);
-    setResult(null);
-    setProgressPercent(null);
-
-    try {
-      const loaded = await loadEditorImage(file);
-      if (loadId !== opIdRef.current) return;
-      setSelected(loaded);
-      setWidth(String(loaded.width));
-      setHeight(String(loaded.height));
-      setOutputMime(
-        (config.forceOutputMime as OutputMime) ||
-          (loaded.type === "image/png"
-            ? "image/png"
-            : loaded.type === "image/webp"
-              ? "image/webp"
-              : "image/jpeg"),
-      );
-      setStage("ready");
-
-      if (config.kind === "metadata-viewer") {
-        setStage("processing");
-        const meta = await processEditorImage(loaded, config);
-        if (loadId !== opIdRef.current) return;
-        setResult(meta);
-        setStage("done");
-      }
-    } catch {
-      if (loadId !== opIdRef.current) return;
-      setError("We couldn't read this image. Please try another file.");
-    }
-  }
-
-  async function handleProcess() {
-    if (!selected || stage === "processing") {
-      if (!selected) setError("Please choose an image file.");
-      return;
-    }
-    const jobId = ++opIdRef.current;
-    setError(null);
-    setProgressPercent(null);
+    controller.clearError();
     setStage("processing");
+    const opId = controller.start(config.processingLabel);
     try {
-      const processed = await processEditorImage(selected, config, {
+      const processed = await processEditorImage(source, config, {
         quality,
         width: width ? Number(width) : undefined,
         height: height ? Number(height) : undefined,
@@ -170,36 +133,87 @@ export function ImageEditorWorkspace({
         borderWidth,
         borderColor,
         padding,
-        onProgress: (completed, total) => {
-          if (jobId !== opIdRef.current) return;
+        onProgress: (completed, total, label) => {
           if (!Number.isFinite(total) || total <= 0) {
-            setProgressPercent(null);
+            controller.setIndeterminate(opId, label || config.processingLabel);
             return;
           }
-          setProgressPercent(
-            Math.max(0, Math.min(99, Math.round((completed / total) * 100))),
+          controller.setUnitProgress(
+            opId,
+            completed,
+            total,
+            label || config.processingLabel,
           );
         },
       });
-      if (jobId !== opIdRef.current) {
+      if (!controller.succeed(opId)) {
         revokeObjectUrl(processed.previewUrl);
         return;
       }
-      if (result?.previewUrl !== selected.previewUrl)
-        revokeObjectUrl(result?.previewUrl);
-      setProgressPercent(100);
-      setResult(processed);
+      setResult((previous) => {
+        if (previous?.previewUrl && previous.previewUrl !== source.previewUrl) {
+          revokeObjectUrl(previous.previewUrl);
+        }
+        return processed;
+      });
       setStage("done");
     } catch (processError) {
-      if (jobId !== opIdRef.current) return;
-      setProgressPercent(null);
-      setStage("ready");
-      setError(
+      const message =
         processError instanceof Error
           ? processError.message
-          : "We couldn't process this image. Please try another file.",
-      );
+          : "We couldn't process this image. Please try another file.";
+      controller.fail(opId, message);
+      setStage("ready");
+      setError(message);
     }
+  }
+
+  async function handleFileSelected(file: File) {
+    setError(null);
+    const validationError = validateEditorFile(file, config);
+    if (validationError) {
+      setError(validationError);
+      return;
+    }
+
+    controller.reset();
+    const loadId = ++loadGenRef.current;
+    revokeObjectUrl(selected?.previewUrl);
+    if (result?.previewUrl !== selected?.previewUrl)
+      revokeObjectUrl(result?.previewUrl);
+    setResult(null);
+
+    try {
+      const loaded = await loadEditorImage(file);
+      if (loadId !== loadGenRef.current) return;
+      setSelected(loaded);
+      setWidth(String(loaded.width));
+      setHeight(String(loaded.height));
+      setOutputMime(
+        (config.forceOutputMime as OutputMime) ||
+          (loaded.type === "image/png"
+            ? "image/png"
+            : loaded.type === "image/webp"
+              ? "image/webp"
+              : "image/jpeg"),
+      );
+      setStage("ready");
+
+      if (autoProcessOnUpload) {
+        await runProcess(loaded);
+      }
+    } catch {
+      if (loadId !== loadGenRef.current) return;
+      setError("We couldn't read this image. Please try another file.");
+    }
+  }
+
+  async function handleProcess() {
+    if (!selected || stage === "processing") {
+      if (!selected) setError("Please choose an image file.");
+      return;
+    }
+    await runProcess(selected);
   }
 
   const aspectPresets = useMemo(
@@ -235,9 +249,9 @@ export function ImageEditorWorkspace({
 
       {(stage === "ready" || stage === "processing") && selected ? (
         <>
-          <div className="rounded-3xl border border-tm-border bg-tm-white p-5">
+          <div className="rounded-3xl border border-tm-border bg-tm-elevated p-5">
             <div className="grid gap-5 md:grid-cols-[240px_1fr]">
-              <div className="flex min-h-48 items-center justify-center overflow-hidden rounded-2xl border border-tm-border bg-[linear-gradient(45deg,#e2e8f0_25%,transparent_25%),linear-gradient(-45deg,#e2e8f0_25%,transparent_25%),linear-gradient(45deg,transparent_75%,#e2e8f0_75%),linear-gradient(-45deg,transparent_75%,#e2e8f0_75%)] bg-size-[16px_16px] bg-position-[0_0,0_8px,8px_-8px,-8px_0] bg-tm-soft p-3">
+              <div className="tm-checkerboard flex min-h-48 items-center justify-center overflow-hidden rounded-2xl border border-tm-border p-3">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={selected.previewUrl}
@@ -618,19 +632,32 @@ export function ImageEditorWorkspace({
                 }
                 onClick={() => void handleProcess()}
               />
-              {stage === "processing" ? (
-                <ConversionProgress
-                  label={config.processingLabel}
-                  percent={progressPercent}
-                />
-              ) : null}
+            </div>
+          ) : null}
+
+          {stage === "processing" &&
+          controller.showProgress &&
+          controller.progress ? (
+            <div className="space-y-3">
+              <ProcessingProgress progress={controller.progress} />
+              <button
+                type="button"
+                className="tm-btn tm-btn-secondary"
+                onClick={() => {
+                  controller.cancel();
+                  setStage(selected ? "ready" : "upload");
+                  setError(null);
+                }}
+              >
+                Cancel
+              </button>
             </div>
           ) : null}
         </>
       ) : null}
 
       {stage === "done" && selected && result ? (
-        <div className="space-y-5 rounded-3xl border border-tm-border bg-tm-white p-5 md:p-6">
+        <div className="space-y-5 rounded-3xl border border-tm-border bg-tm-elevated p-5 md:p-6">
           <h3 className="text-xl font-extrabold text-tm-text">
             {config.kind === "metadata-viewer"
               ? "Image metadata"

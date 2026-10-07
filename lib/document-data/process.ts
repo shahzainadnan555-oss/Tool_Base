@@ -7,6 +7,7 @@ import { marked } from "marked";
 import Papa from "papaparse";
 import TurndownService from "turndown";
 import { loadPdfjsDocument, extractPdfText } from "@/lib/pdf/pdfjs";
+import { reportStage } from "@/lib/processing/report";
 import type {
   DocumentDataConfig,
   DocumentDataOptions,
@@ -259,18 +260,18 @@ async function convertDocxToPdf(
   config: DocumentDataConfig,
   options: DocumentDataOptions,
 ): Promise<DocumentDataResult> {
-  options.onProgress?.(0, 3, "Reading DOCX…");
+  reportStage(options.onProgress, "Reading DOCX…");
   const mammoth = await import("mammoth");
   const buffer = await readFileAsArrayBuffer(file);
-  options.onProgress?.(1, 3, "Parsing document…");
+  reportStage(options.onProgress, "Parsing document…");
   const result = await mammoth.convertToHtml({ arrayBuffer: buffer });
   if (!result.value.trim()) {
     throw new Error("This DOCX did not contain extractable content.");
   }
-  options.onProgress?.(2, 3, "Generating PDF…");
+  reportStage(options.onProgress, "Generating PDF…");
   const html = `<article>${result.value}</article>`;
   const pdfBytes = await htmlStringToPdf(html);
-  options.onProgress?.(3, 3, "Done");
+  
   return binaryResult(pdfBytes, config, file.name, {
     notice: result.messages.length
       ? "Some DOCX features may have been simplified during conversion."
@@ -283,7 +284,7 @@ async function convertPdfToDocx(
   config: DocumentDataConfig,
   options: DocumentDataOptions,
 ): Promise<DocumentDataResult> {
-  options.onProgress?.(0, 2, "Reading PDF…");
+  reportStage(options.onProgress, "Reading PDF…");
   const buffer = await readFileAsArrayBuffer(file);
   const pdf = await loadPdfjsDocument(buffer);
   try {
@@ -295,9 +296,8 @@ async function convertPdfToDocx(
         "No extractable text was found. This PDF may be scanned images without a text layer. OCR is not applied.",
       );
     }
-    options.onProgress?.(1, 2, "Building DOCX…");
+    reportStage(options.onProgress, "Building DOCX…");
     const blob = await textToDocxBlob(text);
-    options.onProgress?.(2, 2, "Done");
     return binaryResult(blob, config, file.name, {
       notice:
         "Created an editable DOCX from the PDF text layer. Layout and formatting are approximated.",
@@ -326,9 +326,9 @@ async function convertTxtToDocx(
 ): Promise<DocumentDataResult> {
   const { text, name } = await getInputText(file, options);
   if (!text.trim()) throw new Error("Please provide text to convert.");
-  options.onProgress?.(0, 1, "Creating DOCX…");
+  reportStage(options.onProgress, "Creating DOCX…");
   const blob = await textToDocxBlob(text);
-  options.onProgress?.(1, 1, "Done");
+  
   return binaryResult(blob, config, name);
 }
 
@@ -337,11 +337,11 @@ async function convertDocxToTxt(
   config: DocumentDataConfig,
   options: DocumentDataOptions,
 ): Promise<DocumentDataResult> {
-  options.onProgress?.(0, 1, "Extracting text…");
+  reportStage(options.onProgress, "Extracting text…");
   const mammoth = await import("mammoth");
   const buffer = await readFileAsArrayBuffer(file);
   const result = await mammoth.extractRawText({ arrayBuffer: buffer });
-  options.onProgress?.(1, 1, "Done");
+  
   const text = result.value.replace(/\n{3,}/g, "\n\n").trim();
   if (!text) throw new Error("No text could be extracted from this DOCX.");
   return textResult(text, config, file.name);
@@ -356,10 +356,10 @@ async function convertRtfToTxt(
     ...options,
     textInput: options.textInput,
   });
-  options.onProgress?.(0, 1, "Parsing RTF…");
+  reportStage(options.onProgress, "Parsing RTF…");
   const source = file ? await readFileAsText(file) : text;
   const plain = stripRtf(source);
-  options.onProgress?.(1, 1, "Done");
+  
   if (!plain) throw new Error("No text could be extracted from this RTF file.");
   return textResult(plain, config, name.endsWith(".rtf") ? name : `${name}.rtf`);
 }
@@ -369,12 +369,12 @@ async function convertRtfToPdf(
   config: DocumentDataConfig,
   options: DocumentDataOptions,
 ): Promise<DocumentDataResult> {
-  options.onProgress?.(0, 2, "Parsing RTF…");
+  reportStage(options.onProgress, "Parsing RTF…");
   const plain = stripRtf(await readFileAsText(file));
   if (!plain) throw new Error("No text could be extracted from this RTF file.");
-  options.onProgress?.(1, 2, "Generating PDF…");
+  reportStage(options.onProgress, "Generating PDF…");
   const bytes = await textToPdfBytes(plain, options.onProgress);
-  options.onProgress?.(2, 2, "Done");
+  
   return binaryResult(bytes, config, file.name);
 }
 
@@ -384,9 +384,9 @@ async function convertMarkdownToHtml(
   options: DocumentDataOptions,
 ): Promise<DocumentDataResult> {
   const { text, name } = await getInputText(file, options);
-  options.onProgress?.(0, 1, "Converting Markdown…");
+  reportStage(options.onProgress, "Converting Markdown…");
   const html = await marked.parse(text, { async: true, gfm: true, breaks: false });
-  options.onProgress?.(1, 1, "Done");
+  
   const documentHtml = `<!DOCTYPE html>\n<html lang="en">\n<head><meta charset="utf-8"><title>Converted Markdown</title></head>\n<body>\n${html}\n</body>\n</html>\n`;
   return textResult(documentHtml, config, name);
 }
@@ -397,13 +397,13 @@ async function convertHtmlToMarkdown(
   options: DocumentDataOptions,
 ): Promise<DocumentDataResult> {
   const { text, name } = await getInputText(file, options);
-  options.onProgress?.(0, 1, "Converting HTML…");
+  reportStage(options.onProgress, "Converting HTML…");
   const turndown = new TurndownService({
     headingStyle: "atx",
     codeBlockStyle: "fenced",
   });
   const markdown = turndown.turndown(text);
-  options.onProgress?.(1, 1, "Done");
+  
   return textResult(markdown, config, name);
 }
 
@@ -413,11 +413,11 @@ async function convertMarkdownToPdf(
   options: DocumentDataOptions,
 ): Promise<DocumentDataResult> {
   const { text, name } = await getInputText(file, options);
-  options.onProgress?.(0, 2, "Rendering Markdown…");
+  reportStage(options.onProgress, "Rendering Markdown…");
   const htmlBody = await marked.parse(text, { async: true, gfm: true });
-  options.onProgress?.(1, 2, "Generating PDF…");
+  reportStage(options.onProgress, "Generating PDF…");
   const pdfBytes = await htmlStringToPdf(`<article>${htmlBody}</article>`);
-  options.onProgress?.(2, 2, "Done");
+  
   return binaryResult(pdfBytes, config, name);
 }
 
@@ -427,10 +427,10 @@ async function convertCsvToJson(
   options: DocumentDataOptions,
 ): Promise<DocumentDataResult> {
   const { text, name } = await getInputText(file, options);
-  options.onProgress?.(0, 1, "Parsing CSV…");
+  reportStage(options.onProgress, "Parsing CSV…");
   const parsed = parseCsv(text);
   const json = JSON.stringify(parsed.data, null, 2);
-  options.onProgress?.(1, 1, "Done");
+  
   return textResult(json, config, name, {
     stats: { Rows: String(parsed.data.length) },
   });
@@ -442,7 +442,7 @@ async function convertJsonToCsv(
   options: DocumentDataOptions,
 ): Promise<DocumentDataResult> {
   const { text, name } = await getInputText(file, options);
-  options.onProgress?.(0, 1, "Parsing JSON…");
+  reportStage(options.onProgress, "Parsing JSON…");
   let data: unknown;
   try {
     data = JSON.parse(text);
@@ -457,7 +457,7 @@ async function convertJsonToCsv(
     throw new Error("Each JSON array item must be an object for CSV conversion.");
   }
   const csv = rowsToCsv(data as Record<string, unknown>[]);
-  options.onProgress?.(1, 1, "Done");
+  
   return textResult(csv, config, name, { stats: { Rows: String(data.length) } });
 }
 
@@ -467,7 +467,7 @@ async function convertCsvToXml(
   options: DocumentDataOptions,
 ): Promise<DocumentDataResult> {
   const { text, name } = await getInputText(file, options);
-  options.onProgress?.(0, 1, "Parsing CSV…");
+  reportStage(options.onProgress, "Parsing CSV…");
   const parsed = parseCsv(text);
   const root = options.xmlRootName || "root";
   const rowName = options.xmlRowName || "record";
@@ -484,7 +484,7 @@ async function convertCsvToXml(
     })
     .join("");
   const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<${root}>${body}</${root}>\n`;
-  options.onProgress?.(1, 1, "Done");
+  
   return textResult(xml, config, name, { stats: { Records: String(rows.length) } });
 }
 
@@ -494,7 +494,7 @@ async function convertXmlToJson(
   options: DocumentDataOptions,
 ): Promise<DocumentDataResult> {
   const { text, name } = await getInputText(file, options);
-  options.onProgress?.(0, 1, "Parsing XML…");
+  reportStage(options.onProgress, "Parsing XML…");
   const parser = new XMLParser({
     ignoreAttributes: false,
     attributeNamePrefix: "@_",
@@ -510,7 +510,7 @@ async function convertXmlToJson(
     );
   }
   const json = JSON.stringify(data, null, 2);
-  options.onProgress?.(1, 1, "Done");
+  
   return textResult(json, config, name);
 }
 
@@ -520,7 +520,7 @@ async function convertJsonToXml(
   options: DocumentDataOptions,
 ): Promise<DocumentDataResult> {
   const { text, name } = await getInputText(file, options);
-  options.onProgress?.(0, 1, "Parsing JSON…");
+  reportStage(options.onProgress, "Parsing JSON…");
   let data: unknown;
   try {
     data = JSON.parse(text);
@@ -538,7 +538,7 @@ async function convertJsonToXml(
   } else {
     xml = `<?xml version="1.0" encoding="UTF-8"?>\n<root>${jsonToXmlValue(data, "item")}</root>\n`;
   }
-  options.onProgress?.(1, 1, "Done");
+  
   return textResult(xml, config, name);
 }
 
@@ -549,7 +549,7 @@ async function convertTxtToCsv(
 ): Promise<DocumentDataResult> {
   const { text, name } = await getInputText(file, options);
   const delimiter = options.delimiter || ",";
-  options.onProgress?.(0, 1, "Building CSV…");
+  reportStage(options.onProgress, "Building CSV…");
   const lines = text.replace(/\r\n/g, "\n").split("\n").filter((line) => line.length > 0);
   if (!lines.length) throw new Error("Please provide text lines to convert.");
   const rows = lines.map((line) =>
@@ -559,7 +559,7 @@ async function convertTxtToCsv(
       .join(","),
   );
   const csv = rows.join("\n");
-  options.onProgress?.(1, 1, "Done");
+  
   return textResult(csv, config, name, { stats: { Rows: String(rows.length) } });
 }
 
@@ -569,7 +569,7 @@ async function convertCsvToTsv(
   options: DocumentDataOptions,
 ): Promise<DocumentDataResult> {
   const { text, name } = await getInputText(file, options);
-  options.onProgress?.(0, 1, "Parsing CSV…");
+  reportStage(options.onProgress, "Parsing CSV…");
   const parsed = Papa.parse<string[]>(text, {
     header: false,
     skipEmptyLines: "greedy",
@@ -588,7 +588,7 @@ async function convertCsvToTsv(
         .join("\t"),
     )
     .join("\n");
-  options.onProgress?.(1, 1, "Done");
+  
   return textResult(tsv, config, name);
 }
 
@@ -598,7 +598,7 @@ async function convertTsvToCsv(
   options: DocumentDataOptions,
 ): Promise<DocumentDataResult> {
   const { text, name } = await getInputText(file, options);
-  options.onProgress?.(0, 1, "Parsing TSV…");
+  reportStage(options.onProgress, "Parsing TSV…");
   const parsed = Papa.parse<string[]>(text, {
     header: false,
     skipEmptyLines: "greedy",
@@ -610,7 +610,7 @@ async function convertTsvToCsv(
   const csv = (parsed.data as string[][])
     .map((row) => row.map((cell) => csvEscape(cell ?? "")).join(","))
     .join("\n");
-  options.onProgress?.(1, 1, "Done");
+  
   return textResult(csv, config, name);
 }
 
@@ -620,7 +620,7 @@ async function convertYamlToJson(
   options: DocumentDataOptions,
 ): Promise<DocumentDataResult> {
   const { text, name } = await getInputText(file, options);
-  options.onProgress?.(0, 1, "Parsing YAML…");
+  reportStage(options.onProgress, "Parsing YAML…");
   let data: unknown;
   try {
     data = yamlLoad(text);
@@ -628,7 +628,7 @@ async function convertYamlToJson(
     throw new Error(`Invalid YAML: ${error instanceof Error ? error.message : "Could not parse YAML."}`);
   }
   const json = JSON.stringify(data, null, 2);
-  options.onProgress?.(1, 1, "Done");
+  
   return textResult(json, config, name);
 }
 
@@ -638,7 +638,7 @@ async function convertJsonToYaml(
   options: DocumentDataOptions,
 ): Promise<DocumentDataResult> {
   const { text, name } = await getInputText(file, options);
-  options.onProgress?.(0, 1, "Parsing JSON…");
+  reportStage(options.onProgress, "Parsing JSON…");
   let data: unknown;
   try {
     data = JSON.parse(text);
@@ -646,7 +646,7 @@ async function convertJsonToYaml(
     throw new Error(`Invalid JSON: ${error instanceof Error ? error.message : "Invalid JSON"}`);
   }
   const output = yamlDump(data, { lineWidth: 100, noRefs: true });
-  options.onProgress?.(1, 1, "Done");
+  
   return textResult(output, config, name);
 }
 

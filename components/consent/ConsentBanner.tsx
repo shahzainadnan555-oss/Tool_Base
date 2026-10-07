@@ -17,7 +17,7 @@ export function ConsentBanner({ onDecision }: ConsentBannerProps) {
     <div
       role="dialog"
       aria-label="Privacy preferences"
-      className="fixed inset-x-0 bottom-0 z-50 border-t border-tm-border bg-tm-white p-4 shadow-[var(--tm-shadow-lg)]"
+      className="fixed inset-x-0 bottom-0 z-50 border-t border-tm-border bg-tm-elevated p-4 shadow-[var(--tm-shadow-lg)]"
     >
       <div className="tm-container flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <p className="max-w-2xl text-sm font-medium text-tm-muted">
@@ -29,10 +29,10 @@ export function ConsentBanner({ onDecision }: ConsentBannerProps) {
           </Link>
           .
         </p>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row sm:flex-wrap">
           <button
             type="button"
-            className="tm-btn tm-btn-secondary"
+            className="tm-btn tm-btn-secondary w-full sm:w-auto"
             onClick={() => {
               setConsentState({ analytics: false, advertising: false });
               onDecision?.();
@@ -42,7 +42,7 @@ export function ConsentBanner({ onDecision }: ConsentBannerProps) {
           </button>
           <button
             type="button"
-            className="tm-btn tm-btn-primary"
+            className="tm-btn tm-btn-primary w-full sm:w-auto"
             onClick={() => {
               setConsentState({ analytics: true, advertising: true });
               onDecision?.();

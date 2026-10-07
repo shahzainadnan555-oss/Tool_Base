@@ -37,7 +37,7 @@ export default function AdminLayout({ children }: LayoutProps<"/admin">) {
         </div>
       </div>
       <div className="tm-container grid gap-8 py-8 lg:grid-cols-[220px_1fr]">
-        <aside className="h-fit rounded-2xl border border-tm-border bg-tm-white p-4">
+        <aside className="h-fit rounded-2xl border border-tm-border bg-tm-elevated p-4">
           <nav aria-label="Admin" className="grid gap-1">
             {links.map((link) => (
               <Link

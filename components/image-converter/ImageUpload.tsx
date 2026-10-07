@@ -63,17 +63,20 @@ export function ImageUpload({
         handleFiles(event.dataTransfer.files);
       }}
     >
-      <span className="mx-auto inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-tm-white text-tm-accent shadow-sm">
+      <span className="mx-auto inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-tm-elevated text-tm-accent shadow-sm">
         <Icon name="image" className="h-6 w-6" />
       </span>
-      <h3 className="mt-5 text-xl font-extrabold text-tm-text">Upload Your Image</h3>
-      <p className="mx-auto mt-2 max-w-md text-base font-medium text-tm-muted">
-        Drag & drop your image here, or click to browse
+      <h3 className="text-lg font-extrabold text-tm-text sm:text-xl">Upload Your Image</h3>
+      <p className="mx-auto max-w-md text-sm font-medium text-tm-muted sm:text-base">
+        <span className="tm-dropzone-mobile-hint">Tap to choose an image from your device</span>
+        <span className="tm-dropzone-desktop-hint">
+          Drag & drop your image here, or click to browse
+        </span>
       </p>
-      <p className="mt-2 text-sm font-semibold text-tm-muted">
-        Accepted format: {inputLabel}
-      </p>
-      <span className="tm-btn tm-btn-primary mt-6 pointer-events-none">Choose Image</span>
+      <p className="text-sm font-semibold text-tm-muted">Accepted format: {inputLabel}</p>
+      <span className="tm-btn tm-btn-primary pointer-events-none mt-2 min-h-11">
+        Choose Image
+      </span>
       <input
         id={inputId}
         ref={inputRef}

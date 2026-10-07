@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
-import { ConversionProgress } from "@/components/image-converter/ConversionProgress";
 import { ConversionResultView } from "@/components/image-converter/ConversionResult";
 import { ConvertButton } from "@/components/image-converter/ConvertButton";
 import { ImagePreview } from "@/components/image-converter/FileInfo";
 import { FileValidationMessage } from "@/components/image-converter/FileValidationMessage";
 import { ImageUpload } from "@/components/image-converter/ImageUpload";
+import { ProcessingProgress } from "@/components/ui/ProcessingProgress";
 import {
   convertImageFile,
   downloadBlob,
@@ -16,6 +16,7 @@ import {
 } from "@/lib/image-converter";
 import { validateImageFile } from "@/lib/image-converter/validate";
 import { loadHtmlImage, revokeObjectUrl } from "@/lib/image-converter/utils";
+import { useOperationController } from "@/lib/processing";
 import { filterUserFacingNotices } from "@/lib/ui/notices";
 
 interface ImageConverterWorkspaceProps {
@@ -30,6 +31,7 @@ export function ImageConverterWorkspace({
   convertHeading,
 }: ImageConverterWorkspaceProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const controller = useOperationController("Converting…");
   const widthId = useId();
   const heightId = useId();
   const [stage, setStage] = useState<Stage>("upload");
@@ -49,6 +51,7 @@ export function ImageConverterWorkspace({
   }, []);
 
   function resetAll() {
+    controller.reset();
     revokeObjectUrl(selected?.previewUrl);
     revokeObjectUrl(result?.previewUrl);
     setSelected(null);
@@ -107,6 +110,7 @@ export function ImageConverterWorkspace({
 
     setError(null);
     setStage("converting");
+    const opId = controller.start("Converting…");
 
     try {
       const converted = await convertImageFile(selected, config, {
@@ -114,16 +118,21 @@ export function ImageConverterWorkspace({
         targetHeight: height ? Number(height) : undefined,
         maintainAspectRatio: maintainAspect,
       });
+      if (!controller.succeed(opId)) {
+        revokeObjectUrl(converted.previewUrl);
+        return;
+      }
       revokeObjectUrl(result?.previewUrl);
       setResult(converted);
       setStage("done");
     } catch (conversionError) {
-      setStage("ready");
-      setError(
+      const message =
         conversionError instanceof Error
           ? conversionError.message
-          : "We couldn't convert this image. Please try another file or a supported format.",
-      );
+          : "We couldn't convert this image. Please try another file or a supported format.";
+      controller.fail(opId, message);
+      setStage("ready");
+      setError(message);
     }
   }
 
@@ -248,7 +257,11 @@ export function ImageConverterWorkspace({
               disabled={!selected || stage === "converting"}
               loading={false}
             />
-            {stage === "converting" ? <ConversionProgress /> : null}
+            {stage === "converting" &&
+            controller.showProgress &&
+            controller.progress ? (
+              <ProcessingProgress progress={controller.progress} />
+            ) : null}
           </div>
         </>
       ) : null}

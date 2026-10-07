@@ -6,7 +6,7 @@ export function ExploreAllSection() {
   const count = getAllTools().length;
 
   return (
-    <section className="tm-section bg-tm-white">
+    <section className="tm-section bg-tm-elevated">
       <div className="tm-container">
         <div className="rounded-3xl border border-tm-border bg-tm-soft px-6 py-12 md:px-10">
           <div className="grid items-center gap-8 lg:grid-cols-[1.2fr_0.8fr]">

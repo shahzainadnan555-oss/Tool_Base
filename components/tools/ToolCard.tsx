@@ -17,19 +17,19 @@ export function ToolCard({ tool, className, compact = false }: ToolCardProps) {
     <Link
       href={tool.route}
       className={cn(
-        "tm-tool-card group flex h-full flex-col focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tm-accent",
+        "tm-tool-card group flex h-full min-w-0 flex-col focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tm-accent",
         compact ? "p-3.5" : "p-4",
         className,
       )}
       aria-label={`Open ${tool.name}`}
     >
-      <div className="flex items-start gap-3">
+      <div className="flex min-w-0 items-start gap-3">
         <span className="tm-tool-card-icon inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-tm-surface-2 text-tm-accent transition-[transform,background,color] duration-150">
-          <Icon name={tool.icon} className="h-4.5 w-4.5 h-[1.125rem] w-[1.125rem]" />
+          <Icon name={tool.icon} className="h-[1.125rem] w-[1.125rem]" />
         </span>
         <div className="min-w-0 flex-1">
-          <div className="flex flex-wrap items-start justify-between gap-2">
-            <h3 className="text-[0.95rem] font-bold leading-snug text-tm-text transition-colors group-hover:text-tm-accent">
+          <div className="flex min-w-0 flex-wrap items-start justify-between gap-2">
+            <h3 className="text-[0.92rem] font-bold leading-snug break-words text-tm-text transition-colors group-hover:text-tm-accent sm:text-[0.95rem]">
               {tool.name}
             </h3>
             {(tool.popular || tool.new) && (

@@ -1,4 +1,3 @@
-import imageCompression from "browser-image-compression";
 import type {
   EditorImageFile,
   EditorProcessOptions,
@@ -6,6 +5,7 @@ import type {
   ImageEditorConfig,
   OutputMime,
 } from "./types";
+import { removeBackground } from "./background-removal";
 import {
   buildProcessedFileName,
   canvasToBlob,
@@ -69,6 +69,9 @@ export async function compressImage(
         : config.lockedFormat === "png"
           ? "image/png"
           : mimeFromFile(source.file));
+
+  // Lazy-load compression library — keep other image tools free of this weight.
+  const { default: imageCompression } = await import("browser-image-compression");
 
   // browser-image-compression works best for jpeg/webp; for png preserve alpha via canvas path when needed
   if (outputMime === "image/png") {
@@ -792,137 +795,6 @@ export async function readMetadata(
       ? { Fields: String(rows.length) }
       : { Status: "No additional EXIF metadata was found in this image." },
   };
-}
-
-/** Single module load — avoid re-initializing the heavy engine on every render/job. */
-let backgroundRemovalModule: Promise<
-  typeof import("@imgly/background-removal")
-> | null = null;
-
-function loadBackgroundRemoval() {
-  if (!backgroundRemovalModule) {
-    backgroundRemovalModule = import("@imgly/background-removal");
-  }
-  return backgroundRemovalModule;
-}
-
-/**
- * Preserve original pixel dimensions when the engine returns a different size.
- * Does not crop or reposition the subject — only matches canvas size.
- */
-async function matchSourceDimensions(
-  blob: Blob,
-  sourceWidth: number,
-  sourceHeight: number,
-): Promise<{ blob: Blob; width: number; height: number }> {
-  const url = URL.createObjectURL(blob);
-  try {
-    const image = await loadHtmlImage(url);
-    if (
-      image.naturalWidth === sourceWidth &&
-      image.naturalHeight === sourceHeight
-    ) {
-      return { blob, width: sourceWidth, height: sourceHeight };
-    }
-    const canvas = document.createElement("canvas");
-    canvas.width = sourceWidth;
-    canvas.height = sourceHeight;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) throw new Error("We couldn't prepare the result image.");
-    ctx.clearRect(0, 0, sourceWidth, sourceHeight);
-    ctx.drawImage(image, 0, 0, sourceWidth, sourceHeight);
-    const matched = await canvasToBlob(canvas, "image/png");
-    return { blob: matched, width: sourceWidth, height: sourceHeight };
-  } finally {
-    URL.revokeObjectURL(url);
-  }
-}
-
-async function assertPngHasContent(blob: Blob): Promise<void> {
-  if (!blob || blob.size < 32) {
-    throw new Error(
-      "We couldn't remove the background from this image. Please try another image.",
-    );
-  }
-  if (blob.type && blob.type !== "image/png" && !blob.type.includes("png")) {
-    // Still accept opaque type from some engines if the bytes are PNG.
-  }
-  const url = URL.createObjectURL(blob);
-  try {
-    const image = await loadHtmlImage(url);
-    if (image.naturalWidth < 1 || image.naturalHeight < 1) {
-      throw new Error(
-        "We couldn't remove the background from this image. Please try another image.",
-      );
-    }
-  } finally {
-    URL.revokeObjectURL(url);
-  }
-}
-
-export async function removeBackground(
-  source: EditorImageFile,
-  config: ImageEditorConfig,
-  options: EditorProcessOptions = {},
-): Promise<EditorProcessResult> {
-  const { removeBackground: removeBackgroundFn } =
-    await loadBackgroundRemoval();
-  try {
-    // Use the full-quality ISNet model (not the small quantized variant) so the
-    // foreground subject is preserved more accurately.
-    const blob = await removeBackgroundFn(source.file, {
-      model: "isnet",
-      device: "cpu",
-      // Keep full-resolution output when the library supports it.
-      rescale: false,
-      output: {
-        format: "image/png",
-        quality: 1,
-      },
-      progress: (key: string, current: number, total: number) => {
-        if (!options.onProgress || !Number.isFinite(total) || total <= 0)
-          return;
-        // Only surface real download/asset progress — never invent inference %.
-        if (/download|fetch|load|model|wasm|ort|onnx/i.test(key)) {
-          options.onProgress(current, total, "Removing background…");
-        }
-      },
-    });
-
-    await assertPngHasContent(blob);
-    const matched = await matchSourceDimensions(
-      blob,
-      source.width,
-      source.height,
-    );
-    await assertPngHasContent(matched.blob);
-
-    return finalize(
-      matched.blob,
-      config,
-      source,
-      matched.width,
-      matched.height,
-      "image/png",
-      {
-        stats: {
-          Width: `${matched.width}px`,
-          Height: `${matched.height}px`,
-          Size: formatBytes(matched.blob.size),
-        },
-      },
-    );
-  } catch (error) {
-    if (
-      error instanceof Error &&
-      /couldn't remove the background/i.test(error.message)
-    ) {
-      throw error;
-    }
-    throw new Error(
-      "We couldn't remove the background from this image. Please try another image.",
-    );
-  }
 }
 
 export async function processEditorImage(

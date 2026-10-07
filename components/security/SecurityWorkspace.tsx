@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useId, useMemo, useRef, useState, useTransition } from "react";
+import { ProcessingProgress } from "@/components/ui/ProcessingProgress";
 import { processSecurityTool } from "@/lib/security/process";
 import type {
   SecurityProcessResult,
@@ -158,7 +159,14 @@ export function SecurityWorkspace({ config, convertHeading }: SecurityWorkspaceP
       const next = await processSecurityTool(config, input, {
         ...options,
         signal: controller.signal,
-        onProgress: (ratio) => setProgress(Math.round(ratio * 100)),
+        onProgress: (ratio) => {
+          if (!Number.isFinite(ratio) || ratio < 0) {
+            setProgress(null);
+            return;
+          }
+          // Cap below 100 until the result is validated and returned.
+          setProgress(Math.max(0, Math.min(99, Math.round(ratio * 100))));
+        },
       });
       setResult(next);
       setOutput(next.output);
@@ -546,7 +554,7 @@ export function SecurityWorkspace({ config, convertHeading }: SecurityWorkspaceP
       ) : null}
 
       {config.kind === "jwt" && result?.jwt ? (
-        <div className="rounded-2xl border border-tm-border bg-tm-white p-4">
+        <div className="rounded-2xl border border-tm-border bg-tm-elevated p-4">
           <p className="text-sm font-extrabold text-tm-text">Decoded — Not Verified</p>
           <div className="mt-3 grid gap-4 lg:grid-cols-2">
             <pre className="overflow-auto rounded-xl bg-tm-soft p-3 font-mono text-xs leading-relaxed whitespace-pre-wrap break-all">
@@ -560,7 +568,7 @@ export function SecurityWorkspace({ config, convertHeading }: SecurityWorkspaceP
       ) : null}
 
       {config.kind === "qr" && result?.qrDataUrl ? (
-        <div className="rounded-2xl border border-tm-border bg-tm-white p-5">
+        <div className="rounded-2xl border border-tm-border bg-tm-elevated p-5">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={result.qrDataUrl}
@@ -592,10 +600,14 @@ export function SecurityWorkspace({ config, convertHeading }: SecurityWorkspaceP
         </p>
       ) : null}
 
-      {busy ? (
-        <p className="text-sm font-bold text-tm-muted" aria-live="polite">
-          {progress != null ? `Working… ${progress}%` : "Working…"}
-        </p>
+      {busy && progress != null ? (
+        <ProcessingProgress
+          progress={{
+            mode: "determinate",
+            label: "Processing…",
+            percent: progress,
+          }}
+        />
       ) : null}
 
       <div className="flex flex-wrap gap-3">

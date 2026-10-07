@@ -457,7 +457,9 @@ export function TypingSpeedTestWorkspace({ convertHeading }: Props) {
           <p className="text-xs font-extrabold tracking-wide text-tm-accent uppercase">
             Your Result
           </p>
-          <p className="tm-h1 mt-2">{finalStats.wpm} WPM</p>
+          <p className="mt-2 text-4xl font-extrabold tracking-tight text-tm-text sm:text-5xl">
+            {finalStats.wpm} WPM
+          </p>
           <ul className="mt-4 grid gap-2 sm:grid-cols-2">
             <li className="text-sm font-bold text-tm-text">Accuracy: {finalStats.accuracy}%</li>
             <li className="text-sm font-bold text-tm-text">Raw WPM: {finalStats.rawWpm}</li>
@@ -477,16 +479,16 @@ export function TypingSpeedTestWorkspace({ convertHeading }: Props) {
               Typed: {finalStats.totalTyped} characters
             </li>
           </ul>
-          <div className="mt-6 flex flex-wrap gap-3">
-            <button type="button" className="tm-btn tm-btn-primary" onClick={resetTest}>
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <button type="button" className="tm-btn tm-btn-primary w-full sm:w-auto" onClick={resetTest}>
               Try Again
             </button>
-            <button type="button" className="tm-btn tm-btn-secondary" onClick={resetTest}>
+            <button type="button" className="tm-btn tm-btn-secondary w-full sm:w-auto" onClick={resetTest}>
               New Test
             </button>
             <button
               type="button"
-              className="tm-btn tm-btn-ghost"
+              className="tm-btn tm-btn-ghost w-full sm:w-auto"
               onClick={() => {
                 document.getElementById("typing-settings")?.scrollIntoView({
                   behavior: "smooth",
@@ -508,7 +510,7 @@ export function TypingSpeedTestWorkspace({ convertHeading }: Props) {
             {phase === "idle" ? "Start typing to begin" : "Keep typing — stats update live"}
           </p>
           <div
-            className="min-h-40 font-mono text-xl leading-relaxed tracking-wide break-words md:text-2xl md:leading-relaxed"
+            className="min-h-36 font-mono text-lg leading-relaxed tracking-wide break-words sm:min-h-40 sm:text-xl md:text-2xl md:leading-relaxed"
             aria-hidden="true"
           >
             {chars}
@@ -579,7 +581,7 @@ export function TypingSpeedTestWorkspace({ convertHeading }: Props) {
 
 function Stat({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-2xl border border-tm-border bg-tm-white px-4 py-3">
+    <div className="rounded-2xl border border-tm-border bg-tm-elevated px-4 py-3">
       <p className="text-xs font-extrabold tracking-wide text-tm-muted uppercase">{label}</p>
       <p className="mt-1 text-xl font-extrabold text-tm-text">{value}</p>
     </div>

@@ -13,7 +13,7 @@ export function ImagePreview({ file, onRemove, onChange }: ImagePreviewProps) {
   const isSvg = file.type.includes("svg") || file.name.toLowerCase().endsWith(".svg");
 
   return (
-    <div className="rounded-3xl border border-tm-border bg-tm-white p-5 md:p-6">
+    <div className="rounded-3xl border border-tm-border bg-tm-elevated p-5 md:p-6">
       <div className="grid gap-5 md:grid-cols-[220px_1fr]">
         <div className="flex min-h-48 items-center justify-center overflow-hidden rounded-2xl border border-tm-border bg-tm-soft p-3">
           {/* eslint-disable-next-line @next/next/no-img-element */}

@@ -9,7 +9,7 @@ export function HomeBlogSection() {
   return (
     <section className="tm-section border-b border-tm-border">
       <div className="tm-container">
-        <div className="flex flex-wrap items-end justify-between gap-4">
+        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-end sm:justify-between sm:gap-4">
           <div className="max-w-2xl">
             <p className="tm-eyebrow">Resources</p>
             <h2 className="tm-h2 mt-3">Helpful Guides</h2>
@@ -20,12 +20,12 @@ export function HomeBlogSection() {
           </div>
           <Link
             href="/blogs"
-            className="text-sm font-bold text-tm-accent transition-colors hover:text-tm-accent-hover"
+            className="inline-flex min-h-11 items-center text-sm font-bold text-tm-accent transition-colors hover:text-tm-accent-hover"
           >
             View All →
           </Link>
         </div>
-        <div className="mt-8 grid gap-4 md:grid-cols-3">
+        <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
           {posts.map((post) => (
             <BlogCard key={post.slug} post={post} />
           ))}

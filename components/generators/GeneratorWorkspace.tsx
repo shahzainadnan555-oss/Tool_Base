@@ -576,7 +576,7 @@ export function GeneratorWorkspace({ config, convertHeading }: Props) {
               {paletteColors.length ? (
                 <div className="grid gap-3 sm:grid-cols-2">
                   {paletteColors.map((color, index) => (
-                    <div key={`${color}-${index}`} className="rounded-xl border border-tm-border bg-tm-white p-3">
+                    <div key={`${color}-${index}`} className="rounded-xl border border-tm-border bg-tm-elevated p-3">
                       <div className="h-12 rounded-lg border border-tm-border" style={{ background: color }} />
                       <p className="mt-2 font-mono text-sm font-bold text-tm-text">{color}</p>
                       <label className="mt-2 flex items-center gap-2 text-xs font-bold text-tm-muted">
@@ -852,7 +852,7 @@ export function GeneratorWorkspace({ config, convertHeading }: Props) {
             <div className="overflow-hidden rounded-2xl border border-tm-border bg-tm-soft p-5">
               <p className="text-xs font-extrabold tracking-wide text-tm-accent uppercase">Preview</p>
               <div
-                className="mt-3 h-28 rounded-xl border border-tm-border bg-tm-white"
+                className="mt-3 h-28 rounded-xl border border-tm-border bg-tm-elevated"
                 style={previewStyle(liveCssPreview, config.kind)}
                 aria-hidden="true"
               />

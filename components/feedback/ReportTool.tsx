@@ -57,7 +57,7 @@ export function ReportTool({ toolName, toolSlug }: ReportToolProps) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-2xl border border-tm-border bg-tm-white p-5"
+      className="rounded-2xl border border-tm-border bg-tm-elevated p-5"
       aria-labelledby={`${formId}-title`}
     >
       <h3 id={`${formId}-title`} className="text-base font-bold text-tm-text">

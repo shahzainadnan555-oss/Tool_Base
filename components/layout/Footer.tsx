@@ -48,12 +48,12 @@ export function Footer() {
     }));
 
   return (
-    <footer className="mt-auto border-t border-white/10 bg-tm-bg text-white">
-      <div className="tm-container py-14 md:py-16">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-12">
-          <div className="lg:col-span-4">
+    <footer className="mt-auto border-t border-white/10 bg-tm-bg text-tm-on-brand">
+      <div className="tm-container py-12 md:py-16">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-12">
+          <div className="sm:col-span-2 lg:col-span-4">
             <Logo tone="dark" />
-            <p className="mt-5 max-w-sm text-sm font-medium leading-relaxed text-slate-300">
+            <p className="mt-5 max-w-sm text-sm font-medium leading-relaxed text-[var(--tm-footer-muted)]">
               Tool Base is a free collection of online tools for converting, compressing,
               editing, generating, and calculating — organized so you can find the right
               utility quickly.
@@ -66,7 +66,7 @@ export function Footer() {
           <FooterColumn title="Legal" links={legalLinks} className="lg:col-span-1" />
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm font-medium text-slate-400 md:flex-row md:items-center md:justify-between">
+        <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm font-medium text-[var(--tm-footer-muted)] md:flex-row md:items-center md:justify-between">
           <p>© {new Date().getFullYear()} Tool Base. All rights reserved.</p>
           <p>Free to use. No account required.</p>
         </div>
@@ -86,13 +86,15 @@ function FooterColumn({
 }) {
   return (
     <div className={className}>
-      <p className="text-xs font-bold tracking-[0.08em] text-slate-200 uppercase">{title}</p>
+      <p className="text-xs font-bold tracking-[0.08em] text-[var(--tm-footer-link)] uppercase">
+        {title}
+      </p>
       <ul className="mt-4 space-y-2.5">
         {links.map((link) => (
           <li key={link.href}>
             <Link
               href={link.href}
-              className="text-sm font-semibold text-slate-300 transition-colors hover:text-white"
+              className="inline-flex min-h-10 items-center text-sm font-semibold text-[var(--tm-footer-muted)] transition-colors hover:text-tm-on-brand"
             >
               {link.label}
             </Link>

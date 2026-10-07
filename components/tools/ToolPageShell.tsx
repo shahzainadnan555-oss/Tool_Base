@@ -17,7 +17,7 @@ export function ToolPageShell({ tool, workspace }: ToolPageShellProps) {
   const showReport = !tool.hideReport;
 
   return (
-    <div className="tm-container py-8 md:py-12">
+    <div className="tm-container min-w-0 py-6 sm:py-8 md:py-12">
       <Breadcrumbs
         items={[
           { label: "Home", href: "/" },
@@ -36,7 +36,7 @@ export function ToolPageShell({ tool, workspace }: ToolPageShellProps) {
 
       <section
         aria-label={`${tool.name} workspace`}
-        className="tm-panel mt-8 p-5 md:p-8"
+        className="tm-panel mt-6 min-w-0 overflow-hidden p-4 sm:mt-8 sm:p-5 md:p-8"
       >
         {workspace ?? (
           <div className="rounded-2xl border border-dashed border-tm-border bg-tm-soft px-5 py-12 text-center">

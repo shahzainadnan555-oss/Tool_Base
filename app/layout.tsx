@@ -24,10 +24,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
-      <body className="flex min-h-full flex-col bg-tm-soft font-sans text-tm-text antialiased selection:bg-tm-accent/20">
+      <body className="flex min-h-full min-w-0 flex-col overflow-x-clip bg-tm-soft font-sans text-tm-text antialiased selection:bg-tm-accent/20">
         <JsonLd data={websiteJsonLd()} />
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main className="min-w-0 flex-1">{children}</main>
         <SiteFooter />
         <ConsentRoot />
       </body>

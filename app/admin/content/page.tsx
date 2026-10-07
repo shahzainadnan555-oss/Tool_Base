@@ -27,7 +27,7 @@ export default function AdminContentPage() {
         {pages.map((page) => (
           <li
             key={page.path}
-            className="rounded-2xl border border-tm-border bg-tm-white px-4 py-3 font-semibold text-tm-text"
+            className="rounded-2xl border border-tm-border bg-tm-elevated px-4 py-3 font-semibold text-tm-text"
           >
             {page.label}
             <span className="ml-2 text-sm font-medium text-tm-muted">{page.path}</span>

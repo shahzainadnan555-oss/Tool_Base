@@ -164,7 +164,7 @@ function ResultCard({
               {Object.entries(result.details).map(([k, v]) => (
                 <div
                   key={k}
-                  className="rounded-xl border border-tm-border bg-tm-white px-3 py-2"
+                  className="rounded-xl border border-tm-border bg-tm-elevated px-3 py-2"
                 >
                   <dt className="text-xs font-bold text-tm-muted">{k}</dt>
                   <dd className="mt-1 text-sm font-bold text-tm-text">{v}</dd>

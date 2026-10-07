@@ -1,3 +1,4 @@
+import { reportRatioStage } from "@/lib/processing/report";
 import {
   attachProgress,
   getFfmpeg,
@@ -155,12 +156,11 @@ async function runFfmpeg(
   const output = `output.${outExt}`;
   const detach = attachProgress(ffmpeg, options.onProgress, label);
   try {
-    options.onProgress?.(0.02, "Preparing…");
+    reportRatioStage(options.onProgress, "Preparing…");
     await writeInputFile(ffmpeg, source.file, input);
     await execChecked(ffmpeg, argsBuilder(input, output));
     const bytes = await readOutputFile(ffmpeg, output);
     assertValidOutput(bytes, outExt);
-    options.onProgress?.(1, "Done");
     return resultFromBytes(bytes, config, sourceName || source.name);
   } finally {
     detach();
@@ -284,18 +284,17 @@ export async function convertVideo(
   const detach = attachProgress(ffmpeg, options.onProgress, "Converting video…");
 
   try {
-    options.onProgress?.(0.02, "Preparing…");
+    reportRatioStage(options.onProgress, "Preparing…");
     await writeInputFile(ffmpeg, source.file, input);
 
     const finish = async () => {
       const bytes = await readOutputFile(ffmpeg, output);
       assertValidOutput(bytes, outExt);
-      options.onProgress?.(1, "Done");
       return resultFromBytes(bytes, config, source.name);
     };
 
     if (format === "mp3") {
-      options.onProgress?.(0.08, "Extracting audio…");
+      reportRatioStage(options.onProgress, "Extracting audio…");
       const probe = await probeWrittenInput(input);
       if (probe.audioCodec === "mp3") {
         try {
@@ -319,7 +318,7 @@ export async function convertVideo(
     }
 
     if (format === "wav") {
-      options.onProgress?.(0.08, "Extracting audio…");
+      reportRatioStage(options.onProgress, "Extracting audio…");
       await execChecked(ffmpeg, [
         "-i",
         input,
@@ -355,7 +354,7 @@ export async function convertVideo(
     }
 
     if (format === "webm") {
-      options.onProgress?.(0.08, "Encoding WebM…");
+      reportRatioStage(options.onProgress, "Encoding WebM…");
       // VP8 + realtime deadline is substantially faster than default VP9 in WASM.
       try {
         await execChecked(ffmpeg, [
@@ -416,14 +415,14 @@ export async function convertVideo(
       return await finish();
     }
 
-    options.onProgress?.(0.08, "Inspecting video…");
+    reportRatioStage(options.onProgress, "Inspecting video…");
     const probe = await probeWrittenInput(input);
     const preferred = mp4TranscodeArgs(input, output, probe, "ultrafast");
     const triedStreamCopy = preferred.includes("copy");
 
     try {
       if (canFullyRemuxToMp4(probe)) {
-        options.onProgress?.(0.2, "Converting video…");
+        reportRatioStage(options.onProgress, "Converting video…");
       }
       await execChecked(ffmpeg, preferred);
       return await finish();
@@ -599,9 +598,9 @@ export async function trimOrCutVideo(
   const detach = attachProgress(ffmpeg, options.onProgress, label);
 
   try {
-    options.onProgress?.(0.02, "Preparing…");
+    reportRatioStage(options.onProgress, "Preparing…");
     await writeInputFile(ffmpeg, source.file, input);
-    options.onProgress?.(0.08, "Inspecting video…");
+    reportRatioStage(options.onProgress, "Inspecting video…");
     const probe = await probeWrittenInput(input);
 
     const copyArgs = [
@@ -648,7 +647,6 @@ export async function trimOrCutVideo(
         await execChecked(ffmpeg, copyArgs);
         const bytes = await readOutputFile(ffmpeg, output);
         assertValidOutput(bytes, "mp4");
-        options.onProgress?.(1, "Done");
         return resultFromBytes(bytes, config, source.name);
       } catch {
         await safeDelete(ffmpeg, output);
@@ -658,7 +656,6 @@ export async function trimOrCutVideo(
     await execChecked(ffmpeg, encodeArgs);
     const bytes = await readOutputFile(ffmpeg, output);
     assertValidOutput(bytes, "mp4");
-    options.onProgress?.(1, "Done");
     return resultFromBytes(bytes, config, source.name);
   } finally {
     detach();
@@ -680,7 +677,7 @@ export async function mergeVideos(
   const listName = "list.txt";
   const output = "output.mp4";
   try {
-    options.onProgress?.(0.05, "Preparing files…");
+    reportRatioStage(options.onProgress, "Preparing files…");
     let list = "";
     for (let i = 0; i < sources.length; i += 1) {
       const name = `in_${i}.${extensionFromName(sources[i].name) || "bin"}`;
@@ -710,9 +707,9 @@ export async function mergeVideos(
         normalized,
       ]);
       list += `file '${normalized}'\n`;
-      options.onProgress?.(
-        (i + 1) / (sources.length + 1),
-        `Prepared clip ${i + 1}`,
+      reportRatioStage(
+        options.onProgress,
+        `Preparing clip ${i + 1} of ${sources.length}…`,
       );
     }
     await ffmpeg.writeFile(listName, list);
@@ -729,7 +726,6 @@ export async function mergeVideos(
     ]);
     const bytes = await readOutputFile(ffmpeg, output);
     assertValidOutput(bytes, "mp4");
-    options.onProgress?.(1, "Done");
     return resultFromBytes(bytes, config, "merged-video", {
       stats: { Clips: String(sources.length) },
     });
@@ -875,10 +871,9 @@ export async function extractImageFrame(
   if (source.durationSeconds != null && time > source.durationSeconds) {
     throw new Error("Timestamp cannot be beyond the video duration.");
   }
-  options.onProgress?.(0.2, "Seeking…");
+  reportRatioStage(options.onProgress, "Seeking…");
   const blob = await captureFrameAt(source.file, time, "image/png");
   if (!blob.size) throw new Error("Could not extract a frame from this video.");
-  options.onProgress?.(1, "Done");
   const previewUrl = URL.createObjectURL(blob);
   return {
     blob,

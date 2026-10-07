@@ -133,7 +133,7 @@ export function DocumentDataWorkspace({
           ) : null}
 
           {file ? (
-            <div className="rounded-2xl border border-tm-border bg-tm-white px-4 py-3 text-sm font-semibold text-tm-muted">
+            <div className="rounded-2xl border border-tm-border bg-tm-elevated px-4 py-3 text-sm font-semibold text-tm-muted">
               Selected: <span className="text-tm-text">{file.name}</span> ·{" "}
               {formatBytes(file.size)}
               <button
@@ -185,7 +185,7 @@ export function DocumentDataWorkspace({
               disabled={controller.isProcessing || (!file && !textInput.trim())}
               onClick={() => void runConvert()}
             />
-            {controller.isProcessing && controller.progress ? (
+            {controller.showProgress && controller.progress ? (
               <ProcessingProgress progress={controller.progress} />
             ) : null}
           </div>
@@ -193,7 +193,7 @@ export function DocumentDataWorkspace({
       ) : null}
 
       {showResult && result ? (
-        <div className="space-y-5 rounded-3xl border border-tm-border bg-tm-white p-5 md:p-6">
+        <div className="space-y-5 rounded-3xl border border-tm-border bg-tm-elevated p-5 md:p-6">
           <h3 className="text-xl font-extrabold text-tm-text">Result ready</h3>
 
           {result.stats ? (

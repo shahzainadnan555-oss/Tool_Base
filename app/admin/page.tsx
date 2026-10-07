@@ -51,7 +51,7 @@ export default function AdminHomePage() {
             <Link
               key={section.href}
               href={section.href}
-              className="rounded-2xl border border-tm-border bg-tm-white p-5 transition-colors hover:border-tm-accent"
+              className="rounded-2xl border border-tm-border bg-tm-elevated p-5 transition-colors hover:border-tm-accent"
             >
               <h3 className="tm-h3">{section.label}</h3>
               <p className="mt-2 text-sm font-medium text-tm-muted">{section.description}</p>
@@ -65,7 +65,7 @@ export default function AdminHomePage() {
 
 function Stat({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-2xl border border-tm-border bg-tm-white p-5">
+    <div className="rounded-2xl border border-tm-border bg-tm-elevated p-5">
       <p className="text-sm font-bold text-tm-muted">{label}</p>
       <p className="mt-2 text-3xl font-extrabold text-tm-text">{value}</p>
     </div>

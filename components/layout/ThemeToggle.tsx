@@ -1,30 +1,66 @@
 "use client";
 
+import { useSyncExternalStore } from "react";
 import { Icon } from "@/components/ui/Icon";
-import { THEME_STORAGE_KEY } from "@/lib/theme/script";
+import {
+  applyTheme,
+  getResolvedTheme,
+  getStoredTheme,
+  toggleTheme,
+  type Theme,
+} from "@/lib/theme/apply";
 
-type Theme = "light" | "dark";
+const THEME_EVENT = "tb-theme-change";
 
-function applyTheme(theme: Theme) {
-  document.documentElement.classList.toggle("dark", theme === "dark");
-  document.documentElement.dataset.theme = theme;
-  try {
-    localStorage.setItem(THEME_STORAGE_KEY, theme);
-  } catch {
-    // Storage can be unavailable in private browsing.
-  }
+function subscribe(onStoreChange: () => void) {
+  const media = window.matchMedia("(prefers-color-scheme: dark)");
+  const onSystemChange = () => {
+    if (!getStoredTheme()) {
+      applyTheme(getResolvedTheme());
+      window.dispatchEvent(new Event(THEME_EVENT));
+    }
+    onStoreChange();
+  };
+  const onStorage = (event: StorageEvent) => {
+    if (event.key && event.key !== "tb-theme") return;
+    onStoreChange();
+  };
+
+  media.addEventListener("change", onSystemChange);
+  window.addEventListener("storage", onStorage);
+  window.addEventListener(THEME_EVENT, onStoreChange);
+
+  return () => {
+    media.removeEventListener("change", onSystemChange);
+    window.removeEventListener("storage", onStorage);
+    window.removeEventListener(THEME_EVENT, onStoreChange);
+  };
 }
 
-export function ThemeToggle() {
+function getSnapshot(): Theme {
+  return document.documentElement.classList.contains("dark") ? "dark" : "light";
+}
+
+function getServerSnapshot(): Theme {
+  return "light";
+}
+
+export function ThemeToggle({ className }: { className?: string }) {
+  const theme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+
   return (
     <button
       type="button"
-      className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-tm-border bg-tm-elevated text-tm-text transition-colors hover:border-tm-accent hover:text-tm-accent"
-      aria-label="Toggle dark mode"
-      title="Toggle dark mode"
+      className={
+        className ??
+        "tm-icon-btn border border-tm-border bg-tm-elevated text-tm-text hover:border-tm-accent hover:text-tm-accent"
+      }
+      aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+      title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+      aria-pressed={theme === "dark"}
       onClick={() => {
-        const isDark = document.documentElement.classList.contains("dark");
-        applyTheme(isDark ? "light" : "dark");
+        toggleTheme();
+        window.dispatchEvent(new Event(THEME_EVENT));
       }}
     >
       <Icon name="moon" className="h-5 w-5 dark:hidden" />

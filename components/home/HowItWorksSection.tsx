@@ -21,7 +21,7 @@ const steps = [
 
 export function HowItWorksSection() {
   return (
-    <section className="tm-section border-b border-tm-border bg-tm-white">
+    <section className="tm-section border-b border-tm-border bg-tm-elevated">
       <div className="tm-container">
         <div className="mx-auto max-w-2xl text-center">
           <p className="tm-eyebrow">Simple workflow</p>

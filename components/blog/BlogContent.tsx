@@ -43,7 +43,7 @@ export function BlogContent({ blocks }: { blocks: BlogBlock[] }) {
         }
         if (block.type === "table") {
           return (
-            <div key={`table-${index}`} className="overflow-x-auto rounded-2xl border border-tm-border">
+            <div key={`table-${index}`} className="tm-table-wrap">
               <table className="tm-table">
                 <thead>
                   <tr>

@@ -288,7 +288,7 @@ export function PdfWorkspace({ config, convertHeading }: PdfWorkspaceProps) {
 
       {showWorkspace ? (
         <>
-          <div className="rounded-3xl border border-tm-border bg-tm-white p-5">
+          <div className="rounded-3xl border border-tm-border bg-tm-elevated p-5">
             <h3 className="text-lg font-extrabold text-tm-text">
               {config.allowMultiple ? "Selected files" : "Selected file"}
             </h3>
@@ -411,7 +411,7 @@ export function PdfWorkspace({ config, convertHeading }: PdfWorkspaceProps) {
                 {visiblePages.map((page, index) => (
                   <li
                     key={page}
-                    className="flex flex-wrap items-center gap-2 rounded-xl border border-tm-border bg-tm-white px-3 py-2"
+                    className="flex flex-wrap items-center gap-2 rounded-xl border border-tm-border bg-tm-elevated px-3 py-2"
                   >
                     <span className="text-sm font-bold text-tm-text">
                       {index + 1}. Page {page}
@@ -691,20 +691,20 @@ export function PdfWorkspace({ config, convertHeading }: PdfWorkspaceProps) {
                   Add at least one more PDF to merge.
                 </p>
               ) : null}
-              {controller.isProcessing && controller.progress ? (
+              {controller.showProgress && controller.progress ? (
                 <ProcessingProgress progress={controller.progress} />
               ) : null}
             </div>
           ) : null}
 
-          {autoProcess && controller.isProcessing && controller.progress ? (
+          {autoProcess && controller.showProgress && controller.progress ? (
             <ProcessingProgress progress={controller.progress} />
           ) : null}
         </>
       ) : null}
 
       {showResult ? (
-        <div className="space-y-5 rounded-3xl border border-tm-border bg-tm-white p-5 md:p-6">
+        <div className="space-y-5 rounded-3xl border border-tm-border bg-tm-elevated p-5 md:p-6">
           <h3 className="text-xl font-extrabold text-tm-text">
             {config.kind === "metadata-viewer"
               ? "PDF metadata"

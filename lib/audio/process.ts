@@ -1,3 +1,4 @@
+import { reportRatioStage } from "@/lib/processing/report";
 import type {
   AudioProcessOptions,
   AudioProcessResult,
@@ -64,13 +65,12 @@ async function runFfmpegConvert(
   const output = `output.${outExt}`;
   const detach = attachProgress(ffmpeg, options.onProgress, label);
   try {
-    options.onProgress?.(0.02, "Loading audio engine…");
+    reportRatioStage(options.onProgress, "Preparing…");
     await writeInputFile(ffmpeg, source.file, input);
     const args = argsBuilder(input, output);
     await ffmpeg.exec(args);
     const bytes = await readOutputFile(ffmpeg, output);
     if (!bytes.byteLength) throw new Error("The conversion produced an empty file.");
-    options.onProgress?.(1, "Done");
     return resultFromBytes(bytes, config, source.name);
   } finally {
     detach();
@@ -188,7 +188,7 @@ export async function joinAudio(
   const listName = "list.txt";
   const output = "output.mp3";
   try {
-    options.onProgress?.(0.05, "Preparing files…");
+    reportRatioStage(options.onProgress, "Preparing files…");
     let list = "";
     for (let i = 0; i < sources.length; i += 1) {
       const name = `in_${i}.${extensionFromName(sources[i].name) || "bin"}`;
@@ -198,7 +198,7 @@ export async function joinAudio(
       const wav = `part_${i}.wav`;
       await ffmpeg.exec(["-i", name, "-vn", "-acodec", "pcm_s16le", wav]);
       list += `file '${wav}'\n`;
-      options.onProgress?.((i + 1) / (sources.length + 1), `Prepared file ${i + 1}`);
+      reportRatioStage(options.onProgress, `Preparing file ${i + 1} of ${sources.length}…`);
     }
     await ffmpeg.writeFile(listName, list);
     await ffmpeg.exec([
@@ -215,7 +215,6 @@ export async function joinAudio(
       output,
     ]);
     const bytes = await readOutputFile(ffmpeg, output);
-    options.onProgress?.(1, "Done");
     return resultFromBytes(bytes, config, "joined-audio", {
       stats: { Files: String(sources.length) },
     });
@@ -361,12 +360,12 @@ export async function generateWaveform(
 ): Promise<AudioProcessResult> {
   const source = sources[0];
   if (!source) throw new Error("Please upload an audio file.");
-  options.onProgress?.(0.1, "Reading audio…");
+  reportRatioStage(options.onProgress, "Reading audio…");
   const arrayBuffer = await source.file.arrayBuffer();
   const audioCtx = new AudioContext();
   try {
     const decoded = await audioCtx.decodeAudioData(arrayBuffer.slice(0));
-    options.onProgress?.(0.5, "Drawing waveform…");
+    reportRatioStage(options.onProgress, "Drawing waveform…");
     const channel = decoded.getChannelData(0);
     const width = 1200;
     const height = 320;
@@ -403,7 +402,6 @@ export async function generateWaveform(
         "image/png",
       );
     });
-    options.onProgress?.(1, "Done");
     const previewUrl = URL.createObjectURL(blob);
     return {
       blob,

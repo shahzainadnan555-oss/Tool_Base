@@ -262,7 +262,7 @@ export function VideoWorkspace({ config, convertHeading }: VideoWorkspaceProps) 
         gifWidth,
         onProgress: (ratio, label) => {
           if (ratio >= 0 && ratio <= 1) {
-            controller.setUnitProgress(opId, Math.round(ratio * 100), 100, label);
+            controller.setRatioProgress(opId, ratio, label);
           } else {
             controller.setIndeterminate(opId, label);
           }
@@ -306,7 +306,7 @@ export function VideoWorkspace({ config, convertHeading }: VideoWorkspaceProps) 
 
       {sources.length > 0 && !showResult ? (
         <>
-          <div className="rounded-3xl border border-tm-border bg-tm-white p-5">
+          <div className="rounded-3xl border border-tm-border bg-tm-elevated p-5">
             <h3 className="text-lg font-extrabold text-tm-text">
               {config.allowMultiple ? "Selected videos" : "Selected video"}
             </h3>
@@ -385,7 +385,7 @@ export function VideoWorkspace({ config, convertHeading }: VideoWorkspaceProps) 
                 {Object.entries(fileInfo).map(([label, value]) => (
                   <div
                     key={label}
-                    className="rounded-xl border border-tm-border bg-tm-white px-3 py-2"
+                    className="rounded-xl border border-tm-border bg-tm-elevated px-3 py-2"
                   >
                     <p className="text-[11px] font-bold tracking-wide text-tm-muted uppercase">
                       {label}
@@ -498,7 +498,7 @@ export function VideoWorkspace({ config, convertHeading }: VideoWorkspaceProps) 
                   <button
                     key={preset.label}
                     type="button"
-                    className="rounded-full bg-tm-white px-3 py-1.5 text-sm font-bold text-tm-text"
+                    className="rounded-full bg-tm-elevated px-3 py-1.5 text-sm font-bold text-tm-text"
                     disabled={controller.isProcessing}
                     onClick={() => {
                       setMaintainAspect(false);
@@ -558,7 +558,7 @@ export function VideoWorkspace({ config, convertHeading }: VideoWorkspaceProps) 
                     className={`rounded-full px-3 py-1.5 text-sm font-bold ${
                       cropRatio === ratio
                         ? "bg-tm-accent text-white"
-                        : "bg-tm-white text-tm-text"
+                        : "bg-tm-elevated text-tm-text"
                     }`}
                     onClick={() => applyCropRatio(ratio)}
                     disabled={controller.isProcessing}
@@ -704,20 +704,20 @@ export function VideoWorkspace({ config, convertHeading }: VideoWorkspaceProps) 
                   Add at least one more video to merge.
                 </p>
               ) : null}
-              {controller.isProcessing && controller.progress ? (
+              {controller.showProgress && controller.progress ? (
                 <ProcessingProgress progress={controller.progress} />
               ) : null}
             </div>
           ) : null}
 
-          {autoProcess && controller.isProcessing && controller.progress ? (
+          {autoProcess && controller.showProgress && controller.progress ? (
             <ProcessingProgress progress={controller.progress} />
           ) : null}
         </>
       ) : null}
 
       {showResult && result ? (
-        <div className="space-y-5 rounded-3xl border border-tm-border bg-tm-white p-5 md:p-6">
+        <div className="space-y-5 rounded-3xl border border-tm-border bg-tm-elevated p-5 md:p-6">
           <h3 className="text-xl font-extrabold text-tm-text">
             {config.kind === "metadata" ? "Video metadata" : "Result ready"}
           </h3>

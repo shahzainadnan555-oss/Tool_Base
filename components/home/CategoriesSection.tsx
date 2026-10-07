@@ -4,7 +4,7 @@ import { getToolsByCategory } from "@/lib/tools/registry";
 
 export function CategoriesSection() {
   return (
-    <section className="tm-section bg-tm-white">
+    <section className="tm-section bg-tm-elevated">
       <div className="tm-container">
         <div className="max-w-3xl">
           <h2 className="tm-h2">Explore Tool Base Categories</h2>

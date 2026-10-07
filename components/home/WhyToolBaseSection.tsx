@@ -39,7 +39,7 @@ export function WhyToolBaseSection() {
         </div>
         <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {reasons.map((reason) => (
-            <article key={reason.title} className="rounded-2xl border border-tm-border bg-tm-white p-6">
+            <article key={reason.title} className="rounded-2xl border border-tm-border bg-tm-elevated p-6">
               <h3 className="tm-h3">{reason.title}</h3>
               <p className="mt-3 text-base font-medium leading-relaxed text-tm-muted">
                 {reason.description}

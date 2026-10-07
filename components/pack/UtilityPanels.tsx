@@ -20,7 +20,7 @@ export function BarcodePanel() {
     <div className="space-y-4">
       <Field id="bc" label="Text"><input id="bc" className="tm-input" value={text} onChange={(e) => setText(e.target.value)} /></Field>
       {encoded.error ? <p className="tm-notice tm-notice-error">{encoded.error}</p> : (
-        <div className="overflow-x-auto rounded-xl border border-tm-border bg-white p-4" dangerouslySetInnerHTML={{ __html: encoded.svg }} />
+        <div className="overflow-x-auto rounded-xl border border-tm-border bg-tm-elevated p-4" dangerouslySetInnerHTML={{ __html: encoded.svg }} />
       )}
       <div className="flex flex-wrap gap-2">
         <button type="button" className="tm-btn tm-btn-primary" onClick={async () => {
@@ -178,7 +178,7 @@ export function KeyboardPanel() {
   const [current, setCurrent] = useState("Press a key");
   return (
     <div
-      className="space-y-4 rounded-2xl border border-tm-border bg-tm-white p-4"
+      className="space-y-4 rounded-2xl border border-tm-border bg-tm-elevated p-4"
       tabIndex={0}
       onKeyDown={(e) => {
         e.preventDefault();
@@ -353,7 +353,7 @@ export function HttpStatusPanel() {
       <Field id="hs" label="Search"><input id="hs" className="tm-input" value={q} onChange={(e) => setQ(e.target.value)} /></Field>
       <ul className="space-y-3">
         {matches.map((row) => (
-          <li key={row.code} className="rounded-xl border border-tm-border bg-tm-white p-3">
+          <li key={row.code} className="rounded-xl border border-tm-border bg-tm-elevated p-3">
             <p className="font-black">{row.code} {row.phrase}</p>
             <p className="text-sm text-tm-muted">{row.detail}</p>
           </li>

@@ -9,7 +9,7 @@ interface ToolGridProps {
 
 export function ToolGrid({ tools, className }: ToolGridProps) {
   return (
-    <div className={cn("grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4", className)}>
+    <div className={cn("grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 xl:grid-cols-4", className)}>
       {tools.map((tool) => (
         <ToolCard key={tool.id} tool={tool} />
       ))}

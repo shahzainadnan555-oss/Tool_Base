@@ -17,24 +17,24 @@ export function Hero() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-tm-accent/40 to-transparent"
       />
-      <div className="tm-container relative py-14 md:py-20 lg:py-24">
+      <div className="tm-container relative py-10 sm:py-14 md:py-20 lg:py-24">
         <div className="mx-auto max-w-3xl text-center tm-animate-fade-up">
           <p className="tm-eyebrow">Free online tools · No sign-up</p>
-          <h1 className="tm-h1 mt-5">
+          <h1 className="tm-h1 mt-4 sm:mt-5">
             Online Tools for{" "}
             <span className="bg-gradient-to-r from-tm-accent to-tm-cyan bg-clip-text text-transparent">
               Everyday Digital Tasks
             </span>
           </h1>
-          <p className="tm-lead mx-auto mt-5 max-w-2xl">
+          <p className="tm-lead mx-auto mt-4 max-w-2xl sm:mt-5">
             Convert, compress, edit, generate, and calculate with a clear library of free
             Tool Base utilities — organized by category so you can find the right tool fast.
           </p>
 
-          <div className="mx-auto mt-8 max-w-2xl text-left">
+          <div className="mx-auto mt-6 max-w-2xl text-left sm:mt-8">
             <SearchBar
               placeholder="Search for a tool…"
-              className="[&_.tm-search-shell]:min-h-14"
+              className="[&_.tm-search-shell]:min-h-12 sm:[&_.tm-search-shell]:min-h-14"
             />
           </div>
 
@@ -48,22 +48,24 @@ export function Hero() {
             ))}
           </ul>
 
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <Button href="/tools">Explore All Tools</Button>
-            <Button href="/categories" variant="secondary">
+          <div className="mt-7 flex w-full flex-col items-stretch justify-center gap-3 sm:mt-8 sm:flex-row sm:items-center sm:justify-center">
+            <Button href="/tools" className="w-full sm:w-auto">
+              Explore All Tools
+            </Button>
+            <Button href="/categories" variant="secondary" className="w-full sm:w-auto">
               Browse Categories
             </Button>
           </div>
 
-          <p className="mt-6 text-sm font-semibold text-tm-muted">
+          <p className="mt-5 text-sm font-semibold text-tm-muted sm:mt-6">
             Images · PDFs · Text · Calculators · Generators · Design · Utilities
           </p>
         </div>
       </div>
-      <div className="tm-container pb-8 text-center md:pb-10">
+      <div className="tm-container pb-7 text-center sm:pb-8 md:pb-10">
         <Link
           href="#categories"
-          className="text-sm font-bold text-tm-accent transition-colors hover:text-tm-accent-hover"
+          className="inline-flex min-h-11 items-center justify-center text-sm font-bold text-tm-accent transition-colors hover:text-tm-accent-hover"
         >
           Jump to categories ↓
         </Link>

@@ -1,3 +1,4 @@
+import { reportStage } from "@/lib/processing/report";
 import { PDFDocument, StandardFonts, rgb, degrees, type PDFPage } from "@cantoo/pdf-lib";
 import JSZip from "jszip";
 import { extractPdfText, loadPdfjsDocument, renderPdfPageToCanvas } from "./pdfjs";
@@ -252,7 +253,7 @@ export async function compressPdf(
 ): Promise<PdfProcessResult> {
   const source = sources[0];
   if (!source) throw new Error("Please upload a PDF file.");
-  options.onProgress?.(0, 2, "Loading PDF…");
+  reportStage(options.onProgress, "Loading PDF…");
   const original = await loadPdfLib(source.file);
   const out = await PDFDocument.create();
   const pages = await out.copyPages(original, original.getPageIndices());
@@ -263,9 +264,9 @@ export async function compressPdf(
   out.setKeywords([]);
   out.setProducer("");
   out.setCreator("");
-  options.onProgress?.(1, 2, "Saving compressed PDF…");
+  reportStage(options.onProgress, "Saving compressed PDF…");
   const saved = await out.save({ useObjectStreams: true });
-  options.onProgress?.(2, 2, "Done");
+  
   const originalSize = source.sizeBytes;
   const compressedSize = saved.byteLength;
   const reduction =
@@ -295,7 +296,7 @@ export async function extractPages(
   const doc = await loadPdfLib(source.file);
   const pages = parsePageSelection(options.pageSelection || "", doc.getPageCount());
   if (!pages.length) throw new Error("Enter pages such as 2,4,7-9.");
-  options.onProgress?.(0, 1, "Extracting pages…");
+  reportStage(options.onProgress, "Extracting pages…");
   const out = await PDFDocument.create();
   const copied = await out.copyPages(
     doc,
@@ -303,7 +304,7 @@ export async function extractPages(
   );
   copied.forEach((page) => out.addPage(page));
   const saved = await out.save();
-  options.onProgress?.(1, 1, "Done");
+  
   return resultFromBytes(saved, config, source.name, {
     stats: {
       "Original pages": String(doc.getPageCount()),
@@ -328,7 +329,7 @@ export async function reorderPages(
     order = order.filter((p) => !removed.has(p));
   }
   if (!order.length) throw new Error("Keep at least one page in the document.");
-  options.onProgress?.(0, 1, "Reordering pages…");
+  reportStage(options.onProgress, "Reordering pages…");
   const out = await PDFDocument.create();
   const copied = await out.copyPages(
     doc,
@@ -336,7 +337,7 @@ export async function reorderPages(
   );
   copied.forEach((page) => out.addPage(page));
   const saved = await out.save();
-  options.onProgress?.(1, 1, "Done");
+  
   return resultFromBytes(saved, config, source.name, {
     stats: { Pages: String(copied.length) },
   });
@@ -449,7 +450,7 @@ export async function removePdfMetadata(
 ): Promise<PdfProcessResult> {
   const source = sources[0];
   if (!source) throw new Error("Please upload a PDF file.");
-  options.onProgress?.(0, 1, "Removing metadata…");
+  reportStage(options.onProgress, "Removing metadata…");
   const doc = await loadPdfLib(source.file);
   doc.setTitle("");
   doc.setAuthor("");
@@ -464,7 +465,7 @@ export async function removePdfMetadata(
     // Some PDFs reject date writes; info fields above are still cleared.
   }
   const saved = await doc.save();
-  options.onProgress?.(1, 1, "Done");
+  
   return resultFromBytes(saved, config, source.name, {
     notice:
       "Common document info fields were cleared. Some embedded XMP or custom metadata may remain depending on the file.",
@@ -483,14 +484,14 @@ export async function protectPdf(
   if (!password) throw new Error("Enter a password to protect this PDF.");
   if (password.length < 4) throw new Error("Use a password with at least 4 characters.");
   if (password !== confirm) throw new Error("Password confirmation does not match.");
-  options.onProgress?.(0, 1, "Encrypting PDF…");
+  reportStage(options.onProgress, "Encrypting PDF…");
   const doc = await loadPdfLib(source.file);
   doc.encrypt({
     userPassword: password,
     ownerPassword: password,
   });
   const saved = await doc.save();
-  options.onProgress?.(1, 1, "Done");
+  
   return resultFromBytes(saved, config, source.name, {
     notice: "The PDF is password-protected. The password is not stored or shown again.",
   });
@@ -505,20 +506,20 @@ export async function unlockPdf(
   if (!source) throw new Error("Please upload a PDF file.");
   const password = (options.unlockPassword || "").trim();
   if (!password) throw new Error("Enter the PDF password to unlock it.");
-  options.onProgress?.(0, 2, "Opening protected PDF…");
+  reportStage(options.onProgress, "Opening protected PDF…");
   let doc;
   try {
     doc = await loadPdfLib(source.file, { password });
   } catch {
     throw new Error("Could not unlock this PDF with the password provided.");
   }
-  options.onProgress?.(1, 2, "Saving unlocked PDF…");
+  reportStage(options.onProgress, "Saving unlocked PDF…");
   // Re-save without calling encrypt() produces an unprotected document.
   const out = await PDFDocument.create();
   const pages = await out.copyPages(doc, doc.getPageIndices());
   pages.forEach((page) => out.addPage(page));
   const saved = await out.save();
-  options.onProgress?.(2, 2, "Done");
+  
   return resultFromBytes(saved, config, source.name, {
     notice: "Created an unprotected PDF using the password you provided.",
   });

@@ -54,15 +54,35 @@ export async function fileToImageElement(file: File): Promise<HTMLImageElement> 
 export async function loadEditorImage(file: File): Promise<EditorImageFile> {
   const previewUrl = URL.createObjectURL(file);
   try {
-    const image = await loadHtmlImage(previewUrl);
+    let width = 0;
+    let height = 0;
+
+    // Prefer createImageBitmap for faster decode when available.
+    if (typeof createImageBitmap === "function") {
+      try {
+        const bitmap = await createImageBitmap(file);
+        width = bitmap.width;
+        height = bitmap.height;
+        bitmap.close();
+      } catch {
+        // Fall through to HTMLImageElement decode.
+      }
+    }
+
+    if (!width || !height) {
+      const image = await loadHtmlImage(previewUrl);
+      width = image.naturalWidth;
+      height = image.naturalHeight;
+    }
+
     return {
       file,
       previewUrl,
       name: file.name,
       type: file.type || `image/${getExtension(file.name) || "png"}`,
       sizeBytes: file.size,
-      width: image.naturalWidth,
-      height: image.naturalHeight,
+      width,
+      height,
     };
   } catch (error) {
     revokeObjectUrl(previewUrl);

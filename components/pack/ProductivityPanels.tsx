@@ -283,7 +283,7 @@ export function MarkdownPanel() {
       </Field>
       <div>
         <p className="mb-2 text-sm font-bold text-tm-text">Preview</p>
-        <div className="prose prose-slate dark:prose-invert max-w-none rounded-2xl border border-tm-border bg-tm-white p-4" dangerouslySetInnerHTML={{ __html: html }} />
+        <div className="prose prose-slate dark:prose-invert max-w-none rounded-2xl border border-tm-border bg-tm-elevated p-4" dangerouslySetInnerHTML={{ __html: html }} />
       </div>
       <div className="flex flex-wrap gap-2 lg:col-span-2">
         <button type="button" className="tm-btn tm-btn-primary" onClick={async () => { if (await copyText(src)) done("Copied Markdown."); else fail("Copy failed. Try again."); }}>Copy Markdown</button>
@@ -305,7 +305,7 @@ export function TodoPanel() {
   return (
     <div className="space-y-4">
       <div className="flex flex-wrap gap-2">
-        <input className="tm-input min-w-[12rem] flex-1" value={next} onChange={(e) => setNext(e.target.value)} aria-label="New task" />
+        <input className="tm-input min-w-0 flex-1" value={next} onChange={(e) => setNext(e.target.value)} aria-label="New task" />
         <button type="button" className="tm-btn tm-btn-primary" onClick={() => {
           if (!next.trim()) { fail("Empty input."); return; }
           setItems((rows) => [...rows, { text: next.trim(), done: false }]);
