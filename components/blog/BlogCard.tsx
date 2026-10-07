@@ -10,26 +10,29 @@ interface BlogCardProps {
 export function BlogCard({ post, featured = false }: BlogCardProps) {
   return (
     <article
-      className={`tm-card flex h-full flex-col p-6 ${featured ? "md:p-8" : ""}`}
+      className={`tm-card group flex h-full flex-col overflow-hidden ${featured ? "p-7 md:p-8" : "p-6"}`}
     >
-      <p className="text-xs font-bold tracking-wide text-tm-accent uppercase">
-        {post.category}
-      </p>
-      <p className={featured ? "tm-h2 mt-3" : "tm-h3 mt-3"}>
-        <Link href={`/blogs/${post.slug}`} className="hover:text-tm-accent">
+      <div className="flex flex-wrap items-center gap-2">
+        <p className="tm-badge bg-tm-surface-2 text-tm-accent">{post.category}</p>
+        <span className="text-xs font-bold text-tm-muted">{readingTimeLabel(post)}</span>
+      </div>
+      <h3 className={featured ? "tm-h2 mt-4" : "tm-h3 mt-4"}>
+        <Link
+          href={`/blogs/${post.slug}`}
+          className="transition-colors group-hover:text-tm-accent"
+        >
           {post.title}
         </Link>
-      </p>
+      </h3>
       <p className="mt-3 flex-1 text-sm font-medium leading-relaxed text-tm-muted">
         {post.excerpt}
       </p>
-      <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
-        <span className="text-xs font-bold text-tm-muted">{readingTimeLabel(post)}</span>
+      <div className="mt-5">
         <Link
           href={`/blogs/${post.slug}`}
-          className="text-sm font-bold text-tm-accent hover:text-tm-accent-hover"
+          className="text-sm font-bold text-tm-accent transition-colors hover:text-tm-accent-hover"
         >
-          Read Guide
+          Read guide →
         </Link>
       </div>
     </article>

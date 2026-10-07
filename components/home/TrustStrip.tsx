@@ -1,45 +1,27 @@
-import { Icon } from "@/components/ui/Icon";
-
-const values = [
+const items = [
   {
-    title: "100% Free",
-    description: "Use Tool Base utilities without paid plans or hidden unlocks.",
-    icon: "check",
+    title: "Organized by category",
+    description: "Browse Images, PDF, Text, Calculators, and more without a wall of cards.",
   },
   {
-    title: "No Sign-Up",
-    description: "Open a tool and start working — no account creation required.",
-    icon: "check",
+    title: "Fast tool discovery",
+    description: "Search by name, keyword, or alias and jump straight into the right utility.",
   },
   {
-    title: "Fast & Simple",
-    description: "Find the utility you need quickly and complete the task with a clear flow.",
-    icon: "check",
-  },
-  {
-    title: "Straightforward Tools",
-    description: "Clear uploads, results, and downloads — focused on finishing the task.",
-    icon: "check",
-  },
-  {
-    title: "Works on Desktop & Mobile",
-    description: "Responsive layouts keep tools readable and usable across devices.",
-    icon: "check",
+    title: "No account required",
+    description: "Open a tool, finish the job, and take the result — free for everyday use.",
   },
 ];
 
 export function TrustStrip() {
   return (
-    <section aria-label="Why people use Tool Base" className="border-b border-tm-border bg-tm-soft">
-      <div className="tm-container grid gap-4 py-8 sm:grid-cols-2 lg:grid-cols-5">
-        {values.map((value) => (
-          <div key={value.title} className="rounded-2xl border border-tm-border bg-tm-white p-4">
-            <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-tm-info text-tm-accent">
-              <Icon name={value.icon} className="h-4 w-4" />
-            </span>
-            <p className="mt-3 text-sm font-extrabold text-tm-text">{value.title}</p>
-            <p className="mt-1 text-sm font-medium leading-relaxed text-tm-muted">
-              {value.description}
+    <section aria-label="Why Tool Base" className="border-b border-tm-border bg-tm-soft">
+      <div className="tm-container grid gap-4 py-8 md:grid-cols-3 md:gap-6 md:py-10">
+        {items.map((item) => (
+          <div key={item.title} className="rounded-2xl border border-tm-border bg-tm-elevated p-5">
+            <p className="text-base font-bold text-tm-text">{item.title}</p>
+            <p className="mt-2 text-sm font-medium leading-relaxed text-tm-muted">
+              {item.description}
             </p>
           </div>
         ))}

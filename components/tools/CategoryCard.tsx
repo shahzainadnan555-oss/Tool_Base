@@ -27,7 +27,7 @@ export function CategoryCard({
       )}
       aria-label={`Browse ${category.name}`}
     >
-      <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-tm-navy text-white">
+      <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-tm-accent to-tm-cyan text-white shadow-[0_8px_20px_rgba(21,94,239,0.22)]">
         <Icon name={category.icon} className="h-5 w-5" />
       </span>
       <TitleTag className="tm-h3 mt-5 transition-colors group-hover:text-tm-accent">

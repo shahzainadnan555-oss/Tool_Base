@@ -29,16 +29,14 @@ export function ToolPageShell({ tool, workspace }: ToolPageShellProps) {
       />
 
       <header className="max-w-3xl">
-        <p className="text-sm font-bold tracking-wide text-tm-accent uppercase">
-          {category?.name ?? "Online Tool"}
-        </p>
-        <h1 className="tm-h1 mt-3">{tool.h1}</h1>
+        <p className="tm-eyebrow">{category?.name ?? "Online Tool"}</p>
+        <h1 className="tm-h1 mt-4">{tool.h1}</h1>
         <p className="tm-lead mt-4">{tool.intro}</p>
       </header>
 
       <section
         aria-label={`${tool.name} workspace`}
-        className="mt-8 rounded-3xl border border-tm-border bg-tm-white p-5 md:p-8"
+        className="tm-panel mt-8 p-5 md:p-8"
       >
         {workspace ?? (
           <div className="rounded-2xl border border-dashed border-tm-border bg-tm-soft px-5 py-12 text-center">
@@ -58,7 +56,7 @@ export function ToolPageShell({ tool, workspace }: ToolPageShellProps) {
             {tool.howToSteps.map((step, index) => (
               <li
                 key={step.title}
-                className="rounded-2xl border border-tm-border bg-tm-white p-5"
+                className="rounded-2xl border border-tm-border bg-tm-elevated p-5"
               >
                 <p className="text-sm font-bold text-tm-accent">Step {index + 1}</p>
                 <h3 className="tm-h3 mt-2">{step.title}</h3>
@@ -76,7 +74,7 @@ export function ToolPageShell({ tool, workspace }: ToolPageShellProps) {
             {tool.features.map((feature) => (
               <li
                 key={feature}
-                className="rounded-xl border border-tm-border bg-tm-white px-4 py-3 text-sm font-semibold text-tm-text"
+                className="rounded-xl border border-tm-border bg-tm-elevated px-4 py-3 text-sm font-semibold text-tm-text"
               >
                 {feature}
               </li>
@@ -104,7 +102,7 @@ export function ToolPageShell({ tool, workspace }: ToolPageShellProps) {
               {tool.tips.map((tip) => (
                 <li
                   key={tip}
-                  className="rounded-xl border border-tm-border bg-tm-white px-4 py-3 text-sm font-semibold text-tm-text"
+                  className="rounded-xl border border-tm-border bg-tm-elevated px-4 py-3 text-sm font-semibold text-tm-text"
                 >
                   {tip}
                 </li>
@@ -141,7 +139,7 @@ export function ToolPageShell({ tool, workspace }: ToolPageShellProps) {
           <section className="rounded-2xl border border-tm-border bg-tm-soft p-5">
             <h3 className="text-base font-bold text-tm-text">Need another utility?</h3>
             <p className="mt-2 text-sm font-medium text-tm-muted">
-              Browse related image converters or explore the full Tool Base directory.
+              Browse related tools or explore the full Tool Base directory.
             </p>
             <div className="mt-4 flex flex-wrap gap-3">
               {category ? (
@@ -162,11 +160,15 @@ export function ToolPageShell({ tool, workspace }: ToolPageShellProps) {
 
 function DetailCard({ title, items }: { title: string; items: string[] }) {
   return (
-    <div className="rounded-2xl border border-tm-border bg-tm-white p-5">
-      <h3 className="tm-h3">{title}</h3>
-      <p className="mt-3 text-sm font-semibold text-tm-muted">
-        {items.length ? items.join(" · ") : "Not applicable"}
-      </p>
+    <div className="rounded-2xl border border-tm-border bg-tm-elevated p-5">
+      <h3 className="text-sm font-bold tracking-wide text-tm-muted uppercase">{title}</h3>
+      <ul className="mt-3 space-y-1.5">
+        {items.map((item) => (
+          <li key={item} className="text-sm font-semibold text-tm-text">
+            {item}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

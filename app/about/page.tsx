@@ -14,22 +14,28 @@ export const metadata: Metadata = createPageMetadata({
 
 export default function AboutPage() {
   return (
-    <div className="tm-container py-10 md:py-14">
-      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "About" }]} />
-      <article className="max-w-3xl">
-        <h1 className="tm-h1">About Tool Base</h1>
-        <p className="tm-lead mt-4">
-          Tool Base is a free online utility platform that helps people complete common
-          digital tasks — converting files, compressing media, formatting data, generating
-          useful outputs, and running everyday calculations — without creating an account.
-        </p>
-
-        <h2 className="tm-h2 mt-10">What Is Tool Base?</h2>
+    <div className="pb-14">
+      <div className="border-b border-tm-border tm-hero-bg">
+        <div className="tm-container py-10 md:py-14">
+          <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "About" }]} />
+          <header className="mt-4 max-w-3xl">
+            <p className="tm-eyebrow">Tool Base</p>
+            <h1 className="tm-h1 mt-4">About Tool Base</h1>
+            <p className="tm-lead mt-4">
+              Tool Base is a free online utility platform that helps people complete common
+              digital tasks — converting files, compressing media, formatting data, generating
+              useful outputs, and running everyday calculations — without creating an account.
+            </p>
+          </header>
+        </div>
+      </div>
+      <article className="tm-container mt-10 max-w-3xl">
+        <h2 className="tm-h2">What Is Tool Base?</h2>
         <p className="mt-4 text-base font-medium leading-relaxed text-tm-muted">
-          Tool Base is a collection of practical browser-based utilities gathered in one
-          place. Instead of hunting across many disconnected sites for a converter,
-          compressor, formatter, or calculator, you can search Tool Base, open the tool you
-          need, complete the task, and download or copy the result.
+          Tool Base is a collection of practical online utilities gathered in one place.
+          Instead of hunting across many disconnected sites for a converter, compressor,
+          formatter, or calculator, you can search Tool Base, open the tool you need,
+          complete the task, and download or copy the result.
         </p>
         <p className="mt-4 text-base font-medium leading-relaxed text-tm-muted">
           The public experience is intentionally direct. There is no mandatory signup,
@@ -66,9 +72,8 @@ export default function AboutPage() {
           platform.
         </p>
         <p className="mt-4 text-base font-medium leading-relaxed text-tm-muted">
-          Tools are registered through a central catalog so navigation, search, SEO
-          structure, accessibility patterns, and related recommendations stay consistent as
-          the library grows.
+          Navigation, search, related recommendations, and category structure stay consistent
+          as the library grows, so finding the next useful tool stays straightforward.
         </p>
 
         <h2 className="tm-h2 mt-10">Designed for Simple, Everyday Tasks</h2>
@@ -79,10 +84,9 @@ export default function AboutPage() {
           process it, and take the result with you.
         </p>
         <p className="mt-4 text-base font-medium leading-relaxed text-tm-muted">
-          Processing behavior can differ by tool. Some utilities run primarily in your
-          browser; others may load supporting libraries or follow a different processing
-          path. Tool pages and the Privacy Policy describe how Tool Base handles files and
-          inputs in general terms that match the current implementation.
+          Each tool page explains what the utility does and what kind of result to expect.
+          The Privacy Policy describes how Tool Base handles files and inputs in general
+          terms for the public site.
         </p>
 
         <h2 className="tm-h2 mt-10">A Growing Library of Utilities</h2>

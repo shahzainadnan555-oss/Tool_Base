@@ -6,7 +6,7 @@ import { ToolsDirectory } from "@/components/tools/ToolsDirectory";
 import { ToolGrid } from "@/components/tools/ToolGrid";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { createPageMetadata } from "@/lib/seo/metadata";
-import { breadcrumbJsonLd } from "@/lib/seo/structured-data";
+import { breadcrumbJsonLd, faqJsonLd } from "@/lib/seo/structured-data";
 import {
   categories,
   getAllCategorySlugs,
@@ -52,6 +52,7 @@ export default async function CategoryPage({
   if (!category) notFound();
 
   const tools = getToolsByCategory(category.id);
+  const featured = tools.filter((item) => item.popular).slice(0, 8);
 
   return (
     <>
@@ -62,42 +63,56 @@ export default async function CategoryPage({
           { name: category.name, path: category.route },
         ])}
       />
-      <div className="tm-container py-10 md:py-14">
-        <Breadcrumbs
-          items={[
-            { label: "Home", href: "/" },
-            { label: "Categories", href: "/categories" },
-            { label: category.name },
-          ]}
-        />
-        <header className="max-w-3xl">
-          <h1 className="tm-h1">{category.h1}</h1>
-          <p className="tm-lead mt-4">{category.intro}</p>
-          <p className="mt-3 text-sm font-bold text-tm-muted">
-            {tools.length} {tools.length === 1 ? "tool" : "tools"} in this category
-          </p>
-        </header>
-        {tools.filter((item) => item.popular).length ? (
-          <section className="mt-10">
-            <h2 className="tm-h2">Featured in {category.name}</h2>
-            <div className="mt-4">
-              <ToolGrid tools={tools.filter((item) => item.popular).slice(0, 8)} />
+      {category.faq?.length ? <JsonLd data={faqJsonLd(category.faq)} /> : null}
+
+      <div className="border-b border-tm-border tm-hero-bg">
+        <div className="tm-container py-10 md:py-14">
+          <Breadcrumbs
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Categories", href: "/categories" },
+              { label: category.name },
+            ]}
+          />
+          <header className="mt-4 max-w-3xl">
+            <p className="tm-eyebrow">Category</p>
+            <h1 className="tm-h1 mt-4">{category.h1}</h1>
+            <p className="tm-lead mt-4">{category.intro}</p>
+            <p className="mt-3 text-sm font-bold text-tm-muted">
+              {tools.length} {tools.length === 1 ? "tool" : "tools"} in this category
+            </p>
+          </header>
+        </div>
+      </div>
+
+      <div className="tm-container py-10 md:py-12">
+        {featured.length ? (
+          <section>
+            <h2 className="tm-h2">Featured {category.name}</h2>
+            <div className="mt-5">
+              <ToolGrid tools={featured} />
             </div>
           </section>
         ) : null}
-        <div className="mt-8">
-          {category.id === "specialized-calculators" ? (
-            <SpecializedCalculatorGroups tools={tools} />
-          ) : (
-            <ToolsDirectory
-              tools={tools}
-              initialCategory={category.id}
-              headingId="category-tools"
-            />
-          )}
-        </div>
 
-        <section className="mt-12 max-w-3xl">
+        <section className={featured.length ? "mt-12" : ""}>
+          <h2 className="tm-h2" id="category-tools">
+            All {category.name}
+          </h2>
+          <div className="mt-5">
+            {category.id === "specialized-calculators" ? (
+              <SpecializedCalculatorGroups tools={tools} />
+            ) : (
+              <ToolsDirectory
+                tools={tools}
+                initialCategory={category.id}
+                headingId="category-tools"
+              />
+            )}
+          </div>
+        </section>
+
+        <section className="mt-14 max-w-3xl">
           <h2 className="tm-h2">Related categories</h2>
           <p className="mt-3 text-base font-medium text-tm-muted">
             Explore neighboring Tool Base categories for related workflows.
@@ -105,12 +120,12 @@ export default async function CategoryPage({
           <ul className="mt-4 flex flex-wrap gap-3">
             {categories
               .filter((item) => item.id !== category.id)
-              .slice(0, 6)
+              .slice(0, 8)
               .map((item) => (
                 <li key={item.id}>
                   <Link
                     href={item.route}
-                    className="inline-flex rounded-xl border border-tm-border bg-tm-white px-3 py-2 text-sm font-bold text-tm-text transition-colors hover:border-tm-accent hover:text-tm-accent"
+                    className="inline-flex rounded-xl border border-tm-border bg-tm-elevated px-3.5 py-2 text-sm font-bold text-tm-text transition-colors hover:border-tm-accent hover:text-tm-accent"
                   >
                     {item.name}
                   </Link>
@@ -118,13 +133,17 @@ export default async function CategoryPage({
               ))}
           </ul>
         </section>
+
         {category.faq?.length ? (
-          <section className="mt-12 max-w-3xl">
-            <h2 className="tm-h2">Frequently asked questions</h2>
-            <dl className="mt-6 space-y-6">
+          <section className="mt-14 max-w-3xl">
+            <h2 className="tm-h2">Frequently Asked Questions</h2>
+            <dl className="mt-6 space-y-5">
               {category.faq.map((item) => (
-                <div key={item.question}>
-                  <dt className="text-lg font-black text-tm-text">{item.question}</dt>
+                <div
+                  key={item.question}
+                  className="rounded-2xl border border-tm-border bg-tm-elevated p-5"
+                >
+                  <dt className="text-lg font-bold text-tm-text">{item.question}</dt>
                   <dd className="mt-2 text-base font-medium text-tm-muted">{item.answer}</dd>
                 </div>
               ))}
@@ -160,7 +179,11 @@ const SPECIALIZED_GROUPS = [
   },
   {
     title: "Retirement & Finance",
-    slugs: ["retirement-calculator-dave-ramsey", "car-loan-payment-calculator", "sales-commission-calculator"],
+    slugs: [
+      "retirement-calculator-dave-ramsey",
+      "car-loan-payment-calculator",
+      "sales-commission-calculator",
+    ],
   },
   { title: "Home Services", slugs: ["tree-removal-cost-calculator"] },
 ] as const;
@@ -168,7 +191,7 @@ const SPECIALIZED_GROUPS = [
 function SpecializedCalculatorGroups({ tools }: { tools: ToolDefinition[] }) {
   const bySlug = new Map(tools.map((tool) => [tool.slug, tool]));
   return (
-    <div id="category-tools" className="space-y-10">
+    <div className="space-y-10">
       {SPECIALIZED_GROUPS.map((group) => {
         const groupTools = group.slugs
           .map((slug) => bySlug.get(slug))
@@ -176,7 +199,7 @@ function SpecializedCalculatorGroups({ tools }: { tools: ToolDefinition[] }) {
         if (!groupTools.length) return null;
         return (
           <section key={group.title}>
-            <h2 className="tm-h2">{group.title}</h2>
+            <h3 className="tm-h3">{group.title}</h3>
             <div className="mt-4">
               <ToolGrid tools={groupTools} />
             </div>

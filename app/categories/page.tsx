@@ -14,16 +14,21 @@ export const metadata: Metadata = createPageMetadata({
 
 export default function CategoriesPage() {
   return (
-    <div className="tm-container py-10 md:py-14">
-      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Categories" }]} />
-      <header className="max-w-3xl">
-        <h1 className="tm-h1">Explore Tool Base Categories</h1>
-        <p className="tm-lead mt-4">
-          Browse free online tools by category. Each category page includes an introduction,
-          searchable tool listing, and internal links to related utilities.
-        </p>
-      </header>
-      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="pb-14">
+      <div className="border-b border-tm-border tm-hero-bg">
+        <div className="tm-container py-10 md:py-14">
+          <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Categories" }]} />
+          <header className="mt-4 max-w-3xl">
+            <p className="tm-eyebrow">Browse</p>
+            <h1 className="tm-h1 mt-4">Explore Tool Base Categories</h1>
+            <p className="tm-lead mt-4">
+              Browse free online tools by category. Each category page includes an introduction,
+              searchable tool listing, and links to related utilities.
+            </p>
+          </header>
+        </div>
+      </div>
+      <div className="tm-container mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {categories.map((category) => (
           <CategoryCard
             key={category.id}

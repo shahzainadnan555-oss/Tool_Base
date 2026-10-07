@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
 import { CategoryNav } from "@/components/home/CategoryNav";
 import { CategoryToolSections } from "@/components/home/CategoryToolSections";
-import { ExploreAllSection } from "@/components/home/ExploreAllSection";
 import { FinalCtaSection } from "@/components/home/FinalCtaSection";
 import { Hero } from "@/components/home/Hero";
+import { HomeBlogSection } from "@/components/home/HomeBlogSection";
 import { HomeFaqSection } from "@/components/home/HomeFaqSection";
 import { HowItWorksSection } from "@/components/home/HowItWorksSection";
 import { PopularToolsSection } from "@/components/home/PopularToolsSection";
 import { TrustStrip } from "@/components/home/TrustStrip";
-import { WhyToolBaseSection } from "@/components/home/WhyToolBaseSection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { homepageFaq } from "@/lib/content/homepage-faq";
 import { createPageMetadata } from "@/lib/seo/metadata";
@@ -40,16 +39,23 @@ export default function HomePage() {
       <Hero />
       <TrustStrip />
       <PopularToolsSection />
-      <CategoryNav />
-      <section className="tm-section bg-tm-white">
+      <section className="border-b border-tm-border bg-tm-soft pt-10 pb-2 md:pt-12">
+        <div className="tm-container mb-6 max-w-3xl">
+          <h2 className="tm-h2">Explore Tools by Category</h2>
+          <p className="tm-lead mt-3">
+            Jump to a category below, then open View All when you want the complete set.
+          </p>
+        </div>
+        <CategoryNav />
+      </section>
+      <section className="tm-section bg-tm-soft">
         <div className="tm-container">
           <CategoryToolSections />
         </div>
       </section>
-      <WhyToolBaseSection />
       <HowItWorksSection />
+      <HomeBlogSection />
       <HomeFaqSection />
-      <ExploreAllSection />
       <FinalCtaSection />
     </>
   );

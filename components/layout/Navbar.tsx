@@ -11,18 +11,17 @@ import { Icon } from "@/components/ui/Icon";
 import { cn } from "@/lib/utils/cn";
 
 const navItems = [
-  { href: "/", label: "Home" },
-  { href: "/tools", label: "All Tools" },
+  { href: "/tools", label: "Tools" },
   { href: "/categories", label: "Categories" },
-  { href: "/popular", label: "Popular" },
-  { href: "/new", label: "New Tools" },
   { href: "/blogs", label: "Blogs" },
+  { href: "/about", label: "About" },
 ];
 
 export function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [pathForMenu, setPathForMenu] = useState(pathname);
+  const [scrolled, setScrolled] = useState(false);
 
   if (pathForMenu !== pathname) {
     setPathForMenu(pathname);
@@ -36,29 +35,46 @@ export function Navbar() {
     };
   }, [mobileOpen]);
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   if (pathname?.startsWith("/admin")) {
     return null;
   }
 
   return (
-    <header className="sticky top-0 z-40 border-b border-tm-border/80 bg-tm-white/95 backdrop-blur">
-      <div className="tm-container flex h-16 items-center gap-3 md:h-[4.25rem] md:gap-4">
-        <Logo />
+    <header
+      className={cn(
+        "sticky top-0 z-40 border-b bg-tm-white/90 backdrop-blur-xl transition-[height,box-shadow,background-color] duration-200",
+        scrolled
+          ? "border-tm-border shadow-[0_1px_0_rgba(11,22,53,0.04),0_8px_24px_rgba(11,22,53,0.04)]"
+          : "border-tm-border/70",
+      )}
+    >
+      <div
+        className={cn(
+          "tm-container flex items-center gap-3 transition-[height] duration-200 md:gap-5",
+          scrolled ? "h-14 md:h-14" : "h-16 md:h-[4.25rem]",
+        )}
+      >
+        <Logo compact={scrolled} />
 
-        <nav aria-label="Primary" className="hidden items-center gap-0.5 xl:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-0.5 lg:flex">
           {navItems.map((item) => {
             const active =
-              item.href === "/"
-                ? pathname === "/"
-                : pathname === item.href || pathname?.startsWith(`${item.href}/`);
+              pathname === item.href || pathname?.startsWith(`${item.href}/`);
             return (
               <Link
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "rounded-lg px-2.5 py-2 text-sm font-bold transition-colors",
+                  "rounded-lg px-3 py-2 text-sm font-bold transition-colors",
                   active
-                    ? "bg-tm-soft text-tm-accent"
+                    ? "bg-tm-surface-2 text-tm-accent"
                     : "text-tm-text hover:bg-tm-soft hover:text-tm-accent",
                 )}
               >
@@ -68,15 +84,15 @@ export function Navbar() {
           })}
         </nav>
 
-        <div className="ml-auto hidden min-w-0 max-w-xs flex-1 md:block lg:max-w-sm">
-          <SearchBar compact />
+        <div className="ml-auto hidden min-w-0 max-w-[17rem] flex-1 md:block lg:max-w-xs xl:max-w-sm">
+          <SearchBar compact placeholder="Search tools…" />
         </div>
 
-        <div className="flex shrink-0 items-center gap-2">
+        <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
           <ThemeToggle />
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-tm-border text-tm-text xl:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-tm-border bg-tm-elevated text-tm-text transition-colors hover:border-tm-accent hover:text-tm-accent lg:hidden"
             aria-expanded={mobileOpen}
             aria-controls="mobile-nav"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}

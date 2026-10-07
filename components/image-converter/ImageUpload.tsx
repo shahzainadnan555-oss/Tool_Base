@@ -33,12 +33,11 @@ export function ImageUpload({
       aria-disabled={disabled}
       aria-label={`Upload ${inputLabel} image`}
       className={cn(
-        "rounded-3xl border-2 border-dashed px-6 py-14 text-center transition-colors outline-none",
-        dragging
-          ? "border-tm-accent bg-tm-info"
-          : "border-tm-border bg-tm-soft hover:border-tm-accent hover:bg-tm-info",
+        "tm-dropzone min-h-[14rem] cursor-pointer outline-none",
+        dragging && "border-tm-accent",
         disabled && "pointer-events-none opacity-60",
       )}
+      data-active={dragging ? "true" : "false"}
       onClick={() => inputRef.current?.click()}
       onKeyDown={(event) => {
         if (event.key === "Enter" || event.key === " ") {

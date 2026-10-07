@@ -88,7 +88,7 @@ export default async function BlogPostPage({
                 { label: post.title },
               ]}
             />
-            <header className="max-w-3xl">
+            <header className="max-w-3xl rounded-2xl border border-tm-border bg-tm-elevated p-6 md:p-8">
               <p className="text-sm font-bold tracking-wide text-tm-accent uppercase">
                 {post.category}
               </p>

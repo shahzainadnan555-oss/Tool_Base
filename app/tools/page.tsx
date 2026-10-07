@@ -30,42 +30,45 @@ export default async function ToolsPage({
       : "all";
 
   return (
-    <div className="tm-container py-10 md:py-14">
-      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "All Tools" }]} />
-      <header className="max-w-3xl">
-        <h1 id="tools-directory-heading" className="tm-h1">
-          All Tools
-        </h1>
-        <p className="tm-lead mt-4">
-          Browse Tool Base by category, then open a complete hub when you want every
-          tool in that group. Search if you already know the job you need to finish.
-        </p>
-      </header>
-
-      <div className="mt-8 rounded-2xl border-2 border-tm-border bg-tm-input p-3">
-        <SearchBar placeholder="Search tools by name, alias, or keyword" />
+    <div className="pb-14">
+      <div className="border-b border-tm-border tm-hero-bg">
+        <div className="tm-container py-10 md:py-14">
+          <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "All Tools" }]} />
+          <header className="mt-4 max-w-3xl">
+            <h1 id="tools-directory-heading" className="tm-h1">
+              All Online Tools
+            </h1>
+            <p className="tm-lead mt-4">
+              Browse Tool Base by category, then open a complete hub when you want every
+              tool in that group. Search if you already know the job you need to finish.
+            </p>
+          </header>
+          <div className="mt-8 max-w-2xl">
+            <SearchBar placeholder="Search tools by name, alias, or keyword" />
+          </div>
+        </div>
       </div>
 
-      {initialQuery || initialCategory !== "all" ? (
-        <div className="mt-8">
+      <div className="tm-container mt-8 md:mt-10">
+        {initialQuery || initialCategory !== "all" ? (
           <ToolsDirectory
             tools={tools}
             initialQuery={initialQuery}
             initialCategory={initialCategory}
             headingId="tools-directory-heading"
           />
-        </div>
-      ) : (
-        <div className="mt-10">
-          <CategoryNav />
-          <div className="mt-10">
-            <CategoryToolSections limit={8} />
-          </div>
-        </div>
-      )}
+        ) : (
+          <>
+            <CategoryNav sticky={false} />
+            <div className="mt-10">
+              <CategoryToolSections limit={8} />
+            </div>
+          </>
+        )}
 
-      <div className="mt-14 max-w-2xl">
-        <SuggestTool />
+        <div className="mt-14 max-w-2xl">
+          <SuggestTool />
+        </div>
       </div>
     </div>
   );

@@ -1,42 +1,47 @@
 const steps = [
   {
-    title: "Choose a Tool",
+    number: "01",
+    title: "Find a tool",
     description:
-      "Search by name or keyword, browse categories, or open a popular utility from the homepage.",
+      "Search by name or browse a category such as Images, PDF, Text, or Calculators.",
   },
   {
-    title: "Upload or Enter Your Content",
+    number: "02",
+    title: "Complete the task",
     description:
-      "Provide the file, text, or values the tool needs. Each tool page explains the expected input clearly.",
+      "Upload a file, paste text, or enter values. Adjust options when the tool needs them.",
   },
   {
-    title: "Process and Download",
+    number: "03",
+    title: "Use the result",
     description:
-      "Run the tool, review the result, and download or copy the output. Then you are done — no account required.",
+      "Preview the output, then copy or download it. Start another job whenever you need to.",
   },
 ];
 
 export function HowItWorksSection() {
   return (
-    <section className="tm-section bg-tm-white">
+    <section className="tm-section border-b border-tm-border bg-tm-white">
       <div className="tm-container">
-        <div className="max-w-3xl">
-          <h2 className="tm-h2">How Tool Base Works</h2>
-          <p className="tm-lead mt-4">
-            A simple three-step workflow keeps every utility easy to understand and use.
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="tm-eyebrow">Simple workflow</p>
+          <h2 className="tm-h2 mt-3">How It Works</h2>
+          <p className="tm-lead mt-3">
+            Three clear steps from discovery to download — without cluttering the page with
+            extra account walls.
           </p>
         </div>
-        <ol className="mt-8 grid gap-4 md:grid-cols-3">
-          {steps.map((step, index) => (
+        <ol className="mt-10 grid gap-4 md:grid-cols-3">
+          {steps.map((step) => (
             <li
-              key={step.title}
-              className="relative overflow-hidden rounded-3xl border border-tm-border bg-tm-soft p-6"
+              key={step.number}
+              className="rounded-2xl border border-tm-border bg-tm-soft p-6"
             >
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-tm-accent text-sm font-extrabold text-white">
-                {index + 1}
-              </span>
-              <h3 className="tm-h3 mt-5">{step.title}</h3>
-              <p className="mt-3 text-base font-medium leading-relaxed text-tm-muted">
+              <p className="text-sm font-extrabold tracking-[0.12em] text-tm-accent">
+                {step.number}
+              </p>
+              <h3 className="tm-h3 mt-3">{step.title}</h3>
+              <p className="mt-2 text-sm font-medium leading-relaxed text-tm-muted">
                 {step.description}
               </p>
             </li>

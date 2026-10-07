@@ -28,7 +28,7 @@ export function FAQ({
           </h3>
         )
       ) : null}
-      <div className="mt-6 divide-y divide-tm-border overflow-hidden rounded-2xl border border-tm-border bg-tm-white">
+      <div className="mt-6 divide-y divide-tm-border overflow-hidden rounded-2xl border border-tm-border bg-tm-elevated">
         {items.map((item) => (
           <details key={item.question} className="group px-5 py-4">
             <summary className="cursor-pointer list-none font-bold text-tm-text marker:content-none [&::-webkit-details-marker]:hidden">

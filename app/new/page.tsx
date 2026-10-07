@@ -17,16 +17,20 @@ export default function NewToolsPage() {
   const tools = sortToolsAz(getNewTools());
 
   return (
-    <div className="tm-container py-10 md:py-14">
-      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "New Tools" }]} />
-      <header className="max-w-3xl">
-        <h1 className="tm-h1">New Tools</h1>
-        <p className="tm-lead mt-4">
-          Recently added Tool Base utilities. This list grows as new converters, generators,
-          and calculators are introduced.
-        </p>
-      </header>
-      <div className="mt-8">
+    <>
+      <div className="border-b border-tm-border tm-hero-bg">
+        <div className="tm-container py-10 md:py-14">
+          <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "New Tools" }]} />
+          <header className="max-w-3xl">
+            <h1 className="tm-h1">New Tools</h1>
+            <p className="tm-lead mt-4">
+              Recently added Tool Base utilities. This list grows as new converters,
+              generators, and calculators are introduced.
+            </p>
+          </header>
+        </div>
+      </div>
+      <div className="tm-container py-10 md:py-14">
         {tools.length ? (
           <ToolGrid tools={tools} />
         ) : (
@@ -37,6 +41,6 @@ export default function NewToolsPage() {
           />
         )}
       </div>
-    </div>
+    </>
   );
 }

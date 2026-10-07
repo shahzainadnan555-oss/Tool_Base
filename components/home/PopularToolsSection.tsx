@@ -1,50 +1,48 @@
 import Link from "next/link";
-import { ToolGrid } from "@/components/tools/ToolGrid";
-import { getPopularTools } from "@/lib/tools/registry";
+import { ToolCard } from "@/components/tools/ToolCard";
+import { getPopularTools, getToolById } from "@/lib/tools/registry";
 
-const popularOrder = [
+const featuredOrder = [
   "jpg-to-png",
-  "png-to-jpg",
-  "jpg-to-webp",
-  "webp-to-jpg",
   "image-compressor",
-  "image-resizer",
-  "svg-to-png",
-  "png-to-svg",
-  "jpg-to-pdf",
   "pdf-compressor",
-  "mp4-to-mp3",
-  "mp3-to-wav",
+  "jpg-to-pdf",
   "word-counter",
   "qr-code-generator",
+  "typing-speed-test",
   "json-formatter",
-  "percentage-calculator",
 ];
 
 export function PopularToolsSection() {
   const popularMap = new Map(getPopularTools().map((tool) => [tool.id, tool]));
-  const tools = popularOrder
-    .map((id) => popularMap.get(id))
-    .filter((tool): tool is NonNullable<typeof tool> => Boolean(tool));
+  const tools = featuredOrder
+    .map((id) => popularMap.get(id) ?? getToolById(id))
+    .filter((tool): tool is NonNullable<typeof tool> => Boolean(tool))
+    .slice(0, 8);
 
   return (
-    <section className="tm-section">
+    <section className="tm-section border-b border-tm-border bg-tm-white">
       <div className="tm-container">
         <div className="flex flex-wrap items-end justify-between gap-4">
-          <div className="max-w-3xl">
-            <h2 className="tm-h2">Popular Online Tools</h2>
-            <p className="tm-lead mt-4">
-              Quickly access some of Tool Base’s most useful online utilities for converting
-              files, compressing media, editing content, generating results, and completing
-              everyday digital tasks.
+          <div className="max-w-2xl">
+            <p className="tm-eyebrow">Quick access</p>
+            <h2 className="tm-h2 mt-3">Featured Tools</h2>
+            <p className="tm-lead mt-3">
+              A short list of useful Tool Base utilities to start with — convert an image,
+              compress a PDF, count words, or open a generator.
             </p>
           </div>
-          <Link href="/popular" className="text-sm font-bold text-tm-accent hover:text-tm-accent-hover">
-            View popular tools
+          <Link
+            href="/tools"
+            className="text-sm font-bold text-tm-accent transition-colors hover:text-tm-accent-hover"
+          >
+            Browse all tools →
           </Link>
         </div>
-        <div className="mt-8">
-          <ToolGrid tools={tools} />
+        <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {tools.map((tool) => (
+            <ToolCard key={tool.id} tool={tool} compact />
+          ))}
         </div>
       </div>
     </section>
