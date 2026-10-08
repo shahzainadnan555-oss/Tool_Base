@@ -273,9 +273,12 @@ export function TypingSpeedTestWorkspace({ convertHeading }: Props) {
     }
 
     const previous = typedRef.current;
+    const capped = nextTyped.slice(0, target.length);
+    if (capped === previous) return;
+
     // Keystroke accounting for additions only (backspace does not reverse prior errors)
-    if (nextTyped.length > previous.length) {
-      const added = nextTyped.slice(previous.length);
+    if (capped.length > previous.length) {
+      const added = capped.slice(previous.length);
       for (let i = 0; i < added.length; i += 1) {
         const pos = previous.length + i;
         keystrokeRef.current.total += 1;
@@ -284,8 +287,6 @@ export function TypingSpeedTestWorkspace({ convertHeading }: Props) {
       }
     }
 
-    // Cap typed length to target for display safety
-    const capped = nextTyped.slice(0, target.length);
     typedRef.current = capped;
     setTyped(capped);
 
@@ -306,14 +307,17 @@ export function TypingSpeedTestWorkspace({ convertHeading }: Props) {
     }
   }
 
-  function onChange(event: React.ChangeEvent<HTMLTextAreaElement>) {
-    if (finishedRef.current || composingRef.current) return;
-    applyTyped(event.target.value);
+  /**
+   * Mobile virtual keyboards often skip keydown and can leave composition
+   * flags stuck. Always read the real textarea value from input/change.
+   */
+  function onTypedInput(event: React.SyntheticEvent<HTMLTextAreaElement>) {
+    if (finishedRef.current) return;
+    applyTyped(event.currentTarget.value);
   }
 
   function onKeyDown(event: React.KeyboardEvent<HTMLTextAreaElement>) {
     if (event.key === "Tab") {
-      // keep focus in test without trapping permanently — allow shift+tab out later via settings
       event.preventDefault();
     }
     if (event.key === "Escape") {
@@ -528,30 +532,31 @@ export function TypingSpeedTestWorkspace({ convertHeading }: Props) {
           </div>
         </div>
       ) : (
-        <div
-          className="relative scroll-mt-24 rounded-3xl border border-tm-border bg-tm-soft p-4 pb-[max(1rem,var(--tm-keyboard-inset,0px))] sm:p-5 md:p-8"
-          onClick={focusInput}
-          role="presentation"
-        >
-          <p className="mb-4 text-sm font-bold text-tm-muted">
+        <div className="scroll-mt-24 space-y-3 rounded-3xl border border-tm-border bg-tm-soft p-4 sm:p-5 md:p-8">
+          <p className="text-sm font-bold text-tm-muted">
             {phase === "idle"
-              ? "Tap the text area and start typing"
+              ? "Tap the box below and type the text shown"
               : "Keep typing — stats update live"}
           </p>
           <div
-            className="min-h-36 font-mono text-lg leading-relaxed tracking-wide break-words select-none sm:min-h-40 sm:text-xl md:text-2xl md:leading-relaxed"
+            className="min-h-28 cursor-text font-mono text-lg leading-relaxed tracking-wide break-words select-none sm:min-h-32 sm:text-xl md:text-2xl md:leading-relaxed"
             aria-hidden="true"
+            onPointerDown={(event) => {
+              event.preventDefault();
+              focusInput();
+            }}
           >
             {chars}
           </div>
-          <label htmlFor={inputId} className="sr-only">
-            Typing test input. Type the target text shown above.
+          <label htmlFor={inputId} className="block text-sm font-bold text-tm-text">
+            Your typing
           </label>
           <textarea
             id={inputId}
             ref={inputRef}
             value={typed}
-            onChange={onChange}
+            onInput={onTypedInput}
+            onChange={onTypedInput}
             onKeyDown={onKeyDown}
             onFocus={() => {
               requestAnimationFrame(() => {
@@ -569,22 +574,19 @@ export function TypingSpeedTestWorkspace({ convertHeading }: Props) {
               composingRef.current = false;
               if (!finishedRef.current) applyTyped(event.currentTarget.value);
             }}
-            autoCapitalize="none"
+            autoCapitalize="off"
             autoCorrect="off"
             autoComplete="off"
             spellCheck={false}
             inputMode="text"
-            enterKeyHint="done"
+            enterKeyHint="next"
             lang="en"
             rows={3}
-            // Near-invisible overlay (not opacity:0) so iOS still opens the keyboard reliably.
-            className="absolute inset-0 z-10 h-full w-full resize-none border-0 bg-transparent text-transparent caret-transparent outline-none"
-            style={{ fontSize: 16, opacity: 0.02, WebkitTextFillColor: "transparent" }}
+            className="tm-input min-h-24 resize-y font-mono text-base leading-relaxed"
             aria-describedby={`${inputId}-help`}
           />
-          <p id={`${inputId}-help`} className="sr-only">
-            Type the displayed text. Correct characters complete, incorrect characters are marked,
-            and the test ends when the timer finishes or the word goal is reached.
+          <p id={`${inputId}-help`} className="text-xs font-semibold text-tm-muted">
+            Type exactly what you see above. Spaces, backspace, and punctuation all count.
           </p>
         </div>
       )}

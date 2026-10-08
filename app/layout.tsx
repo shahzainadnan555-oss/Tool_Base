@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { ConsentRoot } from "@/components/consent/ConsentRoot";
 import { Navbar } from "@/components/layout/Navbar";
@@ -18,10 +18,18 @@ const inter = Inter({
 
 export const metadata: Metadata = createRootMetadata();
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  interactiveWidget: "resizes-content",
+};
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${inter.variable} h-full`} suppressHydrationWarning>
       <head>
+        <meta name="color-scheme" content="light dark" />
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body className="flex min-h-full min-w-0 flex-col overflow-x-clip bg-tm-soft font-sans text-tm-text antialiased selection:bg-tm-accent/20">

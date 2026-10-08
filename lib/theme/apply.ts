@@ -21,11 +21,37 @@ export function getResolvedTheme(): Theme {
   return getStoredTheme() ?? getSystemTheme();
 }
 
+function syncColorSchemeMeta(theme: Theme) {
+  if (typeof document === "undefined") return;
+  let meta = document.querySelector('meta[name="color-scheme"]');
+  if (!meta) {
+    meta = document.createElement("meta");
+    meta.setAttribute("name", "color-scheme");
+    document.head.appendChild(meta);
+  }
+  // A single value (not "light dark") stops iOS from auto-inverting the page.
+  meta.setAttribute("content", theme);
+}
+
+/**
+ * Apply the user's explicit theme.
+ * `only light` / `only dark` prevents Safari from re-darkening Light Mode
+ * when the device itself is in Dark Mode.
+ */
 export function applyTheme(theme: Theme) {
   if (typeof document === "undefined") return;
-  document.documentElement.classList.toggle("dark", theme === "dark");
-  document.documentElement.dataset.theme = theme;
-  document.documentElement.style.colorScheme = theme;
+  const root = document.documentElement;
+  if (theme === "dark") {
+    root.classList.add("dark");
+  } else {
+    root.classList.remove("dark");
+  }
+  root.setAttribute("data-theme", theme);
+  root.style.setProperty("color-scheme", theme);
+  if (document.body) {
+    document.body.style.setProperty("color-scheme", theme);
+  }
+  syncColorSchemeMeta(theme);
   try {
     localStorage.setItem(THEME_STORAGE_KEY, theme);
   } catch {

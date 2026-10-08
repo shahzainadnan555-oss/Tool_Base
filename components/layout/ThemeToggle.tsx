@@ -6,7 +6,6 @@ import {
   applyTheme,
   getResolvedTheme,
   getStoredTheme,
-  toggleTheme,
   type Theme,
 } from "@/lib/theme/apply";
 
@@ -121,8 +120,7 @@ export function ThemeToggle({
       onClick={(event) => {
         event.preventDefault();
         event.stopPropagation();
-        toggleTheme();
-        window.dispatchEvent(new Event(THEME_EVENT));
+        commitTheme(isDark ? "light" : "dark");
       }}
     >
       {isDark ? (

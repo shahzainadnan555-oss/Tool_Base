@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
-/* Class-based dark mode (html.dark) — must NOT follow prefers-color-scheme alone. */
-@custom-variant dark (&:where(.dark, .dark *));
+/* Class-based dark mode only — never follow prefers-color-scheme alone. */
+@custom-variant dark (&:where(html.dark, html.dark *));
 
 :root {
   --tm-bg-primary: #0b1635;
@@ -65,7 +65,17 @@
   --tm-space-12: 3rem;
   --background: var(--tm-soft-white);
   --foreground: var(--tm-dark-text);
+  color-scheme: only light;
+}
+
+html[data-theme="light"] {
   color-scheme: light;
+}
+
+@supports (color-scheme: only light) {
+  html[data-theme="light"] {
+    color-scheme: only light;
+  }
 }
 
 html.dark {
@@ -116,7 +126,17 @@ html.dark {
     0 16px 40px rgba(34, 211, 238, 0.08);
   --background: #071022;
   --foreground: #f1f5f9;
+  color-scheme: only dark;
+}
+
+html[data-theme="dark"] {
   color-scheme: dark;
+}
+
+@supports (color-scheme: only dark) {
+  html[data-theme="dark"] {
+    color-scheme: only dark;
+  }
 }
 
 @theme inline {
