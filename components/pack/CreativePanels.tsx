@@ -48,7 +48,7 @@ export function ClipPathPanel() {
           {Object.keys(CLIPS).map((name) => <option key={name}>{name}</option>)}
         </select>
       </Field>
-      <div className="flex justify-center rounded-2xl border border-tm-border bg-slate-100 p-8 dark:bg-slate-800">
+      <div className="flex justify-center rounded-2xl border border-tm-border bg-tm-soft p-8">
         <div className="h-40 w-40 bg-[var(--tm-accent)]" style={{ clipPath: css }} />
       </div>
       <pre className="overflow-x-auto rounded-xl border border-tm-border bg-tm-elevated p-3 text-sm">clip-path: {css};</pre>
@@ -263,6 +263,7 @@ export function PixelArtPanel() {
   const [erase, setErase] = useState(false);
   const [cells, setCells] = useState<string[]>(() => Array(256).fill(""));
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const drawingRef = useRef(false);
   const { ok, error, fail, done } = useNotice();
   function paint(i: number) {
     setCells((rows) => {
@@ -288,9 +289,42 @@ export function PixelArtPanel() {
         <Field id="pc" label="Color"><input id="pc" type="color" className="h-11 w-24" value={color} onChange={(e) => setColor(e.target.value)} /></Field>
         <label className="flex items-center gap-2 text-sm font-bold"><input type="checkbox" className="size-4 accent-[var(--tm-accent)]" checked={erase} onChange={(e) => setErase(e.target.checked)} /> Erase</label>
       </div>
-      <div className="inline-grid border border-tm-border" style={{ gridTemplateColumns: `repeat(${size}, 1.25rem)` }}>
+      <p className="text-xs font-semibold text-tm-muted md:hidden">
+        Tap or drag across cells to paint.
+      </p>
+      <div
+        className="inline-grid max-w-full touch-none border border-tm-border"
+        style={{ gridTemplateColumns: `repeat(${size}, minmax(1.75rem, 1fr))` }}
+        onPointerDown={(event) => {
+          drawingRef.current = true;
+          (event.currentTarget as HTMLElement).setPointerCapture(event.pointerId);
+        }}
+        onPointerMove={(event) => {
+          if (!drawingRef.current) return;
+          const target = document.elementFromPoint(
+            event.clientX,
+            event.clientY,
+          ) as HTMLElement | null;
+          const index = target?.dataset?.pixelIndex;
+          if (index != null) paint(Number(index));
+        }}
+        onPointerUp={() => {
+          drawingRef.current = false;
+        }}
+        onPointerCancel={() => {
+          drawingRef.current = false;
+        }}
+      >
         {Array.from({ length: size * size }, (_, i) => (
-          <button key={i} type="button" aria-label={`Pixel ${i + 1}`} className="h-5 w-5 border border-slate-200 dark:border-slate-700" style={{ background: cells[i] || "transparent" }} onClick={() => paint(i)} />
+          <button
+            key={i}
+            type="button"
+            data-pixel-index={i}
+            aria-label={`Pixel ${i + 1}`}
+            className="aspect-square min-h-7 min-w-7 border border-tm-border sm:min-h-5 sm:min-w-5"
+            style={{ background: cells[i] || "transparent" }}
+            onPointerDown={() => paint(i)}
+          />
         ))}
       </div>
       <canvas ref={canvasRef} className="hidden" />
@@ -454,7 +488,7 @@ export function TransformPanel() {
           <input id={String(label)} className="tm-input" value={String(value)} onChange={(e) => (set as (v: string) => void)(e.target.value)} />
         </Field>
       ))}
-      <div className="flex h-48 items-center justify-center rounded-2xl border border-tm-border bg-slate-100 dark:bg-slate-800">
+      <div className="flex h-48 items-center justify-center rounded-2xl border border-tm-border bg-tm-soft">
         <div className="h-16 w-24 rounded-lg bg-[var(--tm-accent)]" style={{ transform: css }} />
       </div>
       <pre className="overflow-x-auto rounded-xl border border-tm-border bg-tm-elevated p-3 text-sm">transform: {css};</pre>

@@ -13,7 +13,7 @@ export function downloadBlob(blob: Blob, fileName: string) {
   document.body.appendChild(anchor);
   anchor.click();
   anchor.remove();
-  window.setTimeout(() => URL.revokeObjectURL(url), 1500);
+  window.setTimeout(() => URL.revokeObjectURL(url), 10000);
 }
 
 export async function copyText(content: string): Promise<boolean> {

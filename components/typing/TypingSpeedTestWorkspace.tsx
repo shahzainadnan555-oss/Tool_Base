@@ -113,7 +113,13 @@ export function TypingSpeedTestWorkspace({ convertHeading }: Props) {
   const [tick, setTick] = useState(0);
 
   const focusInput = useCallback(() => {
-    inputRef.current?.focus({ preventScroll: true });
+    const el = inputRef.current;
+    if (!el) return;
+    // On mobile, allow scroll so the field stays above the virtual keyboard.
+    el.focus({ preventScroll: false });
+    requestAnimationFrame(() => {
+      el.scrollIntoView({ block: "center", inline: "nearest", behavior: "smooth" });
+    });
   }, []);
 
   const resetWithOptions = useCallback(
@@ -234,6 +240,27 @@ export function TypingSpeedTestWorkspace({ convertHeading }: Props) {
     }
     document.addEventListener("visibilitychange", onVisibility);
     return () => document.removeEventListener("visibilitychange", onVisibility);
+  }, []);
+
+  // Keep typing area clear of the mobile virtual keyboard when possible.
+  useEffect(() => {
+    const vv = window.visualViewport;
+    if (!vv) return;
+    const sync = () => {
+      const inset = Math.max(0, window.innerHeight - vv.height - vv.offsetTop);
+      document.documentElement.style.setProperty(
+        "--tm-keyboard-inset",
+        inset > 40 ? `${inset}px` : "0px",
+      );
+    };
+    sync();
+    vv.addEventListener("resize", sync);
+    vv.addEventListener("scroll", sync);
+    return () => {
+      vv.removeEventListener("resize", sync);
+      vv.removeEventListener("scroll", sync);
+      document.documentElement.style.removeProperty("--tm-keyboard-inset");
+    };
   }, []);
 
   function applyTyped(nextTyped: string) {
@@ -502,15 +529,17 @@ export function TypingSpeedTestWorkspace({ convertHeading }: Props) {
         </div>
       ) : (
         <div
-          className="relative rounded-3xl border border-tm-border bg-tm-soft p-5 md:p-8"
+          className="relative scroll-mt-24 rounded-3xl border border-tm-border bg-tm-soft p-4 pb-[max(1rem,var(--tm-keyboard-inset,0px))] sm:p-5 md:p-8"
           onClick={focusInput}
           role="presentation"
         >
           <p className="mb-4 text-sm font-bold text-tm-muted">
-            {phase === "idle" ? "Start typing to begin" : "Keep typing — stats update live"}
+            {phase === "idle"
+              ? "Tap the text area and start typing"
+              : "Keep typing — stats update live"}
           </p>
           <div
-            className="min-h-36 font-mono text-lg leading-relaxed tracking-wide break-words sm:min-h-40 sm:text-xl md:text-2xl md:leading-relaxed"
+            className="min-h-36 font-mono text-lg leading-relaxed tracking-wide break-words select-none sm:min-h-40 sm:text-xl md:text-2xl md:leading-relaxed"
             aria-hidden="true"
           >
             {chars}
@@ -524,6 +553,15 @@ export function TypingSpeedTestWorkspace({ convertHeading }: Props) {
             value={typed}
             onChange={onChange}
             onKeyDown={onKeyDown}
+            onFocus={() => {
+              requestAnimationFrame(() => {
+                inputRef.current?.scrollIntoView({
+                  block: "center",
+                  inline: "nearest",
+                  behavior: "smooth",
+                });
+              });
+            }}
             onCompositionStart={() => {
               composingRef.current = true;
             }}
@@ -531,14 +569,17 @@ export function TypingSpeedTestWorkspace({ convertHeading }: Props) {
               composingRef.current = false;
               if (!finishedRef.current) applyTyped(event.currentTarget.value);
             }}
-            autoCapitalize="off"
+            autoCapitalize="none"
             autoCorrect="off"
             autoComplete="off"
             spellCheck={false}
+            inputMode="text"
             enterKeyHint="done"
+            lang="en"
             rows={3}
-            className="absolute inset-0 z-10 h-full w-full resize-none opacity-0"
-            style={{ fontSize: 16 }}
+            // Near-invisible overlay (not opacity:0) so iOS still opens the keyboard reliably.
+            className="absolute inset-0 z-10 h-full w-full resize-none border-0 bg-transparent text-transparent caret-transparent outline-none"
+            style={{ fontSize: 16, opacity: 0.02, WebkitTextFillColor: "transparent" }}
             aria-describedby={`${inputId}-help`}
           />
           <p id={`${inputId}-help`} className="sr-only">
@@ -614,8 +655,8 @@ function Segmented({
           disabled={disabled}
           className={
             value === id
-              ? "rounded-lg bg-tm-navy px-3 py-1.5 text-sm font-bold text-white"
-              : "rounded-lg px-3 py-1.5 text-sm font-bold text-tm-muted hover:text-tm-text"
+              ? "min-h-11 rounded-lg bg-tm-navy px-3 py-2 text-sm font-bold text-tm-on-brand"
+              : "min-h-11 rounded-lg px-3 py-2 text-sm font-bold text-tm-muted hover:text-tm-text"
           }
           onClick={() => onChange(id)}
           aria-pressed={value === id}

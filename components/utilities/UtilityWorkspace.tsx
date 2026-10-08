@@ -220,7 +220,11 @@ function SignaturePanel() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
-    ctx.strokeStyle = "#0f172a";
+    const ink =
+      getComputedStyle(document.documentElement)
+        .getPropertyValue("--tm-dark-text")
+        .trim() || "#0f172a";
+    ctx.strokeStyle = ink;
     ctx.lineWidth = width;
     for (const stroke of strokes.current) {
       if (!stroke.length) continue;
@@ -238,7 +242,7 @@ function SignaturePanel() {
         ref={canvasRef}
         width={900}
         height={320}
-        className="h-48 w-full touch-none rounded-2xl border border-tm-border bg-[repeating-linear-gradient(0deg,transparent,transparent_31px,#d0dae8_32px)] dark:bg-tm-elevated"
+        className="h-48 w-full touch-none rounded-2xl border border-tm-border bg-[repeating-linear-gradient(0deg,transparent,transparent_31px,var(--tm-border)_32px)] bg-tm-elevated"
         onPointerDown={(e) => {
           drawing.current = true;
           strokes.current.push([pos(e)]);
@@ -250,6 +254,12 @@ function SignaturePanel() {
           redraw();
         }}
         onPointerUp={() => {
+          drawing.current = false;
+        }}
+        onPointerCancel={() => {
+          drawing.current = false;
+        }}
+        onPointerLeave={() => {
           drawing.current = false;
         }}
       />
@@ -357,12 +367,26 @@ function WebcamPanel() {
 
   async function start() {
     try {
-      const media = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+      if (!navigator.mediaDevices?.getUserMedia) {
+        fail("This browser does not support camera access.");
+        return;
+      }
+      const media = await navigator.mediaDevices.getUserMedia({
+        video: {
+          facingMode: { ideal: "user" },
+          width: { ideal: 1280 },
+          height: { ideal: 720 },
+        },
+        audio: false,
+      });
       setStream(media);
-      if (videoRef.current) videoRef.current.srcObject = media;
+      if (videoRef.current) {
+        videoRef.current.srcObject = media;
+        await videoRef.current.play().catch(() => undefined);
+      }
       done("Camera is live.");
     } catch {
-      fail("Camera permission was denied or no camera is available.");
+      fail("Camera permission was denied or no camera is available on this device.");
     }
   }
 
@@ -397,7 +421,13 @@ function WebcamPanel() {
 
   return (
     <div className="space-y-4">
-      <video ref={videoRef} autoPlay playsInline muted className={`w-full rounded-2xl border border-tm-border bg-black ${mirror ? "-scale-x-100" : ""}`} />
+      <video
+        ref={videoRef}
+        autoPlay
+        playsInline
+        muted
+        className={`aspect-video max-h-[70vh] w-full rounded-2xl border border-tm-border bg-tm-navy object-cover ${mirror ? "-scale-x-100" : ""}`}
+      />
       <p className="text-sm font-bold text-tm-muted">{stream ? "Camera on" : "Camera off"}</p>
       <div className="flex flex-wrap gap-3">
         <button type="button" className="tm-btn tm-btn-primary" onClick={() => void start()}>Start camera</button>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { copyText } from "@/lib/clipboard";
 import { hexToRgb, loadHtmlImage, rgbToHsl } from "@/lib/image-editor/utils";
 
 interface ImageColorPickerProps {
@@ -26,17 +27,13 @@ export function ImageColorPickerPanel({ imageUrl }: ImageColorPickerProps) {
     return canvas;
   }
 
-  async function pickFromEvent(
-    event: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>,
-  ) {
+  async function pickFromEvent(event: { clientX: number; clientY: number }) {
     const canvas = await ensureCanvas();
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
     const rect = canvas.getBoundingClientRect();
-    const clientX = "touches" in event ? event.touches[0]?.clientX : event.clientX;
-    const clientY = "touches" in event ? event.touches[0]?.clientY : event.clientY;
-    if (clientX == null || clientY == null) return;
+    const { clientX, clientY } = event;
     const x = Math.floor(((clientX - rect.left) / rect.width) * canvas.width);
     const y = Math.floor(((clientY - rect.top) / rect.height) * canvas.height);
     const pixel = ctx.getImageData(Math.max(0, x), Math.max(0, y), 1, 1).data;
@@ -52,7 +49,8 @@ export function ImageColorPickerPanel({ imageUrl }: ImageColorPickerProps) {
   const hslText = `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`;
 
   async function copyValue(label: string, value: string) {
-    await navigator.clipboard.writeText(value);
+    const ok = await copyText(value);
+    if (!ok) return;
     setCopied(label);
     window.setTimeout(() => setCopied(null), 1500);
   }
@@ -65,9 +63,11 @@ export function ImageColorPickerPanel({ imageUrl }: ImageColorPickerProps) {
       <div className="overflow-hidden rounded-2xl border border-tm-border bg-tm-soft">
         <canvas
           ref={canvasRef}
-          className="mx-auto max-h-96 w-full cursor-crosshair object-contain"
-          onClick={(event) => void pickFromEvent(event)}
-          onTouchStart={(event) => void pickFromEvent(event)}
+          className="mx-auto max-h-96 w-full touch-none cursor-crosshair object-contain"
+          onPointerDown={(event) => {
+            event.preventDefault();
+            void pickFromEvent(event);
+          }}
         />
         {/* hidden preload draw on mount via image element */}
         {/* eslint-disable-next-line @next/next/no-img-element */}

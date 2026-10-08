@@ -1,17 +1,4 @@
-export function downloadTextFile(content: string, fileName: string) {
-  const safeName = fileName.replace(/\.txt\.txt$/i, ".txt");
-  const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
-  const url = URL.createObjectURL(blob);
-  const anchor = document.createElement("a");
-  anchor.href = url;
-  anchor.download = safeName.endsWith(".txt") ? safeName : `${safeName}.txt`;
-  anchor.rel = "noopener";
-  document.body.appendChild(anchor);
-  anchor.click();
-  anchor.remove();
-  window.setTimeout(() => URL.revokeObjectURL(url), 10000);
-}
-
+/** Shared clipboard helper with mobile-friendly fallback. */
 export async function copyText(content: string): Promise<boolean> {
   try {
     if (navigator.clipboard?.writeText) {
@@ -19,7 +6,7 @@ export async function copyText(content: string): Promise<boolean> {
       return true;
     }
   } catch {
-    // fall through
+    // fall through to execCommand
   }
   try {
     const area = document.createElement("textarea");
@@ -27,7 +14,9 @@ export async function copyText(content: string): Promise<boolean> {
     area.setAttribute("readonly", "");
     area.style.position = "fixed";
     area.style.left = "-9999px";
+    area.style.opacity = "0";
     document.body.appendChild(area);
+    area.focus();
     area.select();
     const ok = document.execCommand("copy");
     area.remove();

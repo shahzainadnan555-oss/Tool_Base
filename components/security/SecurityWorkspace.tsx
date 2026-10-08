@@ -269,7 +269,7 @@ export function SecurityWorkspace({ config, convertHeading }: SecurityWorkspaceP
               role="tab"
               aria-selected={hashMode === mode}
               className={`rounded-full px-3 py-1.5 text-sm font-bold capitalize ${
-                hashMode === mode ? "bg-tm-accent text-white" : "bg-tm-soft text-tm-text"
+                hashMode === mode ? "bg-tm-accent text-tm-on-brand" : "bg-tm-soft text-tm-text"
               }`}
               onClick={() => setHashMode(mode)}
             >
@@ -286,7 +286,7 @@ export function SecurityWorkspace({ config, convertHeading }: SecurityWorkspaceP
               key={mode}
               type="button"
               className={`rounded-full px-3 py-1.5 text-sm font-bold capitalize ${
-                baseMode === mode ? "bg-tm-accent text-white" : "bg-tm-soft text-tm-text"
+                baseMode === mode ? "bg-tm-accent text-tm-on-brand" : "bg-tm-soft text-tm-text"
               }`}
               onClick={() => setBaseMode(mode)}
             >
@@ -440,7 +440,7 @@ export function SecurityWorkspace({ config, convertHeading }: SecurityWorkspaceP
               key={unit}
               type="button"
               className={`rounded-full px-3 py-1.5 text-sm font-bold capitalize ${
-                timestampUnit === unit ? "bg-tm-accent text-white" : "bg-tm-soft text-tm-text"
+                timestampUnit === unit ? "bg-tm-accent text-tm-on-brand" : "bg-tm-soft text-tm-text"
               }`}
               onClick={() => setTimestampUnit(unit)}
             >

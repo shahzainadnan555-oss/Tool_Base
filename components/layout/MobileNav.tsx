@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useId, useRef } from "react";
 import { createPortal } from "react-dom";
+import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import { SearchBar } from "@/components/search/SearchBar";
 import { browseSections } from "@/lib/tools/browse";
 import { Icon } from "@/components/ui/Icon";
@@ -71,7 +72,7 @@ export function MobileNav({ open, items, onClose }: MobileNavProps) {
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        className="fixed inset-y-0 right-0 z-[70] flex w-[min(100%,22rem)] max-w-full flex-col border-l border-tm-border bg-tm-elevated shadow-[var(--tm-shadow-lg)]"
+        className="fixed inset-y-0 right-0 z-[70] flex w-[min(100%,22rem)] max-w-full flex-col border-l border-tm-border bg-tm-elevated pb-[env(safe-area-inset-bottom)] shadow-[var(--tm-shadow-lg)] pt-[env(safe-area-inset-top)]"
       >
         <div className="flex items-center justify-between gap-3 border-b border-tm-border px-4 py-3">
           <p id={titleId} className="text-base font-extrabold text-tm-text">
@@ -89,6 +90,8 @@ export function MobileNav({ open, items, onClose }: MobileNavProps) {
         </div>
 
         <div className="flex-1 space-y-5 overflow-y-auto overscroll-contain px-4 py-4">
+          <ThemeToggle variant="switch" />
+
           <SearchBar placeholder="Search for a tool…" onNavigate={onClose} />
 
           <nav aria-label="Mobile" className="grid gap-1">

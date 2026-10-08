@@ -226,7 +226,7 @@ export function TextWorkspace({ config, convertHeading }: TextWorkspaceProps) {
               type="button"
               className={`rounded-full px-3 py-1.5 text-sm font-bold ${
                 caseMode === option.value
-                  ? "bg-tm-accent text-white"
+                  ? "bg-tm-accent text-tm-on-brand"
                   : "bg-tm-soft text-tm-text"
               }`}
               onClick={() => setCaseMode(option.value)}
@@ -298,7 +298,7 @@ export function TextWorkspace({ config, convertHeading }: TextWorkspaceProps) {
           <button
             type="button"
             className={`rounded-full px-3 py-1.5 text-sm font-bold ${
-              sortDirection === "asc" ? "bg-tm-accent text-white" : "bg-tm-soft text-tm-text"
+              sortDirection === "asc" ? "bg-tm-accent text-tm-on-brand" : "bg-tm-soft text-tm-text"
             }`}
             onClick={() => setSortDirection("asc")}
           >
@@ -307,7 +307,7 @@ export function TextWorkspace({ config, convertHeading }: TextWorkspaceProps) {
           <button
             type="button"
             className={`rounded-full px-3 py-1.5 text-sm font-bold ${
-              sortDirection === "desc" ? "bg-tm-accent text-white" : "bg-tm-soft text-tm-text"
+              sortDirection === "desc" ? "bg-tm-accent text-tm-on-brand" : "bg-tm-soft text-tm-text"
             }`}
             onClick={() => setSortDirection("desc")}
           >

@@ -332,7 +332,7 @@ export function ImageEditorWorkspace({
                       type="button"
                       className={`rounded-full px-3 py-1.5 text-sm font-bold ${
                         aspect === preset.value
-                          ? "bg-tm-accent text-white"
+                          ? "bg-tm-accent text-tm-on-brand"
                           : "bg-tm-soft text-tm-text"
                       }`}
                       onClick={() => setAspect(preset.value)}
@@ -482,7 +482,7 @@ export function ImageEditorWorkspace({
                   type="button"
                   className={`rounded-full px-3 py-1.5 text-sm font-bold ${
                     rotation === value
-                      ? "bg-tm-accent text-white"
+                      ? "bg-tm-accent text-tm-on-brand"
                       : "bg-tm-soft text-tm-text"
                   }`}
                   onClick={() => setRotation(value as 90 | 180 | -90)}

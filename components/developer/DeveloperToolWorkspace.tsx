@@ -271,7 +271,7 @@ export function DeveloperToolWorkspace({
               type="button"
               className={`rounded-full px-3 py-1.5 text-sm font-bold ${
                 indent === option.value
-                  ? "bg-tm-accent text-white"
+                  ? "bg-tm-accent text-tm-on-brand"
                   : "bg-tm-soft text-tm-text"
               }`}
               onClick={() => setIndent(option.value)}
@@ -287,7 +287,7 @@ export function DeveloperToolWorkspace({
           <button
             type="button"
             className={`rounded-full px-3 py-1.5 text-sm font-bold ${
-              urlMode === "component" ? "bg-tm-accent text-white" : "bg-tm-soft text-tm-text"
+              urlMode === "component" ? "bg-tm-accent text-tm-on-brand" : "bg-tm-soft text-tm-text"
             }`}
             onClick={() => setUrlMode("component")}
           >
@@ -296,7 +296,7 @@ export function DeveloperToolWorkspace({
           <button
             type="button"
             className={`rounded-full px-3 py-1.5 text-sm font-bold ${
-              urlMode === "uri" ? "bg-tm-accent text-white" : "bg-tm-soft text-tm-text"
+              urlMode === "uri" ? "bg-tm-accent text-tm-on-brand" : "bg-tm-soft text-tm-text"
             }`}
             onClick={() => setUrlMode("uri")}
           >

@@ -9,6 +9,7 @@ import { processDocumentData } from "@/lib/document-data/process";
 import type { DocumentDataConfig, DocumentDataResult } from "@/lib/document-data/types";
 import { downloadBlob, formatBytes } from "@/lib/document-data/utils";
 import { validateDocumentFile } from "@/lib/document-data/validate";
+import { copyText } from "@/lib/clipboard";
 import { useOperationController } from "@/lib/processing/useOperationController";
 import { filterUserFacingNotices } from "@/lib/ui/notices";
 
@@ -99,13 +100,13 @@ export function DocumentDataWorkspace({
 
   async function copyOutput() {
     if (!result?.textPreview) return;
-    try {
-      await navigator.clipboard.writeText(result.textPreview);
-      setCopied(true);
-      window.setTimeout(() => setCopied(false), 1500);
-    } catch {
+    const ok = await copyText(result.textPreview);
+    if (!ok) {
       setLocalError("Clipboard access is unavailable in this browser.");
+      return;
     }
+    setCopied(true);
+    window.setTimeout(() => setCopied(false), 1500);
   }
 
   return (

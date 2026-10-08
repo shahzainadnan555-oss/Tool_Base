@@ -15,6 +15,7 @@
     "smoke:calculators": "node scripts/smoke-calculator-tools.cjs",
     "smoke:specialized": "node scripts/smoke-specialized-calculators.cjs",
     "smoke:generators": "node scripts/smoke-content-generators.cjs",
+    "smoke:mobile": "node scripts/smoke-mobile-tools.cjs",
     "postinstall": "node scripts/copy-ffmpeg-assets.cjs"
   },
   "dependencies": {

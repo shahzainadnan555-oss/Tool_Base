@@ -23,6 +23,7 @@ function subscribe(onStoreChange: () => void) {
   };
   const onStorage = (event: StorageEvent) => {
     if (event.key && event.key !== "tb-theme") return;
+    applyTheme(getResolvedTheme());
     onStoreChange();
   };
 
@@ -45,26 +46,90 @@ function getServerSnapshot(): Theme {
   return "light";
 }
 
-export function ThemeToggle({ className }: { className?: string }) {
+function commitTheme(next: Theme) {
+  applyTheme(next);
+  window.dispatchEvent(new Event(THEME_EVENT));
+}
+
+export function ThemeToggle({
+  className,
+  variant = "icon",
+}: {
+  className?: string;
+  /** icon = compact header control; switch = labeled Light/Dark control for menus */
+  variant?: "icon" | "switch";
+}) {
   const theme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+  const isDark = theme === "dark";
+
+  if (variant === "switch") {
+    return (
+      <div className={className} role="group" aria-label="Color theme">
+        <p className="mb-2 text-xs font-bold tracking-wide text-tm-muted uppercase">
+          Appearance
+        </p>
+        <div className="grid grid-cols-2 gap-2">
+          <button
+            type="button"
+            className={`inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border px-3 py-2.5 text-sm font-bold transition-colors ${
+              !isDark
+                ? "border-tm-accent bg-tm-surface-2 text-tm-accent"
+                : "border-tm-border bg-tm-soft text-tm-text"
+            }`}
+            aria-pressed={!isDark}
+            onClick={(event) => {
+              event.preventDefault();
+              event.stopPropagation();
+              commitTheme("light");
+            }}
+          >
+            <Icon name="sun" className="h-4 w-4" />
+            Light
+          </button>
+          <button
+            type="button"
+            className={`inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border px-3 py-2.5 text-sm font-bold transition-colors ${
+              isDark
+                ? "border-tm-accent bg-tm-surface-2 text-tm-accent"
+                : "border-tm-border bg-tm-soft text-tm-text"
+            }`}
+            aria-pressed={isDark}
+            onClick={(event) => {
+              event.preventDefault();
+              event.stopPropagation();
+              commitTheme("dark");
+            }}
+          >
+            <Icon name="moon" className="h-4 w-4" />
+            Dark
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <button
       type="button"
       className={
         className ??
-        "tm-icon-btn border border-tm-border bg-tm-elevated text-tm-text hover:border-tm-accent hover:text-tm-accent"
+        "tm-icon-btn tm-icon-btn-show border border-tm-border bg-tm-elevated text-tm-text hover:border-tm-accent hover:text-tm-accent"
       }
-      aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-      title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-      aria-pressed={theme === "dark"}
-      onClick={() => {
+      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+      title={isDark ? "Switch to light mode" : "Switch to dark mode"}
+      aria-pressed={isDark}
+      onClick={(event) => {
+        event.preventDefault();
+        event.stopPropagation();
         toggleTheme();
         window.dispatchEvent(new Event(THEME_EVENT));
       }}
     >
-      <Icon name="moon" className="h-5 w-5 dark:hidden" />
-      <Icon name="sun" className="hidden h-5 w-5 dark:inline" />
+      {isDark ? (
+        <Icon name="sun" className="h-5 w-5" />
+      ) : (
+        <Icon name="moon" className="h-5 w-5" />
+      )}
     </button>
   );
 }

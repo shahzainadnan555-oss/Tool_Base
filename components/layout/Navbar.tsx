@@ -68,9 +68,7 @@ export function Navbar() {
     <header
       className={cn(
         "sticky top-0 z-40 border-b bg-tm-elevated/92 backdrop-blur-xl transition-[box-shadow,background-color,border-color] duration-200",
-        scrolled
-          ? "border-tm-border shadow-[0_1px_0_rgba(11,22,53,0.04),0_8px_24px_rgba(11,22,53,0.04)]"
-          : "border-tm-border/70",
+        scrolled ? "border-tm-border shadow-[var(--tm-shadow)]" : "border-tm-border/70",
       )}
     >
       <div

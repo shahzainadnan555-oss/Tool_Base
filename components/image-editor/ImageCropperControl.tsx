@@ -28,7 +28,7 @@ export function ImageCropperControl({
 
   return (
     <div className="space-y-3">
-      <div className="relative h-72 overflow-hidden rounded-2xl bg-tm-navy md:h-96">
+      <div className="relative h-72 touch-none overflow-hidden rounded-2xl bg-tm-navy md:h-96">
         <Cropper
           image={imageUrl}
           crop={crop}
@@ -50,9 +50,15 @@ export function ImageCropperControl({
           step={0.05}
           value={zoom}
           onChange={(event) => setZoom(Number(event.target.value))}
-          className="mt-2 w-full"
+          className="tm-range mt-2 w-full"
+          aria-valuemin={1}
+          aria-valuemax={3}
+          aria-valuenow={zoom}
         />
       </label>
+      <p className="text-xs font-semibold text-tm-muted md:hidden">
+        Drag with one finger to reposition. Use the zoom slider to resize the crop.
+      </p>
     </div>
   );
 }

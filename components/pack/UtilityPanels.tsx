@@ -175,38 +175,71 @@ export function UaParserPanel() {
 
 export function KeyboardPanel() {
   const [log, setLog] = useState<string[]>([]);
-  const [current, setCurrent] = useState("Press a key");
+  const [current, setCurrent] = useState("Press a key or type below");
   return (
-    <div
-      className="space-y-4 rounded-2xl border border-tm-border bg-tm-elevated p-4"
-      tabIndex={0}
-      onKeyDown={(e) => {
-        e.preventDefault();
-        const line = `${e.key} · ${e.code} · loc ${e.location}${e.repeat ? " · repeat" : ""}${e.ctrlKey ? " · Ctrl" : ""}${e.altKey ? " · Alt" : ""}${e.shiftKey ? " · Shift" : ""}${e.metaKey ? " · Meta" : ""}`;
-        setCurrent(line);
-        setLog((rows) => [line, ...rows].slice(0, 20));
-      }}
-    >
-      <p className="text-sm font-bold text-tm-muted">Click this pad, then press keys.</p>
-      <p className="font-mono text-lg font-black" aria-live="polite">{current}</p>
-      <ol className="space-y-1 font-mono text-xs">{log.map((row, i) => <li key={`${row}-${i}`}>{row}</li>)}</ol>
-      <button type="button" className="tm-btn tm-btn-ghost" onClick={() => { setLog([]); setCurrent("Press a key"); }}>Clear</button>
+    <div className="space-y-4 rounded-2xl border border-tm-border bg-tm-elevated p-4">
+      <p className="text-sm font-bold text-tm-muted">
+        Tap the field below and type. Soft keyboards report fewer modifier keys than physical
+        keyboards — that is expected on mobile.
+      </p>
+      <input
+        type="text"
+        className="tm-input font-mono"
+        inputMode="text"
+        autoComplete="off"
+        autoCorrect="off"
+        spellCheck={false}
+        placeholder="Type here to test keys…"
+        aria-label="Keyboard tester input"
+        onKeyDown={(e) => {
+          const line = `${e.key} · ${e.code} · loc ${e.location}${e.repeat ? " · repeat" : ""}${e.ctrlKey ? " · Ctrl" : ""}${e.altKey ? " · Alt" : ""}${e.shiftKey ? " · Shift" : ""}${e.metaKey ? " · Meta" : ""}`;
+          setCurrent(line);
+          setLog((rows) => [line, ...rows].slice(0, 20));
+        }}
+      />
+      <p className="font-mono text-lg font-black text-tm-text" aria-live="polite">
+        {current}
+      </p>
+      <ol className="max-h-48 space-y-1 overflow-y-auto font-mono text-xs text-tm-muted">
+        {log.map((row, i) => (
+          <li key={`${row}-${i}`}>{row}</li>
+        ))}
+      </ol>
+      <button
+        type="button"
+        className="tm-btn tm-btn-ghost"
+        onClick={() => {
+          setLog([]);
+          setCurrent("Press a key or type below");
+        }}
+      >
+        Clear
+      </button>
     </div>
   );
 }
 
 export function MousePanel() {
-  const [info, setInfo] = useState("Move or click in the pad.");
+  const [info, setInfo] = useState("Move, tap, or drag in the pad.");
   return (
     <div
-      className="h-56 rounded-2xl border border-tm-border bg-slate-100 p-4 dark:bg-slate-800"
-      onMouseMove={(e) => setInfo(`Move · client ${e.clientX},${e.clientY} · buttons ${e.buttons}`)}
-      onMouseDown={(e) => setInfo(`Down · button ${e.button} · buttons ${e.buttons}`)}
-      onMouseUp={(e) => setInfo(`Up · button ${e.button}`)}
+      className="h-56 touch-none rounded-2xl border border-tm-border bg-tm-soft p-4"
+      onPointerMove={(e) =>
+        setInfo(
+          `Move · client ${Math.round(e.clientX)},${Math.round(e.clientY)} · buttons ${e.buttons}`,
+        )
+      }
+      onPointerDown={(e) => {
+        e.currentTarget.setPointerCapture(e.pointerId);
+        setInfo(`Down · pointerType ${e.pointerType} · button ${e.button}`);
+      }}
+      onPointerUp={(e) => setInfo(`Up · pointerType ${e.pointerType} · button ${e.button}`)}
       onWheel={(e) => setInfo(`Wheel · deltaY ${e.deltaY}`)}
       onContextMenu={(e) => e.preventDefault()}
     >
-      <p className="font-mono text-sm font-bold" aria-live="polite">{info}</p>
+      <p className="font-mono text-sm font-bold text-tm-text" aria-live="polite">
+        {info}
+      </p>
     </div>
   );
 }

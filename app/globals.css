@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Class-based dark mode (html.dark) — must NOT follow prefers-color-scheme alone. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --tm-bg-primary: #0b1635;
   --tm-navy-deep: #101c42;
@@ -470,12 +473,60 @@ svg {
   background: var(--tm-input-bg);
   color: var(--tm-dark-text);
   font-weight: 500;
-  font-size: 0.95rem;
+  /* 16px minimum on mobile prevents iOS focus zoom */
+  font-size: 1rem;
   color-scheme: inherit;
   transition:
     border-color 150ms ease,
     box-shadow 150ms ease,
     background-color 150ms ease;
+}
+
+@media (min-width: 768px) {
+  .tm-input {
+    font-size: 0.95rem;
+  }
+}
+
+.tm-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 2.75rem;
+  background: transparent;
+  cursor: pointer;
+}
+
+.tm-range::-webkit-slider-runnable-track {
+  height: 0.4rem;
+  border-radius: 999px;
+  background: var(--tm-track);
+}
+
+.tm-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1.35rem;
+  height: 1.35rem;
+  margin-top: -0.475rem;
+  border-radius: 999px;
+  border: 2px solid var(--tm-elevated);
+  background: var(--tm-accent);
+  box-shadow: var(--tm-shadow);
+}
+
+.tm-range::-moz-range-track {
+  height: 0.4rem;
+  border-radius: 999px;
+  background: var(--tm-track);
+}
+
+.tm-range::-moz-range-thumb {
+  width: 1.35rem;
+  height: 1.35rem;
+  border-radius: 999px;
+  border: 2px solid var(--tm-elevated);
+  background: var(--tm-accent);
 }
 
 .tm-input::placeholder {

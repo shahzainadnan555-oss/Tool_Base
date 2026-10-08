@@ -5,6 +5,7 @@ import { ConvertButton } from "@/components/image-converter/ConvertButton";
 import { FileValidationMessage } from "@/components/image-converter/FileValidationMessage";
 import { PdfUpload } from "@/components/pdf/PdfUpload";
 import { ProcessingProgress } from "@/components/ui/ProcessingProgress";
+import { copyText } from "@/lib/clipboard";
 import { useOperationController } from "@/lib/processing/useOperationController";
 import { processPdfTool } from "@/lib/pdf/process";
 import { getPdfPageCount } from "@/lib/pdf/pdfjs";
@@ -457,7 +458,7 @@ export function PdfWorkspace({ config, convertHeading }: PdfWorkspaceProps) {
                   key={angle}
                   type="button"
                   className={`rounded-full px-3 py-1.5 text-sm font-bold ${
-                    rotateAll === angle ? "bg-tm-accent text-white" : "bg-tm-soft text-tm-text"
+                    rotateAll === angle ? "bg-tm-accent text-tm-on-brand" : "bg-tm-soft text-tm-text"
                   }`}
                   onClick={() => setRotateAll(angle)}
                   disabled={controller.isProcessing}
@@ -789,7 +790,8 @@ export function PdfWorkspace({ config, convertHeading }: PdfWorkspaceProps) {
                 type="button"
                 className="tm-btn tm-btn-secondary"
                 onClick={async () => {
-                  await navigator.clipboard.writeText(result.textContent || "");
+                  const ok = await copyText(result.textContent || "");
+                  if (!ok) return;
                   setCopied(true);
                   window.setTimeout(() => setCopied(false), 1500);
                 }}

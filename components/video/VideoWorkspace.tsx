@@ -557,7 +557,7 @@ export function VideoWorkspace({ config, convertHeading }: VideoWorkspaceProps) 
                     type="button"
                     className={`rounded-full px-3 py-1.5 text-sm font-bold ${
                       cropRatio === ratio
-                        ? "bg-tm-accent text-white"
+                        ? "bg-tm-accent text-tm-on-brand"
                         : "bg-tm-elevated text-tm-text"
                     }`}
                     onClick={() => applyCropRatio(ratio)}
@@ -634,7 +634,7 @@ export function VideoWorkspace({ config, convertHeading }: VideoWorkspaceProps) 
                   type="button"
                   className={`rounded-full px-3 py-1.5 text-sm font-bold ${
                     rotation === item.value
-                      ? "bg-tm-accent text-white"
+                      ? "bg-tm-accent text-tm-on-brand"
                       : "bg-tm-soft text-tm-text"
                   }`}
                   onClick={() => setRotation(item.value)}
@@ -653,7 +653,7 @@ export function VideoWorkspace({ config, convertHeading }: VideoWorkspaceProps) 
                   key={value}
                   type="button"
                   className={`rounded-full px-3 py-1.5 text-sm font-bold ${
-                    speed === value ? "bg-tm-accent text-white" : "bg-tm-soft text-tm-text"
+                    speed === value ? "bg-tm-accent text-tm-on-brand" : "bg-tm-soft text-tm-text"
                   }`}
                   onClick={() => setSpeed(value)}
                   disabled={controller.isProcessing}

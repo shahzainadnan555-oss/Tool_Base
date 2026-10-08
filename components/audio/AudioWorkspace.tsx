@@ -374,7 +374,7 @@ export function AudioWorkspace({ config, convertHeading }: AudioWorkspaceProps) 
                   key={value}
                   type="button"
                   className={`rounded-full px-3 py-1.5 text-sm font-bold ${
-                    speed === value ? "bg-tm-accent text-white" : "bg-tm-soft text-tm-text"
+                    speed === value ? "bg-tm-accent text-tm-on-brand" : "bg-tm-soft text-tm-text"
                   }`}
                   onClick={() => setSpeed(value)}
                   disabled={controller.isProcessing}
