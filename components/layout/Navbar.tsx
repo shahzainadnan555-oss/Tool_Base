@@ -24,19 +24,19 @@ export function Navbar() {
   const isMobile = useMediaQuery("(max-width: 767px)");
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
-  const [pathForMenu, setPathForMenu] = useState(pathname);
   const [scrolled, setScrolled] = useState(false);
 
-  if (pathForMenu !== pathname) {
-    setPathForMenu(pathname);
-    if (mobileOpen) setMobileOpen(false);
-    if (mobileSearchOpen) setMobileSearchOpen(false);
-  }
+  useEffect(() => {
+    setMobileOpen(false);
+    setMobileSearchOpen(false);
+  }, [pathname]);
 
-  if (!isMobile && (mobileOpen || mobileSearchOpen)) {
-    if (mobileOpen) setMobileOpen(false);
-    if (mobileSearchOpen) setMobileSearchOpen(false);
-  }
+  useEffect(() => {
+    if (!isMobile) {
+      setMobileOpen(false);
+      setMobileSearchOpen(false);
+    }
+  }, [isMobile]);
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
@@ -68,7 +68,7 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-40 border-b bg-tm-elevated/92 backdrop-blur-xl transition-[box-shadow,background-color,border-color] duration-200",
+        "sticky top-0 z-40 border-b bg-[color-mix(in_srgb,var(--tm-elevated)_92%,transparent)] backdrop-blur-xl transition-[box-shadow,background-color,border-color] duration-200",
         scrolled ? "border-tm-border shadow-[var(--tm-shadow)]" : "border-tm-border/70",
       )}
     >
@@ -127,7 +127,7 @@ export function Navbar() {
             </button>
           ) : null}
 
-          <ThemeToggle className="tm-icon-btn tm-icon-btn-show min-h-11 min-w-11 border border-tm-border bg-tm-elevated text-tm-text hover:border-tm-accent hover:text-tm-accent" />
+          <ThemeToggle className="tm-theme-toggle tm-icon-btn tm-icon-btn-show" />
 
           {isMobile ? (
             <button

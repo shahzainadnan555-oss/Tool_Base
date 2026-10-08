@@ -2,6 +2,8 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  // Allow local QA against both localhost and 127.0.0.1 without blocking client hydration.
+  allowedDevOrigins: ["127.0.0.1", "localhost"],
   async redirects() {
     return [
       { source: "/blog", destination: "/blogs", permanent: true },
@@ -12,7 +14,6 @@ const nextConfig: NextConfig = {
       { source: "/tools/text", destination: "/categories/text-tools", permanent: false },
       { source: "/tools/encryption", destination: "/categories/security-encoding", permanent: false },
       { source: "/tools/web-developer", destination: "/categories/developer-tools", permanent: false },
-      { source: "/tools/calculators", destination: "/categories/calculators-converters", permanent: false },
       { source: "/tools/generators", destination: "/categories/generators", permanent: false },
       { source: "/tools/social-media", destination: "/categories/generators", permanent: false },
       { source: "/tools/design", destination: "/categories/design-creative", permanent: false },

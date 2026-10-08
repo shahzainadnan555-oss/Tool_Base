@@ -23,7 +23,7 @@ export function BlogContent({ blocks }: { blocks: BlogBlock[] }) {
           return (
             <ul key={`ul-${index}`} className="list-disc space-y-2 pl-5">
               {block.items.map((item) => (
-                <li key={item} className="text-base font-medium text-tm-muted">
+                <li key={item} className="text-base font-medium leading-relaxed text-tm-text-secondary">
                   <BlogRichText text={item} />
                 </li>
               ))}
@@ -34,7 +34,7 @@ export function BlogContent({ blocks }: { blocks: BlogBlock[] }) {
           return (
             <ol key={`ol-${index}`} className="list-decimal space-y-2 pl-5">
               {block.items.map((item) => (
-                <li key={item} className="text-base font-medium text-tm-muted">
+                <li key={item} className="text-base font-medium leading-relaxed text-tm-text-secondary">
                   <BlogRichText text={item} />
                 </li>
               ))}
@@ -75,7 +75,7 @@ export function BlogContent({ blocks }: { blocks: BlogBlock[] }) {
           );
         }
         return (
-          <p key={`p-${index}`} className="text-base font-medium leading-relaxed text-tm-muted">
+          <p key={`p-${index}`} className="text-base font-medium leading-relaxed text-tm-text-secondary">
             <BlogRichText text={block.text} />
           </p>
         );

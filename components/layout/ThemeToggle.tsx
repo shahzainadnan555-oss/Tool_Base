@@ -7,30 +7,23 @@ import {
   getResolvedTheme,
   getStoredPreference,
   toggleTheme,
-  type ResolvedTheme,
   type ThemePreference,
 } from "@/lib/theme/apply";
 
 const THEME_EVENT = "tb-theme-change";
-
-type ThemeSnapshot = {
-  preference: ThemePreference;
-  resolved: ResolvedTheme;
-};
 
 function subscribe(onStoreChange: () => void) {
   const media = window.matchMedia("(prefers-color-scheme: dark)");
   const onSystemChange = () => {
     if (getStoredPreference() === "system") {
       applyPreference("system");
-      window.dispatchEvent(new Event(THEME_EVENT));
     }
-    onStoreChange();
+    window.dispatchEvent(new Event(THEME_EVENT));
   };
   const onStorage = (event: StorageEvent) => {
     if (event.key && event.key !== "tb-theme") return;
     applyPreference(getStoredPreference());
-    onStoreChange();
+    window.dispatchEvent(new Event(THEME_EVENT));
   };
 
   media.addEventListener("change", onSystemChange);
@@ -44,15 +37,20 @@ function subscribe(onStoreChange: () => void) {
   };
 }
 
-function getSnapshot(): ThemeSnapshot {
-  return {
-    preference: getStoredPreference(),
-    resolved: getResolvedTheme(),
-  };
+function getPreferenceSnapshot(): ThemePreference {
+  return getStoredPreference();
 }
 
-function getServerSnapshot(): ThemeSnapshot {
-  return { preference: "system", resolved: "light" };
+function getResolvedSnapshot() {
+  return getResolvedTheme();
+}
+
+function getServerPreference(): ThemePreference {
+  return "system";
+}
+
+function getServerResolved() {
+  return "light" as const;
 }
 
 function commitPreference(next: ThemePreference) {
@@ -78,10 +76,16 @@ export function ThemeToggle({
   /** icon = header Light↔Dark; switch = Light/Dark/System for the mobile menu */
   variant?: "icon" | "switch";
 }) {
-  const { preference, resolved } = useSyncExternalStore(
+  // Primitive snapshots avoid object-identity infinite loops with useSyncExternalStore.
+  const preference = useSyncExternalStore(
     subscribe,
-    getSnapshot,
-    getServerSnapshot,
+    getPreferenceSnapshot,
+    getServerPreference,
+  );
+  const resolved = useSyncExternalStore(
+    subscribe,
+    getResolvedSnapshot,
+    getServerResolved,
   );
   const isDark = resolved === "dark";
 
@@ -125,17 +129,12 @@ export function ThemeToggle({
     );
   }
 
-  // Header control: always Light ↔ Dark from the resolved appearance.
-  // Icon shows the destination mode (moon = go dark, sun = go light).
   const nextLabel = isDark ? "Switch to light mode" : "Switch to dark mode";
 
   return (
     <button
       type="button"
-      className={
-        className ??
-        "tm-icon-btn tm-icon-btn-show min-h-11 min-w-11 border border-tm-border bg-tm-elevated text-tm-text hover:border-tm-accent hover:text-tm-accent"
-      }
+      className={className ?? "tm-theme-toggle tm-icon-btn tm-icon-btn-show"}
       aria-label={nextLabel}
       title={nextLabel}
       aria-pressed={isDark}

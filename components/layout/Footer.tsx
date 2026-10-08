@@ -48,7 +48,7 @@ export function Footer() {
     }));
 
   return (
-    <footer className="mt-auto border-t border-white/10 bg-tm-bg text-tm-on-brand">
+    <footer className="tm-footer mt-auto border-t border-white/10 text-tm-on-brand">
       <div className="tm-container py-12 md:py-16">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-12">
           <div className="sm:col-span-2 lg:col-span-4">

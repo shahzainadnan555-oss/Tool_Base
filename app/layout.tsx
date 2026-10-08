@@ -33,7 +33,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <meta name="color-scheme" content="light" />
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
-      <body className="flex min-h-full min-w-0 flex-col overflow-x-clip bg-tm-soft font-sans text-tm-text antialiased selection:bg-tm-accent/20">
+      <body className="flex min-h-full min-w-0 flex-col overflow-x-clip font-sans antialiased">
         <JsonLd data={websiteJsonLd()} />
         <Navbar />
         <main className="min-w-0 flex-1">{children}</main>
