@@ -25,6 +25,7 @@ import {
 import { validateEditorFile } from "@/lib/image-editor/validate";
 import { useOperationController } from "@/lib/processing";
 import { filterUserFacingNotices, isTechnicalNotice } from "@/lib/ui/notices";
+import { ImagePrivacyNotice } from "@/components/ui/ImagePrivacyNotice";
 
 interface ImageEditorWorkspaceProps {
   config: ImageEditorConfig;
@@ -799,6 +800,10 @@ export function ImageEditorWorkspace({
       ) : null}
 
       {error ? <FileValidationMessage message={error} /> : null}
+
+      <ImagePrivacyNotice
+        timing={config.kind === "background-remover" ? "secure" : "instant"}
+      />
     </div>
   );
 }

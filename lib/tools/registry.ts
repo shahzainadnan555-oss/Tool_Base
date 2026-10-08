@@ -10,6 +10,8 @@ import { developerTools } from "./developer-tools";
 import { securityTools } from "./security-tools";
 import { calculatorTools } from "./calculator-tools";
 import { specializedCalculatorTools } from "./specialized-calculator-tools";
+import { formulaCalculatorTools } from "./formula-calculator-tools";
+import { fontGeneratorTools } from "./font-generator-tools";
 import { generatorTools } from "./generator-tools";
 import { typingTools } from "./typing-tools";
 import { expansionTools } from "./expansion-tools";
@@ -32,6 +34,8 @@ export const tools: ToolDefinition[] = [
   ...securityTools,
   ...calculatorTools,
   ...specializedCalculatorTools,
+  ...formulaCalculatorTools,
+  ...fontGeneratorTools,
   ...generatorTools,
   ...typingTools,
   ...expansionTools,

@@ -12,10 +12,12 @@ import { getDeveloperToolConfig } from "@/lib/developer/configs";
 import { getSecurityToolConfig } from "@/lib/security/configs";
 import { getCalculatorToolConfig } from "@/lib/calculator/configs";
 import { getSpecializedCalculatorConfig } from "@/lib/specialized-calculators";
+import { getFormulaCalculatorSpec } from "@/lib/formula-calculators";
 import { getGeneratorToolConfig } from "@/lib/generators/configs";
 import { isTypingToolSlug } from "@/lib/tools/typing-tools";
 import { isUtilityToolSlug } from "@/lib/utilities/slugs";
 import { isCategoryPackSlug } from "@/lib/tools/category-pack-tools";
+import { isFontGeneratorSlug } from "@/lib/tools/font-generator-tools";
 import type { ToolDefinition } from "@/lib/tools/types";
 import { LoadingState } from "@/components/ui/LoadingState";
 
@@ -129,6 +131,17 @@ const SpecializedCalculatorWorkspace = dynamic(
   { ssr: false },
 );
 
+const FormulaCalculatorWorkspace = dynamic(
+  () =>
+    import("@/components/calculator/FormulaCalculatorWorkspace").then(
+      (mod) => mod.FormulaCalculatorWorkspace,
+    ),
+  {
+    ssr: false,
+    loading: () => <LoadingState label="Loading calculator…" />,
+  },
+);
+
 const TemporaryEmailWorkspace = dynamic(
   () =>
     import("@/components/generators/TemporaryEmailWorkspace").then(
@@ -167,6 +180,17 @@ const CategoryPackWorkspace = dynamic(
       (mod) => mod.CategoryPackWorkspace,
     ),
   { ssr: false },
+);
+
+const FontGeneratorWorkspace = dynamic(
+  () =>
+    import("@/components/font-generator/FontGeneratorWorkspace").then(
+      (mod) => mod.FontGeneratorWorkspace,
+    ),
+  {
+    ssr: false,
+    loading: () => <LoadingState label="Loading font generator…" />,
+  },
 );
 
 interface ToolWorkspaceProps {
@@ -272,6 +296,16 @@ export function ToolWorkspace({ tool }: ToolWorkspaceProps) {
     );
   }
 
+  const formulaConfig = getFormulaCalculatorSpec(tool.slug);
+  if (formulaConfig) {
+    return (
+      <FormulaCalculatorWorkspace
+        config={formulaConfig}
+        convertHeading={tool.convertHeading}
+      />
+    );
+  }
+
   if (tool.slug === "temporary-email-generator") {
     return <TemporaryEmailWorkspace convertHeading={tool.convertHeading} />;
   }
@@ -298,6 +332,10 @@ export function ToolWorkspace({ tool }: ToolWorkspaceProps) {
 
   if (isCategoryPackSlug(tool.slug)) {
     return <CategoryPackWorkspace tool={tool} />;
+  }
+
+  if (isFontGeneratorSlug(tool.slug)) {
+    return <FontGeneratorWorkspace convertHeading={tool.convertHeading} />;
   }
 
   return null;

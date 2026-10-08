@@ -3,26 +3,33 @@
 import { useSyncExternalStore } from "react";
 import { Icon } from "@/components/ui/Icon";
 import {
-  applyTheme,
+  applyPreference,
   getResolvedTheme,
-  getStoredTheme,
-  type Theme,
+  getStoredPreference,
+  toggleTheme,
+  type ResolvedTheme,
+  type ThemePreference,
 } from "@/lib/theme/apply";
 
 const THEME_EVENT = "tb-theme-change";
 
+type ThemeSnapshot = {
+  preference: ThemePreference;
+  resolved: ResolvedTheme;
+};
+
 function subscribe(onStoreChange: () => void) {
   const media = window.matchMedia("(prefers-color-scheme: dark)");
   const onSystemChange = () => {
-    if (!getStoredTheme()) {
-      applyTheme(getResolvedTheme());
+    if (getStoredPreference() === "system") {
+      applyPreference("system");
       window.dispatchEvent(new Event(THEME_EVENT));
     }
     onStoreChange();
   };
   const onStorage = (event: StorageEvent) => {
     if (event.key && event.key !== "tb-theme") return;
-    applyTheme(getResolvedTheme());
+    applyPreference(getStoredPreference());
     onStoreChange();
   };
 
@@ -37,29 +44,46 @@ function subscribe(onStoreChange: () => void) {
   };
 }
 
-function getSnapshot(): Theme {
-  return document.documentElement.classList.contains("dark") ? "dark" : "light";
+function getSnapshot(): ThemeSnapshot {
+  return {
+    preference: getStoredPreference(),
+    resolved: getResolvedTheme(),
+  };
 }
 
-function getServerSnapshot(): Theme {
-  return "light";
+function getServerSnapshot(): ThemeSnapshot {
+  return { preference: "system", resolved: "light" };
 }
 
-function commitTheme(next: Theme) {
-  applyTheme(next);
+function commitPreference(next: ThemePreference) {
+  applyPreference(next);
   window.dispatchEvent(new Event(THEME_EVENT));
 }
+
+const OPTIONS: Array<{
+  value: ThemePreference;
+  label: string;
+  icon: string;
+}> = [
+  { value: "light", label: "Light", icon: "sun" },
+  { value: "dark", label: "Dark", icon: "moon" },
+  { value: "system", label: "System", icon: "monitor" },
+];
 
 export function ThemeToggle({
   className,
   variant = "icon",
 }: {
   className?: string;
-  /** icon = compact header control; switch = labeled Light/Dark control for menus */
+  /** icon = header Light↔Dark; switch = Light/Dark/System for the mobile menu */
   variant?: "icon" | "switch";
 }) {
-  const theme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
-  const isDark = theme === "dark";
+  const { preference, resolved } = useSyncExternalStore(
+    subscribe,
+    getSnapshot,
+    getServerSnapshot,
+  );
+  const isDark = resolved === "dark";
 
   if (variant === "switch") {
     return (
@@ -67,60 +91,59 @@ export function ThemeToggle({
         <p className="mb-2 text-xs font-bold tracking-wide text-tm-muted uppercase">
           Appearance
         </p>
-        <div className="grid grid-cols-2 gap-2">
-          <button
-            type="button"
-            className={`inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border px-3 py-2.5 text-sm font-bold transition-colors ${
-              !isDark
-                ? "border-tm-accent bg-tm-surface-2 text-tm-accent"
-                : "border-tm-border bg-tm-soft text-tm-text"
-            }`}
-            aria-pressed={!isDark}
-            onClick={(event) => {
-              event.preventDefault();
-              event.stopPropagation();
-              commitTheme("light");
-            }}
-          >
-            <Icon name="sun" className="h-4 w-4" />
-            Light
-          </button>
-          <button
-            type="button"
-            className={`inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border px-3 py-2.5 text-sm font-bold transition-colors ${
-              isDark
-                ? "border-tm-accent bg-tm-surface-2 text-tm-accent"
-                : "border-tm-border bg-tm-soft text-tm-text"
-            }`}
-            aria-pressed={isDark}
-            onClick={(event) => {
-              event.preventDefault();
-              event.stopPropagation();
-              commitTheme("dark");
-            }}
-          >
-            <Icon name="moon" className="h-4 w-4" />
-            Dark
-          </button>
+        <div className="grid grid-cols-3 gap-2">
+          {OPTIONS.map((option) => {
+            const active = preference === option.value;
+            return (
+              <button
+                key={option.value}
+                type="button"
+                className={`inline-flex min-h-11 flex-col items-center justify-center gap-1 rounded-xl border px-2 py-2.5 text-xs font-bold transition-colors sm:text-sm ${
+                  active
+                    ? "border-tm-accent bg-tm-surface-2 text-tm-accent"
+                    : "border-tm-border bg-tm-soft text-tm-text"
+                }`}
+                aria-pressed={active}
+                onClick={(event) => {
+                  event.preventDefault();
+                  event.stopPropagation();
+                  commitPreference(option.value);
+                }}
+              >
+                <Icon name={option.icon} className="h-4 w-4" />
+                {option.label}
+              </button>
+            );
+          })}
         </div>
+        <p className="mt-2 text-xs font-medium text-tm-muted">
+          {preference === "system"
+            ? `Following device · currently ${resolved}`
+            : `Forced ${preference} mode`}
+        </p>
       </div>
     );
   }
+
+  // Header control: always Light ↔ Dark from the resolved appearance.
+  // Icon shows the destination mode (moon = go dark, sun = go light).
+  const nextLabel = isDark ? "Switch to light mode" : "Switch to dark mode";
 
   return (
     <button
       type="button"
       className={
         className ??
-        "tm-icon-btn tm-icon-btn-show border border-tm-border bg-tm-elevated text-tm-text hover:border-tm-accent hover:text-tm-accent"
+        "tm-icon-btn tm-icon-btn-show min-h-11 min-w-11 border border-tm-border bg-tm-elevated text-tm-text hover:border-tm-accent hover:text-tm-accent"
       }
-      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-      title={isDark ? "Switch to light mode" : "Switch to dark mode"}
+      aria-label={nextLabel}
+      title={nextLabel}
       aria-pressed={isDark}
       onClick={(event) => {
         event.preventDefault();
         event.stopPropagation();
-        commitTheme(isDark ? "light" : "dark");
+        toggleTheme();
+        window.dispatchEvent(new Event(THEME_EVENT));
       }}
     >
       {isDark ? (

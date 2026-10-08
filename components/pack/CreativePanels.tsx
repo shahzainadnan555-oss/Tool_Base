@@ -4,6 +4,7 @@ import { useMemo, useRef, useState } from "react";
 import { copyText, downloadBlob, downloadTextFile } from "@/lib/security/utils";
 import { contrastRatio, textToAsciiArt } from "@/lib/pack/helpers";
 import { Field, Status, useNotice } from "./shared";
+import { ImagePrivacyNotice } from "@/components/ui/ImagePrivacyNotice";
 
 export function TextShadowPanel() {
   const [x, setX] = useState("2");
@@ -117,6 +118,7 @@ export function FaviconPanel() {
         }, "image/png");
       }}>Download 32×32 PNG</button>
       <Status error={error} ok={ok} />
+      <ImagePrivacyNotice timing="instant" />
     </div>
   );
 }
@@ -429,6 +431,7 @@ export function PaletteExtractPanel() {
         ))}
       </div>
       <Status error={error} ok={ok} />
+      <ImagePrivacyNotice timing="instant" />
     </div>
   );
 }

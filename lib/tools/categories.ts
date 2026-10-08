@@ -134,16 +134,16 @@ export const categories: CategoryDefinition[] = [
     name: "Calculators & Converters",
     slug: "calculators-converters",
     description:
-      "Convert units and calculate percentages, dates, ages, ratios, storage, time, and more.",
-    shortDescription: "Calculate percentages, dates, and conversions.",
+      "Financial, math, date, construction, electrical, transportation, and everyday conversion calculators.",
+    shortDescription: "Financial, math, date, and conversion calculators.",
     icon: "calculator",
     seoTitle:
-      "Calculators & Converters — Percentage, Units & More | Tool Base",
+      "Calculators & Converters — Mortgage, Math, Units & More | Tool Base",
     seoDescription:
-      "Free online calculators and converters from Tool Base. Calculate percentages, convert units, and handle everyday math and conversion tasks.",
+      "Free online calculators and converters from Tool Base. Explore mortgage, loan, math, date, construction, and everyday conversion tools.",
     h1: "Calculators & Converters",
     intro:
-      "Quick calculators and converters for percentages, units, dates, ages, storage, time, and other everyday measurements. Specialized Calculators for insurance, tax, GPA, AP scores, retirement, and home-service estimates live in this parent group as well. Results follow the formulas shown on each tool page and should be verified before important use.",
+      "Browse Tool Base calculators for finance, math, dates, construction, measurement, electrical work, internet utilities, transportation, and education—plus everyday converters. Specialized Calculators for GPA, AP scores, auto, tax, and home-service estimates live in this parent group as well. Results follow the formulas shown on each tool page and should be verified before important use. Start from /tools/calculators for category navigation.",
     route: "/categories/calculators-converters",
   },
   {

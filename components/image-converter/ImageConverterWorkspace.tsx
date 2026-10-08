@@ -18,6 +18,7 @@ import { validateImageFile } from "@/lib/image-converter/validate";
 import { loadHtmlImage, revokeObjectUrl } from "@/lib/image-converter/utils";
 import { useOperationController } from "@/lib/processing";
 import { filterUserFacingNotices } from "@/lib/ui/notices";
+import { ImagePrivacyNotice } from "@/components/ui/ImagePrivacyNotice";
 
 interface ImageConverterWorkspaceProps {
   config: ImageConverterConfig;
@@ -276,6 +277,8 @@ export function ImageConverterWorkspace({
       ) : null}
 
       {error ? <FileValidationMessage message={error} /> : null}
+
+      <ImagePrivacyNotice timing="instant" />
     </div>
   );
 }

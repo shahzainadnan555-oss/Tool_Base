@@ -10,6 +10,7 @@ import { randomObjects } from "@/lib/utilities/lists";
 import { STARTER_TEMPLATES } from "@/lib/utilities/templates";
 import type { UtilitySlug } from "@/lib/utilities/slugs";
 import { ICON_CATALOG, Icon, iconSvgMarkup } from "@/components/ui/Icon";
+import { ImagePrivacyNotice } from "@/components/ui/ImagePrivacyNotice";
 
 interface Props {
   slug: UtilitySlug;
@@ -192,6 +193,7 @@ function MemePanel() {
       </div>
       <canvas ref={canvasRef} className="max-h-[420px] w-full rounded-2xl border border-tm-border bg-tm-soft object-contain" />
       <Status error={error} ok={ok} />
+      <ImagePrivacyNotice timing="instant" />
     </div>
   );
 }
@@ -833,6 +835,9 @@ function Base64Panel({ mode }: { mode: "image-to-base64" | "base64-to-image" | "
         ) : null}
       </div>
       <Status error={error} ok={ok} />
+      {mode === "image-to-base64" || mode === "base64-to-image" ? (
+        <ImagePrivacyNotice timing="instant" />
+      ) : null}
     </div>
   );
 }

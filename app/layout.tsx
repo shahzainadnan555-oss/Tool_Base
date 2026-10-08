@@ -29,7 +29,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${inter.variable} h-full`} suppressHydrationWarning>
       <head>
-        <meta name="color-scheme" content="light dark" />
+        {/* Boot script immediately sets a single light|dark value for iOS Safari. */}
+        <meta name="color-scheme" content="light" />
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body className="flex min-h-full min-w-0 flex-col overflow-x-clip bg-tm-soft font-sans text-tm-text antialiased selection:bg-tm-accent/20">

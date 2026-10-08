@@ -129,6 +129,12 @@ const paths: Record<string, React.ReactNode> = {
       <path d="M21 14.5A8.5 8.5 0 1 1 9.5 3 7 7 0 0 0 21 14.5z" />
     </>
   ),
+  monitor: (
+    <>
+      <rect x="3" y="4" width="18" height="12" rx="2" />
+      <path d="M8 20h8M12 16v4" />
+    </>
+  ),
 };
 
 export const ICON_CATALOG: Array<{ name: string; category: string; label: string }> = [
@@ -153,6 +159,7 @@ export const ICON_CATALOG: Array<{ name: string; category: string; label: string
   { name: "home", category: "Interface", label: "Home" },
   { name: "sun", category: "Interface", label: "Sun" },
   { name: "moon", category: "Interface", label: "Moon" },
+  { name: "monitor", category: "Interface", label: "System" },
 ];
 
 export function iconSvgMarkup(name: string): string {

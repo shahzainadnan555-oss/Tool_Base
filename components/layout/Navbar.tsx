@@ -14,6 +14,7 @@ import { cn } from "@/lib/utils/cn";
 const navItems = [
   { href: "/tools", label: "Tools" },
   { href: "/categories", label: "Categories" },
+  { href: "/tools/calculators", label: "Calculators" },
   { href: "/blogs", label: "Blogs" },
   { href: "/about", label: "About" },
 ];
@@ -126,7 +127,7 @@ export function Navbar() {
             </button>
           ) : null}
 
-          <ThemeToggle className="tm-icon-btn tm-icon-btn-show border border-tm-border bg-tm-elevated text-tm-text hover:border-tm-accent hover:text-tm-accent" />
+          <ThemeToggle className="tm-icon-btn tm-icon-btn-show min-h-11 min-w-11 border border-tm-border bg-tm-elevated text-tm-text hover:border-tm-accent hover:text-tm-accent" />
 
           {isMobile ? (
             <button

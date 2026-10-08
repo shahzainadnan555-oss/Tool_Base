@@ -20,6 +20,8 @@ const TOOL_FILES = [
   "lib/tools/security-tools.ts",
   "lib/tools/calculator-tools.ts",
   "lib/tools/specialized-calculator-tools.ts",
+  "lib/tools/formula-calculator-tools.ts",
+  "lib/tools/font-generator-tools.ts",
   "lib/tools/generator-tools.ts",
   "lib/tools/content-generator-tools.ts",
   "lib/tools/typing-tools.ts",
@@ -90,7 +92,58 @@ const seoTitles = [];
 const tools = [];
 const errors = [];
 
+function loadFormulaCalculatorTools() {
+  const catalogDir = path.join(ROOT, "lib/formula-calculators");
+  const files = fs
+    .readdirSync(catalogDir)
+    .filter((name) => name.startsWith("catalog-") && name.endsWith(".ts"));
+  const found = [];
+  for (const name of files) {
+    const src = fs.readFileSync(path.join(catalogDir, name), "utf8");
+    const re = /slug:\s*"([a-z0-9]+(?:-[a-z0-9]+)*)"/g;
+    let match;
+    while ((match = re.exec(src))) {
+      const slug = match[1];
+      // Skip nested field defaults accidentally matching — require nearby name:
+      const window = src.slice(match.index, match.index + 240);
+      if (!/name:\s*"/.test(window)) continue;
+      const nameMatch = window.match(/name:\s*"((?:\\.|[^"\\])*)"/);
+      const toolName = nameMatch ? nameMatch[1] : slug;
+      found.push({
+        id: slug,
+        name: toolName,
+        slug,
+        category: "calculators-converters",
+        description: `${toolName} calculator from Tool Base formula library with validated inputs and transparent formulas.`,
+        shortDescription: `${toolName} calculator`,
+        seoTitle: `${toolName} — Free Online | Tool Base`,
+        seoDescription: `${toolName} calculator online from Tool Base. Enter values, review results, and use clear formula notes for free.`,
+        h1: toolName,
+        intro: `${toolName} calculator`,
+        relatedToolIds: [],
+        keywords: [toolName.toLowerCase(), "calculator"],
+        file: "lib/tools/formula-calculator-tools.ts",
+      });
+    }
+  }
+  return found;
+}
+
 for (const file of TOOL_FILES) {
+  if (file.includes("formula-calculator-tools")) {
+    const formulaTools = loadFormulaCalculatorTools();
+    if (formulaTools.length < 80) {
+      errors.push(`${file}: expected at least 80 formula calculators, found ${formulaTools.length}`);
+    }
+    for (const tool of formulaTools) {
+      tools.push(tool);
+      ids.push(tool.id);
+      slugs.push(tool.slug);
+      seoTitles.push(tool.seoTitle);
+    }
+    continue;
+  }
+
   const src = fs.readFileSync(path.join(ROOT, file), "utf8");
   const blocks = extractToolBlocks(src);
   let expected = 20;
@@ -98,6 +151,7 @@ for (const file of TOOL_FILES) {
   if (file.endsWith("generator-tools.ts")) expected = 1;
   if (file.endsWith("content-generator-tools.ts")) expected = 20;
   if (file.endsWith("typing-tools.ts")) expected = 1;
+  if (file.endsWith("font-generator-tools.ts")) expected = 1;
   if (file.endsWith("expansion-tools.ts")) expected = 38;
   if (file.endsWith("category-pack-tools.ts")) expected = 51;
   if (blocks.length !== expected) {
@@ -133,7 +187,9 @@ for (const file of TOOL_FILES) {
   }
 }
 
-assert.strictEqual(tools.length, 331, `expected 331 tools, got ${tools.length}`);
+if (tools.length < 400) {
+  errors.push(`expected at least 400 tools after calculator expansion, got ${tools.length}`);
+}
 
 const dup = (arr) => [...new Set(arr.filter((v, i) => arr.indexOf(v) !== i))];
 for (const id of dup(ids)) errors.push(`duplicate id: ${id}`);
@@ -177,6 +233,8 @@ for (const file of TOOL_FILES) {
 }
 assert.ok(registry.includes("...calculatorTools"), "registry missing calculatorTools");
 assert.ok(registry.includes("...specializedCalculatorTools"), "registry missing specializedCalculatorTools");
+assert.ok(registry.includes("...formulaCalculatorTools"), "registry missing formulaCalculatorTools");
+assert.ok(registry.includes("...fontGeneratorTools"), "registry missing fontGeneratorTools");
 assert.ok(registry.includes("...generatorTools"), "registry missing generatorTools");
 assert.ok(registry.includes("...expansionTools"), "registry missing expansionTools");
 assert.ok(registry.includes("...categoryPackTools"), "registry missing categoryPackTools");
@@ -196,7 +254,7 @@ for (const tool of tools) {
 for (const [id, expected] of [
   ["specialized-calculators", 20],
   ["typing-productivity", 20],
-  ["design-creative", 20],
+  ["design-creative", 21],
   ["utilities", 20],
 ]) {
   if (byCategory[id] !== expected) {

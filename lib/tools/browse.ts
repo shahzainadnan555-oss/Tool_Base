@@ -115,19 +115,19 @@ export const browseSections: BrowseSection[] = [
   {
     id: "calculators",
     label: "Calculators & Converters",
-    description: "Percentages, units, dates, and specialized estimates.",
-    href: "/categories/calculators-converters",
+    description: "Mortgage, math, dates, units, and specialized estimates.",
+    href: "/tools/calculators",
     icon: "calculator",
     categoryId: "calculators-converters",
     featuredIds: [
+      "mortgage-calculator",
+      "compound-interest-calculator",
+      "scientific-calculator",
       "percentage-calculator",
-      "college-gpa-calculator",
-      "car-loan-payment-calculator",
-      "ap-chem-score-calculator",
+      "loan-calculator",
+      "age-calculator",
       "unit-converter",
-      "date-difference-calculator",
-      "weighted-gpa-calculator",
-      "retirement-calculator-dave-ramsey",
+      "retirement-calculator",
     ],
   },
   {
@@ -189,6 +189,7 @@ export const browseSections: BrowseSection[] = [
     icon: "image",
     categoryId: "design-creative",
     featuredIds: [
+      "font-generator",
       "meme-generator",
       "css-button-generator",
       "color-contrast-checker",
@@ -196,7 +197,6 @@ export const browseSections: BrowseSection[] = [
       "invoice-generator",
       "css-text-shadow-generator",
       "pixel-art-generator",
-      "e-signature",
     ],
   },
   {
