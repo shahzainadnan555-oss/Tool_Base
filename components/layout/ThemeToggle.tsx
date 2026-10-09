@@ -4,8 +4,10 @@ import { useSyncExternalStore } from "react";
 import { Icon } from "@/components/ui/Icon";
 import {
   applyPreference,
-  getResolvedTheme,
+  getEffectiveTheme,
   getStoredPreference,
+  MOBILE_VIEWPORT_MQ,
+  syncEffectiveTheme,
   toggleTheme,
   type ThemePreference,
 } from "@/lib/theme/apply";
@@ -13,25 +15,30 @@ import {
 const THEME_EVENT = "tb-theme-change";
 
 function subscribe(onStoreChange: () => void) {
-  const media = window.matchMedia("(prefers-color-scheme: dark)");
+  const systemMedia = window.matchMedia("(prefers-color-scheme: dark)");
+  const mobileMedia = window.matchMedia(MOBILE_VIEWPORT_MQ);
+
   const onSystemChange = () => {
     if (getStoredPreference() === "system") {
-      applyPreference("system");
+      syncEffectiveTheme();
     }
     window.dispatchEvent(new Event(THEME_EVENT));
   };
+
   const onStorage = (event: StorageEvent) => {
     if (event.key && event.key !== "tb-theme") return;
-    applyPreference(getStoredPreference());
+    syncEffectiveTheme();
     window.dispatchEvent(new Event(THEME_EVENT));
   };
 
-  media.addEventListener("change", onSystemChange);
+  systemMedia.addEventListener("change", onSystemChange);
+  mobileMedia.addEventListener("change", onStoreChange);
   window.addEventListener("storage", onStorage);
   window.addEventListener(THEME_EVENT, onStoreChange);
 
   return () => {
-    media.removeEventListener("change", onSystemChange);
+    systemMedia.removeEventListener("change", onSystemChange);
+    mobileMedia.removeEventListener("change", onStoreChange);
     window.removeEventListener("storage", onStorage);
     window.removeEventListener(THEME_EVENT, onStoreChange);
   };
@@ -41,15 +48,15 @@ function getPreferenceSnapshot(): ThemePreference {
   return getStoredPreference();
 }
 
-function getResolvedSnapshot() {
-  return getResolvedTheme();
+function getEffectiveSnapshot() {
+  return getEffectiveTheme();
 }
 
 function getServerPreference(): ThemePreference {
   return "system";
 }
 
-function getServerResolved() {
+function getServerEffective() {
   return "light" as const;
 }
 
@@ -73,10 +80,9 @@ export function ThemeToggle({
   variant = "icon",
 }: {
   className?: string;
-  /** icon = header Light↔Dark; switch = Light/Dark/System for the mobile menu */
+  /** icon = desktop Light↔Dark; switch unused on mobile (Appearance removed) */
   variant?: "icon" | "switch";
 }) {
-  // Primitive snapshots avoid object-identity infinite loops with useSyncExternalStore.
   const preference = useSyncExternalStore(
     subscribe,
     getPreferenceSnapshot,
@@ -84,8 +90,8 @@ export function ThemeToggle({
   );
   const resolved = useSyncExternalStore(
     subscribe,
-    getResolvedSnapshot,
-    getServerResolved,
+    getEffectiveSnapshot,
+    getServerEffective,
   );
   const isDark = resolved === "dark";
 

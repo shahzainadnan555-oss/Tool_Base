@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useEffect, useId, useRef } from "react";
 import { createPortal } from "react-dom";
-import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import { SearchBar } from "@/components/search/SearchBar";
 import { browseSections } from "@/lib/tools/browse";
 import { Icon } from "@/components/ui/Icon";
@@ -90,8 +89,6 @@ export function MobileNav({ open, items, onClose }: MobileNavProps) {
         </div>
 
         <div className="flex-1 space-y-5 overflow-y-auto overscroll-contain px-4 py-4">
-          <ThemeToggle variant="switch" />
-
           <SearchBar placeholder="Search for a tool…" onNavigate={onClose} />
 
           <nav aria-label="Mobile" className="grid gap-1">

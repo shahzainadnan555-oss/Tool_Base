@@ -1,5 +1,8 @@
 import { THEME_STORAGE_KEY } from "@/lib/theme/script";
 
+/** Matches Navbar / MobileNav: mobile layout below md (768px). */
+export const MOBILE_VIEWPORT_MQ = "(max-width: 767px)";
+
 /** User-selected preference (persisted). */
 export type ThemePreference = "light" | "dark" | "system";
 
@@ -7,6 +10,11 @@ export type ThemePreference = "light" | "dark" | "system";
 export type ResolvedTheme = "light" | "dark";
 
 export type Theme = ResolvedTheme;
+
+export function isMobileViewport(): boolean {
+  if (typeof window === "undefined") return false;
+  return window.matchMedia(MOBILE_VIEWPORT_MQ).matches;
+}
 
 export function getStoredPreference(): ThemePreference {
   try {
@@ -41,6 +49,17 @@ export function resolveTheme(preference: ThemePreference): ResolvedTheme {
   return preference;
 }
 
+/**
+ * Effective appearance for the current viewport.
+ * Mobile is always dark; desktop follows the saved preference.
+ * Does not mutate localStorage.
+ */
+export function getEffectiveTheme(): ResolvedTheme {
+  if (isMobileViewport()) return "dark";
+  return resolveTheme(getStoredPreference());
+}
+
+/** Preference-based resolved theme (ignores mobile force). */
 export function getResolvedTheme(): ResolvedTheme {
   return resolveTheme(getStoredPreference());
 }
@@ -57,13 +76,12 @@ function syncColorSchemeMeta(resolved: ResolvedTheme) {
   meta.setAttribute("content", resolved);
 }
 
-/**
- * Apply a user preference and the resulting appearance.
- * Explicit light/dark always win over prefers-color-scheme.
- */
-export function applyPreference(preference: ThemePreference) {
+/** Apply DOM appearance only — never writes localStorage. */
+export function applyAppearance(
+  resolved: ResolvedTheme,
+  preference: ThemePreference = getStoredPreference(),
+) {
   if (typeof document === "undefined") return;
-  const resolved = resolveTheme(preference);
   const root = document.documentElement;
 
   if (resolved === "dark") {
@@ -74,17 +92,37 @@ export function applyPreference(preference: ThemePreference) {
 
   root.setAttribute("data-theme", resolved);
   root.setAttribute("data-theme-preference", preference);
+  root.setAttribute("data-theme-mobile-forced", isMobileViewport() ? "true" : "false");
   root.style.setProperty("color-scheme", resolved);
   if (document.body) {
     document.body.style.setProperty("color-scheme", resolved);
   }
   syncColorSchemeMeta(resolved);
+}
 
+/**
+ * Re-apply effective theme from the saved preference + current viewport.
+ * Safe on mobile: forces dark without overwriting the stored preference.
+ */
+export function syncEffectiveTheme() {
+  applyAppearance(getEffectiveTheme(), getStoredPreference());
+}
+
+/**
+ * Persist a user preference, then apply the effective appearance for this viewport.
+ * Explicit light/dark always win over prefers-color-scheme on desktop.
+ * On mobile, DOM stays dark even if preference is light.
+ */
+export function applyPreference(preference: ThemePreference) {
   try {
     localStorage.setItem(THEME_STORAGE_KEY, preference);
   } catch {
     // Storage can be unavailable in private browsing.
   }
+  applyAppearance(
+    isMobileViewport() ? "dark" : resolveTheme(preference),
+    preference,
+  );
 }
 
 /** Apply a resolved theme while keeping an explicit light/dark preference. */
@@ -93,9 +131,8 @@ export function applyTheme(theme: ResolvedTheme) {
 }
 
 /**
- * Explicit Light ↔ Dark toggle based on the currently resolved appearance.
- * Always persists an explicit preference (never "system"), so a tap always
- * wins over prefers-color-scheme.
+ * Explicit Light ↔ Dark toggle based on the saved preference resolution
+ * (not the mobile-forced appearance), so desktop preference stays coherent.
  */
 export function toggleTheme(): ResolvedTheme {
   const next: ResolvedTheme =

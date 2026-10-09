@@ -25,18 +25,22 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [pathForMenu, setPathForMenu] = useState(pathname);
+  const [layoutIsMobile, setLayoutIsMobile] = useState(isMobile);
 
-  useEffect(() => {
-    setMobileOpen(false);
-    setMobileSearchOpen(false);
-  }, [pathname]);
-
-  useEffect(() => {
+  // Close overlays when the route or breakpoint changes (render-time adjust, not effect).
+  if (pathForMenu !== pathname) {
+    setPathForMenu(pathname);
+    if (mobileOpen) setMobileOpen(false);
+    if (mobileSearchOpen) setMobileSearchOpen(false);
+  }
+  if (layoutIsMobile !== isMobile) {
+    setLayoutIsMobile(isMobile);
     if (!isMobile) {
-      setMobileOpen(false);
-      setMobileSearchOpen(false);
+      if (mobileOpen) setMobileOpen(false);
+      if (mobileSearchOpen) setMobileSearchOpen(false);
     }
-  }, [isMobile]);
+  }
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
@@ -127,7 +131,8 @@ export function Navbar() {
             </button>
           ) : null}
 
-          <ThemeToggle className="tm-theme-toggle tm-icon-btn tm-icon-btn-show" />
+          {/* Desktop only — CSS hide avoids mobile SSR flash of the toggle */}
+          <ThemeToggle className="tm-theme-toggle tm-icon-btn hidden md:inline-flex" />
 
           {isMobile ? (
             <button

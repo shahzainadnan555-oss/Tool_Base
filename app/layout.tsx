@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { ConsentRoot } from "@/components/consent/ConsentRoot";
 import { Navbar } from "@/components/layout/Navbar";
 import { SiteFooter } from "@/components/layout/SiteFooter";
+import { ThemeViewportSync } from "@/components/layout/ThemeViewportSync";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { createRootMetadata } from "@/lib/seo/metadata";
 import { websiteJsonLd } from "@/lib/seo/structured-data";
@@ -34,6 +35,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body className="flex min-h-full min-w-0 flex-col overflow-x-clip font-sans antialiased">
+        <ThemeViewportSync />
         <JsonLd data={websiteJsonLd()} />
         <Navbar />
         <main className="min-w-0 flex-1">{children}</main>
