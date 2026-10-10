@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Logo } from "@/components/layout/Logo";
-import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import { MobileNav } from "@/components/layout/MobileNav";
 import { SearchBar } from "@/components/search/SearchBar";
 import { Icon } from "@/components/ui/Icon";
@@ -130,9 +129,6 @@ export function Navbar() {
               />
             </button>
           ) : null}
-
-          {/* Desktop only — CSS hide avoids mobile SSR flash of the toggle */}
-          <ThemeToggle className="tm-theme-toggle tm-icon-btn hidden md:inline-flex" />
 
           {isMobile ? (
             <button

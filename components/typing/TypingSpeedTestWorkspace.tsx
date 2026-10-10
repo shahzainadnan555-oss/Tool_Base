@@ -55,7 +55,7 @@ const CharSpan = memo(function CharSpan({
         state === "correct"
           ? "text-tm-text"
           : state === "incorrect"
-            ? "rounded-sm bg-red-500/20 text-red-700 underline decoration-red-600 decoration-2 underline-offset-2 dark:text-red-300"
+            ? "rounded-sm bg-red-500/20 text-red-700 underline decoration-red-600 decoration-2 underline-offset-2"
             : state === "current"
               ? "relative text-tm-muted before:absolute before:top-0 before:bottom-0 before:left-0 before:w-[2px] before:animate-pulse before:bg-tm-accent before:content-['']"
               : "text-tm-muted/70"

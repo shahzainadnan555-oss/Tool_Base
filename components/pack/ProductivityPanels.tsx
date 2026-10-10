@@ -283,7 +283,7 @@ export function MarkdownPanel() {
       </Field>
       <div>
         <p className="mb-2 text-sm font-bold text-tm-text">Preview</p>
-        <div className="prose prose-slate dark:prose-invert max-w-none rounded-2xl border border-tm-border bg-tm-elevated p-4" dangerouslySetInnerHTML={{ __html: html }} />
+        <div className="prose prose-slate max-w-none rounded-2xl border border-tm-border bg-tm-elevated p-4" dangerouslySetInnerHTML={{ __html: html }} />
       </div>
       <div className="flex flex-wrap gap-2 lg:col-span-2">
         <button type="button" className="tm-btn tm-btn-primary" onClick={async () => { if (await copyText(src)) done("Copied Markdown."); else fail("Copy failed. Try again."); }}>Copy Markdown</button>

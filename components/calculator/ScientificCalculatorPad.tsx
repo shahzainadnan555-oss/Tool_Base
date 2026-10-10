@@ -252,7 +252,7 @@ export function ScientificCalculatorPad() {
           {expr || "0"}
         </p>
         {error ? (
-          <p className="mt-2 text-sm font-semibold text-red-600 dark:text-red-400" role="alert">
+          <p className="mt-2 text-sm font-semibold text-red-600" role="alert">
             {error}
           </p>
         ) : null}

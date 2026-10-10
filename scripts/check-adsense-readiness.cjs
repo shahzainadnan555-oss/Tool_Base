@@ -43,7 +43,7 @@ const navbar = read("components/layout/Navbar.tsx");
 check("Navbar has Blogs", /href:\s*"\/blogs"/.test(navbar));
 check("Navbar has Home", /href:\s*"\/"/.test(navbar));
 check("Navbar has no Contact", !/\/contact|Contact/.test(navbar));
-check("Navbar has theme toggle", /ThemeToggle/.test(navbar));
+check("Navbar has no theme toggle", !/ThemeToggle/.test(navbar));
 
 const sitemap = read("app/sitemap.ts");
 check("Sitemap excludes /contact", !/\/contact/.test(sitemap));
