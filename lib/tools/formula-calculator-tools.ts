@@ -56,7 +56,7 @@ export const formulaCalculatorTools: ToolDefinition[] = formulaCalculatorCatalog
       "Instant results for standard calculations",
       "Transparent formulas and assumptions",
       "Mobile-friendly controls",
-      "Works in light, dark, and system theme",
+      "Clear Light Mode layout on mobile and desktop",
     ],
     howToSteps: [
       {
@@ -85,8 +85,8 @@ export const formulaCalculatorTools: ToolDefinition[] = formulaCalculatorCatalog
               "No. Results are educational estimates based on the formulas shown. Verify important decisions with a qualified professional when needed.",
           },
           {
-            question: "Does theme switching reset my inputs?",
-            answer: "No. Changing light, dark, or system theme keeps your calculator inputs and results.",
+            question: "Will refreshing the page reset my inputs?",
+            answer: "Yes for a full page refresh. While you stay on the calculator page, your inputs and results remain until you reset them.",
           },
         ],
     inputFormats: ["Numeric inputs", "Form fields"],

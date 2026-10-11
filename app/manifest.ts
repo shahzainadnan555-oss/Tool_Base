@@ -9,7 +9,8 @@ export default function manifest(): MetadataRoute.Manifest {
     start_url: "/",
     display: "standalone",
     background_color: "#F7FAFF",
-    theme_color: "#0B1635",
+    // Keep browser chrome light on mobile/tablet (never navy/dark).
+    theme_color: "#F7FAFF",
     lang: "en",
     icons: [
       {

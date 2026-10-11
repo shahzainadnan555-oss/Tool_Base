@@ -11,7 +11,7 @@ interface LogoProps {
 }
 
 /**
- * Official Tool Base wordmark on a white plate in both light and dark mode.
+ * Official Tool Base wordmark on a white plate (permanent Light Mode).
  * Height-sized with auto width so the plate hugs the artwork (no empty side space).
  */
 export function Logo({ className, href = "/", compact = false }: LogoProps) {

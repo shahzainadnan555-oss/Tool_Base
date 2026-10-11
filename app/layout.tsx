@@ -23,8 +23,12 @@ export const viewport: Viewport = {
   initialScale: 1,
   viewportFit: "cover",
   interactiveWidget: "resizes-content",
+  // Never advertise dark — mobile Safari uses this for chrome / auto-dark.
   colorScheme: "light",
-  themeColor: "#F7FAFF",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#F7FAFF" },
+    { media: "(prefers-color-scheme: dark)", color: "#F7FAFF" },
+  ],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -32,18 +36,19 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       data-theme="light"
-      className={`${inter.variable} h-full`}
+      className={`${inter.variable} light h-full`}
       suppressHydrationWarning
     >
       <head>
-        {/* Permanent Light Mode — clears legacy theme prefs before paint. */}
-        <meta name="color-scheme" content="light" />
+        {/* Permanent Light Mode on every device, including OS Dark Mode. */}
+        <meta name="color-scheme" content="light only" />
+        <meta name="supported-color-schemes" content="light" />
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
-      <body className="flex min-h-full min-w-0 flex-col overflow-x-clip font-sans antialiased">
+      <body className="flex min-h-full min-w-0 flex-col overflow-x-clip bg-[#F7FAFF] font-sans text-[#101828] antialiased">
         <JsonLd data={websiteJsonLd()} />
         <Navbar />
-        <main className="min-w-0 flex-1">{children}</main>
+        <main className="min-w-0 flex-1 bg-[#F7FAFF]">{children}</main>
         <SiteFooter />
         <ConsentRoot />
       </body>
