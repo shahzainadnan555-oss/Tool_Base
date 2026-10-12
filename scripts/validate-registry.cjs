@@ -288,3 +288,4 @@ if (errors.length) {
 }
 
 console.log(`validate-registry: OK (${tools.length} tools, unique ids/slugs/seoTitles, related refs valid)`);
+
