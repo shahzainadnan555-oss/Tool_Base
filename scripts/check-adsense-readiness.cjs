@@ -45,12 +45,14 @@ check("Navbar has Contact Us", /href:\s*"\/contact"/.test(navbar) && /Contact Us
 check("Navbar has no theme toggle", !/ThemeToggle/.test(navbar));
 
 const curatedSitemap = read("lib/seo/curated-sitemap.ts");
-const appSitemap = read("app/sitemap.ts");
+const coreSitemap = read("public/sitemaps/sitemap-core.xml");
+const indexSitemap = read("public/sitemap.xml");
 check("Sitemap includes /contact", /\/contact/.test(curatedSitemap));
 check("Sitemap includes /blogs", /\/blogs/.test(curatedSitemap));
-check("Sitemap is curated (not full registry)", !/getAllTools/.test(curatedSitemap) && !/getAllTools/.test(appSitemap));
+check("Sitemap is curated (not full registry)", !/getAllTools/.test(curatedSitemap));
 check("Sitemap uses production host", /www\.toolbaseworld\.com/.test(curatedSitemap));
-check("App sitemap uses productionAbsoluteUrl", /productionAbsoluteUrl/.test(appSitemap));
+check("Public sitemap index exists", /<sitemapindex/.test(indexSitemap));
+check("Public core sitemap includes /contact", /\/contact/.test(coreSitemap));
 
 const about = read("app/about/page.tsx");
 check("About uses Tool Base", /Tool Base/.test(about));

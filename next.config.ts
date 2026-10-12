@@ -27,6 +27,23 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
+        // Match FabStitch-style sitemap delivery: charset + cacheable XML, no SPA shell.
+        source: "/sitemap.xml",
+        headers: [
+          { key: "Content-Type", value: "application/xml; charset=utf-8" },
+          { key: "Cache-Control", value: "public, max-age=300, stale-while-revalidate=3600" },
+          { key: "X-Content-Type-Options", value: "nosniff" },
+        ],
+      },
+      {
+        source: "/sitemaps/:path*",
+        headers: [
+          { key: "Content-Type", value: "application/xml; charset=utf-8" },
+          { key: "Cache-Control", value: "public, max-age=300, stale-while-revalidate=3600" },
+          { key: "X-Content-Type-Options", value: "nosniff" },
+        ],
+      },
+      {
         source: "/:path*",
         headers: [
           { key: "X-Content-Type-Options", value: "nosniff" },

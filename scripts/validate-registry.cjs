@@ -267,7 +267,8 @@ assert.ok(!site.includes("localhost"), "site config must not hardcode localhost"
 assert.ok(site.includes("NEXT_PUBLIC_SITE_URL"), "site config must use env-based URL");
 
 const curated = fs.readFileSync(path.join(ROOT, "lib/seo/curated-sitemap.ts"), "utf8");
-const sitemap = fs.readFileSync(path.join(ROOT, "app/sitemap.ts"), "utf8");
+const indexXml = fs.readFileSync(path.join(ROOT, "public/sitemap.xml"), "utf8");
+const coreXml = fs.readFileSync(path.join(ROOT, "public/sitemaps/sitemap-core.xml"), "utf8");
 const robots = fs.readFileSync(path.join(ROOT, "app/robots.ts"), "utf8");
 // Curated production sitemap: main pages + Contact Us + a small set of priority tools
 // (not the full registry). Keep this assertion aligned with that policy.
@@ -278,11 +279,15 @@ assert.ok(curated.includes("/tools/jpg-to-png"), "sitemap must include priority 
 assert.ok(curated.includes("www.toolbaseworld.com"), "sitemap must use production host");
 assert.ok(!curated.includes("getAllTools"), "sitemap must not dump the full tool registry");
 assert.ok(!curated.includes("localhost"), "sitemap must not hardcode localhost");
-assert.ok(sitemap.includes("productionAbsoluteUrl"), "app sitemap must use locked production URLs");
-assert.ok(sitemap.includes("CURATED_SITEMAP_PATHS"), "app sitemap must use curated paths");
-assert.ok(!sitemap.includes("getAllTools"), "app sitemap must not dump the full tool registry");
+assert.ok(indexXml.includes("<sitemapindex"), "public/sitemap.xml must be a sitemap index");
+assert.ok(indexXml.includes("/sitemaps/sitemap-core.xml"), "index must point at core child");
+assert.ok(coreXml.includes("<urlset"), "core sitemap must be a urlset");
+assert.ok(coreXml.includes("https://www.toolbaseworld.com/contact"), "core sitemap must include Contact Us");
+assert.ok(!coreXml.includes("tool-base.app"), "core sitemap must not use legacy host");
+assert.ok(!fs.existsSync(path.join(ROOT, "app/sitemap.ts")), "MetadataRoute sitemap.ts must not compete with static XML");
 assert.ok(robots.includes("productionAbsoluteUrl"), "robots must reference production sitemap URL");
 assert.ok(robots.includes("PRODUCTION_SITE_URL"), "robots Host must use production site URL");
+assert.ok(robots.includes("/sitemap.xml"), "robots should explicitly allow sitemap");
 assert.ok(robots.includes("/admin"), "robots should disallow admin");
 assert.ok(robots.includes("sitemap"), "robots should reference sitemap");
 
