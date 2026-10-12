@@ -16,6 +16,7 @@ const navItems = [
   { href: "/tools/calculators", label: "Calculators" },
   { href: "/blogs", label: "Blogs" },
   { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact Us" },
 ];
 
 export function Navbar() {
