@@ -266,15 +266,19 @@ const site = fs.readFileSync(path.join(ROOT, "lib/config/site.ts"), "utf8");
 assert.ok(!site.includes("localhost"), "site config must not hardcode localhost");
 assert.ok(site.includes("NEXT_PUBLIC_SITE_URL"), "site config must use env-based URL");
 
-const sitemap = fs.readFileSync(path.join(ROOT, "app/sitemap.ts"), "utf8");
+const curated = fs.readFileSync(path.join(ROOT, "lib/seo/curated-sitemap.ts"), "utf8");
+const sitemapRoute = fs.readFileSync(path.join(ROOT, "app/sitemap.xml/route.ts"), "utf8");
 // Curated production sitemap: main pages + Contact Us + a small set of priority tools
 // (not the full registry). Keep this assertion aligned with that policy.
-assert.ok(sitemap.includes("CURATED_PATHS") || sitemap.includes("/contact"), "sitemap must be curated");
-assert.ok(sitemap.includes("/contact"), "sitemap must include Contact Us");
-assert.ok(sitemap.includes("/categories"), "sitemap must include categories");
-assert.ok(sitemap.includes("/tools/jpg-to-png"), "sitemap must include priority tools");
-assert.ok(!sitemap.includes("getAllTools"), "sitemap must not dump the full tool registry");
-assert.ok(!sitemap.includes("localhost"), "sitemap must not hardcode localhost");
+assert.ok(curated.includes("CURATED_SITEMAP_PATHS"), "sitemap must expose curated paths");
+assert.ok(curated.includes("/contact"), "sitemap must include Contact Us");
+assert.ok(curated.includes("/categories"), "sitemap must include categories");
+assert.ok(curated.includes("/tools/jpg-to-png"), "sitemap must include priority tools");
+assert.ok(curated.includes("www.toolbaseworld.com"), "sitemap must use production host");
+assert.ok(!curated.includes("getAllTools"), "sitemap must not dump the full tool registry");
+assert.ok(!curated.includes("localhost"), "sitemap must not hardcode localhost");
+assert.ok(sitemapRoute.includes("buildCuratedSitemapXml"), "sitemap route must serve curated XML");
+assert.ok(sitemapRoute.includes("application/xml"), "sitemap route must set XML content type");
 
 const robots = fs.readFileSync(path.join(ROOT, "app/robots.ts"), "utf8");
 assert.ok(robots.includes("/admin"), "robots should disallow admin");

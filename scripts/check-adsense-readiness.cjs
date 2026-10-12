@@ -41,15 +41,14 @@ check("Footer has Privacy Policy", /Privacy Policy/.test(footer));
 
 const navbar = read("components/layout/Navbar.tsx");
 check("Navbar has Blogs", /href:\s*"\/blogs"/.test(navbar));
+check("Navbar has Contact Us", /href:\s*"\/contact"/.test(navbar) && /Contact Us/.test(navbar));
 check("Navbar has no theme toggle", !/ThemeToggle/.test(navbar));
 
-const mobileNav = read("components/layout/MobileNav.tsx");
-check("Mobile nav has Contact Us", /\/contact/.test(mobileNav) && /Contact Us/.test(mobileNav));
-
-const sitemap = read("app/sitemap.ts");
-check("Sitemap includes /contact", /\/contact/.test(sitemap));
-check("Sitemap includes /blogs", /\/blogs/.test(sitemap));
-check("Sitemap is curated (not full registry)", !/getAllTools/.test(sitemap));
+const curatedSitemap = read("lib/seo/curated-sitemap.ts");
+check("Sitemap includes /contact", /\/contact/.test(curatedSitemap));
+check("Sitemap includes /blogs", /\/blogs/.test(curatedSitemap));
+check("Sitemap is curated (not full registry)", !/getAllTools/.test(curatedSitemap));
+check("Sitemap uses production host", /www\.toolbaseworld\.com/.test(curatedSitemap));
 
 const about = read("app/about/page.tsx");
 check("About uses Tool Base", /Tool Base/.test(about));

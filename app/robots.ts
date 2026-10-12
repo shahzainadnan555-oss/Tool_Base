@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { absoluteUrl } from "@/lib/config/site";
+import { PRODUCTION_SITE_URL, productionAbsoluteUrl } from "@/lib/seo/curated-sitemap";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -10,7 +10,8 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/admin", "/admin/", "/not-found-admin"],
       },
     ],
-    sitemap: absoluteUrl("/sitemap.xml"),
-    host: absoluteUrl("/"),
+    sitemap: productionAbsoluteUrl("/sitemap.xml"),
+    // Bare hostname only (Yandex Host directive). Google ignores Host.
+    host: new URL(PRODUCTION_SITE_URL).host,
   };
 }
