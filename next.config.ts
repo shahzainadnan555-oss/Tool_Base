@@ -27,20 +27,17 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        // Match FabStitch-style sitemap delivery: charset + cacheable XML, no SPA shell.
+        // Cache sitemap XML similarly to FabStitch. Do not force Content-Type here —
+        // Vercel/Next infer application/xml from .xml files; overriding can break deploys.
         source: "/sitemap.xml",
         headers: [
-          { key: "Content-Type", value: "application/xml; charset=utf-8" },
           { key: "Cache-Control", value: "public, max-age=300, stale-while-revalidate=3600" },
-          { key: "X-Content-Type-Options", value: "nosniff" },
         ],
       },
       {
         source: "/sitemaps/:path*",
         headers: [
-          { key: "Content-Type", value: "application/xml; charset=utf-8" },
           { key: "Cache-Control", value: "public, max-age=300, stale-while-revalidate=3600" },
-          { key: "X-Content-Type-Options", value: "nosniff" },
         ],
       },
       {
