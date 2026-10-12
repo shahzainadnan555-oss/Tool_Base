@@ -267,8 +267,13 @@ assert.ok(!site.includes("localhost"), "site config must not hardcode localhost"
 assert.ok(site.includes("NEXT_PUBLIC_SITE_URL"), "site config must use env-based URL");
 
 const sitemap = fs.readFileSync(path.join(ROOT, "app/sitemap.ts"), "utf8");
-assert.ok(sitemap.includes("getAllTools"), "sitemap must include tools from registry");
-assert.ok(sitemap.includes("categories"), "sitemap must include categories");
+// Curated production sitemap: main pages + Contact Us + a small set of priority tools
+// (not the full registry). Keep this assertion aligned with that policy.
+assert.ok(sitemap.includes("CURATED_PATHS") || sitemap.includes("/contact"), "sitemap must be curated");
+assert.ok(sitemap.includes("/contact"), "sitemap must include Contact Us");
+assert.ok(sitemap.includes("/categories"), "sitemap must include categories");
+assert.ok(sitemap.includes("/tools/jpg-to-png"), "sitemap must include priority tools");
+assert.ok(!sitemap.includes("getAllTools"), "sitemap must not dump the full tool registry");
 assert.ok(!sitemap.includes("localhost"), "sitemap must not hardcode localhost");
 
 const robots = fs.readFileSync(path.join(ROOT, "app/robots.ts"), "utf8");
