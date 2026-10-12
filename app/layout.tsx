@@ -44,6 +44,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <meta name="color-scheme" content="light only" />
         <meta name="supported-color-schemes" content="light" />
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        {/* Google AdSense site-wide code (exact publisher snippet, once in head). */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4195370214127581"
+          crossOrigin="anonymous"
+        />
       </head>
       <body className="flex min-h-full min-w-0 flex-col overflow-x-clip bg-[#F7FAFF] font-sans text-[#101828] antialiased">
         <JsonLd data={websiteJsonLd()} />

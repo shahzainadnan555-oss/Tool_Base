@@ -44,6 +44,14 @@ check("Navbar has Blogs", /href:\s*"\/blogs"/.test(navbar));
 check("Navbar has Contact Us", /href:\s*"\/contact"/.test(navbar) && /Contact Us/.test(navbar));
 check("Navbar has no theme toggle", !/ThemeToggle/.test(navbar));
 
+const layout = read("app/layout.tsx");
+check(
+  "AdSense client script in root layout",
+  /pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=ca-pub-4195370214127581/.test(layout) &&
+    /crossOrigin=["']anonymous["']/.test(layout),
+);
+check("AdSense script is not duplicated in layout", (layout.match(/adsbygoogle\.js/g) || []).length === 1);
+
 const curatedSitemap = read("lib/seo/curated-sitemap.ts");
 const coreSitemap = read("public/sitemaps/sitemap-core.xml");
 const indexSitemap = read("public/sitemap.xml");
