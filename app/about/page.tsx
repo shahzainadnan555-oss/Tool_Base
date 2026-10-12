@@ -111,6 +111,10 @@ export default function AboutPage() {
           <Link href="/blogs" className="font-bold text-tm-accent hover:text-tm-accent-hover">
             guides
           </Link>
+          . For questions or feedback, visit{" "}
+          <Link href="/contact" className="font-bold text-tm-accent hover:text-tm-accent-hover">
+            Contact Us
+          </Link>
           .
         </p>
       </article>

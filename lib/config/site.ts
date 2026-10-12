@@ -3,7 +3,8 @@ export const siteConfig = {
   tagline: "Every Tool You Need. One Simple Place.",
   description:
     "Tool Base provides free online tools for converting, compressing, editing, generating, calculating, and transforming images, PDFs, audio, video, text, and more. No sign-up required.",
-  url: process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "https://tool-base.app",
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "https://www.toolbaseworld.com",
   locale: "en_US",
   twitterHandle: undefined as string | undefined,
   /** Served by app/opengraph-image.tsx — do not point at a missing static file. */

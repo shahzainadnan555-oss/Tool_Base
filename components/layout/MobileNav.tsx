@@ -102,6 +102,13 @@ export function MobileNav({ open, items, onClose }: MobileNavProps) {
                 {item.label}
               </Link>
             ))}
+            <Link
+              href="/contact"
+              className="rounded-xl px-3 py-3.5 text-base font-bold text-tm-text transition-colors hover:bg-tm-soft hover:text-tm-accent"
+              onClick={onClose}
+            >
+              Contact Us
+            </Link>
           </nav>
 
           <div>

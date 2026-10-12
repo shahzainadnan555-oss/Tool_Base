@@ -18,6 +18,7 @@ const resourceLinks = [
   { href: "/popular", label: "Featured Tools" },
   { href: "/new", label: "New Tools" },
   { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact Us" },
 ];
 
 const legalLinks = [

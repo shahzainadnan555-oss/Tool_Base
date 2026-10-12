@@ -109,6 +109,7 @@ function fetchText(url) {
     "/new",
     "/blogs",
     "/about",
+    "/contact",
     "/privacy",
     "/terms",
     "/disclaimer",
@@ -116,11 +117,12 @@ function fetchText(url) {
     "/sitemap.xml",
     "/manifest.webmanifest",
     "/tools/jpg-to-png",
-    "/tools/percentage-calculator",
-    "/tools/sha256-hash-generator",
-    "/tools/json-formatter",
+    "/tools/image-compressor",
+    "/tools/pdf-compressor",
     "/tools/word-counter",
-    "/tools/time-zone-converter",
+    "/tools/qr-code-generator",
+    "/tools/typing-speed-test",
+    "/tools/calculators",
   ];
 
   for (const route of routes) {
@@ -129,15 +131,26 @@ function fetchText(url) {
     if (route === "/sitemap.xml") {
       assert.ok(body.includes("<urlset"), "sitemap missing urlset");
       assert.ok(!body.includes("localhost"), "sitemap contains localhost");
-      assert.ok(!body.includes("/contact"), "sitemap must not include /contact");
-      const toolUrls = (body.match(/\/tools\/[a-z0-9-]+/g) || []).length;
-      assert.ok(toolUrls >= 200, `sitemap tool urls expected >=200, got ${toolUrls}`);
+      assert.ok(body.includes("/contact"), "sitemap must include /contact");
+      const locs = body.match(/<loc>[^<]+<\/loc>/g) || [];
+      assert.ok(locs.length === 16, `curated sitemap expected 16 URLs, got ${locs.length}`);
+      const toolDetailUrls = (body.match(/\/tools\/[a-z0-9-]+/g) || []).filter(
+        (u) => u !== "/tools/calculators",
+      );
+      assert.ok(
+        toolDetailUrls.length === 6,
+        `sitemap tool detail urls expected 6, got ${toolDetailUrls.length}`,
+      );
     }
     if (route === "/robots.txt") {
       assert.ok(/sitemap:/i.test(body), "robots missing sitemap");
       assert.ok(/disallow:\s*\/admin/i.test(body), "robots missing admin disallow");
     }
-    if (route.startsWith("/tools/") && route !== "/tools") {
+    if (route === "/contact") {
+      assert.ok(/support@toolbaseworld\.com/i.test(body), "contact page missing support email");
+      assert.ok(/Contact Us/i.test(body), "contact page missing Contact Us heading");
+    }
+    if (route.startsWith("/tools/") && route !== "/tools" && route !== "/tools/calculators") {
       const h1 = body.match(/<h1[^>]*>([^<]+)/i);
       assert.ok(h1, `${route} missing H1`);
       const h1Count = (body.match(/<h1\b/gi) || []).length;
@@ -149,11 +162,7 @@ function fetchText(url) {
   assert.ok(missing.status === 404, `expected 404, got ${missing.status}`);
   assert.ok(/Page Not Found/i.test(missing.body), "404 page missing H1 copy");
 
-  const contactGone = await fetchText(`${base.replace(/\/$/, "")}/contact`);
-  assert.ok(contactGone.status === 404, `/contact expected 404, got ${contactGone.status}`);
-  assert.ok(/Page Not Found/i.test(contactGone.body), "/contact should use the normal 404 page");
-
-  console.log(`validate-production live checks: OK (${routes.length} routes + 404 + /contact 404)`);
+  console.log(`validate-production live checks: OK (${routes.length} routes + 404)`);
 })().catch((err) => {
   console.error(err);
   process.exit(1);
