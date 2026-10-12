@@ -24,5 +24,6 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
+  // Keep sitemap.xml and robots.txt outside middleware entirely.
   matcher: ["/admin/:path*"],
 };
