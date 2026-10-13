@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 /**
  * Writes static sitemap XML into public/ for reliable Googlebot / GSC fetching.
- * Keep path lists in sync with lib/seo/curated-sitemap.ts.
+ * Path list source of truth: lib/seo/curated-sitemap.ts
  */
 const fs = require("fs");
 const path = require("path");
@@ -10,24 +10,25 @@ const ROOT = path.join(__dirname, "..");
 const PRODUCTION_SITE_URL = "https://www.toolbaseworld.com";
 const CORE_SITEMAP_PATH = "/sitemaps/sitemap-core.xml";
 
-const CURATED_SITEMAP_PATHS = [
-  "/",
-  "/tools",
-  "/categories",
-  "/tools/calculators",
-  "/blogs",
-  "/about",
-  "/contact",
-  "/privacy",
-  "/terms",
-  "/disclaimer",
-  "/tools/jpg-to-png",
-  "/tools/image-compressor",
-  "/tools/pdf-compressor",
-  "/tools/word-counter",
-  "/tools/qr-code-generator",
-  "/tools/typing-speed-test",
-];
+function loadCuratedPaths() {
+  const source = fs.readFileSync(
+    path.join(ROOT, "lib/seo/curated-sitemap.ts"),
+    "utf8",
+  );
+  const match = source.match(
+    /export const CURATED_SITEMAP_PATHS = \[([\s\S]*?)\] as const;/,
+  );
+  if (!match) {
+    throw new Error("Could not parse CURATED_SITEMAP_PATHS from curated-sitemap.ts");
+  }
+  const paths = [...match[1].matchAll(/"([^"]+)"/g)].map((m) => m[1]);
+  if (paths.length === 0) {
+    throw new Error("CURATED_SITEMAP_PATHS is empty");
+  }
+  return paths;
+}
+
+const CURATED_SITEMAP_PATHS = loadCuratedPaths();
 
 function productionAbsoluteUrl(p = "/") {
   const normalized = p.startsWith("/") ? p : `/${p}`;
