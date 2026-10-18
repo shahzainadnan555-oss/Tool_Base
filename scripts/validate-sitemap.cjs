@@ -37,6 +37,7 @@ const REQUIRED_BLOGS = [
   `${HOST}/blogs/developer-and-text-tools-guide`,
   `${HOST}/blogs/calculators-and-converters-guide`,
   `${HOST}/blogs/online-file-and-data-tools-guide`,
+  `${HOST}/blogs/volume-calculator-guide`,
 ];
 
 function loadCuratedPaths() {

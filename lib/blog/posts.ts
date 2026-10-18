@@ -5,6 +5,7 @@ import { videoAudioGuide } from "@/lib/blog/articles/video-audio-guide";
 import { developerTextGuide } from "@/lib/blog/articles/developer-text-guide";
 import { calculatorsGuide } from "@/lib/blog/articles/calculators-guide";
 import { fileDataGuide } from "@/lib/blog/articles/file-data-guide";
+import { volumeCalculatorGuide } from "@/lib/blog/articles/volume-calculator-guide";
 
 export const blogPosts: BlogPost[] = [
   imageConversionGuide,
@@ -13,6 +14,7 @@ export const blogPosts: BlogPost[] = [
   developerTextGuide,
   calculatorsGuide,
   fileDataGuide,
+  volumeCalculatorGuide,
 ];
 
 export function getAllBlogPosts(): BlogPost[] {

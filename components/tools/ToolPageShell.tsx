@@ -32,6 +32,17 @@ export function ToolPageShell({ tool, workspace }: ToolPageShellProps) {
         <p className="tm-eyebrow">{category?.name ?? "Online Tool"}</p>
         <h1 className="tm-h1 mt-4">{tool.h1}</h1>
         <p className="tm-lead mt-4">{tool.intro}</p>
+        {tool.guide ? (
+          <p className="mt-4 max-w-2xl text-base font-medium leading-relaxed text-tm-muted">
+            {tool.guide.text}{" "}
+            <Link
+              href={tool.guide.href}
+              className="font-bold text-tm-accent hover:text-tm-accent-hover"
+            >
+              {tool.guide.label}
+            </Link>
+          </p>
+        ) : null}
       </header>
 
       <section

@@ -74,6 +74,8 @@ export interface ToolDefinition {
   relatedToolsHeading?: string;
   /** Hide report UI for focused converter experiences */
   hideReport?: boolean;
+  /** Optional guide linked from the tool intro */
+  guide?: { href: string; label: string; text: string };
 }
 
 export interface CategoryDefinition {

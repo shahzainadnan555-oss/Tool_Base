@@ -45,6 +45,7 @@ export const CURATED_SITEMAP_PATHS = [
   "/blogs/developer-and-text-tools-guide",
   "/blogs/calculators-and-converters-guide",
   "/blogs/online-file-and-data-tools-guide",
+  "/blogs/volume-calculator-guide",
   "/tools/jpg-to-png",
   "/tools/png-to-jpg",
   "/tools/image-compressor",

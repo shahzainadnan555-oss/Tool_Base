@@ -45,6 +45,14 @@ export const formulaCalculatorTools: ToolDefinition[] = formulaCalculatorCatalog
         : `${spec.shortDescription} Use this free ${categoryLabel.toLowerCase()} tool from Tool Base in your browser.`,
     h1: spec.name,
     intro: `${spec.shortDescription} Enter your values, review the result instantly, and use the formula notes to understand how Tool Base calculated the answer.`,
+    guide:
+      spec.slug === "volume-calculator"
+        ? {
+            href: "/blogs/volume-calculator-guide",
+            label: "Learn how volume works and how to calculate it.",
+            text: "New to volume?",
+          }
+        : undefined,
     convertHeading: `Use the ${spec.name}`,
     howToHeading: `How to use the ${spec.name}`,
     featuresHeading: `${spec.name} features`,
