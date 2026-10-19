@@ -22,6 +22,7 @@ import type {
   SecurityProcessResult,
   SecurityToolConfig,
 } from "./types";
+import { FILE_TOO_LARGE_MESSAGE } from "@/lib/uploads/limits";
 import { MAX_FILE_BYTES, MAX_TEXT_CHARS } from "./types";
 import { formatBytes } from "./utils";
 
@@ -120,7 +121,7 @@ export async function processSecurityTool(
       if (options.mode === "decode") {
         const blob = decodeBase64ToBlob(input, options.mimeType);
         if (blob.size > MAX_FILE_BYTES) {
-          throw new Error("Decoded file is too large.");
+          throw new Error("The decoded file is larger than 1 GB.");
         }
         return {
           output: `Decoded file ready (${formatBytes(blob.size)})`,
@@ -131,7 +132,7 @@ export async function processSecurityTool(
       if (!options.file) throw new Error("Please choose a file to convert.");
       if (options.file.size > MAX_FILE_BYTES) {
         throw new Error(
-          `File is too large (max ${Math.floor(MAX_FILE_BYTES / (1024 * 1024))} MB).`,
+          FILE_TOO_LARGE_MESSAGE,
         );
       }
       const encoded = await fileToBase64(options.file, options.onProgress);

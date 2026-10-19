@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useId, useMemo, useRef, useState, useTransition } from "react";
+import { LimitedFileInput } from "@/components/uploads/LimitedFileInput";
 import { ProcessingProgress } from "@/components/ui/ProcessingProgress";
 import { processSecurityTool } from "@/lib/security/process";
 import type {
@@ -481,37 +482,35 @@ export function SecurityWorkspace({ config, convertHeading }: SecurityWorkspaceP
       ) : null}
 
       {config.kind === "hash" && hashMode === "file" ? (
-        <label htmlFor={fileId} className="block text-sm font-bold text-tm-text">
+        <div className="block text-sm font-bold text-tm-text">
           Upload file
-          <input
+          <LimitedFileInput
             id={fileId}
-            type="file"
             className="tm-input mt-2"
-            onChange={(e) => setFile(e.target.files?.[0] || null)}
+            onAcceptedFiles={(files) => setFile(files[0] ?? null)}
           />
           {file ? (
             <p className="mt-2 text-sm font-medium text-tm-muted">
               {file.name} · {(file.size / 1024).toFixed(1)} KB
             </p>
           ) : null}
-        </label>
+        </div>
       ) : null}
 
       {config.kind === "base64-file" && baseMode === "encode" ? (
-        <label htmlFor={fileId} className="block text-sm font-bold text-tm-text">
+        <div className="block text-sm font-bold text-tm-text">
           Upload file
-          <input
+          <LimitedFileInput
             id={fileId}
-            type="file"
             className="tm-input mt-2"
-            onChange={(e) => setFile(e.target.files?.[0] || null)}
+            onAcceptedFiles={(files) => setFile(files[0] ?? null)}
           />
           {file ? (
             <p className="mt-2 text-sm font-medium text-tm-muted">
               {file.name} · {file.type || "unknown type"} · {(file.size / 1024).toFixed(1)} KB
             </p>
           ) : null}
-        </label>
+        </div>
       ) : null}
 
       {config.kind === "base64-file" && baseMode === "decode" ? (

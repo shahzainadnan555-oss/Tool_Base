@@ -1,3 +1,5 @@
+import { MAX_FILE_SIZE } from "@/lib/uploads/limits";
+
 export type ImageEditorKind =
   | "compress"
   | "resize"
@@ -85,4 +87,4 @@ export interface EditorProcessOptions {
   onProgress?: (completed: number, total: number, label: string) => void;
 }
 
-export const DEFAULT_EDITOR_MAX_BYTES = 40 * 1024 * 1024;
+export const DEFAULT_EDITOR_MAX_BYTES = MAX_FILE_SIZE;

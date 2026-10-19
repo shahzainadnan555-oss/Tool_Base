@@ -4,6 +4,7 @@ import { useEffect, useId, useMemo, useState } from "react";
 import { ConvertButton } from "@/components/image-converter/ConvertButton";
 import { FileValidationMessage } from "@/components/image-converter/FileValidationMessage";
 import { PdfUpload } from "@/components/pdf/PdfUpload";
+import { FileSizeHint } from "@/components/uploads/FileSizeHint";
 import { ProcessingProgress } from "@/components/ui/ProcessingProgress";
 import { copyText } from "@/lib/clipboard";
 import { useOperationController } from "@/lib/processing/useOperationController";
@@ -280,12 +281,18 @@ export function PdfWorkspace({ config, convertHeading }: PdfWorkspaceProps) {
         <PdfUpload
           accept={config.accept}
           multiple={config.allowMultiple}
+          perFile={config.allowMultiple}
           title={uploadTitle}
           subtitle={uploadSubtitle}
           buttonLabel={uploadButton}
           onFilesSelected={(files) => void addFiles(files)}
         />
-      ) : null}
+      ) : (
+        <FileSizeHint
+          perFile={config.allowMultiple}
+          selectedBytes={Math.max(0, ...sources.map((source) => source.sizeBytes))}
+        />
+      )}
 
       {showWorkspace ? (
         <>
@@ -352,6 +359,7 @@ export function PdfWorkspace({ config, convertHeading }: PdfWorkspaceProps) {
                 <PdfUpload
                   accept={config.accept}
                   multiple
+                  showHint={false}
                   title="Add More Files"
                   subtitle="Add additional files to the list"
                   buttonLabel="Add Files"

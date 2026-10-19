@@ -1,3 +1,5 @@
+import { MAX_FILE_SIZE } from "@/lib/uploads/limits";
+
 export type DocumentDataKind =
   | "docx-to-pdf"
   | "pdf-to-docx"
@@ -61,4 +63,4 @@ export interface DocumentDataOptions {
   onProgress?: (completed: number, total: number, label: string) => void;
 }
 
-export const DEFAULT_DOC_MAX_BYTES = 40 * 1024 * 1024;
+export const DEFAULT_DOC_MAX_BYTES = MAX_FILE_SIZE;

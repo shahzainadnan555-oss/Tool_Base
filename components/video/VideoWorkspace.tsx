@@ -5,6 +5,7 @@ import { ConvertButton } from "@/components/image-converter/ConvertButton";
 import { FileValidationMessage } from "@/components/image-converter/FileValidationMessage";
 import { VideoPlayer } from "@/components/video/VideoPlayer";
 import { VideoUpload } from "@/components/video/VideoUpload";
+import { FileSizeHint } from "@/components/uploads/FileSizeHint";
 import { ProcessingProgress } from "@/components/ui/ProcessingProgress";
 import { processVideoTool } from "@/lib/video/process";
 import type {
@@ -302,7 +303,12 @@ export function VideoWorkspace({ config, convertHeading }: VideoWorkspaceProps) 
           multiple={config.allowMultiple}
           onFilesSelected={(files) => void addFiles(files)}
         />
-      ) : null}
+      ) : (
+        <FileSizeHint
+          perFile={config.allowMultiple}
+          selectedBytes={Math.max(0, ...sources.map((source) => source.sizeBytes))}
+        />
+      )}
 
       {sources.length > 0 && !showResult ? (
         <>
@@ -400,6 +406,7 @@ export function VideoWorkspace({ config, convertHeading }: VideoWorkspaceProps) 
                 <VideoUpload
                   accept={config.accept}
                   multiple
+                  showHint={false}
                   onFilesSelected={(files) => void addFiles(files)}
                 />
               </div>

@@ -3,6 +3,7 @@
 import { useEffect, useId, useState } from "react";
 import { AudioPlayer } from "@/components/audio/AudioPlayer";
 import { AudioUpload } from "@/components/audio/AudioUpload";
+import { FileSizeHint } from "@/components/uploads/FileSizeHint";
 import { ConvertButton } from "@/components/image-converter/ConvertButton";
 import { FileValidationMessage } from "@/components/image-converter/FileValidationMessage";
 import { ProcessingProgress } from "@/components/ui/ProcessingProgress";
@@ -204,7 +205,12 @@ export function AudioWorkspace({ config, convertHeading }: AudioWorkspaceProps) 
           multiple={config.allowMultiple}
           onFilesSelected={(files) => void addFiles(files)}
         />
-      ) : null}
+      ) : (
+        <FileSizeHint
+          perFile={config.allowMultiple}
+          selectedBytes={Math.max(0, ...sources.map((source) => source.sizeBytes))}
+        />
+      )}
 
       {sources.length > 0 && !showResult ? (
         <>
@@ -288,6 +294,7 @@ export function AudioWorkspace({ config, convertHeading }: AudioWorkspaceProps) 
                 <AudioUpload
                   accept={config.accept}
                   multiple
+                  showHint={false}
                   onFilesSelected={(files) => void addFiles(files)}
                 />
               </div>

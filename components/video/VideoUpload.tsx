@@ -1,17 +1,20 @@
 "use client";
 
 import { useId, useRef, useState } from "react";
+import { FileSizeHint } from "@/components/uploads/FileSizeHint";
 import { cn } from "@/lib/utils/cn";
 
 interface VideoUploadProps {
   accept: string;
   multiple?: boolean;
+  showHint?: boolean;
   onFilesSelected: (files: File[]) => void;
 }
 
 export function VideoUpload({
   accept,
   multiple = false,
+  showHint = true,
   onFilesSelected,
 }: VideoUploadProps) {
   const inputId = useId();
@@ -24,6 +27,7 @@ export function VideoUpload({
   }
 
   return (
+    <div className="space-y-3">
     <div
       role="button"
       tabIndex={0}
@@ -94,6 +98,8 @@ export function VideoUpload({
           event.target.value = "";
         }}
       />
+    </div>
+    {showHint ? <FileSizeHint perFile={multiple} /> : null}
     </div>
   );
 }

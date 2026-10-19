@@ -1,3 +1,5 @@
+import { MAX_FILE_SIZE } from "@/lib/uploads/limits";
+
 export type RasterOutputFormat = "png" | "jpeg" | "webp";
 export type ImageOutputFormat = RasterOutputFormat | "svg" | "ico";
 
@@ -52,4 +54,4 @@ export interface SelectedImageFile {
   height?: number;
 }
 
-export const DEFAULT_MAX_IMAGE_BYTES = 40 * 1024 * 1024;
+export const DEFAULT_MAX_IMAGE_BYTES = MAX_FILE_SIZE;

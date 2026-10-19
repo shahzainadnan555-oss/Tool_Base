@@ -10,6 +10,7 @@ import { randomObjects } from "@/lib/utilities/lists";
 import { STARTER_TEMPLATES } from "@/lib/utilities/templates";
 import type { UtilitySlug } from "@/lib/utilities/slugs";
 import { ICON_CATALOG, Icon, iconSvgMarkup } from "@/components/ui/Icon";
+import { LimitedFileInput } from "@/components/uploads/LimitedFileInput";
 import { ImagePrivacyNotice } from "@/components/ui/ImagePrivacyNotice";
 
 interface Props {
@@ -147,12 +148,11 @@ function MemePanel() {
   return (
     <div className="space-y-4">
       <Field label="Image">
-        <input
+        <LimitedFileInput
           className="tm-input"
-          type="file"
           accept="image/*"
-          onChange={(e) => {
-            const next = e.target.files?.[0] ?? null;
+          onAcceptedFiles={(files) => {
+            const next = files[0] ?? null;
             if (preview) URL.revokeObjectURL(preview);
             setFile(next);
             setPreview(next ? URL.createObjectURL(next) : null);
@@ -449,12 +449,12 @@ function CorruptPanel() {
       <p className="text-sm font-medium text-tm-muted">
         This creates a new downloadable copy with deliberately altered bytes for testing. Your original file is not overwritten.
       </p>
-      <input
+      <LimitedFileInput
         className="tm-input"
-        type="file"
-        onChange={async (e) => {
-          const file = e.target.files?.[0];
+        onAcceptedFiles={(files) => {
+          const file = files[0];
           if (!file) return;
+          void (async () => {
           try {
             const buffer = new Uint8Array(await file.arrayBuffer());
             const copy = new Uint8Array(buffer);
@@ -473,6 +473,7 @@ function CorruptPanel() {
           } catch {
             fail("Could not create a test copy of this file.");
           }
+          })();
         }}
       />
       <Status error={error} ok={ok} />
@@ -710,13 +711,13 @@ function MhtmlPanel() {
       <p className="text-sm font-medium text-tm-muted">
         Upload an MHTML/MHT file. Tool Base extracts the HTML part and opens a print dialog so you can save a PDF.
       </p>
-      <input
+      <LimitedFileInput
         className="tm-input"
-        type="file"
         accept=".mhtml,.mht,multipart/related,message/rfc822"
-        onChange={async (e) => {
-          const file = e.target.files?.[0];
+        onAcceptedFiles={(files) => {
+          const file = files[0];
           if (!file) return;
+          void (async () => {
           try {
             const text = await file.text();
             const match = text.match(/<html[\s\S]*<\/html>/i);
@@ -737,6 +738,7 @@ function MhtmlPanel() {
           } catch {
             fail("Could not read this MHTML file.");
           }
+          })();
         }}
       />
       <Status error={error} ok={ok} />
@@ -760,12 +762,11 @@ function Base64Panel({ mode }: { mode: "image-to-base64" | "base64-to-image" | "
         </label>
       ) : null}
       {mode !== "base64-to-image" ? (
-        <input
+        <LimitedFileInput
           className="tm-input"
-          type="file"
           accept={mode === "image-to-base64" ? "image/*" : undefined}
-          onChange={async (e) => {
-            const file = e.target.files?.[0];
+          onAcceptedFiles={(files) => {
+            const file = files[0];
             if (!file) return;
             const reader = new FileReader();
             reader.onload = () => {

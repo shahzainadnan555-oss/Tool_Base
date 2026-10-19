@@ -1,6 +1,7 @@
 "use client";
 
 import { useId, useRef, useState } from "react";
+import { FileSizeHint } from "@/components/uploads/FileSizeHint";
 import { Icon } from "@/components/ui/Icon";
 import { cn } from "@/lib/utils/cn";
 
@@ -27,6 +28,7 @@ export function ImageUpload({
   }
 
   return (
+    <div className="space-y-3">
     <div
       role="button"
       tabIndex={disabled ? -1 : 0}
@@ -89,6 +91,8 @@ export function ImageUpload({
           event.target.value = "";
         }}
       />
+    </div>
+    <FileSizeHint />
     </div>
   );
 }

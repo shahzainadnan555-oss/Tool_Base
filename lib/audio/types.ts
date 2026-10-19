@@ -1,3 +1,5 @@
+import { MAX_FILE_SIZE } from "@/lib/uploads/limits";
+
 export type AudioToolKind =
   | "convert"
   | "compress"
@@ -66,7 +68,7 @@ export interface AudioProcessOptions {
   onProgress?: (ratio: number, label: string) => void;
 }
 
-export const DEFAULT_AUDIO_MAX_BYTES = 80 * 1024 * 1024;
+export const DEFAULT_AUDIO_MAX_BYTES = MAX_FILE_SIZE;
 export const DEFAULT_AUDIO_MAX_FILES = 20;
 
 export const COMMON_AUDIO_ACCEPT =

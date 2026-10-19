@@ -5,6 +5,7 @@ import type { Area } from "react-easy-crop";
 import { ConvertButton } from "@/components/image-converter/ConvertButton";
 import { FileValidationMessage } from "@/components/image-converter/FileValidationMessage";
 import { ImageUpload } from "@/components/image-converter/ImageUpload";
+import { FileSizeHint } from "@/components/uploads/FileSizeHint";
 import { ImageColorPickerPanel } from "@/components/image-editor/ImageColorPickerPanel";
 import { ImageCropperControl } from "@/components/image-editor/ImageCropperControl";
 import { ProcessingProgress } from "@/components/ui/ProcessingProgress";
@@ -246,7 +247,9 @@ export function ImageEditorWorkspace({
           inputLabel="image"
           onFileSelected={(file) => void handleFileSelected(file)}
         />
-      ) : null}
+      ) : (
+        <FileSizeHint selectedBytes={selected?.sizeBytes} />
+      )}
 
       {(stage === "ready" || stage === "processing") && selected ? (
         <>

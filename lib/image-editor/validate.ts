@@ -1,3 +1,4 @@
+import { FILE_TOO_LARGE_MESSAGE } from "@/lib/uploads/limits";
 import type { ImageEditorConfig } from "./types";
 import { getExtension } from "./utils";
 
@@ -8,8 +9,7 @@ export function validateEditorFile(
   if (!file) return "Please choose an image file.";
   if (file.size <= 0) return "The selected file is empty. Please choose another image.";
   if (file.size > config.maxFileSizeBytes) {
-    const mb = Math.round(config.maxFileSizeBytes / (1024 * 1024));
-    return `This file is too large. Please upload an image under ${mb} MB.`;
+    return FILE_TOO_LARGE_MESSAGE;
   }
 
   const extension = getExtension(file.name);

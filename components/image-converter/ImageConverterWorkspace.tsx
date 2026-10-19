@@ -19,6 +19,7 @@ import { loadHtmlImage, revokeObjectUrl } from "@/lib/image-converter/utils";
 import { useOperationController } from "@/lib/processing";
 import { filterUserFacingNotices } from "@/lib/ui/notices";
 import { ImagePrivacyNotice } from "@/components/ui/ImagePrivacyNotice";
+import { FileSizeHint } from "@/components/uploads/FileSizeHint";
 
 interface ImageConverterWorkspaceProps {
   config: ImageConverterConfig;
@@ -156,7 +157,9 @@ export function ImageConverterWorkspace({
           inputLabel={config.inputLabel}
           onFileSelected={handleFileSelected}
         />
-      ) : null}
+      ) : (
+        <FileSizeHint selectedBytes={selected?.sizeBytes} />
+      )}
 
       {(stage === "ready" || stage === "converting") && selected ? (
         <>

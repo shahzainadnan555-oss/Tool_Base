@@ -4,6 +4,7 @@ import { useMemo, useRef, useState } from "react";
 import { copyText, downloadBlob, downloadTextFile } from "@/lib/security/utils";
 import { contrastRatio, textToAsciiArt } from "@/lib/pack/helpers";
 import { Field, Status, useNotice } from "./shared";
+import { LimitedFileInput } from "@/components/uploads/LimitedFileInput";
 import { ImagePrivacyNotice } from "@/components/ui/ImagePrivacyNotice";
 
 export function TextShadowPanel() {
@@ -97,8 +98,8 @@ export function FaviconPanel() {
   return (
     <div className="space-y-4">
       <Field label="Image">
-        <input className="tm-input" type="file" accept="image/*" onChange={(e) => {
-          const next = e.target.files?.[0] ?? null;
+        <LimitedFileInput className="tm-input" accept="image/*" onAcceptedFiles={(files) => {
+          const next = files[0] ?? null;
           setFile(next);
           if (next) void preview(next);
         }} />
@@ -418,7 +419,7 @@ export function PaletteExtractPanel() {
   }
   return (
     <div className="space-y-4">
-      <Field label="Image"><input className="tm-input" type="file" accept="image/*" onChange={(e) => { const file = e.target.files?.[0]; if (file) void extract(file); }} /></Field>
+      <Field label="Image"><LimitedFileInput className="tm-input" accept="image/*" onAcceptedFiles={(files) => { const file = files[0]; if (file) void extract(file); }} /></Field>
       <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-4">
         {swatches.map((swatch) => (
           <div key={swatch.hex} className="overflow-hidden rounded-xl border border-tm-border">

@@ -10,6 +10,7 @@ import {
   mimeFromName,
   parseUserAgent,
 } from "@/lib/pack/helpers";
+import { LimitedFileInput } from "@/components/uploads/LimitedFileInput";
 import { Field, Status, useNotice } from "./shared";
 
 export function BarcodePanel() {
@@ -296,8 +297,8 @@ export function DataUriPanel() {
       <Field id="dm" label="MIME type"><input id="dm" className="tm-input" value={mime} onChange={(e) => setMime(e.target.value)} /></Field>
       <label className="flex items-center gap-2 text-sm font-bold"><input type="checkbox" className="size-4 accent-[var(--tm-accent)]" checked={b64} onChange={(e) => setB64(e.target.checked)} /> Base64</label>
       <Field label="Or choose a file">
-        <input className="tm-input" type="file" onChange={(e) => {
-          const file = e.target.files?.[0];
+        <LimitedFileInput className="tm-input" onAcceptedFiles={(files) => {
+          const file = files[0];
           if (!file) return;
           const reader = new FileReader();
           reader.onload = () => {
@@ -332,7 +333,7 @@ export function MimePanel() {
       <Field id="mn" label="Filename or extension"><input id="mn" className="tm-input" value={name} onChange={(e) => setName(e.target.value)} /></Field>
       <p className="font-bold">{mapped ?? "Unknown mapping"}</p>
       <Field label="File">
-        <input className="tm-input" type="file" onChange={(e) => setFileType(e.target.files?.[0]?.type || "Unavailable")} />
+        <LimitedFileInput className="tm-input" onAcceptedFiles={(files) => setFileType(files[0]?.type || "Unavailable")} />
       </Field>
       {fileType ? <p className="text-sm font-bold">Browser file type: {fileType || "Unavailable"}</p> : null}
       <button type="button" className="tm-btn tm-btn-primary" onClick={async () => {
@@ -352,15 +353,17 @@ export function FileSigPanel() {
   return (
     <div className="space-y-4">
       <Field label="File">
-        <input className="tm-input" type="file" onChange={async (e) => {
-          const file = e.target.files?.[0];
+        <LimitedFileInput className="tm-input" onAcceptedFiles={(files) => {
+          const file = files[0];
           if (!file) return;
-          setName(file.name);
-          const buf = new Uint8Array(await file.slice(0, 16).arrayBuffer());
-          const dump = [...buf].map((b) => b.toString(16).padStart(2, "0")).join(" ");
-          setHex(dump);
-          setSig(matchSignature(buf));
-          done("Inspected.");
+          void (async () => {
+            setName(file.name);
+            const buf = new Uint8Array(await file.slice(0, 16).arrayBuffer());
+            const dump = [...buf].map((b) => b.toString(16).padStart(2, "0")).join(" ");
+            setHex(dump);
+            setSig(matchSignature(buf));
+            done("Inspected.");
+          })();
         }} />
       </Field>
       {hex ? (

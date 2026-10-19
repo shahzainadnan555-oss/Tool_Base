@@ -1,17 +1,20 @@
 "use client";
 
 import { useId, useRef, useState } from "react";
+import { FileSizeHint } from "@/components/uploads/FileSizeHint";
 import { cn } from "@/lib/utils/cn";
 
 interface AudioUploadProps {
   accept: string;
   multiple?: boolean;
+  showHint?: boolean;
   onFilesSelected: (files: File[]) => void;
 }
 
 export function AudioUpload({
   accept,
   multiple = false,
+  showHint = true,
   onFilesSelected,
 }: AudioUploadProps) {
   const inputId = useId();
@@ -24,6 +27,7 @@ export function AudioUpload({
   }
 
   return (
+    <div className="space-y-3">
     <div
       role="button"
       tabIndex={0}
@@ -88,6 +92,8 @@ export function AudioUpload({
           event.target.value = "";
         }}
       />
+    </div>
+    {showHint ? <FileSizeHint perFile={multiple} /> : null}
     </div>
   );
 }

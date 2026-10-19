@@ -1,3 +1,4 @@
+import { FILE_TOO_LARGE_MESSAGE } from "@/lib/uploads/limits";
 import type { DocumentDataConfig } from "./types";
 import { getExtension } from "./utils";
 
@@ -7,8 +8,7 @@ export function validateDocumentFile(
 ): string | null {
   if (!file || file.size <= 0) return "Please choose a valid file.";
   if (file.size > config.maxFileSizeBytes) {
-    const mb = Math.round(config.maxFileSizeBytes / (1024 * 1024));
-    return `This file is too large. Please choose a file under ${mb} MB.`;
+    return FILE_TOO_LARGE_MESSAGE;
   }
   const ext = getExtension(file.name);
   const type = (file.type || "").toLowerCase();

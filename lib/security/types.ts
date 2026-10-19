@@ -1,3 +1,5 @@
+import { MAX_FILE_SIZE } from "@/lib/uploads/limits";
+
 export type SecurityToolKind =
   | "hash"
   | "uuid"
@@ -104,5 +106,5 @@ export const MAX_RANDOM_QUANTITY = 500;
 export const MAX_UUID_QUANTITY = 500;
 export const MAX_PASSWORD_LENGTH = 256;
 export const MAX_STRING_LENGTH = 10_000;
-export const MAX_FILE_BYTES = 200 * 1024 * 1024;
+export const MAX_FILE_BYTES = MAX_FILE_SIZE;
 export const HASH_CHUNK_SIZE = 2 * 1024 * 1024;

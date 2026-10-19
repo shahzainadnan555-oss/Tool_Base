@@ -7,6 +7,7 @@ import {
   createSHA512,
 } from "hash-wasm";
 import type { HashAlgorithm } from "./types";
+import { FILE_TOO_LARGE_MESSAGE } from "@/lib/uploads/limits";
 import { HASH_CHUNK_SIZE, MAX_FILE_BYTES } from "./types";
 import { utf8Encode } from "./utils";
 
@@ -49,7 +50,7 @@ export async function hashFile(
   if (!file) throw new Error("Please choose a file to hash.");
   if (file.size > MAX_FILE_BYTES) {
     throw new Error(
-      `File is too large (max ${Math.floor(MAX_FILE_BYTES / (1024 * 1024))} MB).`,
+      FILE_TOO_LARGE_MESSAGE,
     );
   }
 

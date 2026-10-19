@@ -4,6 +4,7 @@ import { useId, useState } from "react";
 import { ConvertButton } from "@/components/image-converter/ConvertButton";
 import { FileValidationMessage } from "@/components/image-converter/FileValidationMessage";
 import { PdfUpload } from "@/components/pdf/PdfUpload";
+import { FileSizeHint } from "@/components/uploads/FileSizeHint";
 import { ProcessingProgress } from "@/components/ui/ProcessingProgress";
 import { processDocumentData } from "@/lib/document-data/process";
 import type { DocumentDataConfig, DocumentDataResult } from "@/lib/document-data/types";
@@ -126,12 +127,14 @@ export function DocumentDataWorkspace({
           {supportsFile ? (
             <PdfUpload
               accept={config.accept}
+              showHint={false}
               title="Upload Your File"
               subtitle="Drag & drop your file here, or click to browse"
               buttonLabel="Choose File"
               onFilesSelected={handleFiles}
             />
           ) : null}
+          {supportsFile ? <FileSizeHint selectedBytes={file?.size} /> : null}
 
           {file ? (
             <div className="rounded-2xl border border-tm-border bg-tm-elevated px-4 py-3 text-sm font-semibold text-tm-muted">

@@ -1,6 +1,7 @@
 "use client";
 
 import { useId, useRef, useState } from "react";
+import { FileSizeHint } from "@/components/uploads/FileSizeHint";
 import { cn } from "@/lib/utils/cn";
 
 interface PdfUploadProps {
@@ -9,6 +10,8 @@ interface PdfUploadProps {
   title?: string;
   subtitle?: string;
   buttonLabel?: string;
+  showHint?: boolean;
+  perFile?: boolean;
   onFilesSelected: (files: File[]) => void;
 }
 
@@ -18,6 +21,8 @@ export function PdfUpload({
   title = "Upload Your PDF",
   subtitle = "Drag & drop your file here, or click to browse",
   buttonLabel = "Choose File",
+  showHint = true,
+  perFile = false,
   onFilesSelected,
 }: PdfUploadProps) {
   const inputId = useId();
@@ -30,6 +35,7 @@ export function PdfUpload({
   }
 
   return (
+    <div className="space-y-3">
     <div
       role="button"
       tabIndex={0}
@@ -90,6 +96,8 @@ export function PdfUpload({
           event.target.value = "";
         }}
       />
+    </div>
+    {showHint ? <FileSizeHint perFile={perFile || multiple} /> : null}
     </div>
   );
 }

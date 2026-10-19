@@ -1,3 +1,4 @@
+import { FILE_TOO_LARGE_MESSAGE } from "@/lib/uploads/limits";
 import type { ImageConverterConfig } from "./types";
 import { getExtension } from "./utils";
 
@@ -14,8 +15,7 @@ export function validateImageFile(
   }
 
   if (file.size > config.maxFileSizeBytes) {
-    const mb = Math.round(config.maxFileSizeBytes / (1024 * 1024));
-    return `This file is too large. Please upload an image under ${mb} MB.`;
+    return FILE_TOO_LARGE_MESSAGE;
   }
 
   const extension = getExtension(file.name);

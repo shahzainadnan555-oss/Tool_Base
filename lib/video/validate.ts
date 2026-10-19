@@ -1,10 +1,11 @@
+import { FILE_TOO_LARGE_MESSAGE } from "@/lib/uploads/limits";
 import type { VideoToolConfig } from "./types";
 import { getExtension } from "./utils";
 
 export function validateVideoFile(file: File, config: VideoToolConfig): string | null {
   if (!file || file.size <= 0) return "Please choose a valid video file.";
   if (file.size > config.maxFileSizeBytes) {
-    return "This video is too large to process reliably. Please try a smaller file.";
+    return FILE_TOO_LARGE_MESSAGE;
   }
   const ext = getExtension(file.name);
   const type = (file.type || "").toLowerCase();
@@ -18,14 +19,12 @@ export function validateVideoFile(file: File, config: VideoToolConfig): string |
 
 export function friendlyVideoError(error: unknown): string {
   const message = error instanceof Error ? error.message : "";
-  if (/too large/i.test(message)) {
-    return "This video is too large to process reliably. Please try a smaller file.";
-  }
+  if (message === FILE_TOO_LARGE_MESSAGE) return message;
   if (/codec|Invalid data|does not contain|Unsupported|Decoder/i.test(message)) {
     return "We couldn't decode this video. The format or codec may be unsupported.";
   }
   if (/memory|out of memory|allocation/i.test(message)) {
-    return "This video is too large to process reliably. Please try a smaller file.";
+    return "This browser ran out of memory while processing the video. The file passed the size check, but this device could not finish it.";
   }
   if (/ffmpeg|load|network|Failed to fetch|timed out/i.test(message)) {
     return "Video processing libraries could not be loaded. Check your connection and try again.";

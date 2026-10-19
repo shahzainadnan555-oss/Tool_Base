@@ -1,3 +1,5 @@
+import { MAX_FILE_SIZE } from "@/lib/uploads/limits";
+
 export type VideoToolKind =
   | "convert"
   | "compress"
@@ -80,7 +82,7 @@ export interface VideoProcessOptions {
   onProgress?: (ratio: number, label: string) => void;
 }
 
-export const DEFAULT_VIDEO_MAX_BYTES = 200 * 1024 * 1024;
+export const DEFAULT_VIDEO_MAX_BYTES = MAX_FILE_SIZE;
 export const DEFAULT_VIDEO_MAX_FILES = 12;
 
 export const COMMON_VIDEO_ACCEPT =

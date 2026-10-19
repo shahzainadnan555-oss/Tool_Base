@@ -1,11 +1,11 @@
+import { FILE_TOO_LARGE_MESSAGE } from "@/lib/uploads/limits";
 import type { AudioToolConfig } from "./types";
 import { getExtension } from "./utils";
 
 export function validateAudioFile(file: File, config: AudioToolConfig): string | null {
   if (!file || file.size <= 0) return "Please choose a valid audio file.";
   if (file.size > config.maxFileSizeBytes) {
-    const mb = Math.round(config.maxFileSizeBytes / (1024 * 1024));
-    return `This file is too large. Please choose a file under ${mb} MB.`;
+    return FILE_TOO_LARGE_MESSAGE;
   }
   const ext = getExtension(file.name);
   const type = (file.type || "").toLowerCase();
@@ -23,7 +23,7 @@ export function friendlyAudioError(error: unknown): string {
     return "We couldn't decode this audio file. The format or codec may be unsupported.";
   }
   if (/memory|out of memory|allocation/i.test(message)) {
-    return "This audio file is too large to process in this browser session.";
+    return "This browser ran out of memory while processing the audio. The file passed the size check, but this device could not finish it.";
   }
   if (/ffmpeg|load|network|Failed to fetch/i.test(message)) {
     return "Audio processing libraries could not be loaded. Check your connection and try again.";

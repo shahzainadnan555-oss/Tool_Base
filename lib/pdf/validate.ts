@@ -1,3 +1,4 @@
+import { FILE_TOO_LARGE_MESSAGE } from "@/lib/uploads/limits";
 import type { PdfToolConfig } from "./types";
 import { getExtension } from "./utils";
 
@@ -9,8 +10,7 @@ export function validatePdfUpload(
     return "Please choose a valid file.";
   }
   if (file.size > config.maxFileSizeBytes) {
-    const mb = Math.round(config.maxFileSizeBytes / (1024 * 1024));
-    return `This file is too large. Please choose a file under ${mb} MB.`;
+    return FILE_TOO_LARGE_MESSAGE;
   }
 
   const ext = getExtension(file.name);
@@ -37,7 +37,7 @@ export function friendlyPdfError(error: unknown): string {
     return "We couldn't read this PDF. The file may be damaged or unsupported.";
   }
   if (/memory|allocation|out of memory/i.test(message)) {
-    return "This PDF is too large to process in this browser session. Try a smaller file.";
+    return "This browser ran out of memory while processing the PDF. The file passed the size check, but this device could not finish it.";
   }
   if (message && message.length < 160 && !/stack|undefined|null/i.test(message)) {
     return message;
