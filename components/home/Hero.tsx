@@ -12,7 +12,7 @@ const searchHints = [
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden border-b border-tm-border tm-hero-bg">
+    <section className="relative border-b border-tm-border tm-hero-bg">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-tm-accent/40 to-transparent"

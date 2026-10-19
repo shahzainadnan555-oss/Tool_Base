@@ -56,14 +56,17 @@ export function SearchBar({
 
   function goToTool(tool: ToolDefinition) {
     trackEvent("search_used", { query, selectedTool: tool.slug });
-    setOpen(false);
-    onNavigate?.();
-    router.push(tool.route);
     setQuery(tool.name);
+    setOpen(false);
+    router.push(tool.route);
+    onNavigate?.();
   }
 
   return (
-    <div ref={rootRef} className={cn("relative w-full min-w-0", className)}>
+    <div
+      ref={rootRef}
+      className={cn("relative w-full min-w-0", open && query.trim() ? "z-50" : "z-10", className)}
+    >
       <label htmlFor={inputId} className="sr-only">
         Search Tool Base tools
       </label>
@@ -92,15 +95,22 @@ export function SearchBar({
               aria-autocomplete="list"
               aria-controls={`${inputId}-results`}
               aria-expanded={open && query.trim().length > 0}
+              aria-activedescendant={
+                open && suggestions[activeIndex]
+                  ? `${inputId}-results-option-${activeIndex}`
+                  : undefined
+              }
               role="combobox"
             />
             {query ? (
               <button
                 type="button"
                 className="absolute top-1/2 right-2 -translate-y-1/2 rounded-md px-2 py-1 text-xs font-bold text-tm-muted hover:bg-tm-soft hover:text-tm-text"
+                onMouseDown={(event) => event.preventDefault()}
                 onClick={() => {
                   setQuery("");
                   setOpen(false);
+                  setActiveIndex(0);
                 }}
                 aria-label="Clear search"
               >
@@ -129,15 +139,22 @@ export function SearchBar({
               aria-autocomplete="list"
               aria-controls={`${inputId}-results`}
               aria-expanded={open && query.trim().length > 0}
+              aria-activedescendant={
+                open && suggestions[activeIndex]
+                  ? `${inputId}-results-option-${activeIndex}`
+                  : undefined
+              }
               role="combobox"
             />
             {query ? (
               <button
                 type="button"
                 className="shrink-0 rounded-lg px-2.5 py-1.5 text-xs font-bold text-tm-muted hover:bg-tm-soft hover:text-tm-text"
+                onMouseDown={(event) => event.preventDefault()}
                 onClick={() => {
                   setQuery("");
                   setOpen(false);
+                  setActiveIndex(0);
                 }}
                 aria-label="Clear search"
               >
@@ -147,6 +164,7 @@ export function SearchBar({
               <button
                 type="button"
                 className="tm-btn tm-btn-primary shrink-0 !min-h-10 !px-3 sm:!px-4"
+                onMouseDown={(event) => event.preventDefault()}
                 onClick={() => commitSearch(query)}
                 aria-label="Search"
               >
@@ -166,7 +184,6 @@ export function SearchBar({
           activeIndex={activeIndex}
           onSelect={goToTool}
           onSearchAll={() => commitSearch(query)}
-          onBrowseAll={onNavigate}
         />
       ) : null}
     </div>
@@ -183,9 +200,10 @@ export function SearchBar({
       setActiveIndex((index) => Math.max(index - 1, 0));
     } else if (event.key === "Enter") {
       event.preventDefault();
-      const active = suggestions[activeIndex];
-      if (open && active) {
-        goToTool(active);
+      const highlighted = open ? suggestions[activeIndex] : undefined;
+      const target = highlighted ?? suggestions[0];
+      if (target) {
+        goToTool(target);
       } else {
         commitSearch(query);
       }

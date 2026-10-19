@@ -12,11 +12,25 @@ function normalize(value: string): string {
   return value.toLowerCase().trim();
 }
 
+const STOP_WORDS = new Set([
+  "a",
+  "an",
+  "and",
+  "for",
+  "in",
+  "of",
+  "on",
+  "or",
+  "the",
+  "to",
+  "with",
+]);
+
 function tokenize(query: string): string[] {
   return normalize(query)
     .split(/[\s,/|+-]+/)
     .map((token) => token.trim())
-    .filter(Boolean);
+    .filter((token) => token.length > 1 && !STOP_WORDS.has(token));
 }
 
 export function searchTools(query: string, limit = 50): SearchResult[] {
@@ -55,14 +69,29 @@ export function searchTools(query: string, limit = 50): SearchResult[] {
     let score = 0;
     const matchedOn = new Set<string>();
 
+    const normalizedName = normalize(tool.name);
+    const normalizedSlug = normalize(tool.slug.replace(/-/g, " "));
+
+    if (normalizedName === normalizedQuery || normalizedSlug === normalizedQuery) {
+      score += 400;
+      matchedOn.add("exact-title");
+    } else if (normalizedName.includes(normalizedQuery)) {
+      score += 220;
+      matchedOn.add("title");
+    }
+
     if (tool.exactPrimaryKeyword && normalize(tool.exactPrimaryKeyword) === normalizedQuery) {
       score += 80;
       matchedOn.add("exactPrimaryKeyword");
     } else if (tool.keywords.some((keyword) => normalize(keyword) === normalizedQuery)) {
       score += 60;
       matchedOn.add("keywords");
+    } else if ((tool.aliases ?? []).some((alias) => normalize(alias) === normalizedQuery)) {
+      score += 70;
+      matchedOn.add("aliases");
     }
 
+    let missedToken = false;
     for (const token of tokens) {
       let tokenMatched = false;
 
@@ -85,10 +114,10 @@ export function searchTools(query: string, limit = 50): SearchResult[] {
         }
       }
 
-      if (!tokenMatched) {
-        score -= 4;
-      }
+      if (!tokenMatched) missedToken = true;
     }
+
+    if (missedToken) continue;
 
     if (tool.popular) score += 1;
     if (tool.new) score += 0.5;

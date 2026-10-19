@@ -10,7 +10,6 @@ interface SearchResultsProps {
   activeIndex?: number;
   onSelect: (tool: ToolDefinition) => void;
   onSearchAll: () => void;
-  onBrowseAll?: () => void;
   listId?: string;
 }
 
@@ -20,7 +19,6 @@ export function SearchResults({
   activeIndex = 0,
   onSelect,
   onSearchAll,
-  onBrowseAll,
   listId,
 }: SearchResultsProps) {
   return (
@@ -35,15 +33,20 @@ export function SearchResults({
             const category = getCategoryById(tool.category);
             return (
               <li key={tool.id}>
-                <button
-                  type="button"
+                <Link
+                  id={`${listId}-option-${index}`}
+                  href={tool.route}
                   role="option"
                   aria-selected={index === activeIndex}
                   className={cn(
                     "flex w-full min-w-0 items-start gap-3 rounded-xl px-3 py-3 text-left transition-colors sm:py-2.5",
                     index === activeIndex ? "bg-tm-surface-2" : "hover:bg-tm-soft",
                   )}
-                  onClick={() => onSelect(tool)}
+                  onMouseDown={(event) => event.preventDefault()}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    onSelect(tool);
+                  }}
                 >
                   <span className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-tm-soft text-tm-accent">
                     <Icon name={tool.icon} className="h-4 w-4" />
@@ -63,23 +66,20 @@ export function SearchResults({
                       </span>
                     </span>
                   </span>
-                </button>
+                </Link>
               </li>
             );
           })}
         </ul>
       ) : (
         <p className="px-3 py-4 text-sm font-medium text-tm-muted">
-          No tools found for “{query.trim()}”. Try another keyword or{" "}
-          <Link href="/tools" className="font-bold text-tm-accent" onClick={onBrowseAll}>
-            browse all tools
-          </Link>
-          .
+          No matching tools found. Try another search term.
         </p>
       )}
       <button
         type="button"
         className="mt-1 w-full rounded-xl px-3 py-3 text-left text-sm font-bold text-tm-accent hover:bg-tm-soft sm:py-2.5"
+        onMouseDown={(event) => event.preventDefault()}
         onClick={onSearchAll}
       >
         Search all tools for “{query.trim()}”
