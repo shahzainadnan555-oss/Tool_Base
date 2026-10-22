@@ -5,6 +5,7 @@ import { ToolCard } from "@/components/tools/ToolCard";
 import { SearchBar } from "@/components/search/SearchBar";
 import { createPageMetadata } from "@/lib/seo/metadata";
 import { breadcrumbJsonLd } from "@/lib/seo/structured-data";
+import { getGuidesForCategory } from "@/lib/blog/tool-guides";
 import {
   formulaCalculatorCatalog,
   SUBCATEGORY_LABELS,
@@ -48,6 +49,7 @@ export default function CalculatorsHubPage() {
   const specialized = getToolsByCategory("specialized-calculators").filter(
     (tool) => tool.category === "specialized-calculators",
   );
+  const guides = getGuidesForCategory("calculators-converters");
 
   return (
     <>
@@ -72,6 +74,23 @@ export default function CalculatorsHubPage() {
           <div className="mt-6 max-w-xl">
             <SearchBar placeholder="Search calculators…" />
           </div>
+          {guides.length ? (
+            <div className="mt-6 max-w-3xl rounded-2xl border border-tm-border bg-tm-elevated p-4">
+              <p className="text-sm font-bold text-tm-text">Calculator guides</p>
+              <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-2">
+                {guides.map((guide) => (
+                  <li key={guide.href}>
+                    <Link
+                      href={guide.href}
+                      className="text-sm font-bold text-tm-accent hover:text-tm-accent-hover"
+                    >
+                      {guide.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
         </header>
 
         <nav

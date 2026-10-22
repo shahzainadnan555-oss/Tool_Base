@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { absoluteUrl, siteConfig } from "@/lib/config/site";
+import { productionAbsoluteUrl } from "@/lib/seo/curated-sitemap";
 
 export interface PageSeoInput {
   title: string;
@@ -20,8 +21,10 @@ export function createPageMetadata({
   keywords,
   absoluteTitle = false,
 }: PageSeoInput): Metadata {
-  const url = absoluteUrl(path);
-  const ogImage = image.startsWith("http") ? image : absoluteUrl(image);
+  // Canonical and Open Graph URLs always use the production www host so a
+  // mis-set NEXT_PUBLIC_SITE_URL cannot publish wrong-domain canonicals.
+  const url = productionAbsoluteUrl(path);
+  const ogImage = image.startsWith("http") ? image : productionAbsoluteUrl(image);
 
   return {
     title: absoluteTitle ? { absolute: title } : title,

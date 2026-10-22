@@ -21,7 +21,12 @@ export const volumeCalculatorGuide: BlogPost = {
     "length-converter",
     "volume-converter",
   ],
-  relatedArticleIds: ["calculators-and-converters-guide"],
+  relatedArticleIds: [
+    "calculators-and-converters-guide",
+    "distance-and-mileage-calculator-guide",
+    "factor-and-molecular-weight-calculator-guide",
+    "financial-calculators-guide",
+  ],
   publishedAt: "2026-10-19",
   content: [
     {

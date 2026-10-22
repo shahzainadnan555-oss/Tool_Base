@@ -1,4 +1,5 @@
-import { absoluteUrl, siteConfig } from "@/lib/config/site";
+import { siteConfig } from "@/lib/config/site";
+import { PRODUCTION_SITE_URL, productionAbsoluteUrl } from "@/lib/seo/curated-sitemap";
 import type { ToolDefinition, ToolFaq } from "@/lib/tools/types";
 
 export interface BreadcrumbItem {
@@ -15,11 +16,11 @@ export function websiteJsonLd() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: siteConfig.name,
-    url: siteConfig.url,
+    url: PRODUCTION_SITE_URL,
     description: siteConfig.description,
     potentialAction: {
       "@type": "SearchAction",
-      target: `${absoluteUrl("/tools")}?q={search_term_string}`,
+      target: `${productionAbsoluteUrl("/tools")}?q={search_term_string}`,
       "query-input": "required name=search_term_string",
     },
   };
@@ -30,7 +31,7 @@ export function webApplicationJsonLd(tool: ToolDefinition) {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     name: tool.name,
-    url: absoluteUrl(tool.route),
+    url: productionAbsoluteUrl(tool.route),
     applicationCategory: "UtilitiesApplication",
     operatingSystem: "Any",
     description: tool.seoDescription,
@@ -50,7 +51,7 @@ export function breadcrumbJsonLd(items: BreadcrumbItem[]) {
       "@type": "ListItem",
       position: index + 1,
       name: item.name,
-      item: absoluteUrl(item.path),
+      item: productionAbsoluteUrl(item.path),
     })),
   };
 }
@@ -83,20 +84,20 @@ export function articleJsonLd(input: {
     "@type": "Article",
     headline: input.title,
     description: input.description,
-    url: absoluteUrl(input.path),
+    url: productionAbsoluteUrl(input.path),
     datePublished: input.publishedAt,
     dateModified: input.updatedAt ?? input.publishedAt,
     author: {
       "@type": "Organization",
       name: siteConfig.name,
-      url: siteConfig.url,
+      url: PRODUCTION_SITE_URL,
     },
     publisher: {
       "@type": "Organization",
       name: siteConfig.name,
-      url: siteConfig.url,
+      url: PRODUCTION_SITE_URL,
     },
-    mainEntityOfPage: absoluteUrl(input.path),
+    mainEntityOfPage: productionAbsoluteUrl(input.path),
     ...(input.category ? { articleSection: input.category } : {}),
   };
 }

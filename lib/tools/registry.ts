@@ -1,3 +1,4 @@
+import { getGuideForToolSlug } from "@/lib/blog/tool-guides";
 import type { ToolDefinition } from "./types";
 import { imageConverterTools } from "./image-converter-tools";
 import { imageEditorTools } from "./image-editor-tools";
@@ -22,7 +23,7 @@ import { categoryPackTools } from "./category-pack-tools";
  * Future prompts should add tools here — pages, cards, search, SEO,
  * related tools, sitemap, and category listings all read from this file.
  */
-export const tools: ToolDefinition[] = [
+const registeredTools: ToolDefinition[] = [
   ...imageConverterTools,
   ...imageEditorTools,
   ...pdfTools,
@@ -41,6 +42,11 @@ export const tools: ToolDefinition[] = [
   ...expansionTools,
   ...categoryPackTools,
 ];
+
+export const tools: ToolDefinition[] = registeredTools.map((tool) => ({
+  ...tool,
+  guide: tool.guide ?? getGuideForToolSlug(tool.slug),
+}));
 
 export function getAllTools(): ToolDefinition[] {
   return tools;

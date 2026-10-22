@@ -38,6 +38,9 @@ const REQUIRED_BLOGS = [
   `${HOST}/blogs/calculators-and-converters-guide`,
   `${HOST}/blogs/online-file-and-data-tools-guide`,
   `${HOST}/blogs/volume-calculator-guide`,
+  `${HOST}/blogs/distance-and-mileage-calculator-guide`,
+  `${HOST}/blogs/financial-calculators-guide`,
+  `${HOST}/blogs/factor-and-molecular-weight-calculator-guide`,
 ];
 
 function loadCuratedPaths() {

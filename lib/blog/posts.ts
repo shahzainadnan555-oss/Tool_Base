@@ -6,6 +6,9 @@ import { developerTextGuide } from "@/lib/blog/articles/developer-text-guide";
 import { calculatorsGuide } from "@/lib/blog/articles/calculators-guide";
 import { fileDataGuide } from "@/lib/blog/articles/file-data-guide";
 import { volumeCalculatorGuide } from "@/lib/blog/articles/volume-calculator-guide";
+import { distanceMileageGuide } from "@/lib/blog/articles/distance-mileage-guide";
+import { financialCalculatorsGuide } from "@/lib/blog/articles/financial-calculators-guide";
+import { factorMolecularWeightGuide } from "@/lib/blog/articles/factor-molecular-weight-guide";
 
 export const blogPosts: BlogPost[] = [
   imageConversionGuide,
@@ -15,6 +18,9 @@ export const blogPosts: BlogPost[] = [
   calculatorsGuide,
   fileDataGuide,
   volumeCalculatorGuide,
+  distanceMileageGuide,
+  financialCalculatorsGuide,
+  factorMolecularWeightGuide,
 ];
 
 export function getAllBlogPosts(): BlogPost[] {

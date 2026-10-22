@@ -7,6 +7,7 @@ import { ToolGrid } from "@/components/tools/ToolGrid";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { createPageMetadata } from "@/lib/seo/metadata";
 import { breadcrumbJsonLd, faqJsonLd } from "@/lib/seo/structured-data";
+import { getGuidesForCategory } from "@/lib/blog/tool-guides";
 import {
   categories,
   getAllCategorySlugs,
@@ -53,6 +54,7 @@ export default async function CategoryPage({
 
   const tools = getToolsByCategory(category.id);
   const featured = tools.filter((item) => item.popular).slice(0, 8);
+  const relatedGuides = getGuidesForCategory(category.id);
 
   return (
     <>
@@ -111,6 +113,41 @@ export default async function CategoryPage({
             )}
           </div>
         </section>
+
+        {relatedGuides.length ? (
+          <section className="mt-14 max-w-3xl">
+            <h2 className="tm-h2">Related guides</h2>
+            <p className="mt-3 text-base font-medium text-tm-muted">
+              Read a Tool Base guide that matches tools in this category.
+            </p>
+            <ul className="mt-4 space-y-3">
+              {relatedGuides.map((guide) => (
+                <li key={guide.href}>
+                  <Link
+                    href={guide.href}
+                    className="block rounded-2xl border border-tm-border bg-tm-elevated px-4 py-3 transition-colors hover:border-tm-accent"
+                  >
+                    <span className="font-bold text-tm-accent">{guide.title}</span>
+                    <span className="mt-1 block text-sm font-medium text-tm-muted">
+                      {guide.description}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-4 text-sm font-medium text-tm-muted">
+              Browse the full{" "}
+              <Link href="/blogs" className="font-bold text-tm-accent hover:text-tm-accent-hover">
+                guides directory
+              </Link>{" "}
+              or return to{" "}
+              <Link href="/tools" className="font-bold text-tm-accent hover:text-tm-accent-hover">
+                all tools
+              </Link>
+              .
+            </p>
+          </section>
+        ) : null}
 
         <section className="mt-14 max-w-3xl">
           <h2 className="tm-h2">Related categories</h2>

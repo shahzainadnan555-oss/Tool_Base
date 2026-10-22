@@ -31,6 +31,9 @@ export const calculatorsGuide: BlogPost = {
   ],
   relatedArticleIds: [
     "volume-calculator-guide",
+    "distance-and-mileage-calculator-guide",
+    "financial-calculators-guide",
+    "factor-and-molecular-weight-calculator-guide",
     "developer-and-text-tools-guide",
     "online-file-and-data-tools-guide",
     "pdf-tools-guide",
@@ -48,7 +51,7 @@ export const calculatorsGuide: BlogPost = {
     },
     {
       type: "p",
-      text: "Weight, area, and volume follow published factors as well. Changing litres into millilitres is a unit conversion. Finding how much space is inside a box is a different job — that is what the [[volume-calculator|volume calculator]] does. The [[blog:volume-calculator-guide|volume calculator guide]] explains that difference in plain language. Digital storage is the usual source of confusion: some tools treat 1 KB as 1000 bytes (SI) and others as 1024 bytes (binary). Read the [[data-storage-converter|data storage converter]] notes. Mixing the two is how a “2 GB” file disagrees with an OS disk listing.",
+      text: "Weight, area, and volume follow published factors as well. Changing litres into millilitres is a unit conversion. Finding how much space is inside a box is a different job — that is what the [[volume-calculator|volume calculator]] does. The [[blog:volume-calculator-guide|volume calculator guide]] explains that difference in plain language. For trip totals and fuel economy, use the [[blog:distance-and-mileage-calculator-guide|distance and mileage guide]]. For mortgages, loans, and retirement savings sketches, use the [[blog:financial-calculators-guide|financial calculators guide]]. For school factors and simple chemistry molar mass, use the [[blog:factor-and-molecular-weight-calculator-guide|factor and molecular weight guide]]. Digital storage is the usual source of confusion: some tools treat 1 KB as 1000 bytes (SI) and others as 1024 bytes (binary). Read the [[data-storage-converter|data storage converter]] notes. Mixing the two is how a “2 GB” file disagrees with an OS disk listing.",
     },
     {
       type: "p",
