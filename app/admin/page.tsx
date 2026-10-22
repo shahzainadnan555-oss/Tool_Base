@@ -15,7 +15,6 @@ export const metadata: Metadata = createPageMetadata({
 const sections = [
   { href: "/admin/tools", label: "Tool management", description: "Review tool registry entries and status." },
   { href: "/admin/categories", label: "Category management", description: "Inspect category structure and counts." },
-  { href: "/admin/suggestions", label: "Tool suggestions", description: "UI foundation for incoming ideas." },
   { href: "/admin/reports", label: "Tool reports", description: "UI foundation for problem reports." },
   { href: "/admin/content", label: "Content management", description: "Manage informational page scaffolding." },
   { href: "/admin/faq", label: "FAQ management", description: "Review FAQ content architecture." },

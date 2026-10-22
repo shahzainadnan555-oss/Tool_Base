@@ -3,7 +3,6 @@ import { CategoryNav } from "@/components/home/CategoryNav";
 import { CategoryToolSections } from "@/components/home/CategoryToolSections";
 import { ToolsDirectory } from "@/components/tools/ToolsDirectory";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { SuggestTool } from "@/components/feedback/SuggestTool";
 import { SearchBar } from "@/components/search/SearchBar";
 import { createPageMetadata } from "@/lib/seo/metadata";
 import { getAllTools } from "@/lib/tools/registry";
@@ -65,10 +64,6 @@ export default async function ToolsPage({
             </div>
           </>
         )}
-
-        <div className="mt-14 max-w-2xl">
-          <SuggestTool />
-        </div>
       </div>
     </div>
   );

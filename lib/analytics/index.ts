@@ -6,7 +6,6 @@ export type AnalyticsEventName =
   | "tool_error"
   | "search_used"
   | "category_opened"
-  | "tool_suggestion_submitted"
   | "problem_reported"
   | "cta_clicked"
   | "related_tool_clicked";

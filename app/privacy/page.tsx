@@ -17,7 +17,7 @@ export default function PrivacyPage() {
       sections={[
         {
           heading: "Information Tool Base May Process",
-          body: "Depending on the tool you use, Tool Base may process text, numbers, dates, configuration options, or files that you choose to provide in order to complete a task. The public product does not require login credentials or payment information. Suggestion and report forms may capture the non-sensitive details you choose to enter (such as a tool idea, category, or issue description) as local UI or analytics events when those forms are submitted.",
+          body: "Depending on the tool you use, Tool Base may process text, numbers, dates, configuration options, or files that you choose to provide in order to complete a task. The public product does not require login credentials or payment information. Optional report forms may capture the non-sensitive details you choose to enter (such as an issue description) as local UI or analytics events when those forms are submitted.",
         },
         {
           heading: "Uploaded Files and User-Provided Content",
@@ -45,7 +45,7 @@ export default function PrivacyPage() {
         },
         {
           heading: "Data Retention",
-          body: "For browser-processed tools, inputs and outputs generally remain under your browser session control unless you download, copy, or share them yourself. Tool Base aims to avoid unnecessary long-term retention of tool inputs. Suggestion and report UI events are not permanently stored in a Tool Base inbox until a dedicated backend exists. If server-side processing is introduced for a tool, retention details for that tool will be disclosed on the relevant page and reflected here.",
+          body: "For browser-processed tools, inputs and outputs generally remain under your browser session control unless you download, copy, or share them yourself. Tool Base aims to avoid unnecessary long-term retention of tool inputs. Report UI events are not permanently stored in a Tool Base inbox until a dedicated backend exists. If server-side processing is introduced for a tool, retention details for that tool will be disclosed on the relevant page and reflected here.",
         },
         {
           heading: "Security",
