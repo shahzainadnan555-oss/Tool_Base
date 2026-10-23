@@ -168,8 +168,9 @@ export const developerTools: ToolDefinition[] = [
         answer: "Empty input is treated as incomplete, not valid JSON.",
       },
       {
-        question: "Private?",
-        answer: "Yes. Validation stays.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["JSON"],
@@ -248,8 +249,9 @@ export const developerTools: ToolDefinition[] = [
         answer: "Yes. Use the JSON Formatter.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["JSON"],
@@ -328,8 +330,9 @@ export const developerTools: ToolDefinition[] = [
         answer: "Yes. Use the HTML Minifier.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["HTML"],
@@ -403,8 +406,9 @@ export const developerTools: ToolDefinition[] = [
         answer: "Yes. Use the HTML Formatter.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["HTML"],
@@ -484,8 +488,9 @@ export const developerTools: ToolDefinition[] = [
         answer: "Formatting preserves comments where the formatter allows.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["CSS"],
@@ -560,8 +565,9 @@ export const developerTools: ToolDefinition[] = [
         answer: "Yes. Use the CSS Formatter.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["CSS"],
@@ -640,8 +646,9 @@ export const developerTools: ToolDefinition[] = [
         answer: "Yes. Use the JavaScript Minifier.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["JavaScript"],
@@ -721,8 +728,9 @@ export const developerTools: ToolDefinition[] = [
           "Yes, for compact output while preserving valid program behavior as the minifier guarantees.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["JavaScript"],
@@ -802,8 +810,9 @@ export const developerTools: ToolDefinition[] = [
         answer: "No. It is treated as data.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["XML"],
@@ -877,8 +886,9 @@ export const developerTools: ToolDefinition[] = [
         answer: "This checks well-formed XML syntax, not an external schema.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["XML"],
@@ -957,8 +967,9 @@ export const developerTools: ToolDefinition[] = [
         answer: "Yes. Use the SQL Minifier.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["SQL"],
@@ -1032,8 +1043,9 @@ export const developerTools: ToolDefinition[] = [
         answer: "Line and block comments are stripped during minify.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["SQL"],
@@ -1113,8 +1125,9 @@ export const developerTools: ToolDefinition[] = [
         answer: "Common flags such as g, i, m, s, u, and y.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Regex"],
@@ -1192,8 +1205,9 @@ export const developerTools: ToolDefinition[] = [
         answer: "Yes. Choose the custom template.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Regex"],
@@ -1266,8 +1280,9 @@ export const developerTools: ToolDefinition[] = [
         answer: "Yes.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Text"],
@@ -1341,8 +1356,9 @@ export const developerTools: ToolDefinition[] = [
         answer: "This tool focuses on text Base64.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Text"],
@@ -1417,8 +1433,9 @@ export const developerTools: ToolDefinition[] = [
         answer: "Encoding applies to the current input as written.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Text"],
@@ -1492,8 +1509,9 @@ export const developerTools: ToolDefinition[] = [
         answer: "Yes.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Text"],
@@ -1572,8 +1590,9 @@ export const developerTools: ToolDefinition[] = [
         answer: "&, <, >, quotes, and apostrophes.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Text"],

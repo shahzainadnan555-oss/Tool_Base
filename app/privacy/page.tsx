@@ -37,11 +37,11 @@ export default function PrivacyPage() {
         },
         {
           heading: "Advertising",
-          body: "Tool Base may display third-party advertising in the future, such as through a Google AdSense or similar program, if and when that integration is actually configured. Advertising is not active in the current public product simply because this policy mentions readiness. If advertising is enabled, ads may use cookies or similar technologies, including for measurement or personalization where permitted, and applicable consent requirements will be followed for regions that require them.",
+          body: "Tool Base loads the Google AdSense publisher script site-wide and may display third-party ads when Google serves them for this site. Advertising partners such as Google may use cookies or similar technologies for measurement or personalization where permitted. Applicable consent requirements will be followed for regions that require them. Review Google’s advertising policies and your browser or account ad settings for additional choices.",
         },
         {
           heading: "Third-Party Services",
-          body: "The site may load third-party runtime components required by specific tools (for example media-processing libraries or workers). Future analytics or advertising partners would be third parties with their own technologies and policies. Tool Base will identify material third-party services here when they are actually deployed for analytics or advertising.",
+          body: "The site may load third-party runtime components required by specific tools (for example media-processing libraries or workers). Google AdSense is a third-party advertising service loaded for this site. Other analytics or advertising partners would also be third parties with their own technologies and policies. Material third-party services that become active should be reflected here.",
         },
         {
           heading: "Data Retention",

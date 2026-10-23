@@ -165,8 +165,9 @@ export const textTools: ToolDefinition[] = [
         answer: "Yes. Totals update as you type or paste.",
       },
       {
-        question: "Private?",
-        answer: "Yes. Your text stays session.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Text"],
@@ -242,8 +243,9 @@ export const textTools: ToolDefinition[] = [
           "Yes. Periods, question marks, and exclamation points are primary boundaries.",
       },
       {
-        question: "Private?",
-        answer: "Yes. Processing stays.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Text"],
@@ -319,8 +321,9 @@ export const textTools: ToolDefinition[] = [
         answer: "Yes.",
       },
       {
-        question: "Private?",
-        answer: "Yes. Your text stays.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Text"],
@@ -398,8 +401,9 @@ export const textTools: ToolDefinition[] = [
         answer: "Reading time shows 0 minutes until words are present.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Text"],
@@ -478,8 +482,9 @@ export const textTools: ToolDefinition[] = [
         answer: "Yes.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Text"],
@@ -557,8 +562,9 @@ export const textTools: ToolDefinition[] = [
         answer: "Yes. Locale-aware casing is used where available.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Text"],
@@ -636,8 +642,9 @@ export const textTools: ToolDefinition[] = [
         answer: "Yes.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Text"],
@@ -716,8 +723,9 @@ export const textTools: ToolDefinition[] = [
         answer: "Yes.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Text"],
@@ -792,8 +800,9 @@ export const textTools: ToolDefinition[] = [
         answer: "Yes.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Text"],
@@ -867,8 +876,9 @@ export const textTools: ToolDefinition[] = [
         answer: "Yes.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Text"],
@@ -946,8 +956,9 @@ export const textTools: ToolDefinition[] = [
         answer: "Yes when preserving first occurrence.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Text"],
@@ -1025,8 +1036,9 @@ export const textTools: ToolDefinition[] = [
         answer: "Blank lines are sorted with the other lines.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Text"],
@@ -1101,8 +1113,9 @@ export const textTools: ToolDefinition[] = [
         answer: "The full text sequence is reversed.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Text"],
@@ -1176,8 +1189,9 @@ export const textTools: ToolDefinition[] = [
         answer: "Yes.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Text"],
@@ -1251,8 +1265,9 @@ export const textTools: ToolDefinition[] = [
         answer: "Click Repeat Text to generate the output.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Text"],
@@ -1326,8 +1341,9 @@ export const textTools: ToolDefinition[] = [
         answer: "Yes as you toggle options and edit text.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Text"],
@@ -1402,8 +1418,9 @@ export const textTools: ToolDefinition[] = [
         answer: "Yes.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Text"],
@@ -1481,8 +1498,9 @@ export const textTools: ToolDefinition[] = [
         answer: "Yes. Copy exports a +/- summary.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Text"],
@@ -1560,8 +1578,9 @@ export const textTools: ToolDefinition[] = [
         answer: "Yes. Enable the classic opening option.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Text"],

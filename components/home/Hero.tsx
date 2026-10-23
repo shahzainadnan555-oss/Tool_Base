@@ -27,8 +27,9 @@ export function Hero() {
             </span>
           </h1>
           <p className="tm-lead mx-auto mt-4 max-w-2xl sm:mt-5">
-            Convert, compress, edit, generate, and calculate with a clear library of free
-            Tool Base utilities — organized by category so you can find the right tool fast.
+            Convert, compress, edit, generate, and calculate with free Tool Base utilities.
+            Search by name, browse by category, and open a focused tool page with clear
+            instructions for the job you need to finish — no account required.
           </p>
 
           <div className="mx-auto mt-6 max-w-2xl text-left sm:mt-8">

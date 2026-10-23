@@ -93,22 +93,33 @@ export function ToolPageShell({ tool, workspace }: ToolPageShellProps) {
           </ul>
         </section>
 
-        <section>
-          <h2 className="tm-h2">
-            {tool.supportedFormatsHeading ?? "Supported Formats / Details"}
-          </h2>
-          <div className="mt-6 grid gap-4 md:grid-cols-3">
-            <DetailCard title="Input formats" items={tool.inputFormats} />
-            <DetailCard title="Output formats" items={tool.outputFormats} />
-            <DetailCard title="Supported formats" items={tool.supportedFormats} />
-          </div>
-        </section>
+        {hasUsefulDetailCards(tool) ? (
+          <section>
+            <h2 className="tm-h2">
+              {tool.supportedFormatsHeading ?? "Supported Formats / Details"}
+            </h2>
+            <div className="mt-6 grid gap-4 md:grid-cols-3">
+              <DetailCard
+                title={isCalculatorLike(tool) ? "Inputs" : "Input formats"}
+                items={tool.inputFormats}
+              />
+              <DetailCard
+                title={isCalculatorLike(tool) ? "Results" : "Output formats"}
+                items={tool.outputFormats}
+              />
+              <DetailCard
+                title={isCalculatorLike(tool) ? "Details" : "Supported formats"}
+                items={uniqueDetailItems(tool)}
+              />
+            </div>
+          </section>
+        ) : null}
 
         {tool.examples?.length ? <ExamplesBlock examples={tool.examples} /> : null}
 
-        {tool.tipsHeading && tool.tips?.length ? (
+        {tool.tips?.length ? (
           <section>
-            <h2 className="tm-h2">{tool.tipsHeading}</h2>
+            <h2 className="tm-h2">{tool.tipsHeading ?? "Tips"}</h2>
             <ul className="mt-6 grid gap-3 md:grid-cols-2">
               {tool.tips.map((tip) => (
                 <li
@@ -169,7 +180,34 @@ export function ToolPageShell({ tool, workspace }: ToolPageShellProps) {
   );
 }
 
+function isCalculatorLike(tool: ToolDefinition): boolean {
+  return (
+    tool.category === "calculators-converters" ||
+    tool.category === "specialized-calculators"
+  );
+}
+
+function uniqueDetailItems(tool: ToolDefinition): string[] {
+  const overlap = new Set([
+    ...tool.inputFormats.map((item) => item.toLowerCase()),
+    ...tool.outputFormats.map((item) => item.toLowerCase()),
+  ]);
+  const unique = tool.supportedFormats.filter(
+    (item) => !overlap.has(item.toLowerCase()),
+  );
+  return unique.length ? unique : tool.supportedFormats;
+}
+
+function hasUsefulDetailCards(tool: ToolDefinition): boolean {
+  return (
+    tool.inputFormats.length > 0 ||
+    tool.outputFormats.length > 0 ||
+    tool.supportedFormats.length > 0
+  );
+}
+
 function DetailCard({ title, items }: { title: string; items: string[] }) {
+  if (!items.length) return null;
   return (
     <div className="rounded-2xl border border-tm-border bg-tm-elevated p-5">
       <h3 className="text-sm font-bold tracking-wide text-tm-muted uppercase">{title}</h3>

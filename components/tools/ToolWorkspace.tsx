@@ -28,7 +28,7 @@ const ImageConverterWorkspace = dynamic(
     ),
   {
     ssr: false,
-    loading: () => <LoadingState label="Loading converter…" />,
+    loading: () => <LoadingState label="Preparing image converter…" />,
   },
 );
 
@@ -39,7 +39,7 @@ const ImageEditorWorkspace = dynamic(
     ),
   {
     ssr: false,
-    loading: () => <LoadingState label="Loading image tool…" />,
+    loading: () => <LoadingState label="Preparing image tool…" />,
   },
 );
 
@@ -48,7 +48,7 @@ const PdfWorkspace = dynamic(
     import("@/components/pdf/PdfWorkspace").then((mod) => mod.PdfWorkspace),
   {
     ssr: false,
-    loading: () => <LoadingState label="Loading PDF tool…" />,
+    loading: () => <LoadingState label="Preparing PDF tool…" />,
   },
 );
 
@@ -59,7 +59,7 @@ const DocumentDataWorkspace = dynamic(
     ),
   {
     ssr: false,
-    loading: () => <LoadingState label="Loading converter…" />,
+    loading: () => <LoadingState label="Preparing document converter…" />,
   },
 );
 
@@ -68,7 +68,7 @@ const AudioWorkspace = dynamic(
     import("@/components/audio/AudioWorkspace").then((mod) => mod.AudioWorkspace),
   {
     ssr: false,
-    loading: () => <LoadingState label="Loading audio tool…" />,
+    loading: () => <LoadingState label="Preparing audio tool…" />,
   },
 );
 
@@ -77,7 +77,7 @@ const VideoWorkspace = dynamic(
     import("@/components/video/VideoWorkspace").then((mod) => mod.VideoWorkspace),
   {
     ssr: false,
-    loading: () => <LoadingState label="Loading video tool…" />,
+    loading: () => <LoadingState label="Preparing video tool…" />,
   },
 );
 
@@ -86,7 +86,7 @@ const TextWorkspace = dynamic(
     import("@/components/text/TextWorkspace").then((mod) => mod.TextWorkspace),
   {
     ssr: false,
-    loading: () => <LoadingState label="Loading text tool…" />,
+    loading: () => <LoadingState label="Preparing text tool…" />,
   },
 );
 
@@ -97,7 +97,7 @@ const DeveloperToolWorkspace = dynamic(
     ),
   {
     ssr: false,
-    loading: () => <LoadingState label="Loading developer tool…" />,
+    loading: () => <LoadingState label="Preparing developer tool…" />,
   },
 );
 
@@ -108,7 +108,7 @@ const SecurityWorkspace = dynamic(
     ),
   {
     ssr: false,
-    loading: () => <LoadingState label="Loading security tool…" />,
+    loading: () => <LoadingState label="Preparing security tool…" />,
   },
 );
 
@@ -119,7 +119,7 @@ const CalculatorWorkspace = dynamic(
     ),
   {
     ssr: false,
-    loading: () => <LoadingState label="Loading calculator…" />,
+    loading: () => <LoadingState label="Preparing calculator…" />,
   },
 );
 
@@ -128,7 +128,10 @@ const SpecializedCalculatorWorkspace = dynamic(
     import("@/components/calculator/SpecializedCalculatorWorkspace").then(
       (mod) => mod.SpecializedCalculatorWorkspace,
     ),
-  { ssr: false },
+  {
+    ssr: false,
+    loading: () => <LoadingState label="Preparing calculator…" />,
+  },
 );
 
 const FormulaCalculatorWorkspace = dynamic(
@@ -138,7 +141,7 @@ const FormulaCalculatorWorkspace = dynamic(
     ),
   {
     ssr: false,
-    loading: () => <LoadingState label="Loading calculator…" />,
+    loading: () => <LoadingState label="Preparing calculator…" />,
   },
 );
 
@@ -147,7 +150,10 @@ const TemporaryEmailWorkspace = dynamic(
     import("@/components/generators/TemporaryEmailWorkspace").then(
       (mod) => mod.TemporaryEmailWorkspace,
     ),
-  { ssr: false },
+  {
+    ssr: false,
+    loading: () => <LoadingState label="Preparing generator…" />,
+  },
 );
 
 const GeneratorWorkspace = dynamic(
@@ -155,7 +161,10 @@ const GeneratorWorkspace = dynamic(
     import("@/components/generators/GeneratorWorkspace").then(
       (mod) => mod.GeneratorWorkspace,
     ),
-  { ssr: false },
+  {
+    ssr: false,
+    loading: () => <LoadingState label="Preparing generator…" />,
+  },
 );
 
 const UtilityWorkspace = dynamic(
@@ -163,7 +172,10 @@ const UtilityWorkspace = dynamic(
     import("@/components/utilities/UtilityWorkspace").then(
       (mod) => mod.UtilityWorkspace,
     ),
-  { ssr: false },
+  {
+    ssr: false,
+    loading: () => <LoadingState label="Preparing utility…" />,
+  },
 );
 
 const TypingSpeedTestWorkspace = dynamic(
@@ -171,7 +183,10 @@ const TypingSpeedTestWorkspace = dynamic(
     import("@/components/typing/TypingSpeedTestWorkspace").then(
       (mod) => mod.TypingSpeedTestWorkspace,
     ),
-  { ssr: false },
+  {
+    ssr: false,
+    loading: () => <LoadingState label="Preparing typing test…" />,
+  },
 );
 
 const CategoryPackWorkspace = dynamic(
@@ -179,7 +194,10 @@ const CategoryPackWorkspace = dynamic(
     import("@/components/pack/CategoryPackWorkspace").then(
       (mod) => mod.CategoryPackWorkspace,
     ),
-  { ssr: false },
+  {
+    ssr: false,
+    loading: () => <LoadingState label="Preparing tool…" />,
+  },
 );
 
 const FontGeneratorWorkspace = dynamic(
@@ -189,7 +207,7 @@ const FontGeneratorWorkspace = dynamic(
     ),
   {
     ssr: false,
-    loading: () => <LoadingState label="Loading font generator…" />,
+    loading: () => <LoadingState label="Preparing font generator…" />,
   },
 );
 

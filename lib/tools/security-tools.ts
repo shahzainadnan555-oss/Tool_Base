@@ -86,8 +86,9 @@ export const securityTools: ToolDefinition[] = [
         answer: "You must provide text or a file first.",
       },
       {
-        question: "Private?",
-        answer: "Yes. Hashing stays.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Hash"],
@@ -166,8 +167,9 @@ export const securityTools: ToolDefinition[] = [
         answer: "Yes.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Hash"],
@@ -246,8 +248,9 @@ export const securityTools: ToolDefinition[] = [
         answer: "Yes.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Hash"],
@@ -326,8 +329,9 @@ export const securityTools: ToolDefinition[] = [
         answer: "Yes.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Hash"],
@@ -402,8 +406,9 @@ export const securityTools: ToolDefinition[] = [
           "UUIDv4 values are designed to be unique with extremely low collision probability.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["UUID"],
@@ -561,8 +566,9 @@ export const securityTools: ToolDefinition[] = [
         answer: "Yes.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Text"],
@@ -639,8 +645,9 @@ export const securityTools: ToolDefinition[] = [
         answer: "They use secure browser randomness where available.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Text"],
@@ -713,8 +720,9 @@ export const securityTools: ToolDefinition[] = [
         answer: "A clear error is shown.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Text"],
@@ -786,8 +794,9 @@ export const securityTools: ToolDefinition[] = [
         answer: "Yes with Hex to Text.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Text"],
@@ -860,8 +869,9 @@ export const securityTools: ToolDefinition[] = [
         answer: "Yes for valid UTF-8 sequences.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Text"],
@@ -933,8 +943,9 @@ export const securityTools: ToolDefinition[] = [
         answer: "Yes. Large outputs use a scrollable editor.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Text"],
@@ -1007,8 +1018,9 @@ export const securityTools: ToolDefinition[] = [
         answer: "Yes.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Text"],
@@ -1085,8 +1097,9 @@ export const securityTools: ToolDefinition[] = [
         answer: "Yes.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Text"],
@@ -1164,8 +1177,9 @@ export const securityTools: ToolDefinition[] = [
         answer: "Yes for UTF-8 text.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Text"],
@@ -1238,8 +1252,9 @@ export const securityTools: ToolDefinition[] = [
         answer: "Yes, to keep the page responsive.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Text"],
@@ -1397,8 +1412,9 @@ export const securityTools: ToolDefinition[] = [
         answer: "Yes with the Unix Timestamp Converter.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Text"],
@@ -1476,8 +1492,9 @@ export const securityTools: ToolDefinition[] = [
         answer: "Yes.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["Text"],
@@ -1555,8 +1572,9 @@ export const securityTools: ToolDefinition[] = [
         answer: "Plain text, URLs, and other text-based payloads.",
       },
       {
-        question: "Private?",
-        answer: "Yes.",
+        question: "Where is my input processed?",
+        answer:
+          "This tool processes your input in your browser session. You do not need an account, and Tool Base does not store the input in a user inbox.",
       },
     ],
     inputFormats: ["QR"],

@@ -86,7 +86,8 @@ export const audioTools: ToolDefinition[] = [
       },
       {
         question: "Do my files leave this device?",
-        answer: "Audio stays session for this conversion.",
+        answer:
+          "This tool processes your file in your browser session. You do not need an account, and Tool Base does not store the file in a user inbox.",
       },
       {
         question: "What should I use WAV for?",
@@ -169,7 +170,8 @@ export const audioTools: ToolDefinition[] = [
       },
       {
         question: "Are uploads stored?",
-        answer: "No. Processing stays for this tool.",
+        answer:
+          "No. Processing stays in your browser session for this tool, and Tool Base does not keep the file in a user inbox.",
       },
     ],
     inputFormats: ["WAV"],
@@ -321,8 +323,9 @@ export const audioTools: ToolDefinition[] = [
         answer: "Yes. Tool Base writes an encoded MP3 file.",
       },
       {
-        question: "Private processing?",
-        answer: "Yes. Files stay for this conversion.",
+        question: "Where is my file processed?",
+        answer:
+          "This tool processes your file in your browser session. You do not need an account, and Tool Base does not store the file in a user inbox.",
       },
     ],
     inputFormats: ["AAC", "M4A"],
@@ -472,8 +475,9 @@ export const audioTools: ToolDefinition[] = [
         answer: "Yes. Encoding produces a playable MP3.",
       },
       {
-        question: "Private?",
-        answer: "Yes. Processing stays.",
+        question: "Where is my file processed?",
+        answer:
+          "This tool processes your file in your browser session. You do not need an account, and Tool Base does not store the file in a user inbox.",
       },
     ],
     inputFormats: ["OGG"],
@@ -549,7 +553,8 @@ export const audioTools: ToolDefinition[] = [
       },
       {
         question: "Stored online?",
-        answer: "No. Conversion stays session.",
+        answer:
+          "No. This tool processes your file in your browser session, and Tool Base does not store the file in a user inbox.",
       },
     ],
     inputFormats: ["FLAC"],
@@ -625,8 +630,9 @@ export const audioTools: ToolDefinition[] = [
         answer: "Yes. Tool Base encodes a valid FLAC file.",
       },
       {
-        question: "Private conversion?",
-        answer: "Yes. Files remain.",
+        question: "Where is my file processed?",
+        answer:
+          "This tool processes your file in your browser session. You do not need an account, and Tool Base does not store the file in a user inbox.",
       },
     ],
     inputFormats: ["MP3"],
@@ -701,7 +707,8 @@ export const audioTools: ToolDefinition[] = [
       },
       {
         question: "Uploads stored?",
-        answer: "No. Processing stays local to your browser.",
+        answer:
+          "No. Processing stays in your browser session for this tool, and Tool Base does not keep the file in a user inbox.",
       },
     ],
     inputFormats: ["M4A"],
@@ -776,8 +783,9 @@ export const audioTools: ToolDefinition[] = [
         answer: "Yes. Choose a practical quality setting.",
       },
       {
-        question: "Private?",
-        answer: "Yes. Conversion stays.",
+        question: "Where is my file processed?",
+        answer:
+          "This tool processes your file in your browser session. You do not need an account, and Tool Base does not store the file in a user inbox.",
       },
     ],
     inputFormats: ["MP3"],
@@ -859,8 +867,9 @@ export const audioTools: ToolDefinition[] = [
           "Common formats such as MP3, WAV, M4A, OGG, and FLAC when decoding succeeds.",
       },
       {
-        question: "Private?",
-        answer: "Yes. Compression runs session.",
+        question: "Where is my file processed?",
+        answer:
+          "This tool processes your file in your browser session. You do not need an account, and Tool Base does not store the file in a user inbox.",
       },
     ],
     inputFormats: ["MP3", "WAV", "M4A", "OGG", "FLAC"],
@@ -935,8 +944,9 @@ export const audioTools: ToolDefinition[] = [
         answer: "Common audio uploads that decode successfully.",
       },
       {
-        question: "Private edits?",
-        answer: "Yes. Processing stays.",
+        question: "Where is my file processed?",
+        answer:
+          "This tool processes your file in your browser session. You do not need an account, and Tool Base does not store the file in a user inbox.",
       },
     ],
     inputFormats: ["MP3", "WAV", "M4A", "OGG", "FLAC", "AAC"],
@@ -1011,8 +1021,9 @@ export const audioTools: ToolDefinition[] = [
         answer: "Yes. Use Play Selected Region before cutting.",
       },
       {
-        question: "Private?",
-        answer: "Yes. Edits stay.",
+        question: "Where is my file processed?",
+        answer:
+          "This tool processes your file in your browser session. You do not need an account, and Tool Base does not store the file in a user inbox.",
       },
     ],
     inputFormats: ["MP3", "WAV", "M4A", "OGG", "FLAC", "AAC"],
@@ -1087,8 +1098,9 @@ export const audioTools: ToolDefinition[] = [
         answer: "Yes. Each item can be previewed before joining.",
       },
       {
-        question: "Private merge?",
-        answer: "Yes. Joining stays.",
+        question: "Where is my file processed?",
+        answer:
+          "This tool processes your file in your browser session. You do not need an account, and Tool Base does not store the file in a user inbox.",
       },
     ],
     inputFormats: ["MP3", "WAV", "M4A", "OGG", "FLAC", "AAC"],
@@ -1167,8 +1179,9 @@ export const audioTools: ToolDefinition[] = [
         answer: "Yes. Gain can reduce as well as increase level.",
       },
       {
-        question: "Private?",
-        answer: "Yes. Processing stays.",
+        question: "Where is my file processed?",
+        answer:
+          "This tool processes your file in your browser session. You do not need an account, and Tool Base does not store the file in a user inbox.",
       },
     ],
     inputFormats: ["MP3", "WAV", "M4A", "OGG", "FLAC", "AAC"],
@@ -1249,8 +1262,9 @@ export const audioTools: ToolDefinition[] = [
           "Simple tempo changes can affect perceived pitch. Use the pitch tool for pitch-focused edits.",
       },
       {
-        question: "Private?",
-        answer: "Yes. Processing stays.",
+        question: "Where is my file processed?",
+        answer:
+          "This tool processes your file in your browser session. You do not need an account, and Tool Base does not store the file in a user inbox.",
       },
     ],
     inputFormats: ["MP3", "WAV", "M4A", "OGG", "FLAC", "AAC"],
@@ -1330,8 +1344,9 @@ export const audioTools: ToolDefinition[] = [
           "Pitch shifting is an approximation and can introduce artifacts at extreme settings.",
       },
       {
-        question: "Private?",
-        answer: "Yes. Processing stays.",
+        question: "Where is my file processed?",
+        answer:
+          "This tool processes your file in your browser session. You do not need an account, and Tool Base does not store the file in a user inbox.",
       },
     ],
     inputFormats: ["MP3", "WAV", "M4A", "OGG", "FLAC", "AAC"],
@@ -1410,8 +1425,9 @@ export const audioTools: ToolDefinition[] = [
         answer: "You can preview the source audio before generating the image.",
       },
       {
-        question: "Private?",
-        answer: "Yes. Generation stays.",
+        question: "Where is my file processed?",
+        answer:
+          "This tool processes your file in your browser session. You do not need an account, and Tool Base does not store the file in a user inbox.",
       },
     ],
     inputFormats: ["MP3", "WAV", "M4A", "OGG", "FLAC", "AAC"],
@@ -1486,8 +1502,9 @@ export const audioTools: ToolDefinition[] = [
         answer: "This tool focuses on viewing metadata.",
       },
       {
-        question: "Private inspection?",
-        answer: "Yes. Files stay.",
+        question: "Where is my file processed?",
+        answer:
+          "This tool processes your file in your browser session. You do not need an account, and Tool Base does not store the file in a user inbox.",
       },
     ],
     inputFormats: ["MP3", "WAV", "M4A", "OGG", "FLAC", "AAC"],
@@ -1567,8 +1584,9 @@ export const audioTools: ToolDefinition[] = [
           "Yes. Detected silent ranges are processed out of the timeline.",
       },
       {
-        question: "Private?",
-        answer: "Yes. Processing stays.",
+        question: "Where is my file processed?",
+        answer:
+          "This tool processes your file in your browser session. You do not need an account, and Tool Base does not store the file in a user inbox.",
       },
     ],
     inputFormats: ["MP3", "WAV", "M4A", "OGG", "FLAC", "AAC"],

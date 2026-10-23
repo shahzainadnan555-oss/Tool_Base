@@ -88,8 +88,9 @@ export const videoTools: ToolDefinition[] = [
         answer: "Quality depends on the source audio and encoding bitrate.",
       },
       {
-        question: "Private conversion?",
-        answer: "Processing stays session for this tool.",
+        question: "Where is my file processed?",
+        answer:
+          "This tool processes your file in your browser session. You do not need an account, and Tool Base does not store the file in a user inbox.",
       },
     ],
     inputFormats: ["MP4"],
@@ -164,8 +165,9 @@ export const videoTools: ToolDefinition[] = [
         answer: "Yes. This tool extracts audio, not the video frames.",
       },
       {
-        question: "Private?",
-        answer: "Yes. Processing stays.",
+        question: "Where is my file processed?",
+        answer:
+          "This tool processes your file in your browser session. You do not need an account, and Tool Base does not store the file in a user inbox.",
       },
     ],
     inputFormats: ["MP4"],
@@ -245,8 +247,9 @@ export const videoTools: ToolDefinition[] = [
         answer: "Yes. Set start and end times when you need a shorter clip.",
       },
       {
-        question: "Private?",
-        answer: "Yes. Conversion stays.",
+        question: "Where is my file processed?",
+        answer:
+          "This tool processes your file in your browser session. You do not need an account, and Tool Base does not store the file in a user inbox.",
       },
     ],
     inputFormats: ["MP4"],
@@ -320,8 +323,9 @@ export const videoTools: ToolDefinition[] = [
         answer: "Most GIFs have no audio; the MP4 focuses on the animation.",
       },
       {
-        question: "Private?",
-        answer: "Yes. Processing stays.",
+        question: "Where is my file processed?",
+        answer:
+          "This tool processes your file in your browser session. You do not need an account, and Tool Base does not store the file in a user inbox.",
       },
     ],
     inputFormats: ["GIF"],
@@ -397,8 +401,9 @@ export const videoTools: ToolDefinition[] = [
         answer: "Yes. The video is transcoded, not renamed.",
       },
       {
-        question: "Private?",
-        answer: "Yes. Processing stays.",
+        question: "Where is my file processed?",
+        answer:
+          "This tool processes your file in your browser session. You do not need an account, and Tool Base does not store the file in a user inbox.",
       },
     ],
     inputFormats: ["MOV"],
@@ -471,8 +476,9 @@ export const videoTools: ToolDefinition[] = [
         answer: "Audio is included when decoding succeeds.",
       },
       {
-        question: "Private?",
-        answer: "Yes. Processing stays.",
+        question: "Where is my file processed?",
+        answer:
+          "This tool processes your file in your browser session. You do not need an account, and Tool Base does not store the file in a user inbox.",
       },
     ],
     inputFormats: ["AVI"],
@@ -546,8 +552,9 @@ export const videoTools: ToolDefinition[] = [
         answer: "Yes. You download a real MP4.",
       },
       {
-        question: "Private?",
-        answer: "Yes. Processing stays.",
+        question: "Where is my file processed?",
+        answer:
+          "This tool processes your file in your browser session. You do not need an account, and Tool Base does not store the file in a user inbox.",
       },
     ],
     inputFormats: ["MKV"],
@@ -620,8 +627,9 @@ export const videoTools: ToolDefinition[] = [
         answer: "No. The video is re-encoded.",
       },
       {
-        question: "Private?",
-        answer: "Yes. Processing stays.",
+        question: "Where is my file processed?",
+        answer:
+          "This tool processes your file in your browser session. You do not need an account, and Tool Base does not store the file in a user inbox.",
       },
     ],
     inputFormats: ["WebM"],
@@ -696,8 +704,9 @@ export const videoTools: ToolDefinition[] = [
         answer: "Audio is included when encoding succeeds.",
       },
       {
-        question: "Private?",
-        answer: "Yes. Processing stays.",
+        question: "Where is my file processed?",
+        answer:
+          "This tool processes your file in your browser session. You do not need an account, and Tool Base does not store the file in a user inbox.",
       },
     ],
     inputFormats: ["MP4"],
@@ -777,8 +786,9 @@ export const videoTools: ToolDefinition[] = [
         answer: "No. Results depend on the source and selected quality.",
       },
       {
-        question: "Private?",
-        answer: "Yes. Compression stays.",
+        question: "Where is my file processed?",
+        answer:
+          "This tool processes your file in your browser session. You do not need an account, and Tool Base does not store the file in a user inbox.",
       },
     ],
     inputFormats: ["MP4", "MOV", "WebM", "AVI", "MKV"],
@@ -853,8 +863,9 @@ export const videoTools: ToolDefinition[] = [
         answer: "Yes. Use presets such as 1920×1080 and 1280×720.",
       },
       {
-        question: "Private?",
-        answer: "Yes. Processing stays.",
+        question: "Where is my file processed?",
+        answer:
+          "This tool processes your file in your browser session. You do not need an account, and Tool Base does not store the file in a user inbox.",
       },
     ],
     inputFormats: ["MP4", "MOV", "WebM", "AVI", "MKV"],
@@ -928,8 +939,9 @@ export const videoTools: ToolDefinition[] = [
         answer: "Audio is preserved when the encoder can copy or re-encode it.",
       },
       {
-        question: "Private?",
-        answer: "Yes. Processing stays.",
+        question: "Where is my file processed?",
+        answer:
+          "This tool processes your file in your browser session. You do not need an account, and Tool Base does not store the file in a user inbox.",
       },
     ],
     inputFormats: ["MP4", "MOV", "WebM", "AVI", "MKV"],
@@ -1003,8 +1015,9 @@ export const videoTools: ToolDefinition[] = [
         answer: "Audio is included for the selected range when available.",
       },
       {
-        question: "Private?",
-        answer: "Yes. Processing stays.",
+        question: "Where is my file processed?",
+        answer:
+          "This tool processes your file in your browser session. You do not need an account, and Tool Base does not store the file in a user inbox.",
       },
     ],
     inputFormats: ["MP4", "MOV", "WebM", "AVI", "MKV"],
@@ -1079,8 +1092,9 @@ export const videoTools: ToolDefinition[] = [
         answer: "Start must be before end, within the video duration.",
       },
       {
-        question: "Private?",
-        answer: "Yes. Edits stay.",
+        question: "Where is my file processed?",
+        answer:
+          "This tool processes your file in your browser session. You do not need an account, and Tool Base does not store the file in a user inbox.",
       },
     ],
     inputFormats: ["MP4", "MOV", "WebM", "AVI", "MKV"],
@@ -1154,8 +1168,9 @@ export const videoTools: ToolDefinition[] = [
         answer: "Upload at least two videos.",
       },
       {
-        question: "Private?",
-        answer: "Yes. Merging stays.",
+        question: "Where is my file processed?",
+        answer:
+          "This tool processes your file in your browser session. You do not need an account, and Tool Base does not store the file in a user inbox.",
       },
     ],
     inputFormats: ["MP4", "MOV", "WebM", "AVI", "MKV"],
@@ -1229,8 +1244,9 @@ export const videoTools: ToolDefinition[] = [
         answer: "Yes. Preview the source, then rotate and download.",
       },
       {
-        question: "Private?",
-        answer: "Yes. Processing stays.",
+        question: "Where is my file processed?",
+        answer:
+          "This tool processes your file in your browser session. You do not need an account, and Tool Base does not store the file in a user inbox.",
       },
     ],
     inputFormats: ["MP4", "MOV", "WebM", "AVI", "MKV"],
@@ -1310,8 +1326,9 @@ export const videoTools: ToolDefinition[] = [
         answer: "0.5x, 0.75x, 1x, 1.25x, 1.5x, and 2x.",
       },
       {
-        question: "Private?",
-        answer: "Yes. Processing stays.",
+        question: "Where is my file processed?",
+        answer:
+          "This tool processes your file in your browser session. You do not need an account, and Tool Base does not store the file in a user inbox.",
       },
     ],
     inputFormats: ["MP4", "MOV", "WebM", "AVI", "MKV"],
@@ -1388,8 +1405,9 @@ export const videoTools: ToolDefinition[] = [
         answer: "No. Thumbnail extraction uses a lightweight capture path.",
       },
       {
-        question: "Private?",
-        answer: "Yes. Extraction stays.",
+        question: "Where is my file processed?",
+        answer:
+          "This tool processes your file in your browser session. You do not need an account, and Tool Base does not store the file in a user inbox.",
       },
     ],
     inputFormats: ["MP4", "MOV", "WebM", "AVI", "MKV"],
@@ -1468,8 +1486,9 @@ export const videoTools: ToolDefinition[] = [
         answer: "No. Frames come from your uploaded video.",
       },
       {
-        question: "Private?",
-        answer: "Yes. Extraction stays.",
+        question: "Where is my file processed?",
+        answer:
+          "This tool processes your file in your browser session. You do not need an account, and Tool Base does not store the file in a user inbox.",
       },
     ],
     inputFormats: ["MP4", "MOV", "WebM", "AVI", "MKV"],
@@ -1544,8 +1563,9 @@ export const videoTools: ToolDefinition[] = [
         answer: "Metadata viewing uses a lightweight path when possible.",
       },
       {
-        question: "Private?",
-        answer: "Yes. Files stay.",
+        question: "Where is my file processed?",
+        answer:
+          "This tool processes your file in your browser session. You do not need an account, and Tool Base does not store the file in a user inbox.",
       },
     ],
     inputFormats: ["MP4", "MOV", "WebM", "AVI", "MKV", "GIF"],
