@@ -5,7 +5,7 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = createPageMetadata({
   title: "Privacy Policy",
   description:
-    "How Tool Base handles files, text inputs, cookies, analytics readiness, advertising readiness, and browser-based tool processing.",
+    "Privacy Policy for Tool Base: how uploads, browser storage, contact messages, Google AdSense, and related information are handled at toolbaseworld.com.",
   path: "/privacy",
 });
 
@@ -13,51 +13,133 @@ export default function PrivacyPage() {
   return (
     <LegalPage
       title="Privacy Policy"
-      description="This policy describes how Tool Base handles information in the current public product. It reflects the present implementation and will be updated if processing, hosting, analytics, or advertising details change."
+      description="This Privacy Policy explains how Tool Base handles information when you use https://www.toolbaseworld.com/. It reflects the current public product and will be updated when material practices change."
+      effectiveDate="October 23, 2026"
       sections={[
         {
-          heading: "Information Tool Base May Process",
-          body: "Depending on the tool you use, Tool Base may process text, numbers, dates, configuration options, or files that you choose to provide in order to complete a task. The public product does not require login credentials or payment information. Optional report forms may capture the non-sensitive details you choose to enter (such as an issue description) as local UI or analytics events when those forms are submitted.",
+          heading: "1. Who We Are",
+          paragraphs: [
+            "Tool Base operates the website at [https://www.toolbaseworld.com/](https://www.toolbaseworld.com/). For privacy questions, use [Contact](/contact) or email [support@toolbaseworld.com](mailto:support@toolbaseworld.com).",
+          ],
         },
         {
-          heading: "Uploaded Files and User-Provided Content",
-          body: "Many Tool Base utilities are designed to process inputs in your browser session so you can produce a downloadable or copyable result. That does not mean zero network activity: pages still load Tool Base assets, and some tools download supporting libraries, models, workers, or codecs needed to run. Tool Base does not claim that every tool never uses the network, and it does not claim that every file is never uploaded in all cases. If a specific tool uploads files to Tool Base servers or uses a distinct processing path, that tool’s page should describe the relevant behavior. Always review the tool page for the utility you are using.",
+          heading: "2. Information We May Process",
+          paragraphs: [
+            "Tool Base may process different kinds of information depending on how you use the site:",
+          ],
+          bullets: [
+            "Tool inputs you choose to provide, such as text, numbers, settings, or files, so a selected tool can return a result.",
+            "Contact details you choose to include when you compose a message to support, such as your name, email address, and message text.",
+            "Technical information created when your browser requests pages and assets, which hosting and network providers may log as part of normal website delivery.",
+            "Browser storage used for preferences or tool features, such as local notes or favorites where a tool offers that capability.",
+            "Information processed by third-party advertising technologies when Google AdSense or related services run on the site.",
+          ],
         },
         {
-          heading: "How Tool Base Uses Information",
-          body: "Inputs you provide are used to operate the selected tool and return a result in that session. Tool Base also uses technical information needed to serve pages and assets. If analytics are connected later, Tool Base may use non-sensitive product events (for example that a tool was opened or a search was used) to understand site usage. Analytics must not receive passwords, JWTs, uploaded file contents, full document bodies, private text payloads, or other sensitive tool inputs.",
+          heading: "3. Uploaded Files and Tool Processing",
+          paragraphs: [
+            "Tool Base tools are generally designed to process inputs in your browser session so you can download or copy a result. Declared tool processing modes in the current public catalog are browser-oriented.",
+            "Browser-oriented processing does not mean zero network activity. Pages still load Tool Base assets. Some tools download supporting libraries, workers, codecs, or models needed to run. Your browser may also exchange routine traffic with advertising or hosting providers.",
+            "Tool Base does not claim that every file is never transmitted, logged, or cached in every environment. Hosting infrastructure, content delivery, browser caches, and third-party scripts can involve network requests outside the tool’s core calculation or conversion logic.",
+            "If a specific tool later uses a different processing path, that tool’s page should describe the relevant behavior, and this Privacy Policy should be updated.",
+            "Do not submit passwords, private keys, payment card numbers, medical records, or other highly sensitive data into tools that are not designed for secure handling of that information.",
+          ],
         },
         {
-          heading: "Cookies and Similar Technologies",
-          body: "Tool Base may use essential storage required for the site to function, such as preferences needed for basic UI behavior. Non-essential cookies or similar technologies for analytics or advertising are not hardwired into the public UI by default. If they are enabled in the future, this policy will be updated and appropriate consent controls will be presented where required.",
+          heading: "4. Contact Form and Email",
+          paragraphs: [
+            "The [Contact](/contact) page helps you prepare a message to [support@toolbaseworld.com](mailto:support@toolbaseworld.com).",
+            "When you submit the contact form, Tool Base opens a prefilled Gmail compose window (or falls back to another email method if needed). The message is sent only if you choose to send it through Gmail or another email client. Tool Base does not automatically transmit the contact form contents from the website to an inbox by itself.",
+            "If you send an email, the contents of that email and related delivery metadata are handled by your email provider and by the mailbox that receives the message.",
+          ],
         },
         {
-          heading: "Analytics",
-          body: "Tool Base includes an analytics abstraction that can be connected to a provider later. No analytics provider is hardwired into the public experience by default. Until a provider is connected and documented here, analytics events may only be available in development logging or unused provider hooks. When analytics become active, they should remain limited to useful anonymous product events.",
+          heading: "5. Cookies, Browser Storage, and Similar Technologies",
+          paragraphs: [
+            "Tool Base and third parties may use cookies, local storage, and similar technologies.",
+          ],
+          bullets: [
+            "Essential site operation: pages and scripts needed to display and run the website.",
+            "Local preferences and tool features: some utilities may store values in browser local storage, such as notepad text or font favorites, so a feature can continue working in your browser.",
+            "Consent foundation: the codebase includes optional consent storage. A public consent banner is shown only when explicitly enabled by configuration.",
+            "Advertising technologies: Google AdSense and related Google services may set or read cookies and similar identifiers for advertising, measurement, and personalization where permitted.",
+          ],
         },
         {
-          heading: "Advertising",
-          body: "Tool Base loads the Google AdSense publisher script site-wide and may display third-party ads when Google serves them for this site. Advertising partners such as Google may use cookies or similar technologies for measurement or personalization where permitted. Applicable consent requirements will be followed for regions that require them. Review Google’s advertising policies and your browser or account ad settings for additional choices.",
+          heading: "6. Google AdSense and Advertising",
+          paragraphs: [
+            "Tool Base loads the Google AdSense publisher script site-wide using publisher client ID ca-pub-4195370214127581. When Google serves ads for this site, Google and its partners may use cookies, web beacons, IP addresses, or similar identifiers in connection with advertising, measurement, and personalization, as applicable.",
+            "Learn how Google uses data on partner sites: [How Google uses information from sites or apps that use our services](https://policies.google.com/technologies/partner-sites?hl=en).",
+            "Google’s advertising and publisher privacy expectations are described in the [Google Publisher Policies](https://support.google.com/adsense/answer/10502938?hl=en).",
+            "You may also review Google account ad settings and your browser controls for cookie and advertising choices. Availability of choices can vary by region and product.",
+            "For visitors in the EEA, UK, or Switzerland, Google may require a certified consent management platform before personalized ads are served. Tool Base includes a consent foundation, but a certified CMP is not claimed as deployed by this Privacy Policy alone. If additional consent implementation is required for your region, it should be completed separately from this document.",
+          ],
         },
         {
-          heading: "Third-Party Services",
-          body: "The site may load third-party runtime components required by specific tools (for example media-processing libraries or workers). Google AdSense is a third-party advertising service loaded for this site. Other analytics or advertising partners would also be third parties with their own technologies and policies. Material third-party services that become active should be reflected here.",
+          heading: "7. Analytics",
+          paragraphs: [
+            "Tool Base includes an internal analytics event abstraction used for product events such as searches or tool interactions in development logging and provider hooks.",
+            "No separate third-party analytics provider (such as Google Analytics) is hardwired into the public source as an always-on measurement suite. If a named analytics provider is connected later, this policy will be updated to identify it.",
+            "Advertising measurement associated with Google AdSense is separate from that internal analytics abstraction and is covered in the advertising section above.",
+          ],
         },
         {
-          heading: "Data Retention",
-          body: "For browser-processed tools, inputs and outputs generally remain under your browser session control unless you download, copy, or share them yourself. Tool Base aims to avoid unnecessary long-term retention of tool inputs. Report UI events are not permanently stored in a Tool Base inbox until a dedicated backend exists. If server-side processing is introduced for a tool, retention details for that tool will be disclosed on the relevant page and reflected here.",
+          heading: "8. How Information Is Used",
+          paragraphs: [
+            "Information is used to:",
+          ],
+          bullets: [
+            "Operate the selected tool and return a result in that session.",
+            "Serve pages, assets, and supporting libraries.",
+            "Respond to support messages you choose to send.",
+            "Maintain and improve the website.",
+            "Support advertising and related measurement through Google AdSense where ads are served.",
+          ],
         },
         {
-          heading: "Security",
-          body: "Tool Base takes practical steps to keep the public site secure, but no website can guarantee absolute security. Treat uploaded and downloaded files carefully, especially when they contain personal or confidential information. Do not submit secrets or sensitive credentials into tools that are not intended for that purpose.",
+          heading: "9. Sharing, Retention, and Security",
+          paragraphs: [
+            "Tool Base may share information with service providers that help host, deliver, or secure the website, and with advertising partners such as Google when advertising technologies run.",
+            "For browser-processed tool inputs, results generally remain under your browser session control unless you download, copy, share, or otherwise transfer them. Tool Base does not operate a permanent public inbox for uploaded tool files in the current product.",
+            "Hosting logs, email systems, browser storage, caches, and third-party advertising systems can retain technical or advertising-related data according to their own practices. Exact retention periods for every infrastructure layer are not inventable from the front-end source alone.",
+            "Tool Base takes practical steps to keep the public site secure, but no website can guarantee absolute security. Protect your own device, backups, and sensitive files.",
+          ],
         },
         {
-          heading: "Children and Age-Related Considerations Where Relevant",
-          body: "Tool Base is a general-purpose utility site and is not directed at children under 13. Do not submit personal information about children through the site. If advertising or analytics that involve age-related restrictions are enabled later, Tool Base will update this policy and related controls as needed.",
+          heading: "10. Your Choices and Privacy Rights",
+          paragraphs: [
+            "Depending on where you live, you may have rights to request access, correction, deletion, or other actions regarding personal information, subject to applicable law.",
+            "To make a privacy request, contact [support@toolbaseworld.com](mailto:support@toolbaseworld.com) or use the [Contact](/contact) page. Tool Base will consider requests as required by applicable law and may need information to verify the request.",
+            "This Privacy Policy does not claim compliance with every privacy statute worldwide.",
+          ],
         },
         {
-          heading: "Changes to This Privacy Policy",
-          body: "We may update this policy as the product changes. Continued use of Tool Base after an update means you accept the revised policy as published on this page. Material changes to analytics, advertising, or file-handling practices should be reflected here when those practices become active.",
+          heading: "11. Children’s Privacy",
+          paragraphs: [
+            "Tool Base is a general-purpose utility website and is not directed at children. Do not submit personal information about children through the site if you are not authorized to do so.",
+            "If you believe a child has provided personal information inappropriately, contact [support@toolbaseworld.com](mailto:support@toolbaseworld.com).",
+          ],
+        },
+        {
+          heading: "12. External Links",
+          paragraphs: [
+            "The website may link to third-party sites and services, including Google policy pages and Gmail. Those third parties have their own privacy practices. Tool Base is not responsible for the content or privacy controls of external sites.",
+          ],
+        },
+        {
+          heading: "13. Changes to This Privacy Policy",
+          paragraphs: [
+            "We may update this Privacy Policy as the product changes. The revised policy will be posted on this page with an updated effective date. Continued use after publication means you accept the revised policy as posted.",
+            "Material changes to advertising, analytics, contact handling, or file-processing practices should be reflected here when those practices change.",
+          ],
+        },
+        {
+          heading: "14. Contact",
+          paragraphs: [
+            "Website: [https://www.toolbaseworld.com/](https://www.toolbaseworld.com/)",
+            "Contact page: [https://www.toolbaseworld.com/contact](https://www.toolbaseworld.com/contact)",
+            "Email: [support@toolbaseworld.com](mailto:support@toolbaseworld.com)",
+          ],
         },
       ]}
     />
